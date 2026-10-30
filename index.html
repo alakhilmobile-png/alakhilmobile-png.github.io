@@ -216,7 +216,7 @@
 
 <script>
   // Contact details: fill these in to show WhatsApp / call buttons.
-  const CONTACT = { whatsapp: '', phone: '', address: '' };
+  const CONTACT = { whatsapp: '33605654592', phone: '06 05 65 45 92', address: '54 avenue de Saint-Ouen, 75018 Paris' };
   const btns = document.getElementById('contactBtns');
   if (CONTACT.whatsapp) btns.insertAdjacentHTML('beforeend', `<a class="btn btn-dark" href="https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('Bonjour, je souhaite un devis pour mon commerce.')}" target="_blank" rel="noopener">Écrire sur WhatsApp</a>`);
   if (CONTACT.phone) btns.insertAdjacentHTML('beforeend', `<a class="btn btn-gold" href="tel:${CONTACT.phone.replace(/\s/g, '')}">Appeler ${CONTACT.phone}</a>`);
