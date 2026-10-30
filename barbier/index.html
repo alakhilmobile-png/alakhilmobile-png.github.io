@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maison Barber · Coupe, barbe & rasage (démo)</title>
+<meta name="description" content="Site de démonstration d'un barbier avec réservation en ligne. Réalisé par Alakhil Mobile.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#141210">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/booking.css">
+<style>
+  :root {
+    --bg: #141210; --bg2: #1c1915; --card: #221e19; --line: rgba(228, 196, 140, .16);
+    --ink: #f3ead9; --soft: #b6a78e; --brass: #d9a95b; --brass2: #f0c983; --red: #b3302a;
+    --bk-bg: #1a1713; --bk-card: #221e19; --bk-line: rgba(228, 196, 140, .18); --bk-ink: #f3ead9; --bk-soft: #b6a78e;
+    --bk-accent: #d9a95b; --bk-on-accent: #141210; --bk-accent-text: #f0c983;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body { margin: 0; font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .wrap { width: min(1120px, 100% - 32px); margin: 0 auto; }
+  .demo { background: var(--brass); color: #141210; text-align: center; font-size: 13px; font-weight: 700; padding: 6px 12px; }
+  .demo a { font-weight: 800; }
+
+  header { position: sticky; top: 0; z-index: 20; background: rgba(20, 18, 16, .9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav { height: 66px; display: flex; align-items: center; gap: 22px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .brand img { width: 42px; height: 42px; }
+  .brand b { font-family: 'Bebas Neue', sans-serif; font-size: 27px; letter-spacing: .06em; line-height: 1; }
+  .brand b span { color: var(--brass); }
+  .links { display: flex; gap: 22px; margin-left: auto; }
+  .links a { text-decoration: none; color: var(--soft); font-weight: 600; font-size: 15px; }
+  .links a:hover { color: var(--ink); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 0; font: inherit; font-weight: 800; text-decoration: none; cursor: pointer; }
+  .btn-brass { background: linear-gradient(180deg, var(--brass2), var(--brass)); color: #141210; }
+  .btn-line { border: 1.5px solid var(--line); color: var(--ink); background: transparent; }
+
+  .hero { position: relative; overflow: hidden; padding: 70px 0 80px; background:
+      radial-gradient(700px 420px at 78% 40%, rgba(217, 169, 91, .18), transparent 70%),
+      repeating-linear-gradient(135deg, rgba(255,255,255,.018) 0 2px, transparent 2px 14px); }
+  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
+  .kicker { font-family: 'Playfair Display', serif; font-style: italic; color: var(--brass2); font-size: 22px; }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(64px, 11vw, 132px); line-height: .88; letter-spacing: .01em; margin: 6px 0 18px; }
+  h1 span { color: var(--brass); display: block; }
+  .lead { color: var(--soft); font-size: 18px; max-width: 460px; margin: 0 0 28px; }
+  .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .facts { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 30px; color: var(--soft); font-size: 14px; font-weight: 600; }
+  .facts b { color: var(--ink); font-size: 22px; display: block; font-family: 'Bebas Neue', sans-serif; letter-spacing: .04em; font-weight: 400; }
+  .art { position: relative; justify-self: center; width: min(420px, 100%); aspect-ratio: 1; }
+  .art .disc { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 50% 40%, #2b251e, #171411 70%); border: 2px solid var(--line); box-shadow: 0 40px 80px rgba(0,0,0,.5), inset 0 0 0 14px rgba(217,169,91,.05); }
+  .art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .pole { animation: pole 2.4s linear infinite; }
+  @keyframes pole { to { transform: translateY(-48px); } }
+
+  section { padding: 80px 0; }
+  .alt { background: var(--bg2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .sh { text-align: center; margin-bottom: 36px; }
+  .sh .kicker { font-size: 20px; }
+  h2 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(42px, 6vw, 64px); letter-spacing: .02em; line-height: 1; margin: 4px 0 0; }
+
+  .menu { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 56px; max-width: 920px; margin: 0 auto; }
+  .row { display: flex; align-items: baseline; gap: 10px; padding: 14px 0; border-bottom: 1px dashed var(--line); }
+  .row b { font-size: 18px; }
+  .row small { display: block; color: var(--soft); font-size: 13.5px; font-weight: 500; }
+  .row i { flex: 1; }
+  .row strong { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: var(--brass2); font-weight: 400; letter-spacing: .02em; }
+
+  .book { max-width: 680px; margin: 0 auto; }
+
+  .feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .feat { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 26px; }
+  .feat svg { width: 40px; height: 40px; color: var(--brass); }
+  .feat h3 { margin: 12px 0 6px; font-size: 19px; }
+  .feat p { margin: 0; color: var(--soft); }
+
+  .team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .member { text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px 18px; }
+  .member .av { width: 96px; height: 96px; margin: 0 auto 14px; border-radius: 50%; display: grid; place-items: center; font-family: 'Bebas Neue', sans-serif; font-size: 44px; color: #141210; background: linear-gradient(160deg, var(--brass2), var(--brass)); box-shadow: 0 0 0 6px rgba(217,169,91,.15); }
+  .member b { font-size: 19px; display: block; }
+  .member span { color: var(--soft); font-size: 14px; }
+
+  .info { display: grid; grid-template-columns: 1fr 1.1fr; gap: 22px; align-items: stretch; }
+  .hours { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 26px; }
+  .hours h3 { margin: 0 0 12px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--brass); }
+  .hours table { width: 100%; border-collapse: collapse; }
+  .hours td { padding: 8px 0; border-bottom: 1px dashed var(--line); }
+  .hours td:last-child { text-align: right; font-weight: 700; }
+  .hours .closed { color: var(--soft); font-weight: 500; }
+  .contact { margin-top: 22px; display: grid; gap: 8px; color: var(--soft); }
+  .contact b { color: var(--ink); }
+  .map { border-radius: 20px; overflow: hidden; border: 1px solid var(--line); min-height: 320px; background: #1b1814; position: relative; }
+  .map svg { width: 100%; height: 100%; display: block; }
+
+  footer { padding: 34px 0 110px; text-align: center; color: var(--soft); font-size: 14px; border-top: 1px solid var(--line); }
+  footer b { color: var(--brass); }
+  .mbar { display: none; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s, transform .7s; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 860px) {
+    .links { display: none; }
+    .nav .btn { margin-left: auto; min-height: 42px; padding: 0 16px; }
+    .hero { padding: 40px 0 60px; }
+    .hero .wrap { grid-template-columns: 1fr; }
+    .art { width: min(220px, 62%); order: -1; }
+    .menu, .feats, .team, .info { grid-template-columns: 1fr; }
+    section { padding: 60px 0; }
+    .mbar { display: grid; grid-template-columns: 1fr 1.6fr; gap: 8px; position: fixed; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); z-index: 30;
+      background: rgba(28, 25, 21, .95); border: 1px solid var(--line); border-radius: 18px; padding: 8px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+    .mbar .btn { min-height: 46px; border-radius: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .pole { animation: none; } .reveal { opacity: 1; transform: none; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<div class="demo">Site de démonstration · <a href="../">réalisé par Alakhil Mobile</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><img src="logo.svg" alt=""><b>Maison <span>Barber</span></b></a>
+    <nav class="links"><a href="#prestations">Prestations</a><a href="#equipe">L’équipe</a><a href="#infos">Infos</a></nav>
+    <a class="btn btn-brass" href="#reserver">Réserver</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="kicker">Barbier · Paris</div>
+        <h1>Coupe. Barbe.<span>Style.</span></h1>
+        <p class="lead">Dégradés précis, tailles de barbe soignées et rasage à l’ancienne à la serviette chaude. Réservez en 30 secondes, sans attendre.</p>
+        <div class="cta">
+          <a class="btn btn-brass" href="#reserver">Réserver un créneau</a>
+          <a class="btn btn-line" href="#prestations">Voir les prix</a>
+        </div>
+        <div class="facts"><div><b>Dès 15 €</b>Coupe enfant</div><div><b>30 sec</b>pour réserver</div><div><b>Mar → Dim</b>Ouvert 6j/7</div></div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="disc"></div>
+        <svg viewBox="0 0 400 400">
+          <defs>
+            <clipPath id="tube"><rect x="172" y="96" width="56" height="200" rx="28"/></clipPath>
+            <linearGradient id="brass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6d79c"/><stop offset=".5" stop-color="#d9a95b"/><stop offset="1" stop-color="#9c6e2e"/></linearGradient>
+            <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".0"/><stop offset=".3" stop-color="#fff" stop-opacity=".35"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/></linearGradient>
+          </defs>
+          <circle cx="200" cy="200" r="168" fill="none" stroke="#d9a95b" stroke-opacity=".35" stroke-dasharray="2 8" stroke-width="2"/>
+          <rect x="172" y="96" width="56" height="200" rx="28" fill="#f3ead9"/>
+          <g clip-path="url(#tube)"><g class="pole">
+            <g fill="#b3302a">
+              <path d="M150 60 l90 -40 v22 l-90 40z"/><path d="M150 108 l90 -40 v22 l-90 40z"/><path d="M150 156 l90 -40 v22 l-90 40z"/><path d="M150 204 l90 -40 v22 l-90 40z"/><path d="M150 252 l90 -40 v22 l-90 40z"/><path d="M150 300 l90 -40 v22 l-90 40z"/><path d="M150 348 l90 -40 v22 l-90 40z"/>
+            </g>
+            <g fill="#2c4f8c"><path d="M150 84 l90 -40 v10 l-90 40z"/><path d="M150 132 l90 -40 v10 l-90 40z"/><path d="M150 180 l90 -40 v10 l-90 40z"/><path d="M150 228 l90 -40 v10 l-90 40z"/><path d="M150 276 l90 -40 v10 l-90 40z"/><path d="M150 324 l90 -40 v10 l-90 40z"/></g>
+          </g></g>
+          <rect x="172" y="96" width="56" height="200" rx="28" fill="url(#glass)"/>
+          <rect x="164" y="74" width="72" height="26" rx="8" fill="url(#brass)"/><circle cx="200" cy="62" r="16" fill="url(#brass)"/>
+          <rect x="164" y="292" width="72" height="26" rx="8" fill="url(#brass)"/><rect x="186" y="318" width="28" height="22" fill="url(#brass)"/>
+          <g transform="translate(92 238) rotate(-35)" fill="none" stroke="url(#brass)" stroke-width="7" stroke-linecap="round">
+            <circle cx="0" cy="0" r="15"/><circle cx="26" cy="12" r="15"/><path d="M12 -8 L70 -62 M14 4 L72 -50"/>
+          </g>
+          <g transform="translate(296 250) rotate(30)">
+            <rect x="-8" y="-6" width="16" height="70" rx="7" fill="url(#brass)"/>
+            <path d="M-6 -6 L-6 -76 Q8 -70 14 -12 L8 -6 Z" fill="#e9e3d6" stroke="#9c6e2e" stroke-width="2"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="prestations">
+    <div class="wrap">
+      <div class="sh reveal"><div class="kicker">La carte</div><h2>Prestations &amp; prix</h2></div>
+      <div class="menu reveal" id="menu"></div>
+    </div>
+  </section>
+
+  <section id="reserver">
+    <div class="wrap">
+      <div class="sh reveal"><div class="kicker">En ligne, 24h/24</div><h2>Réservez votre créneau</h2></div>
+      <div class="book" id="booking"></div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap feats">
+      <div class="feat reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3c0 2 2 2 2 4s-2 2-2 4M12 3c0 2 2 2 2 4s-2 2-2 4M16 3c0 2 2 2 2 4s-2 2-2 4"/><rect x="3" y="14" width="18" height="7" rx="2"/></svg><h3>Serviette chaude</h3><p>Le vrai rasage à l’ancienne, avec mousse chaude et soin après-rasage.</p></div>
+      <div class="feat reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Zéro attente</h3><p>Vous réservez, vous arrivez, vous passez. Rappel automatique la veille.</p></div>
+      <div class="feat reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg><h3>Produits pro</h3><p>Cires, huiles à barbe et soins sélectionnés, en vente au salon.</p></div>
+    </div>
+  </section>
+
+  <section id="equipe">
+    <div class="wrap">
+      <div class="sh reveal"><div class="kicker">Vos barbiers</div><h2>L’équipe</h2></div>
+      <div class="team">
+        <div class="member reveal"><div class="av">K</div><b>Karim</b><span>Dégradés &amp; designs</span></div>
+        <div class="member reveal"><div class="av">Y</div><b>Yanis</b><span>Barbe &amp; rasage</span></div>
+        <div class="member reveal"><div class="av">L</div><b>Lucas</b><span>Coupes classiques</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="infos">
+    <div class="wrap info">
+      <div class="hours reveal">
+        <h3>Horaires</h3>
+        <table>
+          <tr><td>Lundi</td><td class="closed">Fermé</td></tr>
+          <tr><td>Mardi – Vendredi</td><td>09:00 – 20:00</td></tr>
+          <tr><td>Samedi</td><td>09:00 – 19:00</td></tr>
+          <tr><td>Dimanche</td><td>10:00 – 15:00</td></tr>
+        </table>
+        <div class="contact">
+          <div><b>Adresse :</b> 12 rue de l’Exemple, 75000 Paris</div>
+          <div><b>Téléphone :</b> 01 23 45 67 89</div>
+          <div><b>Paiement :</b> espèces, carte, sans contact</div>
+        </div>
+      </div>
+      <div class="map reveal" aria-label="Plan d’accès (illustration)">
+        <svg viewBox="0 0 600 380" preserveAspectRatio="xMidYMid slice">
+          <rect width="600" height="380" fill="#1b1814"/>
+          <g stroke="#2c2620" stroke-width="22" fill="none" stroke-linecap="round"><path d="M-20 120 H620"/><path d="M-20 290 C200 260 380 320 620 270"/><path d="M180 -20 V400"/><path d="M430 -20 C410 120 470 220 440 400"/></g>
+          <g stroke="#3a322a" stroke-width="2" fill="none" stroke-dasharray="10 10"><path d="M-20 120 H620"/><path d="M180 -20 V400"/></g>
+          <g fill="#231f1a"><rect x="20" y="10" width="140" height="90" rx="6"/><rect x="200" y="10" width="210" height="90" rx="6"/><rect x="450" y="10" width="140" height="90" rx="6"/><rect x="20" y="140" width="140" height="120" rx="6"/><rect x="200" y="140" width="215" height="110" rx="6"/><rect x="460" y="140" width="130" height="110" rx="6"/></g>
+          <circle cx="305" cy="196" r="60" fill="#d9a95b" opacity=".12"/>
+          <path d="M305 150 c-20 0 -34 15 -34 34 c0 26 34 58 34 58 s34 -32 34 -58 c0 -19 -14 -34 -34 -34z" fill="#d9a95b"/><circle cx="305" cy="184" r="12" fill="#141210"/>
+          <text x="305" y="275" text-anchor="middle" fill="#f3ead9" font-family="Inter, sans-serif" font-weight="700" font-size="16">Maison Barber</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© Maison Barber · Site de démonstration réalisé par <b>Alakhil Mobile</b><br>Nom, adresse et téléphone fictifs.</div>
+</footer>
+
+<nav class="mbar"><a class="btn btn-line" href="tel:+33123456789">Appeler</a><a class="btn btn-brass" href="#reserver">Réserver</a></nav>
+
+<script src="../assets/booking.js"></script>
+<script>
+  const services = [
+    { id: 'coupe', cat: 'Cheveux', name: 'Coupe homme', note: 'Shampoing + coiffage', minutes: 30, price: 20 },
+    { id: 'degrade', cat: 'Cheveux', name: 'Dégradé + design', note: 'Contours au rasoir', minutes: 45, price: 25 },
+    { id: 'enfant', cat: 'Cheveux', name: 'Coupe enfant', note: 'Moins de 12 ans', minutes: 30, price: 15 },
+    { id: 'coupe-barbe', cat: 'Formules', name: 'Coupe + barbe', note: 'La formule complète', minutes: 60, price: 32 },
+    { id: 'barbe', cat: 'Barbe', name: 'Taille de barbe', note: 'Contours + huile', minutes: 20, price: 15 },
+    { id: 'rasage', cat: 'Barbe', name: 'Rasage à l’ancienne', note: 'Serviette chaude', minutes: 30, price: 25 },
+    { id: 'soin', cat: 'Soins', name: 'Soin visage', note: 'Masque + gommage', minutes: 20, price: 18 },
+    { id: 'meches', cat: 'Soins', name: 'Coloration barbe', note: 'Couvre les poils blancs', minutes: 20, price: 15 }
+  ];
+  document.getElementById('menu').innerHTML = services.map((s) =>
+    `<div class="row"><span><b>${s.name}</b><small>${s.note} · ${s.minutes} min</small></span><i></i><strong>${s.price} €</strong></div>`).join('');
+  Booking.mount('#booking', {
+    shop: 'Maison Barber', whatsapp: '33123456789', services,
+    staff: [{ id: 'k', name: 'Karim', role: 'Dégradés' }, { id: 'y', name: 'Yanis', role: 'Barbe' }, { id: 'l', name: 'Lucas', role: 'Classique' }],
+    hours: { 2: ['09:00', '20:00'], 3: ['09:00', '20:00'], 4: ['09:00', '20:00'], 5: ['09:00', '20:00'], 6: ['09:00', '19:00'], 0: ['10:00', '15:00'] },
+    step: 30
+  });
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  } else document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
+</script>
+</body>
+</html>

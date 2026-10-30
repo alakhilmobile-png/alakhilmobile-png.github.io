@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carte de fidélité digitale (démo)</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2b1a12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --a: #2b1a12; --b: #c8894a; --c: #f6efe6; --ink: #241812; --soft: #7b685c; --line: #e8dccd; --on: #fff; }
+  body[data-theme=barbier] { --a: #141210; --b: #d9a95b; --c: #f1ece3; --ink: #1c1915; --soft: #776b5b; --line: #e2d8c6; }
+  body[data-theme=snack] { --a: #b3261e; --b: #f5b82e; --c: #fff4e6; --ink: #2a1510; --soft: #84655a; --line: #f1d9c3; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Inter', system-ui, sans-serif; background: var(--c); color: var(--ink); line-height: 1.5; transition: background .3s; -webkit-tap-highlight-color: transparent; }
+  button { font: inherit; cursor: pointer; }
+  .demo { background: var(--a); color: #fff; text-align: center; font-size: 12.5px; font-weight: 600; padding: 6px 12px; opacity: .92; }
+  .demo a { color: #fff; }
+  .wrap { max-width: 460px; margin: 0 auto; padding: 16px 16px 40px; }
+  .switch { display: flex; gap: 6px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 4px; margin-bottom: 18px; }
+  .switch button { flex: 1; border: 0; background: none; border-radius: 10px; padding: 9px 4px; font-weight: 700; font-size: 14px; color: var(--soft); }
+  .switch button.on { background: var(--a); color: #fff; }
+  .switch-note { text-align: center; font-size: 12.5px; color: var(--soft); margin: -10px 0 16px; }
+
+  .card { position: relative; overflow: hidden; border-radius: 26px; padding: 22px; color: #fff; background: radial-gradient(260px 200px at 90% 0%, color-mix(in srgb, var(--b) 45%, transparent), transparent 70%), var(--a);
+    box-shadow: 0 26px 50px -22px color-mix(in srgb, var(--a) 80%, transparent); }
+  .card::after { content: ''; position: absolute; right: -70px; bottom: -90px; width: 230px; height: 230px; border-radius: 50%; border: 30px solid rgba(255,255,255,.06); }
+  .card-top { display: flex; align-items: center; gap: 12px; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--b); display: grid; place-items: center; font-size: 26px; flex: none; }
+  .card h1 { font-family: 'Fraunces', serif; font-size: 23px; margin: 0; line-height: 1.1; }
+  .card small { opacity: .75; font-size: 13px; }
+  .who { margin-top: 18px; font-size: 14px; opacity: .85; }
+  .who b { font-size: 18px; opacity: 1; display: block; }
+  .stamps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 18px 0 14px; position: relative; z-index: 1; }
+  .stamp { aspect-ratio: 1; border-radius: 50%; border: 2px dashed rgba(255,255,255,.35); display: grid; place-items: center; font-size: 22px; color: rgba(255,255,255,.35); font-weight: 800; }
+  .stamp.on { border: 0; background: var(--b); color: var(--a); box-shadow: 0 6px 14px rgba(0,0,0,.25); }
+  .stamp.on.pop { animation: pop .5s cubic-bezier(.3, 1.7, .5, 1); }
+  .stamp.gift { border-style: solid; border-color: var(--b); color: var(--b); }
+  .stamp.gift.on { background: #fff; }
+  @keyframes pop { from { transform: scale(.2) rotate(-40deg); } to { transform: none; } }
+  .progress { position: relative; z-index: 1; font-weight: 600; }
+  .bar { height: 8px; border-radius: 8px; background: rgba(255,255,255,.15); margin-top: 8px; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--b); border-radius: 8px; transition: width .4s; }
+
+  .btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 52px; border-radius: 16px; border: 0; font-weight: 800; font-size: 16px; }
+  .btn-main { background: var(--a); color: #fff; margin-top: 16px; }
+  .btn-alt { background: #fff; color: var(--ink); border: 1px solid var(--line); margin-top: 10px; }
+  .btn-gold { background: var(--b); color: var(--a); }
+
+  .box { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 18px; margin-top: 16px; }
+  .box h2 { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--soft); margin: 0 0 12px; }
+  .steps { display: grid; gap: 12px; }
+  .step { display: flex; gap: 12px; align-items: flex-start; }
+  .step b { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--c); color: var(--a); font-weight: 800; }
+  .hist { list-style: none; margin: 0; padding: 0; font-size: 14.5px; }
+  .hist li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed var(--line); }
+  .hist li:last-child { border: 0; }
+  .hist .muted { color: var(--soft); }
+
+  .modal { position: fixed; inset: 0; z-index: 50; background: rgba(20, 12, 8, .6); display: grid; place-items: center; padding: 20px; animation: fade .2s; }
+  .modal[hidden] { display: none; }
+  .sheet { background: #fff; border-radius: 26px; padding: 24px; width: min(380px, 100%); text-align: center; }
+  .sheet h3 { margin: 0 0 6px; font-family: 'Fraunces', serif; font-size: 24px; }
+  .sheet p { color: var(--soft); margin: 0 0 16px; }
+  .qr { width: 220px; height: 220px; margin: 0 auto 10px; padding: 10px; border-radius: 18px; border: 1px solid var(--line); }
+  .qr img { width: 100%; height: 100%; display: block; }
+  .code { font-family: ui-monospace, monospace; font-weight: 700; letter-spacing: .1em; margin-bottom: 16px; }
+  .pin { display: flex; gap: 8px; justify-content: center; margin: 8px 0 14px; }
+  .pin input { width: 100%; max-width: 200px; text-align: center; font-size: 26px; letter-spacing: .5em; min-height: 56px; border-radius: 14px; border: 1px solid var(--line); }
+  .err { color: #c63a2b; font-weight: 600; min-height: 22px; margin: 0 0 6px; }
+  .big { font-size: 64px; line-height: 1; margin-bottom: 8px; }
+  @keyframes fade { from { opacity: 0; } }
+  .confetti { position: fixed; inset: 0; pointer-events: none; z-index: 60; overflow: hidden; }
+  .confetti i { position: absolute; top: -20px; width: 10px; height: 14px; border-radius: 3px; animation: fall 2.2s ease-in forwards; }
+  @keyframes fall { to { transform: translateY(110vh) rotate(720deg); } }
+  .foot { text-align: center; font-size: 12.5px; color: var(--soft); margin-top: 22px; }
+</style>
+</head>
+<body data-theme="cafe">
+<div class="demo">Application de démonstration · <a href="../">réalisée par Alakhil Mobile</a></div>
+<div class="wrap">
+  <div class="switch" id="switch">
+    <button data-t="cafe" class="on">☕ Café</button><button data-t="barbier">💈 Barbier</button><button data-t="snack">🍔 Snack</button>
+  </div>
+  <p class="switch-note">Exemple : la même carte s’adapte à chaque commerce</p>
+
+  <div class="card">
+    <div class="card-top"><div class="logo" id="logo">☕</div><div><h1 id="shop">Le Petit Café</h1><small>Carte de fidélité</small></div></div>
+    <div class="who"><span>Membre</span><b id="member">Sarah</b></div>
+    <div class="stamps" id="stamps"></div>
+    <div class="progress" id="progress"></div>
+    <div class="bar"><i id="bar"></i></div>
+  </div>
+
+  <button class="btn btn-main" id="showBtn">Montrer ma carte au comptoir</button>
+  <button class="btn btn-alt" id="staffBtn">Espace commerçant · ajouter un tampon</button>
+
+  <div class="box">
+    <h2>Comment ça marche</h2>
+    <div class="steps">
+      <div class="step"><b>1</b><div>Le client scanne le QR code en caisse : sa carte s’ouvre sur son téléphone, sans application à installer.</div></div>
+      <div class="step"><b>2</b><div>À chaque achat, le commerçant ajoute un tampon en 2 secondes.</div></div>
+      <div class="step"><b>3</b><div id="stepReward">Au 10ᵉ tampon : un café offert. Le client revient plus souvent !</div></div>
+    </div>
+  </div>
+
+  <div class="box"><h2>Historique</h2><ul class="hist" id="hist"></ul></div>
+  <button class="btn btn-alt" id="resetBtn">Remettre la démo à zéro</button>
+  <p class="foot">Démonstration : les tampons sont enregistrés uniquement sur ce téléphone.<br>Code commerçant de la démo : <b>1234</b></p>
+</div>
+
+<div class="modal" id="mShow" hidden><div class="sheet">
+  <h3 id="mShop">Le Petit Café</h3><p>Présentez ce code au commerçant</p>
+  <div class="qr"><img src="qr.svg" alt="QR code de la carte"></div>
+  <div class="code">N° 2048-731</div>
+  <button class="btn btn-main" data-close>Fermer</button>
+</div></div>
+
+<div class="modal" id="mStaff" hidden><div class="sheet">
+  <h3>Espace commerçant</h3><p>Entrez votre code pour ajouter un tampon</p>
+  <div class="pin"><input id="pin" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="••••"></div>
+  <p class="err" id="pinErr"></p>
+  <button class="btn btn-main" id="addBtn">+ Ajouter un tampon</button>
+  <button class="btn btn-alt" data-close>Annuler</button>
+</div></div>
+
+<div class="modal" id="mWin" hidden><div class="sheet">
+  <div class="big" id="winIcon">🎉</div><h3>Félicitations !</h3><p id="winText">Votre café est offert</p>
+  <button class="btn btn-gold" id="useBtn">Utiliser ma récompense</button>
+</div></div>
+
+<script>
+(function () {
+  const THEMES = {
+    cafe: { shop: 'Le Petit Café', icon: '☕', member: 'Sarah', total: 10, reward: 'un café offert', win: 'votre café est offert' },
+    barbier: { shop: 'Maison Barber', icon: '💈', member: 'Thomas', total: 8, reward: 'une coupe offerte', win: 'votre prochaine coupe est offerte' },
+    snack: { shop: 'Snack du Coin', icon: '🍔', member: 'Yanis', total: 10, reward: 'un menu offert', win: 'votre menu est offert' }
+  };
+  const KEY = 'demo-fidelite-v1';
+  const $ = (s) => document.querySelector(s);
+  let data;
+  try { data = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { data = {}; }
+  let theme = data.theme || 'cafe';
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {} };
+  const st = () => (data[theme] = data[theme] || seed(theme));
+  function seed(t) {
+    const n = t === 'barbier' ? 5 : 7, out = [];
+    for (let i = n; i > 0; i--) { const d = new Date(); d.setDate(d.getDate() - i * 5); out.push({ type: 'stamp', date: d.toISOString() }); }
+    return { stamps: n, history: out };
+  }
+  const fmt = (iso) => new Date(iso).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' }) + ' · ' + new Date(iso).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+
+  function render(popIndex) {
+    const T = THEMES[theme], s = st();
+    document.body.dataset.theme = theme;
+    document.querySelectorAll('#switch button').forEach((b) => b.classList.toggle('on', b.dataset.t === theme));
+    $('#shop').textContent = T.shop; $('#mShop').textContent = T.shop; $('#logo').textContent = T.icon; $('#member').textContent = T.member;
+    $('#stamps').innerHTML = Array.from({ length: T.total }, (_, i) => {
+      const on = i < s.stamps, last = i === T.total - 1;
+      return `<div class="stamp ${on ? 'on' : ''} ${last ? 'gift' : ''} ${i === popIndex ? 'pop' : ''}">${on ? T.icon : last ? '🎁' : i + 1}</div>`;
+    }).join('');
+    const left = T.total - s.stamps;
+    $('#progress').textContent = left > 0 ? `Encore ${left} tampon${left > 1 ? 's' : ''} avant ${T.reward}` : `Bravo : ${T.reward} !`;
+    $('#bar').style.width = (s.stamps / T.total * 100) + '%';
+    $('#stepReward').textContent = `Au ${T.total}ᵉ tampon : ${T.reward}. Le client revient plus souvent !`;
+    $('#hist').innerHTML = s.history.slice().reverse().slice(0, 12).map((h) =>
+      `<li><span>${h.type === 'reward' ? '🎁 Récompense utilisée' : '＋ 1 tampon'}</span><span class="muted">${fmt(h.date)}</span></li>`).join('') || '<li class="muted">Aucun passage</li>';
+  }
+
+  const open = (id) => { $(id).hidden = false; };
+  const close = () => document.querySelectorAll('.modal').forEach((m) => { m.hidden = true; });
+  document.querySelectorAll('[data-close]').forEach((b) => b.onclick = close);
+  document.querySelectorAll('.modal').forEach((m) => m.addEventListener('click', (e) => { if (e.target === m) close(); }));
+
+  document.querySelectorAll('#switch button').forEach((b) => b.onclick = () => { theme = b.dataset.t; data.theme = theme; save(); render(); });
+  $('#showBtn').onclick = () => open('#mShow');
+  $('#staffBtn').onclick = () => { $('#pin').value = data.pinOk ? '1234' : ''; $('#pinErr').textContent = ''; open('#mStaff'); setTimeout(() => $('#pin').focus(), 50); };
+  $('#addBtn').onclick = () => {
+    if ($('#pin').value !== '1234') { $('#pinErr').textContent = 'Code incorrect (démo : 1234)'; return; }
+    data.pinOk = true;
+    const T = THEMES[theme], s = st();
+    if (s.stamps >= T.total) { close(); win(); return; }
+    s.stamps += 1; s.history.push({ type: 'stamp', date: new Date().toISOString() }); save();
+    close(); render(s.stamps - 1);
+    if (navigator.vibrate) navigator.vibrate(30);
+    if (s.stamps >= T.total) setTimeout(win, 600);
+  };
+  function win() {
+    const T = THEMES[theme];
+    $('#winIcon').textContent = '🎉'; $('#winText').textContent = `${T.shop} : ${T.win} !`;
+    open('#mWin');
+    const c = document.createElement('div'); c.className = 'confetti';
+    const cols = ['#f5b82e', '#c8894a', '#e8573f', '#3fa36b', '#4a7fd6'];
+    c.innerHTML = Array.from({ length: 60 }, () => `<i style="left:${Math.random() * 100}%;background:${cols[Math.floor(Math.random() * cols.length)]};animation-delay:${Math.random() * .8}s"></i>`).join('');
+    document.body.appendChild(c); setTimeout(() => c.remove(), 3200);
+  }
+  $('#useBtn').onclick = () => { const s = st(); s.stamps = 0; s.history.push({ type: 'reward', date: new Date().toISOString() }); save(); close(); render(); };
+  $('#resetBtn').onclick = () => { data[theme] = seed(theme); save(); render(); };
+  render();
+})();
+</script>
+</body>
+</html>

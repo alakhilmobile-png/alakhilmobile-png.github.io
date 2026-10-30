@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alakhil Mobile · Créations digitales pour les commerces</title>
+<meta name="description" content="Sites internet, applications, logos, cartes de visite, flyers et menus pour restaurants, barbiers, instituts et commerces.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0d3b2e">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root { --green: #0d3b2e; --green-2: #145240; --gold: #f5c33b; --cream: #fbf7ee; --card: #fff; --ink: #12211b; --soft: #5f6f68; --line: #e6dfcd; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: 'Poppins', system-ui, sans-serif; background: var(--cream); color: var(--ink); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .wrap { width: min(1120px, 100% - 32px); margin: 0 auto; }
+
+  .hero { background: radial-gradient(520px 320px at 85% 10%, rgba(245,195,59,.25), transparent 70%), linear-gradient(160deg, #1a5c48, var(--green) 60%); color: #fff; padding: 22px 0 46px; }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .badge { display: inline-flex; align-items: center; gap: 9px; padding: 5px 16px 5px 5px; border-radius: 99px; border: 2px solid var(--gold); font-weight: 800; letter-spacing: .02em; }
+  .badge i { width: 32px; height: 32px; border-radius: 50%; background: var(--gold); color: var(--green); display: grid; place-items: center; }
+  .badge svg { width: 18px; height: 18px; }
+  .hero h1 { font-size: clamp(32px, 6vw, 56px); font-weight: 900; line-height: 1.05; margin: 34px 0 12px; max-width: 760px; }
+  .hero h1 span { color: var(--gold); }
+  .hero p { color: #d3e6dd; font-size: 17px; max-width: 600px; margin: 0 0 24px; }
+  .btns { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 22px; border-radius: 99px; font-weight: 700; text-decoration: none; border: 0; font: inherit; font-weight: 700; cursor: pointer; }
+  .btn-gold { background: var(--gold); color: var(--green); }
+  .btn-ghost { border: 2px solid rgba(255,255,255,.35); color: #fff; }
+  .btn-dark { background: var(--green); color: #fff; }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 26px; }
+  .chips span { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 99px; padding: 6px 13px; font-size: 13.5px; font-weight: 600; }
+
+  .nav { position: sticky; top: 0; z-index: 10; background: rgba(251,247,238,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .nav .wrap { display: flex; gap: 6px; overflow-x: auto; padding: 10px 0; scrollbar-width: none; }
+  .nav .wrap::-webkit-scrollbar { display: none; }
+  .nav a { flex: none; text-decoration: none; font-weight: 700; font-size: 14px; color: var(--soft); padding: 8px 14px; border-radius: 99px; border: 1px solid var(--line); background: #fff; }
+
+  section { padding: 46px 0 10px; }
+  .sh { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 18px; flex-wrap: wrap; }
+  .sh small { display: block; font-size: 12.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #b28a12; }
+  .sh h2 { margin: 2px 0 0; font-size: clamp(26px, 4vw, 36px); font-weight: 900; line-height: 1.1; }
+  .sh p { margin: 0; color: var(--soft); max-width: 440px; }
+
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .demo { background: var(--card); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+  .demo:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -20px rgba(13,59,46,.4); }
+  .shot { position: relative; height: 300px; overflow: hidden; background: #ddd; }
+  .shot img { width: 100%; display: block; }
+  .shot::after { content: ''; position: absolute; inset: auto 0 0; height: 60px; background: linear-gradient(transparent, rgba(0,0,0,.18)); }
+  .kind { position: absolute; left: 12px; bottom: 12px; z-index: 2; background: rgba(13,59,46,.92); color: #fff; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 99px; }
+  .db { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .db b { font-size: 18px; }
+  .db span { color: var(--soft); font-size: 14.5px; flex: 1; }
+  .db ul { margin: 4px 0 8px; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+  .db li { font-size: 12.5px; font-weight: 600; background: #f3efe3; border-radius: 99px; padding: 3px 10px; }
+  .open { font-weight: 800; color: var(--green); }
+
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .g { border: 0; padding: 0; background: #fff; border-radius: 16px; overflow: hidden; cursor: zoom-in; border: 1px solid var(--line); display: flex; flex-direction: column; text-align: left; font: inherit; }
+  .g .im { aspect-ratio: 1; overflow: hidden; display: grid; place-items: center; background: #ece7da; }
+  .g img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .g .pair { display: grid; gap: 6px; padding: 10px; width: 100%; height: 100%; align-content: center; }
+  .g .pair img { height: auto; border-radius: 6px; box-shadow: 0 6px 14px rgba(0,0,0,.18); }
+  .g span { padding: 9px 12px 11px; font-size: 13.5px; font-weight: 700; }
+  .g span small { display: block; font-weight: 500; color: var(--soft); }
+
+  .tarifs { display: grid; grid-template-columns: .9fr 1.1fr; gap: 22px; align-items: center; background: var(--green); color: #fff; border-radius: 26px; padding: 22px; }
+  .tarifs img { width: 100%; border-radius: 14px; display: block; cursor: zoom-in; box-shadow: 0 20px 40px rgba(0,0,0,.35); }
+  .tarifs h3 { font-size: 28px; font-weight: 900; margin: 0 0 8px; line-height: 1.15; }
+  .tarifs h3 span { color: var(--gold); }
+  .tarifs p { color: #d3e6dd; margin: 0 0 16px; }
+  .prices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 18px; }
+  .prices div { background: rgba(255,255,255,.08); border-radius: 12px; padding: 10px 12px; font-size: 13.5px; }
+  .prices b { display: block; color: var(--gold); font-size: 18px; }
+
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .step { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
+  .step b { width: 34px; height: 34px; border-radius: 50%; background: var(--gold); color: var(--green); display: grid; place-items: center; font-weight: 900; margin-bottom: 8px; }
+  .step strong { display: block; font-size: 16px; }
+  .step span { color: var(--soft); font-size: 14px; }
+
+  .contact { text-align: center; padding: 50px 0 70px; }
+  .contact h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 900; margin: 0 0 8px; }
+  .contact p { color: var(--soft); margin: 0 0 20px; }
+  footer { text-align: center; color: var(--soft); font-size: 13px; padding: 0 16px 30px; }
+
+  .lb { position: fixed; inset: 0; z-index: 50; background: rgba(8,16,12,.9); display: grid; place-items: center; padding: 16px; }
+  .lb[hidden] { display: none; }
+  .lb img { max-width: 100%; max-height: 86vh; border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,.6); }
+  .lb .x { position: fixed; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(255,255,255,.15); color: #fff; font-size: 24px; cursor: pointer; }
+  .lb .pdf { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); }
+
+  @media (max-width: 900px) {
+    .demos { grid-template-columns: 1fr 1fr; }
+    .gallery { grid-template-columns: 1fr 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .tarifs { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .demos { grid-template-columns: 1fr; }
+    .shot { height: 260px; }
+    .prices { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="bar"><span class="badge"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M12 18h.01"/></svg></i>ALAKHIL MOBILE</span></div>
+    <h1>Votre commerce mérite d’être <span>vu</span> et <span>choisi</span>.</h1>
+    <p>Sites internet, applications, logos, cartes de visite, flyers et menus pour restaurants, barbiers, instituts de beauté et toutes les boutiques. Voici quelques exemples à tester sur votre téléphone.</p>
+    <div class="btns"><a class="btn btn-gold" href="#sites">Voir les exemples</a><a class="btn btn-ghost" href="#tarifs">Nos tarifs</a></div>
+    <div class="chips"><span>🌐 Sites internet</span><span>📱 Applications</span><span>🎨 Logos</span><span>🖨️ Cartes &amp; flyers</span><span>🍽️ Menus</span></div>
+  </div>
+</header>
+
+<nav class="nav"><div class="wrap"><a href="#sites">Sites internet</a><a href="#apps">Applications</a><a href="#print">Cartes &amp; flyers</a><a href="#tarifs">Tarifs</a><a href="#comment">Comment ça marche</a></div></nav>
+
+<main>
+  <section id="sites">
+    <div class="wrap">
+      <div class="sh"><div><small>Exemples à tester</small><h2>Sites internet</h2></div><p>Ouvrez-les sur votre téléphone : tout fonctionne, la commande, la réservation et le changement de langue.</p></div>
+      <div class="demos">
+        <a class="demo" href="https://alakhilmobile-png.github.io/sucre-et-sale-demo/" target="_blank" rel="noopener">
+          <div class="shot"><span class="kind">Restaurant</span><img src="assets/thumbs/restaurant.jpg" alt="Site du restaurant Sucré & Salé" loading="lazy"></div>
+          <div class="db"><b>Sucré &amp; Salé · Crêperie</b><span>Menu complet, commande en ligne avec paiement par carte, livraison Uber Eats.</span><ul><li>Français / anglais</li><li>Panier</li><li>Paiement</li></ul><span class="open">Ouvrir la démo →</span></div>
+        </a>
+        <a class="demo" href="barbier/" target="_blank" rel="noopener">
+          <div class="shot"><span class="kind">Barbier</span><img src="assets/thumbs/barbier.jpg" alt="Site de barbier Maison Barber" loading="lazy"></div>
+          <div class="db"><b>Maison Barber</b><span>Prix, équipe, horaires et réservation en ligne en 30 secondes, confirmée par WhatsApp.</span><ul><li>Réservation</li><li>Choix du barbier</li><li>Agenda</li></ul><span class="open">Ouvrir la démo →</span></div>
+        </a>
+        <a class="demo" href="beaute/" target="_blank" rel="noopener">
+          <div class="shot"><span class="kind">Institut de beauté</span><img src="assets/thumbs/beaute.jpg" alt="Site d'institut de beauté Belle & Zen" loading="lazy"></div>
+          <div class="db"><b>Belle &amp; Zen</b><span>Carte des soins par catégorie, réservation en ligne et cartes cadeaux.</span><ul><li>Réservation</li><li>Carte cadeau</li><li>Prix</li></ul><span class="open">Ouvrir la démo →</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="apps">
+    <div class="wrap">
+      <div class="sh"><div><small>Sur le téléphone</small><h2>Applications</h2></div><p>S’installent sur l’écran d’accueil comme une vraie appli, sans passer par l’App Store.</p></div>
+      <div class="demos">
+        <a class="demo" href="atelier-demo/" target="_blank" rel="noopener">
+          <div class="shot"><span class="kind">Boutique · réparation</span><img src="assets/thumbs/atelier.jpg" alt="Application de gestion de boutique" loading="lazy"></div>
+          <div class="db"><b>Gestion boutique</b><span>Tickets de réparation, acomptes, message « téléphone prêt » par WhatsApp ou SMS, ventes, stock et caisse du jour.</span><ul><li>WhatsApp / SMS</li><li>Stock</li><li>Caisse</li></ul><span class="open">Ouvrir la démo →</span></div>
+        </a>
+        <a class="demo" href="fidelite/" target="_blank" rel="noopener">
+          <div class="shot"><span class="kind">Tous commerces</span><img src="assets/thumbs/fidelite.jpg" alt="Carte de fidélité digitale" loading="lazy"></div>
+          <div class="db"><b>Carte de fidélité digitale</b><span>Le client scanne un QR code, gagne un tampon à chaque achat et reçoit sa récompense. Pour café, snack, barbier, salon…</span><ul><li>QR code</li><li>Tampons</li><li>Récompense</li></ul><span class="open">Ouvrir la démo →</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="print">
+    <div class="wrap">
+      <div class="sh"><div><small>Prêts à imprimer</small><h2>Cartes, flyers, menus &amp; logos</h2></div><p>Touchez une image pour l’agrandir.</p></div>
+      <div class="gallery" id="gallery">
+        <button class="g" data-img="print/carte-sucre-et-sale.jpg" data-pdf=""><div class="im"><img src="print/carte-sucre-et-sale.jpg" alt="" loading="lazy"></div><span>Carte de visite<small>Restaurant</small></span></button>
+        <button class="g" data-img="print/logo-sucre-et-sale.jpg"><div class="im"><img src="print/logo-sucre-et-sale.jpg" alt="" loading="lazy"></div><span>Logo premium<small>Restaurant</small></span></button>
+        <button class="g" data-img="print/menu-pizzeria.jpg" data-pdf="print/menu-pizzeria.pdf"><div class="im"><img src="print/menu-pizzeria.jpg" alt="" loading="lazy" style="object-position:top"></div><span>Menu A4<small>Pizzeria</small></span></button>
+        <button class="g" data-img="print/flyer-barbier.jpg" data-pdf="print/flyer-barbier.pdf"><div class="im"><img src="print/flyer-barbier.jpg" alt="" loading="lazy" style="object-position:top"></div><span>Flyer promo A5<small>Barbier</small></span></button>
+        <button class="g" data-img="print/carte-barbier-1.jpg" data-pdf="print/carte-barbier.pdf"><div class="im"><div class="pair"><img src="print/carte-barbier-1.jpg" alt="" loading="lazy"><img src="print/carte-barbier-2.jpg" alt="" loading="lazy"></div></div><span>Carte de visite<small>Barbier · recto-verso</small></span></button>
+        <button class="g" data-img="print/flyer-beaute.jpg" data-pdf="print/flyer-beaute.pdf"><div class="im"><img src="print/flyer-beaute.jpg" alt="" loading="lazy" style="object-position:top"></div><span>Flyer nouveauté A5<small>Institut de beauté</small></span></button>
+        <button class="g" data-img="print/carte-beaute-1.jpg" data-pdf="print/carte-beaute.pdf"><div class="im"><div class="pair"><img src="print/carte-beaute-1.jpg" alt="" loading="lazy"><img src="print/carte-beaute-2.jpg" alt="" loading="lazy"></div></div><span>Carte de visite<small>Institut · recto-verso</small></span></button>
+        <button class="g" data-img="tarifs/tarifs-alakhil-mobile.png" data-pdf="tarifs/tarifs-alakhil-mobile.pdf"><div class="im"><img src="tarifs/tarifs-alakhil-mobile.png" alt="" loading="lazy" style="object-position:top"></div><span>Grille de tarifs<small>Tous nos services</small></span></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="tarifs">
+    <div class="wrap tarifs">
+      <img src="tarifs/tarifs-alakhil-mobile.png" alt="Nos tarifs" id="tarifImg">
+      <div>
+        <h3>Des prix <span>simples</span> et <span>accessibles</span></h3>
+        <p>Devis gratuit. Vous voyez une démo avant de payer le solde. Vos fichiers vous appartiennent.</p>
+        <div class="prices">
+          <div><b>15 €</b>Carte de visite</div><div><b>15 €</b>Flyer ou menu</div>
+          <div><b>49 €</b>Logo</div><div><b>249 €</b>Site internet</div>
+          <div><b>149 €</b>Carte de fidélité digitale</div><div><b>dès 449 €</b>Site + réservation</div>
+        </div>
+        <div class="btns"><a class="btn btn-gold" href="tarifs/tarifs-alakhil-mobile.pdf" target="_blank" rel="noopener">Télécharger les tarifs (PDF)</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="comment">
+    <div class="wrap">
+      <div class="sh"><div><small>Simple et rapide</small><h2>Comment ça marche</h2></div></div>
+      <div class="steps">
+        <div class="step"><b>1</b><strong>On discute</strong><span>Vous expliquez votre besoin. Devis gratuit, sans engagement.</span></div>
+        <div class="step"><b>2</b><strong>Acompte 50 %</strong><span>On commence avec vos photos, votre logo et vos prix.</span></div>
+        <div class="step"><b>3</b><strong>Démo &amp; corrections</strong><span>Vous testez sur votre téléphone. 2 modifications incluses.</span></div>
+        <div class="step"><b>4</b><strong>C’est en ligne</strong><span>Design en 24–72 h, site en 5–10 jours. On reste disponible.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Un projet pour votre commerce ?</h2>
+      <p id="contactText">Passez nous voir en boutique, on vous conseille gratuitement.</p>
+      <div class="btns" style="justify-content:center" id="contactBtns"></div>
+    </div>
+  </section>
+</main>
+<footer>Alakhil Mobile · Les sites barbier, institut, pizzeria et l’application de gestion sont des démonstrations avec des noms et coordonnées fictifs.</footer>
+
+<div class="lb" id="lb" hidden><button class="x" aria-label="Fermer">×</button><img id="lbImg" alt=""><a class="btn btn-gold pdf" id="lbPdf" target="_blank" rel="noopener">Ouvrir le PDF</a></div>
+
+<script>
+  // Contact details: fill these in to show WhatsApp / call buttons.
+  const CONTACT = { whatsapp: '', phone: '', address: '' };
+  const btns = document.getElementById('contactBtns');
+  if (CONTACT.whatsapp) btns.insertAdjacentHTML('beforeend', `<a class="btn btn-dark" href="https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('Bonjour, je souhaite un devis pour mon commerce.')}" target="_blank" rel="noopener">Écrire sur WhatsApp</a>`);
+  if (CONTACT.phone) btns.insertAdjacentHTML('beforeend', `<a class="btn btn-gold" href="tel:${CONTACT.phone.replace(/\s/g, '')}">Appeler ${CONTACT.phone}</a>`);
+  if (CONTACT.address) document.getElementById('contactText').textContent = `Passez nous voir : ${CONTACT.address}. Conseil gratuit sur place.`;
+
+  const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbPdf = document.getElementById('lbPdf');
+  function show(img, pdf) { lbImg.src = img; lbPdf.hidden = !pdf; if (pdf) lbPdf.href = pdf; lb.hidden = false; }
+  document.querySelectorAll('.g').forEach((g) => g.addEventListener('click', () => show(g.dataset.img, g.dataset.pdf)));
+  document.getElementById('tarifImg').addEventListener('click', () => show('tarifs/tarifs-alakhil-mobile.png', 'tarifs/tarifs-alakhil-mobile.pdf'));
+  lb.addEventListener('click', (e) => { if (e.target !== lbPdf) lb.hidden = true; });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lb.hidden = true; });
+</script>
+</body>
+</html>
