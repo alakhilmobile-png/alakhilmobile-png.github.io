@@ -23,6 +23,7 @@
 .bk-svc span { display: flex; flex-direction: column; min-width: 0; }
 .bk-svc small { color: var(--bk-soft); font-size: 13px; }
 .bk-svc strong { font-size: 17px; white-space: nowrap; }
+.bk-svc strong.bk-np { font-size: 13px; font-weight: 700; color: var(--bk-accent-text, var(--bk-accent)); }
 .bk-staff { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; margin-top: 12px; }
 .bk-staff button { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 14px 8px; border-radius: 14px; border: 1px solid var(--bk-line); background: var(--bk-bg); }
 .bk-staff button:hover { border-color: var(--bk-accent); }

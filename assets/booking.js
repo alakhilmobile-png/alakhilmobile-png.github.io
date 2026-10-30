@@ -3,9 +3,12 @@
  * Usage: <div id="booking"></div> then
  *   Booking.mount('#booking', {
  *     shop: 'Name', whatsapp: '33123456789',
- *     services: [{ id, name, cat, minutes, price }],
+ *     services: [{ id, name, cat, minutes, price }],   // price optional
+ *     noPrice: 'Sur RDV',                     // label shown for services without a price
  *     staff: [{ id, name, role }],            // optional
  *     hours: { 1: ['09:00', '19:00'], ... },  // 0 = Sunday … 6 = Saturday, missing = closed
+ *                                             // or several ranges: { 2: [['10:30', '13:00'], ['14:00', '19:00']] }
+ *     phone: '09 12 34 56 78'                 // shown instead of WhatsApp when no whatsapp number is given
  *     step: 30                                // slot length in minutes
  *   });
  * Styling comes from the host page through CSS variables (--bk-*).
@@ -34,26 +37,31 @@
     if (!root) return;
     const st = { service: null, staff: null, day: null, time: null, done: false };
     const step = cfg.step || 30;
+    const hasPrice = (s) => typeof s.price === 'number';
+    const withPrice = (s) => (hasPrice(s) ? `${esc(s.name)} · ${euro(s.price)}` : esc(s.name));
+    // Normalise opening hours to a list of [open, close] ranges per weekday
+    const ranges = (d) => { const h = cfg.hours[d]; return !h ? [] : (Array.isArray(h[0]) ? h : [h]); };
 
     const days = [];
     const now = new Date();
     for (let i = 0; days.length < 14 && i < 30; i++) {
       const d = new Date(now); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() + i);
-      if (cfg.hours[d.getDay()]) days.push(d);
+      if (ranges(d.getDay()).length) days.push(d);
     }
     const dayKey = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 
     function slots() {
       if (!st.day || !st.service) return [];
-      const [o, c] = cfg.hours[st.day.getDay()].map(toMin);
       const list = [];
       const isToday = dayKey(st.day) === dayKey(now);
       const nowMin = now.getHours() * 60 + now.getMinutes() + 30;
-      for (let m = o; m + st.service.minutes <= c; m += step) {
-        if (isToday && m < nowMin) continue;
-        const staffIds = st.staff ? [st.staff.id] : (cfg.staff || [{ id: 'all' }]).map((s) => s.id);
-        const free = staffIds.some((id) => !busy(dayKey(st.day), id, m));
-        list.push({ m, free });
+      for (const [o, c] of ranges(st.day.getDay()).map((r) => r.map(toMin))) {
+        for (let m = o; m + st.service.minutes <= c; m += step) {
+          if (isToday && m < nowMin) continue;
+          const staffIds = st.staff ? [st.staff.id] : (cfg.staff || [{ id: 'all' }]).map((s) => s.id);
+          const free = staffIds.some((id) => !busy(dayKey(st.day), id, m));
+          list.push({ m, free });
+        }
       }
       return list;
     }
@@ -65,11 +73,11 @@
       root.innerHTML = `
         <div class="bk">
           <div class="bk-step ${st.service ? 'ok' : 'on'}">
-            <div class="bk-h"><span class="bk-n">1</span><b>Prestation</b>${st.service ? `<em>${esc(st.service.name)} · ${euro(st.service.price)}</em><button class="bk-edit" data-reset="service">Modifier</button>` : ''}</div>
+            <div class="bk-h"><span class="bk-n">1</span><b>Prestation</b>${st.service ? `<em>${withPrice(st.service)}</em><button class="bk-edit" data-reset="service">Modifier</button>` : ''}</div>
             ${st.service ? '' : cats.map((c) => `
               ${cats.length > 1 ? `<div class="bk-cat">${esc(c)}</div>` : ''}
               <div class="bk-list">${cfg.services.filter((s) => s.cat === c).map((s) => `
-                <button class="bk-svc" data-svc="${s.id}"><span><b>${esc(s.name)}</b><small>${dur(s.minutes)}</small></span><strong>${euro(s.price)}</strong></button>`).join('')}
+                <button class="bk-svc" data-svc="${s.id}"><span><b>${esc(s.name)}</b><small>${dur(s.minutes)}</small></span><strong class="${hasPrice(s) ? '' : 'bk-np'}">${hasPrice(s) ? euro(s.price) : esc(cfg.noPrice || '')}</strong></button>`).join('')}
               </div>`).join('')}
           </div>
 
@@ -106,14 +114,16 @@
     function renderDone() {
       const s = st.service, d = st.day;
       const when = `${DAYS[d.getDay()]} ${d.getDate()} ${MONTHS[d.getMonth()]} à ${hm(st.time)}`;
-      const msg = `Bonjour ${cfg.shop}, je souhaite confirmer mon rendez-vous :\n${s.name} (${euro(s.price)})\n${when}${st.staff ? '\nAvec ' + st.staff.name : ''}\nNom : ${st.name}\nTél : ${st.phone}`;
+      const msg = `Bonjour ${cfg.shop}, je souhaite confirmer mon rendez-vous :\n${s.name}${hasPrice(s) ? ` (${euro(s.price)})` : ''}\n${when}${st.staff ? '\nAvec ' + st.staff.name : ''}\nNom : ${st.name}\nTél : ${st.phone}`;
       root.innerHTML = `
         <div class="bk bk-done">
           <div class="bk-check">✓</div>
           <h3>Rendez-vous réservé !</h3>
-          <p>${esc(s.name)} · ${euro(s.price)}<br><b>${when}</b>${st.staff ? `<br>avec ${esc(st.staff.name)}` : ''}</p>
+          <p>${withPrice(s)}<br><b>${when}</b>${st.staff ? `<br>avec ${esc(st.staff.name)}` : ''}</p>
           <div class="bk-actions">
-            <a class="bk-go" href="https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener">Recevoir la confirmation WhatsApp</a>
+            ${cfg.whatsapp
+              ? `<a class="bk-go" href="https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener">Recevoir la confirmation WhatsApp</a>`
+              : `<a class="bk-go" href="tel:${String(cfg.phone || '').replace(/[^\d+]/g, '')}">Appeler la boutique · ${esc(cfg.phone || '')}</a>`}
             <button class="bk-ghost" data-ics>Ajouter à mon agenda</button>
             <button class="bk-ghost" data-again>Nouveau rendez-vous</button>
           </div>
