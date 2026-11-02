@@ -260,10 +260,6 @@
   .fab::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 3px solid var(--wa); animation: ring 2.2s ease-out infinite; }
   @keyframes ring { from { transform: scale(1); opacity: .8; } to { transform: scale(1.6); opacity: 0; } }
 
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation: none !important; transition: none !important; }
-    .js .reveal { opacity: 1; transform: none; }
-  }
 
   /* ===== 3D passport intro ===== */
   .particles { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
@@ -330,7 +326,6 @@
   .spk { position: absolute; color: #ffe7a3; font-size: 1.6em; animation: twinkle2 2.6s ease-in-out infinite; text-shadow: 0 0 10px rgba(255,231,163,.8); }
   @keyframes twinkle2 { 0%,100% { opacity: .2; transform: scale(.6) rotate(0deg); } 50% { opacity: 1; transform: scale(1.15) rotate(45deg); } }
   .hero-art { max-width: none; }
-  @media (prefers-reduced-motion: reduce) { .particles { display: none; } }
 </style>
 </head>
 <body>
@@ -1193,9 +1188,6 @@
     el.classList.add("reveal");
     if (el.matches(".trust li, .elig .card")) el.style.setProperty("--d", (Array.prototype.indexOf.call(el.parentNode.children, el) * 0.1) + "s");
   });
-  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    document.querySelectorAll("svg").forEach(function (sv) { if (sv.pauseAnimations) sv.pauseAnimations(); });
-  }
 
   // Start: language from ?lang=, saved choice, or show picker
   var q = (location.search.match(/[?&]lang=(en|fa|ps|da|dari|pashto)/i) || [])[1];
