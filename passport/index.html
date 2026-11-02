@@ -933,6 +933,10 @@
   @media (max-width: 420px) { .me-photo, .me-photo img { width: 88px; height: 88px; } .me-name { font-size: 22px; } .me-line { font-size: 15px; } }
   .nb { white-space: nowrap; }
   .me-wa { white-space: nowrap; font-size: 17px !important; padding-inline: 12px; }
+  .s-step small { font-size: 15px !important; color: #4c5468 !important; font-weight: 700; }
+  .s-studio { margin-top: 14px; text-align: center; font-weight: 800; font-size: 16px; color: #0c3a1f; padding: 12px 16px; border-radius: 999px;
+    background: var(--frost-green); box-shadow: var(--frost-rim); }
+  .s-steps .s-step:last-child small { color: #1f45d8 !important; font-size: 18px !important; }
 </style>
 </head>
 <body>
@@ -1072,7 +1076,7 @@
       <div class="s-steps">
         <div class="s-step"><span class="s-num">1</span><span class="s-ico">📲</span><b data-t="sim_s1"></b></div>
         <div class="s-arrow">⬇</div>
-        <div class="s-step"><span class="s-num">2</span><span class="s-ico">💶</span><b data-t="sim_s2"></b></div>
+        <div class="s-step"><span class="s-num">2</span><span class="s-ico">💶</span><b><span data-t="sim_s2"></span><small data-t="sim_s2b"></small></b></div>
         <div class="s-arrow">⬇</div>
         <div class="s-step"><span class="s-num">3</span><span class="s-ico">🏠</span><b><span data-t="sim_s3"></span><small data-t="sim_s3b"></small></b></div>
       </div>
@@ -1097,6 +1101,16 @@
       <h2 class="s-h" data-t="sim_price"></h2>
       <div class="s-prices" id="sPrices"></div>
       <div class="s-plus" data-t="sim_plus"></div>
+    </div>
+    <div class="s-block reveal">
+      <h2 class="s-h" data-t="sim_inc"></h2>
+      <div class="s-tiles">
+        <div class="s-tile"><span class="s-ico">📸</span><b data-t="sim_i1"></b><small class="s-note" data-t="sim_i1s"></small></div>
+        <div class="s-tile"><span class="s-ico">🖨️</span><b data-t="sim_i2"></b><small class="s-note" data-t="sim_i2s"></small></div>
+        <div class="s-tile"><span class="s-ico">📝</span><b data-t="sim_i3"></b><small class="s-note" data-t="sim_i3s"></small></div>
+        <div class="s-tile"><span class="s-ico">🤝</span><b data-t="sim_i4"></b><small class="s-note" data-t="sim_i4s"></small></div>
+      </div>
+      <div class="s-studio" data-t="sim_studio"></div>
     </div>
     <div class="s-block reveal">
       <h2 class="s-h red" data-t="sim_no"></h2>
@@ -1493,7 +1507,7 @@
       fact1: "⏱ 2–4 weeks", fact2: "🏠 Home delivery", fact3: "💶 €50 all inclusive",
       bar_apply: "Send documents",
       sim_steps: "3 easy steps",
-      sim_s1: "Send photos of <u>these documents</u> on WhatsApp ⬇", sim_s2: "Pay our €50", sim_s3: "Your passport comes to your home", sim_s3b: "2–4 weeks",
+      sim_s1: "Send photos of <u>these documents</u> on WhatsApp ⬇", sim_s2: "Pay our €50 service", sim_s3: "Your passport comes to your home", sim_s3b: "2–4 weeks",
       sim_send: "What to send?",
       sim_d1: "Old Afghan passport", sim_d2: "Tazkira", sim_d3: "Proof you live here", sim_d4: "Face photo (phone)", sim_d5: "Phone number + email",
       sim_child: "For a child:", sim_c1: "Birth certificate", sim_c2: "Parents' passports + Tazkira", sim_c3: "Marriage certificate",
@@ -1508,6 +1522,13 @@
       me_role: "Your helper · <bdi class=\"nb\">ALAKHIL MOBILE</bdi>, Paris",
       me_line: "I personally check your documents and help you until your passport arrives.",
       me_only: "⚠️ Only contact us at:", me_wa: "Message me on WhatsApp",
+      sim_s2b: "Photo + documents + application + help until the end",
+      sim_inc: "What is in our €50?",
+      sim_i1: "Professional passport photo", sim_i1s: "From your phone photo, made in Photoshop",
+      sim_i2: "Scan & fix your documents", sim_i2s: "Even blurry or torn copies",
+      sim_i3: "Complete application", sim_i3s: "Filled in and submitted for you",
+      sim_i4: "With you until the end", sim_i4s: "Until the passport is at your home",
+      sim_studio: "📷 A photo studio alone costs €8–9 — with us it's included",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -1656,7 +1677,7 @@
       fact1: "⏱ ۲ تا ۴ هفته", fact2: "🏠 تحویل در خانه", fact3: "💶 ۵۰ یورو، همه‌چیز شامل",
       bar_apply: "ارسال اسناد",
       sim_steps: "۳ قدم ساده",
-      sim_s1: "عکس <u>این اسناد</u> را در واتساپ بفرستید ⬇", sim_s2: "۵۰ یوروی ما را بپردازید", sim_s3: "پاسپورت شما به خانه می‌آید", sim_s3b: "۲ تا ۴ هفته",
+      sim_s1: "عکس <u>این اسناد</u> را در واتساپ بفرستید ⬇", sim_s2: "۵۰ یوروی خدمات ما را بپردازید", sim_s3: "پاسپورت شما به خانه می‌آید", sim_s3b: "۲ تا ۴ هفته",
       sim_send: "چه چیزی بفرستید؟",
       sim_d1: "پاسپورت قبلی افغانی", sim_d2: "تذکره", sim_d3: "سند اقامت در این کشور", sim_d4: "عکس چهره (با تلفون)", sim_d5: "شمارهٔ تلفون + ایمیل",
       sim_child: "برای طفل:", sim_c1: "سند تولد", sim_c2: "پاسپورت و تذکرهٔ پدر و مادر", sim_c3: "نکاح‌خط",
@@ -1671,6 +1692,13 @@
       me_role: "کمک‌کنندهٔ شما · <bdi class=\"nb\">ALAKHIL MOBILE</bdi>، پاریس",
       me_line: "من خودم اسناد شما را بررسی می‌کنم و تا رسیدن پاسپورت با شما هستم.",
       me_only: "⚠️ فقط از طریق این شماره با ما تماس بگیرید:", me_wa: "در واتساپ به من پیام بدهید",
+      sim_s2b: "عکس + اسناد + درخواست + کمک تا آخر",
+      sim_inc: "۵۰ یوروی ما شامل چیست؟",
+      sim_i1: "عکس پاسپورتی حرفه‌ای", sim_i1s: "از عکس تلفون شما، در فوتوشاپ",
+      sim_i2: "اسکن و اصلاح اسناد", sim_i2s: "حتی کاپی‌های تار یا پاره",
+      sim_i3: "فورم کامل درخواست", sim_i3s: "برای شما پُر و ثبت می‌کنیم",
+      sim_i4: "تا آخر با شما هستیم", sim_i4s: "تا رسیدن پاسپورت به خانهٔ شما",
+      sim_studio: "📷 فقط عکس در عکاسخانه ۸ تا ۹ یورو است — نزد ما شامل است",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -1819,7 +1847,7 @@
       fact1: "⏱ ۲ تر ۴ اونۍ", fact2: "🏠 کور ته رسول", fact3: "💶 ۵۰ یورو، هر څه شامل",
       bar_apply: "اسناد ولېږئ",
       sim_steps: "۳ اسانه ګامونه",
-      sim_s1: "د <u>دې اسنادو</u> عکسونه په واټساپ کې ولېږئ ⬇", sim_s2: "زموږ ۵۰ یورو ورکړئ", sim_s3: "ستاسو پاسپورټ کور ته درځي", sim_s3b: "۲ تر ۴ اونۍ",
+      sim_s1: "د <u>دې اسنادو</u> عکسونه په واټساپ کې ولېږئ ⬇", sim_s2: "زموږ د خدمت ۵۰ یورو ورکړئ", sim_s3: "ستاسو پاسپورټ کور ته درځي", sim_s3b: "۲ تر ۴ اونۍ",
       sim_send: "څه ولېږئ؟",
       sim_d1: "پخوانی افغاني پاسپورټ", sim_d2: "تذکره", sim_d3: "په دې هېواد کې د اوسېدو سند", sim_d4: "د مخ عکس (موبایل)", sim_d5: "د تلیفون شمېره + ایمیل",
       sim_child: "د ماشوم لپاره:", sim_c1: "د زېږېدو سند", sim_c2: "د مور او پلار پاسپورټ او تذکره", sim_c3: "نکاح خط",
@@ -1834,6 +1862,13 @@
       me_role: "ستاسو مرستندوی · <bdi class=\"nb\">ALAKHIL MOBILE</bdi>، پاریس",
       me_line: "زه پخپله ستاسو اسناد ګورم او د پاسپورټ تر رسېدو پورې ستاسو سره یم.",
       me_only: "⚠️ یوازې په دې شمېره له موږ سره اړیکه ونیسئ:", me_wa: "په واټساپ کې ما ته پیغام راکړئ",
+      sim_s2b: "عکس + اسناد + غوښتنلیک + تر پایه مرسته",
+      sim_inc: "زموږ په ۵۰ یورو کې څه دي؟",
+      sim_i1: "مسلکي پاسپورټي عکس", sim_i1s: "ستاسو د موبایل له عکس، په فوتوشاپ کې",
+      sim_i2: "د اسنادو سکن او سمول", sim_i2s: "حتی تتې یا شلېدلې کاپيانې",
+      sim_i3: "بشپړ غوښتنلیک", sim_i3s: "ستاسو لپاره یې ډکوو او ثبتوو",
+      sim_i4: "تر پایه ستاسو سره یو", sim_i4s: "تر هغه چې پاسپورټ کور ته ورسیږي",
+      sim_studio: "📷 یوازې عکس په سټوډیو کې ۸ تر ۹ یورو دی — زموږ سره شامل دی",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
