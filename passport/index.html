@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="site-version" content="36">
+<meta name="site-version" content="37">
 <title>ALAKHIL MOBILE — Afghan Passport Online</title>
 <meta name="description" content="Help for Afghans in Europe (except Germany), the UK, the USA, Canada and Australia to apply online for a new Afghan passport through the Afghan Consulate General in Dubai. English · دری · پښتو">
 <meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
@@ -971,6 +971,24 @@
   .s-wk { margin-top: 4px; font-size: 14px; font-weight: 800; color: #2a4f9e; }
   .s-info { margin-top: 12px; text-align: center; font-weight: 700; font-size: 15.5px; line-height: 1.55; color: #1b2233; padding: 10px 16px; border-radius: 22px;
     background: var(--clear-bg); box-shadow: var(--clear-rim); }
+
+  /* Quiz: clear selection */
+  .qz-t { flex: 1; }
+  .qz-tick { width: 30px; height: 30px; border-radius: 50%; flex: none; display: grid; place-items: center; margin-inline-start: 8px;
+    background: rgba(255,255,255,.7); box-shadow: inset 0 0 0 2px rgba(110,122,150,.55), inset 0 2px 4px rgba(0,0,0,.08); transition: all .2s ease; }
+  .qz-opt.picked { background: var(--frost-blue) !important; box-shadow: var(--frost-rim), 0 0 0 3px rgba(79,127,224,.5) !important; transform: scale(1.02); }
+  .qz-opt.picked .qz-tick { background: linear-gradient(180deg, #3ccf78, #158a45); box-shadow: 0 0 0 3px #fff, 0 4px 10px rgba(21,138,69,.4); }
+  .qz-opt.picked .qz-tick::after { content: "✓"; color: #fff; font-weight: 900; font-size: 18px; line-height: 1; animation: popIn .35s cubic-bezier(.2,1.5,.4,1) both; }
+  .qz-opt.dim { opacity: .4; transform: scale(.98); }
+  @media (hover: hover) { .qz-opt:hover .qz-tick { box-shadow: inset 0 0 0 2px #4f7fe0; } }
+  .qz-done { display: grid; gap: 6px; margin: 0 0 14px; }
+  .qz-ans { display: flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; font-size: 14.5px; font-weight: 700; color: #0c3a1f;
+    background: rgba(200,240,215,.55); box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.9), 0 0 0 1px rgba(47,179,106,.35); }
+  .qz-ans .qz-e { font-size: 18px; letter-spacing: -2px; }
+  .qz-ck { width: 22px; height: 22px; border-radius: 50%; flex: none; display: grid; place-items: center; color: #fff; font-size: 13px; font-weight: 900;
+    background: linear-gradient(180deg, #3ccf78, #158a45); }
+  .qz-e.multi { font-size: 17px; letter-spacing: -1px; max-width: 96px; line-height: 1.3; white-space: normal; text-align: center; }
+  .qz-t { min-width: 0; }
 </style>
 </head>
 <body>
@@ -1433,7 +1451,7 @@
     <p data-t="privacy"></p>
     <p data-t="sim_keep"></p>
     <p data-t="prices_note"></p>
-    <p class="ver">v36</p>
+    <p class="ver">v37</p>
   </div>
 </footer>
 
@@ -2336,11 +2354,15 @@
     var node = qNode(), html = "";
     var steps = qPath.length;
     html += '<div class="qz-dots">' + [0, 1, 2, 3, 4].map(function (i) { return '<i class="' + (i < steps ? "on" : i === steps && QUIZ[node] ? "cur" : "") + '"></i>'; }).join("") + "</div>";
+    if (steps) html += '<div class="qz-done">' + qPath.map(function (st) {
+      var o = QUIZ[st[0]].opts[st[1]];
+      return '<div class="qz-ans"><span class="qz-ck">✓</span><span class="qz-e">' + o[0] + "</span><span>" + t(o[1]) + "</span></div>";
+    }).join("") + "</div>";
     if (QUIZ[node]) {
       var n = QUIZ[node];
       html += '<div class="qz-q">' + t(n.q) + (n.sub ? '<small>' + t(n.sub) + "</small>" : "") + "</div>";
       html += '<div class="qz-opts">' + n.opts.map(function (o, i) {
-        return '<button type="button" class="qz-opt" data-i="' + i + '"><span class="qz-e">' + o[0] + "</span><span>" + t(o[1]) + "</span></button>";
+        return '<button type="button" class="qz-opt" data-i="' + i + '"><span class="qz-e' + (o[0].length > 4 ? " multi" : "") + '">' + o[0] + "</span><span class=\"qz-t\">" + t(o[1]) + '</span><span class="qz-tick" aria-hidden="true"></span></button>';
       }).join("") + "</div>";
     } else {
       var notes = qPath.map(function (st) { return QUIZ[st[0]].opts[st[1]][3]; }).filter(Boolean);
@@ -2366,12 +2388,19 @@
   document.addEventListener("click", function (e) {
     var b = e.target.closest && e.target.closest(".qz-opt, #qzBack, #qzAgain");
     if (!b || !$("quiz").contains(b)) return;
-    if (b.id === "qzBack") qPath.pop();
-    else if (b.id === "qzAgain") qPath = [];
-    else qPath.push([qNode(), +b.getAttribute("data-i")]);
-    renderQuiz();
-    var top = $("quizBlock").getBoundingClientRect().top;
-    if (top < 70 || top > window.innerHeight * 0.5) $("quizBlock").scrollIntoView({ behavior: "smooth", block: "start" });
+    var box = $("quiz");
+    function after() {
+      renderQuiz();
+      var top = $("quizBlock").getBoundingClientRect().top;
+      if (top < 70 || top > window.innerHeight * 0.5) $("quizBlock").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    if (b.id === "qzBack") { qPath.pop(); return after(); }
+    if (b.id === "qzAgain") { qPath = []; return after(); }
+    if (box.classList.contains("busy")) return;
+    box.classList.add("busy");
+    box.querySelectorAll(".qz-opt").forEach(function (o) { o.classList.add(o === b ? "picked" : "dim"); });
+    var node = qNode(), i = +b.getAttribute("data-i");
+    setTimeout(function () { box.classList.remove("busy"); qPath.push([node, i]); after(); }, 650);
   });
 
   // Simple view <-> full details
