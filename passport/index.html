@@ -593,6 +593,25 @@
   .picker-logo { display: block; width: 150px; height: auto; margin: 0 auto 6px; border-radius: 18px; }
   .foot-brand img { display: block; width: 120px; height: auto; border-radius: 18px; background: #fff; padding: 6px; margin-bottom: 14px;
     box-shadow: 0 10px 24px rgba(0,0,0,.25); border: 2px solid rgba(243,210,126,.7); }
+
+  /* ===== Logo animation: slow light sweep + golden glow ===== */
+  .shine { position: relative; display: inline-block; overflow: hidden; flex: none; isolation: isolate;
+    animation: logoIn 1.4s cubic-bezier(.2,.8,.2,1) both, logoGlow 6s ease-in-out 1.4s infinite; }
+  .shine img { display: block; margin: 0 !important; animation: logoBreathe 6s ease-in-out 1.4s infinite; }
+  .shine::after { content: ""; position: absolute; top: -40%; bottom: -40%; width: 55%; left: -90%; z-index: 2; pointer-events: none;
+    transform: skewX(-20deg);
+    background: linear-gradient(90deg, transparent 0%, rgba(255,226,150,.35) 28%, rgba(255,255,255,.95) 48%, rgba(255,205,100,.6) 62%, transparent 100%);
+    animation: logoSweep 5.5s ease-in-out 1.6s infinite; }
+  .sh-head { border-radius: 12px; }
+  .sh-head img { box-shadow: none; }
+  .sh-pick { border-radius: 18px; margin: 0 auto 6px; display: block; width: 150px; }
+  .sh-foot { border-radius: 18px; margin-bottom: 14px; box-shadow: 0 10px 24px rgba(0,0,0,.25); }
+  .sh-foot::after { animation-delay: 2.4s; }
+  @keyframes logoSweep { 0% { left: -90%; } 42%, 100% { left: 145%; } }
+  @keyframes logoGlow { 0%, 100% { box-shadow: 0 4px 12px rgba(45,75,170,.18), 0 0 0 0 rgba(242,179,61,0); }
+                        50% { box-shadow: 0 4px 12px rgba(45,75,170,.18), 0 0 18px 4px rgba(242,179,61,.55); } }
+  @keyframes logoBreathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.045); } }
+  @keyframes logoIn { from { opacity: 0; transform: scale(.7) rotate(-8deg); filter: blur(4px); } to { opacity: 1; transform: none; filter: none; } }
 </style>
 </head>
 <body>
@@ -601,7 +620,7 @@
 <!-- Language picker (first visit) -->
 <div class="picker hidden" id="picker" role="dialog" aria-modal="true" aria-label="Choose language">
   <div class="box">
-    <img class="picker-logo" src="logo-full.jpg" alt="ALAKHIL MOBILE — Qualité et satisfaction" width="150" height="147">
+    <span class="shine sh-pick"><img class="picker-logo" src="logo-full.jpg" alt="ALAKHIL MOBILE — Qualité et satisfaction" width="150" height="147"></span>
     <p><span class="ar" dir="rtl">ژبه وټاکئ</span> · <span class="ar" dir="rtl">زبان را انتخاب کنید</span><br>Choose your language</p>
     <button type="button" class="ar" data-pick="ps" lang="ps" dir="rtl">پښتو</button>
     <button type="button" class="ar" data-pick="fa" lang="fa" dir="rtl">دری</button>
@@ -611,7 +630,7 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="brand2" href="#" aria-label="ALAKHIL MOBILE"><img src="logo-mark.png" alt="" width="40" height="40"><span class="bt"><span class="l1">ALAKHIL</span><span class="l2">MOBILE</span></span></a>
+    <a class="brand2" href="#" aria-label="ALAKHIL MOBILE"><span class="shine sh-head"><img src="logo-mark.png" alt="" width="40" height="40"></span><span class="bt"><span class="l1">ALAKHIL</span><span class="l2">MOBILE</span></span></a>
     <div class="langs" role="group" aria-label="Language">
       <button type="button" data-lang="ps" lang="ps">پښتو</button>
       <button type="button" data-lang="fa" lang="fa">دری</button>
@@ -953,7 +972,7 @@
 <footer>
   <div class="pattern" aria-hidden="true"></div>
   <div class="wrap" style="position:relative;z-index:1">
-    <div class="foot-brand"><img src="logo-full.jpg" alt="ALAKHIL MOBILE — Qualité et satisfaction" width="120" height="118"></div>
+    <div class="foot-brand"><span class="shine sh-foot"><img src="logo-full.jpg" alt="ALAKHIL MOBILE — Qualité et satisfaction" width="120" height="118"></span></div>
     <p data-t="disclaimer"></p>
     <p data-t="privacy"></p>
     <p data-t="prices_note"></p>
