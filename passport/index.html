@@ -547,6 +547,37 @@
     footer { padding-bottom: 120px; }
   }
   @keyframes barUp { from { transform: translateY(110%); } to { transform: none; } }
+
+  /* ===== Gold accents + Afghan pattern ===== */
+  :root { --gold: #c9971f; --gold-l: #f3d27e; --gold-d: #8f6408; }
+  .pattern { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .1;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke-width='1.6'%3E%3Cg stroke='%231f45d8'%3E%3Crect x='23' y='23' width='26' height='26'/%3E%3Crect x='23' y='23' width='26' height='26' transform='rotate%2845 36 36%29'/%3E%3Cpath d='M0 36H17 M55 36H72 M36 0V17 M36 55V72'/%3E%3C/g%3E%3Cg stroke='%23c9971f'%3E%3Ccircle cx='36' cy='36' r='6'/%3E%3Cpath d='M0 -9L9 0L0 9L-9 0Z'/%3E%3Cpath d='M72 -9L81 0L72 9L63 0Z'/%3E%3Cpath d='M0 63L9 72L0 81L-9 72Z'/%3E%3Cpath d='M72 63L81 72L72 81L63 72Z'/%3E%3Cpath d='M9 0L17 8 M63 0L55 8 M9 72L17 64 M63 72L55 64'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); background-size: 72px 72px; background-position: center top;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 45%, transparent 100%); mask-image: linear-gradient(180deg, #000 0%, #000 45%, transparent 100%); }
+  footer { position: relative; overflow: hidden; }
+  footer .pattern { opacity: .09; -webkit-mask-image: none; mask-image: none; filter: brightness(2.2) saturate(.6); }
+
+  .bismillah { background-image: linear-gradient(110deg, #8f6408 0%, #dcaa30 22%, #b07d0f 45%, #7a5406 62%, #e6bb52 82%, #8f6408 100%); }
+  .orn { background: linear-gradient(90deg, transparent, var(--gold)); } .orn.r { background: linear-gradient(90deg, var(--gold), transparent); }
+  .orn::after { color: var(--gold); }
+  .spk { color: #d4a017; text-shadow: 0 0 10px rgba(212,160,23,.55); }
+  .particles i:nth-child(odd) { background: #f0c75e; box-shadow: 0 0 10px 2px rgba(240,199,94,.55); }
+  .welcome { border-color: rgba(201,151,31,.45); }
+  .fact.f3 { background: linear-gradient(180deg, #f6d886 0%, #d9a52a 55%, #b07d0f 100%); color: #2e2000; border-color: rgba(255,255,255,.7);
+    box-shadow: 0 10px 22px rgba(176,125,15,.35), inset 0 1px 0 rgba(255,255,255,.7); }
+  .h-ico { border: 1.5px solid rgba(201,151,31,.45); }
+  h2 .h-ico + span { background: linear-gradient(transparent 82%, rgba(243,210,126,.55) 82%); padding: 0 2px; }
+  .fee-box { border: 1.5px solid rgba(243,210,126,.75); }
+  .fee-box strong { text-decoration-color: var(--gold-l); }
+  .fee-box a { color: var(--gold-l) !important; }
+  .date-pill { color: #7a5406; border: 1px solid rgba(201,151,31,.45); background: linear-gradient(180deg, #fffaf0, #fff3d6); }
+  .price-card .kind, .tag { border: 1px solid rgba(255,255,255,.8); }
+  ol.steps li::before { border: 2px solid rgba(243,210,126,.9); }
+  .stars { text-shadow: 0 1px 0 #b07d0f; }
+  footer .brand span { color: var(--gold-l) !important; }
+
+  /* Softer decorative circles */
+  .deco i { box-shadow: 8px 10px 0 0 rgba(72,112,255,.12), 20px 26px 50px rgba(60,90,200,.08); opacity: .75; }
+  @media (max-width: 600px) { .deco i:nth-child(1) { width: 240px; height: 240px; top: -130px; left: -120px; } .deco i:nth-child(2), .deco i:nth-child(5) { display: none; } }
 </style>
 </head>
 <body>
@@ -589,6 +620,7 @@
 </header>
 
 <div class="hero">
+  <div class="pattern" aria-hidden="true"></div>
   <div class="particles" aria-hidden="true"><i style="--x:6%;--t:9s;--d:0s;--z:5px"></i><i style="--x:15%;--t:12s;--d:3s;--z:4px"></i><i style="--x:24%;--t:10s;--d:6s;--z:6px"></i><i style="--x:33%;--t:13s;--d:1.5s;--z:4px"></i><i style="--x:45%;--t:11s;--d:4.5s;--z:5px"></i><i style="--x:55%;--t:9.5s;--d:2s;--z:4px"></i><i style="--x:64%;--t:12.5s;--d:7s;--z:6px"></i><i style="--x:72%;--t:10.5s;--d:0.5s;--z:4px"></i><i style="--x:81%;--t:13.5s;--d:5s;--z:5px"></i><i style="--x:90%;--t:11.5s;--d:2.5s;--z:4px"></i><i style="--x:96%;--t:9s;--d:8s;--z:5px"></i><i style="--x:39%;--t:14s;--d:9s;--z:3px"></i></div>
   <div class="wrap bism-wrap">
     <div class="bism-row"><span class="orn"></span><div class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div><span class="orn r"></span></div>
@@ -904,7 +936,8 @@
 </main>
 
 <footer>
-  <div class="wrap">
+  <div class="pattern" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative;z-index:1">
     <div class="brand">ALAKHIL <span style="color:var(--amber)">MOBILE</span></div>
     <p data-t="disclaimer"></p>
     <p data-t="privacy"></p>
