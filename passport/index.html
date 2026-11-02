@@ -264,6 +264,73 @@
     *, *::before, *::after { animation: none !important; transition: none !important; }
     .js .reveal { opacity: 1; transform: none; }
   }
+
+  /* ===== 3D passport intro ===== */
+  .particles { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .particles i { position: absolute; left: var(--x); bottom: -12px; width: var(--z); height: var(--z); border-radius: 50%;
+    background: #ffd977; box-shadow: 0 0 8px 2px rgba(255,217,119,.55); opacity: 0; animation: up var(--t) linear var(--d) infinite; }
+  @keyframes up { 0% { transform: translateY(0); opacity: 0; } 10% { opacity: .9; } 85% { opacity: .5; } 100% { transform: translateY(-560px) translateX(20px); opacity: 0; } }
+
+  .stage { position: relative; font-size: clamp(8px, 2.6vw, 10px); width: 34em; height: 31em; margin: 0 auto; perspective: 1400px; }
+  .route { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .floaty { position: absolute; left: 50%; top: 3.2em; transform-style: preserve-3d; animation: float2 5s ease-in-out infinite; }
+  @keyframes float2 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-1em); } }
+  .book { position: relative; width: 17em; height: 24em; transform-style: preserve-3d; transform: translateX(-8.5em) rotateX(10deg) rotateZ(-4deg); animation: bookmove 10s ease-in-out infinite; }
+  @keyframes bookmove {
+    0%,12% { transform: translateX(-8.5em) rotateX(10deg) rotateZ(-4deg); }
+    23%,70% { transform: translateX(0) rotateX(16deg) rotateZ(0deg) scale(.86); }
+    81%,100% { transform: translateX(-8.5em) rotateX(10deg) rotateZ(-4deg); }
+  }
+  .page { position: absolute; inset: 0; border-radius: .4em 1.1em 1.1em .4em; padding: 1.3em 1.1em; overflow: hidden;
+    background: repeating-radial-gradient(circle at 70% 30%, rgba(18,122,100,.10) 0 .12em, transparent .12em .7em), linear-gradient(160deg, #fbf6e6, #efe6c9);
+    box-shadow: .18em .2em 0 #e4dbc0, .36em .4em 0 #d6cba9, .6em .8em 1.4em rgba(0,0,0,.35); font-family: Arial, sans-serif; color: #2a3b36; }
+  .ph-head { display: flex; justify-content: space-between; font-size: 1em; font-weight: 800; letter-spacing: .1em; color: #127a64; border-bottom: .1em solid rgba(18,122,100,.3); padding-bottom: .4em; }
+  .ph-head .ar { font-family: "Noto Naskh Arabic", Tahoma, sans-serif; letter-spacing: 0; }
+  .ph-row { display: flex; gap: 1em; margin-top: 1.1em; }
+  .photo { width: 5.6em; height: 7.2em; border-radius: .4em; background: #dfe8e4; border: .12em solid #b9c9c3; overflow: hidden; flex: none; }
+  .photo svg { width: 100%; height: 100%; display: block; }
+  .lines { flex: 1; display: grid; gap: .75em; align-content: start; padding-top: .2em; }
+  .lines i { display: block; height: .55em; border-radius: .3em; background: rgba(42,59,54,.22); }
+  .mrz { position: absolute; left: 1.1em; right: 1.1em; bottom: 1.1em; font: 700 .95em/1.35 "Courier New", monospace; letter-spacing: .02em; color: #42524d; white-space: nowrap; overflow: hidden; }
+  .stamp { position: absolute; right: 1em; top: 10.2em; border: .26em double #127a64; color: #127a64; border-radius: .7em; padding: .35em .8em .3em; text-align: center;
+    font: 900 1.45em/1.05 Arial, sans-serif; letter-spacing: .04em; opacity: 0; transform: rotate(-14deg) scale(2.4); animation: stamp 10s ease-out infinite; background: rgba(255,255,255,.15); }
+  .stamp small { display: block; font-size: .55em; letter-spacing: .2em; margin-top: .2em; }
+  @keyframes stamp {
+    0%,26% { opacity: 0; transform: rotate(-14deg) scale(2.4); }
+    29% { opacity: .95; transform: rotate(-14deg) scale(.9); }
+    31%,68% { opacity: .92; transform: rotate(-14deg) scale(1); }
+    72%,100% { opacity: 0; transform: rotate(-14deg) scale(1); }
+  }
+  .cover { position: absolute; inset: 0; transform-origin: left center; transform-style: preserve-3d; animation: opencover 10s ease-in-out infinite; }
+  @keyframes opencover { 0%,12% { transform: rotateY(0deg); } 23%,70% { transform: rotateY(-168deg); } 81%,100% { transform: rotateY(0deg); } }
+  .face { position: absolute; inset: 0; border-radius: .4em 1.1em 1.1em .4em; backface-visibility: hidden; -webkit-backface-visibility: hidden; overflow: hidden; }
+  .front { display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 2em 1em 1.5em;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E"),
+      linear-gradient(145deg, #1d7259 0%, #0c3f34 55%, #05251f 100%);
+    box-shadow: inset 0 0 0 .14em rgba(0,0,0,.3), inset 1.1em 0 1.2em -.7em rgba(0,0,0,.55), inset -.3em -.3em .8em rgba(0,0,0,.35); }
+  .front::before { content: ""; position: absolute; inset: 1em; border: .12em solid rgba(242,179,61,.55); border-radius: .6em; pointer-events: none; }
+  .front::after { content: ""; position: absolute; top: -20%; bottom: -20%; width: 35%; left: -60%; transform: skewX(-18deg);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent); animation: glare 5s 1.5s ease-in-out infinite; }
+  @keyframes glare { 0% { left: -60%; } 30%,100% { left: 130%; } }
+  .foil { background: linear-gradient(110deg, #c98a12 0%, #ffeab0 22%, #f2b33d 45%, #b97b0c 62%, #ffeab0 82%, #c98a12 100%); background-size: 220% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent; animation: foil 4s linear infinite; font-weight: 800; text-align: center; line-height: 1.2;
+    filter: drop-shadow(0 .08em .05em rgba(0,0,0,.45)); }
+  @keyframes foil { from { background-position: 0% 0; } to { background-position: 220% 0; } }
+  .t-ar { font-family: "Noto Naskh Arabic", Tahoma, sans-serif; font-size: 2em; }
+  .t-en { font-family: Arial, sans-serif; font-size: 1.05em; letter-spacing: .28em; margin-top: -.6em; padding-left: .28em; }
+  .emb { width: 9.6em; height: auto; filter: drop-shadow(0 .1em .08em rgba(0,0,0,.5)); }
+  .chip { width: 2.6em; height: auto; }
+  .back { transform: rotateY(180deg); border-radius: 1.1em .4em .4em 1.1em;
+    background: repeating-radial-gradient(circle at 30% 70%, rgba(18,122,100,.09) 0 .12em, transparent .12em .7em), linear-gradient(200deg, #f7f0da, #e9dfbf);
+    box-shadow: inset -1em 0 1.2em -.7em rgba(0,0,0,.35); }
+  .shadow { position: absolute; left: -10em; top: 25.8em; width: 20em; height: 2.2em; border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,.42), transparent 70%); animation: shadow 5s ease-in-out infinite; }
+  @keyframes shadow { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(.85); opacity: .65; } }
+  .spk { position: absolute; color: #ffe7a3; font-size: 1.6em; animation: twinkle2 2.6s ease-in-out infinite; text-shadow: 0 0 10px rgba(255,231,163,.8); }
+  @keyframes twinkle2 { 0%,100% { opacity: .2; transform: scale(.6) rotate(0deg); } 50% { opacity: 1; transform: scale(1.15) rotate(45deg); } }
+  .hero-art { max-width: none; }
+  @media (prefers-reduced-motion: reduce) { .particles { display: none; } }
 </style>
 </head>
 <body>
@@ -302,6 +369,7 @@
 </header>
 
 <div class="hero">
+  <div class="particles" aria-hidden="true"><i style="--x:6%;--t:9s;--d:0s;--z:5px"></i><i style="--x:15%;--t:12s;--d:3s;--z:4px"></i><i style="--x:24%;--t:10s;--d:6s;--z:6px"></i><i style="--x:33%;--t:13s;--d:1.5s;--z:4px"></i><i style="--x:45%;--t:11s;--d:4.5s;--z:5px"></i><i style="--x:55%;--t:9.5s;--d:2s;--z:4px"></i><i style="--x:64%;--t:12.5s;--d:7s;--z:6px"></i><i style="--x:72%;--t:10.5s;--d:0.5s;--z:4px"></i><i style="--x:81%;--t:13.5s;--d:5s;--z:5px"></i><i style="--x:90%;--t:11.5s;--d:2.5s;--z:4px"></i><i style="--x:96%;--t:9s;--d:8s;--z:5px"></i><i style="--x:39%;--t:14s;--d:9s;--z:3px"></i></div>
   <div class="wrap hero-grid">
    <div class="hero-text">
     <h1 data-t="hero_title"></h1>
@@ -314,18 +382,14 @@
       <a class="btn btn-ghost" href="#prices" data-t="btn_prices"></a>
     </div>
    </div>
-   <div class="hero-art">
-      <svg class="hero-svg" viewBox="0 0 360 330" role="img" aria-label="Afghan passport illustration">
-        <defs>
-          <linearGradient id="cov" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#17644f"/><stop offset="1" stop-color="#05251f"/></linearGradient>
-          <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe7a3"/><stop offset=".55" stop-color="#f2b33d"/><stop offset="1" stop-color="#c98a12"/></linearGradient>
-          <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".38"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
-          <clipPath id="clipCov"><rect x="110" y="70" width="150" height="210" rx="12"/></clipPath>
-        </defs>
-        <path id="route" d="M28 262 C 40 70, 300 20, 334 190" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2.5" stroke-dasharray="5 8" stroke-linecap="round"/>
-        <circle cx="28" cy="262" r="8" fill="#f2b33d"/><circle cx="28" cy="262" r="3" fill="#0b4439"/>
-        <text x="28" y="292" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Arial, sans-serif">DUBAI</text>
-        <g transform="translate(334 190)">
+   <div class="hero-art" dir="ltr" aria-hidden="true">
+    <div class="stage">
+      <svg class="route" viewBox="0 0 340 310">
+        <path id="route" d="M22 268 C 10 70, 280 -10, 316 140" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2.5" stroke-dasharray="5 8" stroke-linecap="round"/>
+        <circle cx="22" cy="268" r="8" fill="#f2b33d"/><circle cx="22" cy="268" r="3" fill="#0b4439"/>
+        <circle cx="22" cy="268" r="8" fill="none" stroke="#f2b33d" stroke-width="2"><animate attributeName="r" values="8;20" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="2s" repeatCount="indefinite"/></circle>
+        <text x="22" y="298" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Arial, sans-serif">DUBAI</text>
+        <g transform="translate(316 140)">
           <path d="M0 -26 C-12 -26 -18 -17 -18 -10 C-18 2 0 14 0 14 C0 14 18 2 18 -10 C18 -17 12 -26 0 -26Z" fill="#1fa855" stroke="#fff" stroke-width="2"/>
           <path d="M-7 -8 L0 -15 L7 -8 L7 0 L-7 0Z" fill="#fff"/><rect x="-2" y="-5" width="4" height="5" fill="#1fa855"/>
         </g>
@@ -333,35 +397,39 @@
           <path d="M-13 -2.2 L9 -2.2 Q14 -2 15 0 Q14 2 9 2.2 L-13 2.2Z M-1 -2 L-9 -13 L-4.5 -13 L6 -2Z M-1 2 L-9 13 L-4.5 13 L6 2Z M-11 -2 L-15 -8 L-12 -8 L-7 -2Z M-11 2 L-15 8 L-12 8 L-7 2Z" fill="#fff"/>
           <animateMotion dur="6s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion>
         </g>
-        <g class="pp">
-          <ellipse cx="190" cy="300" rx="70" ry="9" fill="#000" opacity=".22"/>
-          <rect x="116" y="76" width="150" height="210" rx="12" fill="#e9e1c8"/>
-          <rect x="113" y="73" width="150" height="210" rx="12" fill="#f6f0dc"/>
-          <rect x="110" y="70" width="150" height="210" rx="12" fill="url(#cov)"/>
-          <rect x="110" y="70" width="12" height="210" rx="6" fill="#000" opacity=".2"/>
-          <rect x="124" y="84" width="122" height="182" rx="7" fill="none" stroke="url(#gold)" stroke-width="1.4" opacity=".85"/>
-          <text x="185" y="114" text-anchor="middle" fill="url(#gold)" font-size="18" font-weight="700" font-family="'Noto Naskh Arabic', Tahoma, sans-serif">افغانستان</text>
-          <text x="185" y="132" text-anchor="middle" fill="url(#gold)" font-size="10" font-weight="700" letter-spacing="2.6" font-family="Arial, sans-serif">AFGHANISTAN</text>
-          <g transform="translate(185 180)" fill="none" stroke="url(#gold)" stroke-width="2">
-            <circle r="29"/><ellipse rx="12" ry="29"/><ellipse rx="29" ry="10"/><path d="M-29 0 H29 M0 -29 V29"/>
-            <path d="M-38 16 Q-46 -10 -30 -34" stroke-width="2.4"/><path d="M38 16 Q46 -10 30 -34" stroke-width="2.4"/>
-            <path d="M-41 4 l-6 -3 M-42 -8 l-6 -4 M-38 -19 l-6 -5 M41 4 l6 -3 M42 -8 l6 -4 M38 -19 l6 -5" stroke-linecap="round"/>
-          </g>
-          <text x="185" y="236" text-anchor="middle" fill="url(#gold)" font-size="17" font-weight="700" font-family="'Noto Naskh Arabic', Tahoma, sans-serif">پاسپورت</text>
-          <text x="185" y="253" text-anchor="middle" fill="url(#gold)" font-size="10" font-weight="700" letter-spacing="3" font-family="Arial, sans-serif">PASSPORT</text>
-          <g transform="translate(185 266)" fill="none" stroke="url(#gold)" stroke-width="1.4">
-            <rect x="-11" y="-6.5" width="22" height="13" rx="2"/><circle r="3.6"/><path d="M-11 0 H-3.6 M3.6 0 H11"/>
-          </g>
-          <g clip-path="url(#clipCov)">
-            <polygon points="0,60 34,60 4,300 -30,300" fill="url(#shine)">
-              <animateTransform attributeName="transform" type="translate" values="60 0; 330 0; 330 0" keyTimes="0; .45; 1" dur="4.5s" repeatCount="indefinite"/>
-            </polygon>
-          </g>
-        </g>
-        <path class="spark" d="M300 60 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z" fill="#ffe7a3"/>
-        <path class="spark" d="M70 120 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2z" fill="#fff"/>
-        <path class="spark" d="M292 270 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5z" fill="#f2b33d"/>
       </svg>
+      <div class="floaty">
+        <div class="book">
+          <div class="page">
+            <div class="ph-head"><span>PASSPORT</span><span class="ar">پاسپورت</span><span>AFG</span></div>
+            <div class="ph-row">
+              <div class="photo"><svg viewBox="0 0 40 50"><circle cx="20" cy="18" r="9" fill="#9fb4ad"/><path d="M4 50 C4 34 36 34 36 50Z" fill="#9fb4ad"/></svg></div>
+              <div class="lines"><i style="width:90%"></i><i style="width:70%"></i><i style="width:80%"></i><i style="width:55%"></i><i style="width:75%"></i><i style="width:60%"></i></div>
+            </div>
+            <div class="mrz">P&lt;AFG&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</div>
+            <div class="stamp">✓ APPROVED<small>DUBAI ✈</small></div>
+          </div>
+          <div class="cover">
+            <div class="face front">
+              <div class="foil t-ar">افغانستان</div>
+              <div class="foil t-en">AFGHANISTAN</div>
+              <svg class="emb" viewBox="-50 -40 100 80"><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe7a3"/><stop offset=".55" stop-color="#f2b33d"/><stop offset="1" stop-color="#c98a12"/></linearGradient></defs>
+                <g fill="none" stroke="url(#g2)" stroke-width="2.2"><circle r="27"/><ellipse rx="11" ry="27"/><ellipse rx="27" ry="9"/><path d="M-27 0 H27 M0 -27 V27"/>
+                <path d="M-36 16 Q-44 -10 -28 -33" stroke-width="2.6"/><path d="M36 16 Q44 -10 28 -33" stroke-width="2.6"/>
+                <path d="M-39 4 l-6 -3 M-40 -8 l-6 -4 M-36 -19 l-6 -5 M39 4 l6 -3 M40 -8 l6 -4 M36 -19 l6 -5" stroke-linecap="round"/></g></svg>
+              <div class="foil t-ar">پاسپورت</div>
+              <div class="foil t-en">PASSPORT</div>
+              <svg class="chip" viewBox="-14 -9 28 18"><g fill="none" stroke="#f2b33d" stroke-width="1.6"><rect x="-12" y="-7" width="24" height="14" rx="2"/><circle r="4"/><path d="M-12 0 H-4 M4 0 H12"/></g></svg>
+            </div>
+            <div class="face back"></div>
+          </div>
+        </div>
+        <div class="shadow"></div>
+      </div>
+      <span class="spk" style="left:84%;top:6%">✦</span>
+      <span class="spk" style="left:8%;top:30%;animation-delay:.9s;font-size:1.2em">✦</span>
+      <span class="spk" style="left:80%;top:80%;animation-delay:1.7s">✦</span>
+    </div>
    </div>
   </div>
 </div>
