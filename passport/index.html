@@ -739,6 +739,16 @@
     border: 1.5px solid #fff; box-shadow: 0 8px 18px rgba(31,168,85,.15), inset 0 2px 0 #fff; }
   .s-tiles.no .s-tile { padding-top: 22px; }
   .s-tiles.no .s-tile::after { top: 4px; inset-inline-end: 4px; width: 22px; height: 22px; font-size: 12px; line-height: 22px; }
+
+  .s-price em { display: inline-block; font-style: normal; font-weight: 800; font-size: 13px; padding: 2px 10px; border-radius: 999px; margin-bottom: 4px; }
+  .s-price.std em { background: #e4ebff; color: #1f45d8; }
+  .s-price.urg em { background: #fdf0d2; color: #7a5406; }
+  .s-price b { font-size: 28px !important; }
+  .s-split { margin-top: 8px; padding-top: 8px; border-top: 1px dashed rgba(45,75,170,.25); display: grid; gap: 4px; }
+  .s-split div { display: flex; justify-content: space-between; align-items: center; gap: 4px; font-size: 13px; }
+  html[dir="rtl"] .s-split div { font-size: 14px; }
+  .s-split i { font-style: normal; font-weight: 700; color: #3c4870; text-align: start; }
+  .s-split strong { font-weight: 900; color: #0f1a3d; white-space: nowrap; font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
 </style>
 </head>
 <body>
@@ -889,10 +899,7 @@
     </div>
     <div class="s-block reveal">
       <h2 class="s-h" data-t="sim_price"></h2>
-      <div class="s-prices">
-        <div class="s-price"><span data-t="sim_p5"></span><b class="num" id="sP5"></b></div>
-        <div class="s-price"><span data-t="sim_p10"></span><b class="num" id="sP10"></b></div>
-      </div>
+      <div class="s-prices" id="sPrices"></div>
       <div class="s-plus" data-t="sim_plus"></div>
     </div>
     <div class="s-block reveal">
@@ -1301,6 +1308,7 @@
       sim_d3s: "Residence card, ID card, asylum or temporary attestation — any document that proves you live in this country",
       sim_d4s: "A normal phone photo — we make it professional", sim_d5s: "To receive the consulate's emails",
       sim_ask: "Not sure? Ask us on WhatsApp — we are happy to help 💬",
+      sim_first: "When you apply", sim_second: "After approval",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -1460,6 +1468,7 @@
       sim_d3s: "کارت اقامت، کارت هویت، تصدیق پناهندگی یا اقامت موقت — هر سندی که نشان دهد در این کشور زندگی می‌کنید",
       sim_d4s: "عکس عادی با تلفون — ما آن را حرفه‌ای می‌سازیم", sim_d5s: "برای دریافت ایمیل‌های قونسلگری",
       sim_ask: "مطمئن نیستید؟ در واتساپ از ما بپرسید — با خوشی کمک می‌کنیم 💬",
+      sim_first: "هنگام درخواست", sim_second: "بعد از منظوری",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -1619,6 +1628,7 @@
       sim_d3s: "د اقامت کارت، د هویت کارت، د پناه غوښتنې یا لنډمهاله اقامت تصدیق — هر سند چې ثابته کړي په دې هېواد کې اوسېږئ",
       sim_d4s: "د موبایل عادي عکس — موږ یې مسلکي کوو", sim_d5s: "د قونسلګرۍ د ایمیلونو د ترلاسه کولو لپاره",
       sim_ask: "ډاډه نه یاست؟ په واټساپ کې له موږ وپوښتئ — په خوښۍ مرسته کوو 💬",
+      sim_first: "د غوښتنې پر وخت", sim_second: "له منظورۍ وروسته",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
@@ -1757,8 +1767,12 @@
     $("revGrid").innerHTML = REVIEWS.map(function (r) {
       return '<div class="card rev reveal"><div class="stars">★★★★★</div><p>“' + (r.text[lang] || r.text.en) + '”</p><b>— ' + r.name + "</b></div>";
     }).join("");
-    $("sP5").textContent = "≈ €" + eTot(PASSPORTS[0]);
-    $("sP10").textContent = "≈ €" + eTot(PASSPORTS[1]);
+    $("sPrices").innerHTML = PASSPORTS.map(function (x) {
+      return '<div class="s-price ' + (x.urgent ? "urg" : "std") + '"><em>' + (x.urgent ? "⚡ " + d.urgent : "🕐 " + d.standard) + "</em>" +
+        "<span>" + (x.years === 5 ? d.sim_p5 : d.sim_p10) + '</span><b class="num">≈ €' + eTot(x) + "</b>" +
+        '<div class="s-split"><div><i>1️⃣ ' + d.sim_first + '</i><strong class="num">≈ €' + eur(x.init) + "</strong></div>" +
+        "<div><i>2️⃣ " + d.sim_second + '</i><strong class="num">≈ €' + eur(x.rem) + "</strong></div></div></div>";
+    }).join("");
     $("simAsk").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
     $("simWa").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
     $("barWa").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
