@@ -749,6 +749,64 @@
   html[dir="rtl"] .s-split div { font-size: 14px; }
   .s-split i { font-style: normal; font-weight: 700; color: #3c4870; text-align: start; }
   .s-split strong { font-weight: 900; color: #0f1a3d; white-space: nowrap; font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+
+  /* ===================== Clear glass pill buttons (site-wide) ===================== */
+  :root {
+    --g-rim: inset 0 1.5px 0 rgba(255,255,255,.95), inset 0 -3px 6px rgba(110,130,175,.16), 0 0 0 1px rgba(135,150,185,.32),
+             0 4px 0 -1px rgba(185,197,220,.55), 0 10px 22px rgba(45,65,120,.15);
+    --g-rim-press: inset 0 2px 6px rgba(80,100,150,.22), 0 0 0 1px rgba(135,150,185,.35), 0 2px 6px rgba(45,65,120,.12);
+    --g-clear: linear-gradient(180deg, rgba(255,255,255,.88) 0%, rgba(255,255,255,.42) 55%, rgba(232,238,250,.62) 100%);
+    --g-blue: linear-gradient(180deg, rgba(178,203,245,.92) 0%, rgba(120,160,228,.7) 55%, rgba(140,174,235,.82) 100%);
+    --g-green: linear-gradient(180deg, rgba(172,236,196,.94) 0%, rgba(86,196,130,.72) 55%, rgba(110,210,150,.84) 100%);
+  }
+  .btn, .langs button, .menu-btn, .stepper button, .picker button, .s-more, .s-ask, .fab, .opt,
+  input[type=text], input[type=tel], input[type=email], select {
+    -webkit-backdrop-filter: blur(12px) saturate(1.5) !important; backdrop-filter: blur(12px) saturate(1.5) !important; }
+
+  /* Clear glass ("Cancel") */
+  .btn-ghost, .s-more, .menu-btn, .stepper button, .picker button {
+    background: var(--g-clear) !important; color: #14203f !important; border: 2px solid rgba(255,255,255,.9) !important; box-shadow: var(--g-rim) !important; }
+  /* Blue glass ("Continue") */
+  .btn-amber, .picker button:hover, .picker button:focus {
+    background: var(--g-blue) !important; color: #0f1a3d !important; border: 2px solid rgba(255,255,255,.78) !important; box-shadow: var(--g-rim) !important; }
+  /* Green glass (WhatsApp) */
+  .btn-wa, .menu a.wa-link, .fab {
+    background: var(--g-green) !important; color: #0b3d1f !important; border: 2px solid rgba(255,255,255,.78) !important; box-shadow: var(--g-rim) !important; }
+  .btn-wa svg path, .fab svg path { fill: #0d5a2e !important; }
+  .btn-wa:disabled { background: var(--g-clear) !important; color: #8a94ad !important; }
+  .btn, .s-more, .s-ask { border-radius: 999px !important; font-weight: 800; text-shadow: 0 1px 0 rgba(255,255,255,.55); }
+  .btn::after { display: none !important; }
+  .btn-amber::before { background: rgba(255,255,255,.55) !important; color: #1f45d8; box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(135,150,185,.3) !important; }
+  .btn:active, .s-more:active, .s-ask:active, .menu-btn:active, .stepper button:active, .picker button:active, .langs button:active {
+    transform: translateY(2px) scale(.98) !important; box-shadow: var(--g-rim-press) !important; }
+  .fab::after { border-color: rgba(86,196,130,.6); }
+  .menu-btn { border-radius: 999px !important; width: 48px; }
+  .stepper button { border-radius: 999px !important; }
+  .picker button { border-radius: 999px !important; }
+
+  /* Language switch = segmented glass ("Today | Week") */
+  .langs { background: var(--g-clear) !important; border: 2px solid rgba(255,255,255,.9); box-shadow: var(--g-rim) !important; padding: 3px !important; gap: 0 !important; }
+  .langs button { color: #14203f !important; border-radius: 999px !important; position: relative; }
+  .langs button + button::before { content: ""; position: absolute; inset-inline-start: 0; top: 25%; bottom: 25%; width: 1.5px; background: rgba(47,107,255,.45); border-radius: 2px; }
+  .langs button[aria-pressed="true"] { background: var(--g-blue) !important; color: #0f1a3d !important; box-shadow: inset 0 1.5px 0 rgba(255,255,255,.9), 0 0 0 1px rgba(135,150,185,.3), 0 4px 10px rgba(45,65,120,.15) !important; }
+  .langs button[aria-pressed="true"]::before, .langs button[aria-pressed="true"] + button::before { display: none; }
+
+  /* Menu links */
+  .menu a { border-radius: 999px; }
+  .menu a.wa-link { border-radius: 999px !important; }
+
+  /* "Ask us" link as green glass pill */
+  .s-ask { background: linear-gradient(180deg, rgba(214,245,225,.95), rgba(160,225,185,.6)) !important; border: 2px solid rgba(255,255,255,.85) !important; box-shadow: var(--g-rim) !important; color: #0b5a2c !important; }
+
+  /* Form fields = "Search" glass bar */
+  input[type=text], input[type=tel], input[type=email], select {
+    border-radius: 999px !important; padding-inline: 20px !important; background: var(--g-clear) !important; border: 2px solid rgba(255,255,255,.9) !important;
+    box-shadow: inset 0 2px 5px rgba(110,130,175,.18), 0 0 0 1px rgba(135,150,185,.3), 0 4px 0 -1px rgba(185,197,220,.45) !important; }
+  input:focus, select:focus { outline: none !important; box-shadow: inset 0 2px 5px rgba(110,130,175,.18), 0 0 0 2px rgba(47,107,255,.55), 0 0 0 6px rgba(47,107,255,.15) !important; }
+  .opt { border-radius: 22px !important; background: var(--g-clear) !important; border: 2px solid rgba(255,255,255,.9) !important; box-shadow: var(--g-rim) !important; }
+  .opt:has(input:checked) { background: var(--g-blue) !important; box-shadow: inset 0 1.5px 0 #fff, 0 0 0 1.5px rgba(47,107,255,.55), 0 8px 18px rgba(45,65,120,.15) !important; }
+  .opt:has(input:checked) .sub { color: #1b2a55; }
+  .hero, .shine { overflow: clip; }
 </style>
 </head>
 <body>
