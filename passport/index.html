@@ -912,6 +912,27 @@
   .particles i { background: #c9cfdb !important; box-shadow: 0 0 8px 2px rgba(255,255,255,.7) !important; }
   .particles i:nth-child(odd) { background: #f0c75e !important; }
   .route #route { stroke: rgba(110,120,145,.45) !important; }
+
+  /* ===== "Your helper" card ===== */
+  .me-wrap { position: relative; z-index: 2; margin-top: 4px; margin-bottom: 18px; }
+  .me-card { display: grid; grid-template-columns: auto 1fr; gap: 14px 16px; align-items: center; padding: 18px 18px 16px; border-radius: 30px;
+    background: var(--clear-bg); box-shadow: var(--clear-rim); -webkit-backdrop-filter: blur(10px) saturate(1.3); backdrop-filter: blur(10px) saturate(1.3); }
+  .me-photo { position: relative; width: 104px; height: 104px; flex: none; }
+  .me-photo::before { content: ""; position: absolute; inset: -5px; border-radius: 50%;
+    background: conic-gradient(from 0deg, #f6dc8f, #b07d0f, #fff6d2, #d9a52a, #8f6408, #f6dc8f); animation: ringSpin 6s linear infinite; }
+  .me-photo img { position: relative; display: block; width: 104px; height: 104px; border-radius: 50%; object-fit: cover; border: 3px solid #fff; }
+  .me-ok { position: absolute; right: -2px; bottom: 2px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--frost-green); color: #0c3a1f; font-weight: 900; font-size: 16px; box-shadow: var(--frost-rim); border: 2px solid #fff; }
+  .me-name { font: 900 24px/1.1 "Montserrat", -apple-system, "Segoe UI", Arial, sans-serif; color: #111; letter-spacing: .5px; }
+  .me-role { font-size: 14px; font-weight: 700; color: #b0261a; margin-top: 4px; }
+  html[dir="rtl"] .me-role { font-size: 15px; }
+  .me-line { margin: 8px 0 0; font-size: 16px; line-height: 1.55; color: #1b2233; font-weight: 600; }
+  .me-only { grid-column: 1 / -1; text-align: center; font-size: 14.5px; font-weight: 700; color: #4c5468; }
+  .me-only a { color: #11182b; font-weight: 900; text-decoration: none; }
+  .me-wa { grid-column: 1 / -1; width: 100%; min-height: 54px; font-size: 18px; }
+  @media (max-width: 420px) { .me-photo, .me-photo img { width: 88px; height: 88px; } .me-name { font-size: 22px; } .me-line { font-size: 15px; } }
+  .nb { white-space: nowrap; }
+  .me-wa { white-space: nowrap; font-size: 17px !important; padding-inline: 12px; }
 </style>
 </head>
 <body>
@@ -1029,6 +1050,18 @@
   </div>
 </div>
 
+<div class="wrap me-wrap">
+  <div class="me-card" id="me">
+    <div class="me-photo"><img src="alakhil.jpg" alt="ALAKHIL" width="120" height="120"><span class="me-ok">✓</span></div>
+    <div class="me-txt">
+      <div class="me-name">ALAKHIL</div>
+      <div class="me-role" data-t="me_role"></div>
+      <p class="me-line" data-t="me_line"></p>
+    </div>
+    <div class="me-only"><span data-t="me_only"></span> <a class="num" href="tel:+33605654592">+33 6 05 65 45 92</a></div>
+    <a class="btn btn-wa me-wa" id="meWa" href="https://wa.me/33605654592" target="_blank" rel="noopener"><span>💬</span> <span data-t="me_wa"></span></a>
+  </div>
+</div>
 <div class="notice"><div class="wrap" data-t="not_consulate"></div></div>
 
 <main class="wrap">
@@ -1472,6 +1505,9 @@
       sim_d4s: "A normal phone photo — we make it professional", sim_d5s: "To receive the consulate's emails",
       sim_ask: "Not sure? Ask us on WhatsApp — we are happy to help 💬",
       sim_first: "When you apply", sim_second: "After approval",
+      me_role: "Your helper · <bdi class=\"nb\">ALAKHIL MOBILE</bdi>, Paris",
+      me_line: "I personally check your documents and help you until your passport arrives.",
+      me_only: "⚠️ Only contact us at:", me_wa: "Message me on WhatsApp",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -1632,6 +1668,9 @@
       sim_d4s: "عکس عادی با تلفون — ما آن را حرفه‌ای می‌سازیم", sim_d5s: "برای دریافت ایمیل‌های قونسلگری",
       sim_ask: "مطمئن نیستید؟ در واتساپ از ما بپرسید — با خوشی کمک می‌کنیم 💬",
       sim_first: "هنگام درخواست", sim_second: "بعد از منظوری",
+      me_role: "کمک‌کنندهٔ شما · <bdi class=\"nb\">ALAKHIL MOBILE</bdi>، پاریس",
+      me_line: "من خودم اسناد شما را بررسی می‌کنم و تا رسیدن پاسپورت با شما هستم.",
+      me_only: "⚠️ فقط از طریق این شماره با ما تماس بگیرید:", me_wa: "در واتساپ به من پیام بدهید",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -1792,6 +1831,9 @@
       sim_d4s: "د موبایل عادي عکس — موږ یې مسلکي کوو", sim_d5s: "د قونسلګرۍ د ایمیلونو د ترلاسه کولو لپاره",
       sim_ask: "ډاډه نه یاست؟ په واټساپ کې له موږ وپوښتئ — په خوښۍ مرسته کوو 💬",
       sim_first: "د غوښتنې پر وخت", sim_second: "له منظورۍ وروسته",
+      me_role: "ستاسو مرستندوی · <bdi class=\"nb\">ALAKHIL MOBILE</bdi>، پاریس",
+      me_line: "زه پخپله ستاسو اسناد ګورم او د پاسپورټ تر رسېدو پورې ستاسو سره یم.",
+      me_only: "⚠️ یوازې په دې شمېره له موږ سره اړیکه ونیسئ:", me_wa: "په واټساپ کې ما ته پیغام راکړئ",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
@@ -1937,6 +1979,7 @@
         "<div><i>2️⃣ " + d.sim_second + '</i><strong class="num">≈ €' + eur(x.rem) + "</strong></div></div></div>";
     }).join("");
     $("simAsk").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
+    $("meWa").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
     $("simWa").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
     $("barWa").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
     $("revBtn").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.rev_msg);
