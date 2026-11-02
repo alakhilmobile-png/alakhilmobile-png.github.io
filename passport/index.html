@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="site-version" content="34">
+<meta name="site-version" content="35">
 <title>ALAKHIL MOBILE — Afghan Passport Online</title>
 <meta name="description" content="Help for Afghans in Europe (except Germany), the UK, the USA, Canada and Australia to apply online for a new Afghan passport through the Afghan Consulate General in Dubai. English · دری · پښتو">
 <meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
@@ -942,6 +942,32 @@
     background: var(--frost-green); box-shadow: var(--frost-rim); }
   .s-steps .s-step:last-child small { color: #1f45d8 !important; font-size: 18px !important; }
   footer .ver { opacity: .45; font-size: 12px; margin-top: 14px; }
+
+  /* ===== Quick check ===== */
+  #quizBlock { scroll-margin-top: 84px; }
+  .qz-intro { text-align: center; margin: -8px 0 12px; color: #4c5468; font-weight: 600; }
+  .qz { padding: 16px 14px; border-radius: 28px; background: var(--clear-bg); box-shadow: var(--clear-rim);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  .qz-dots { display: flex; justify-content: center; gap: 6px; margin-bottom: 12px; }
+  .qz-dots i { width: 9px; height: 9px; border-radius: 50%; background: rgba(120,132,160,.25); }
+  .qz-dots i.on { background: #2fb36a; } .qz-dots i.cur { background: #4f7fe0; width: 22px; border-radius: 6px; }
+  .qz-q { text-align: center; font-weight: 900; font-size: 21px; line-height: 1.4; color: #11182b; margin-bottom: 14px; }
+  .qz-q small { display: block; font-size: 14.5px; font-weight: 600; color: #4c5468; margin-top: 6px; }
+  .qz-opts { display: grid; gap: 10px; }
+  .qz-opt { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 60px; padding: 10px 18px; border: 0; border-radius: 999px; cursor: pointer;
+    font: inherit; font-size: 17px; font-weight: 800; color: #11182b; text-align: start;
+    background: var(--frost-white); box-shadow: var(--clear-rim); transition: transform .15s ease; -webkit-tap-highlight-color: transparent; }
+  .qz-opt:active { transform: scale(.97); box-shadow: var(--clear-press); }
+  .qz-e { font-size: 26px; line-height: 1; flex: none; letter-spacing: -2px; }
+  .qz-res { text-align: center; padding: 6px 4px; animation: popIn .5s cubic-bezier(.2,1.5,.4,1) both; }
+  .qz-big { font-size: 54px; line-height: 1.1; }
+  .qz-res b { display: block; font-size: 22px; margin: 6px 0; }
+  .qz-res.ok b { color: #167a43; } .qz-res.no b { color: #b3261e; }
+  .qz-res p { margin: 6px 0; font-size: 16.5px; font-weight: 600; line-height: 1.55; color: #1b2233; }
+  .qz-note { background: rgba(255,240,200,.6); border-radius: 16px; padding: 8px 12px; }
+  .qz-wa { width: 100%; min-height: 56px; margin-top: 12px; font-size: 18px; }
+  .qz-nav { display: flex; justify-content: space-between; margin-top: 12px; }
+  .qz-link { border: 0; background: none; font: inherit; font-weight: 800; color: #2a4f9e; padding: 6px 4px; cursor: pointer; }
 </style>
 </head>
 <body>
@@ -1093,6 +1119,11 @@
 <main class="wrap">
   <!-- ===== SIMPLE VIEW (default) ===== -->
   <section id="simple">
+    <div class="s-block" id="quizBlock">
+      <h2 class="s-h" data-t="qz_title"></h2>
+      <p class="qz-intro" data-t="qz_intro"></p>
+      <div class="qz" id="quiz" aria-live="polite"></div>
+    </div>
     <div class="s-block reveal">
       <h2 class="s-h" data-t="sim_steps"></h2>
       <div class="s-steps">
@@ -1395,7 +1426,7 @@
     <p data-t="disclaimer"></p>
     <p data-t="privacy"></p>
     <p data-t="prices_note"></p>
-    <p class="ver">v34</p>
+    <p class="ver">v35</p>
   </div>
 </footer>
 
@@ -1552,6 +1583,27 @@
       sim_i3: "Complete application", sim_i3s: "Filled in and submitted for you",
       sim_i4: "With you until the end", sim_i4s: "Until the passport is at your home",
       sim_studio: "📷 A photo studio alone costs €8–9 — with us it's included",
+      qz_title: "Can I apply?", qz_intro: "Quick check — tap your answers (30 seconds)",
+      q_live: "Where do you live?", o_live_ok: "UK, USA, Canada, Australia or Europe", o_live_de: "Germany", o_live_other: "Another country",
+      q_who: "Who is the passport for?", o_adult: "Me (adult, 18+)", o_child: "My child (under 18)",
+      q_pass: "Your old Afghan passport?", o_pass_exp: "Expired, or less than 1 year left", o_pass_lost: "Lost — I have a photo or copy",
+      o_pass_valid: "Still more than 1 year left", o_pass_never: "I never had one",
+      q_taz: "Do you have a Tazkira? (paper or electronic)",
+      q_res: "Do you have a document that proves you live in your country?", q_res_s: "Residence card, ID card, visa, asylum or temporary attestation",
+      q_par: "Do the father AND mother both have an Afghan passport and Tazkira?",
+      q_birth: "Do you have the child's birth certificate and the parents' marriage certificate?",
+      o_yes: "Yes", o_no: "No",
+      r_ok: "Yes — you can apply! 🎉", r_ok_s: "Send photos of your documents to us on WhatsApp.",
+      n_police: "🚓 You also need a police report of the lost passport from your country.",
+      r_no: "Sorry — not possible",
+      x_de: "People living in Germany must go to the Afghan Embassy in Germany.",
+      x_other: "The Dubai consulate only accepts people living in the UK, USA, Canada, Australia or Europe (not Germany).",
+      x_valid: "Your passport is still valid. The consulate only accepts it when it is expired or has less than 1 year left.",
+      x_never: "Without a previous Afghan passport, the Dubai consulate does not accept the application.",
+      x_taz: "A Tazkira is required.", x_res: "A document that proves you live in your country is required.",
+      x_par: "Both father and mother must have an Afghan passport and Tazkira.", x_birth: "The birth certificate and the marriage certificate are required.",
+      qz_send: "Send documents on WhatsApp", qz_ask: "Not sure? Ask us on WhatsApp", qz_again: "↻ Start again", qz_back: "← Back",
+      qz_msg: "Quick check: I can apply.",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -1722,6 +1774,27 @@
       sim_i3: "فورم کامل درخواست", sim_i3s: "برای شما پُر و ثبت می‌کنیم",
       sim_i4: "تا آخر با شما هستیم", sim_i4s: "تا رسیدن پاسپورت به خانهٔ شما",
       sim_studio: "📷 فقط عکس در عکاسخانه ۸ تا ۹ یورو است — نزد ما شامل است",
+      qz_title: "آیا می‌توانم درخواست بدهم؟", qz_intro: "بررسی سریع — روی جواب‌ها بزنید (۳۰ ثانیه)",
+      q_live: "در کجا زندگی می‌کنید؟", o_live_ok: "بریتانیا، امریکا، کانادا، آسترالیا یا اروپا", o_live_de: "آلمان", o_live_other: "کشور دیگر",
+      q_who: "پاسپورت برای کیست؟", o_adult: "برای خودم (بزرگسال، ۱۸+)", o_child: "برای طفلم (زیر ۱۸)",
+      q_pass: "پاسپورت قبلی افغانی شما؟", o_pass_exp: "تاریخش ختم شده، یا کمتر از ۱ سال مانده", o_pass_lost: "گم شده — عکس یا کاپی آن را دارم",
+      o_pass_valid: "هنوز بیشتر از ۱ سال اعتبار دارد", o_pass_never: "هرگز پاسپورت نداشته‌ام",
+      q_taz: "آیا تذکره دارید؟ (کاغذی یا الکترونیکی)",
+      q_res: "آیا سندی دارید که نشان دهد در این کشور زندگی می‌کنید؟", q_res_s: "کارت اقامت، کارت هویت، ویزه، تصدیق پناهندگی یا اقامت موقت",
+      q_par: "آیا پدر و مادر هر دو پاسپورت و تذکرهٔ افغانی دارند؟",
+      q_birth: "آیا سند تولد طفل و نکاح‌خط والدین را دارید؟",
+      o_yes: "بلی", o_no: "نخیر",
+      r_ok: "بلی — می‌توانید درخواست بدهید! 🎉", r_ok_s: "عکس اسناد خود را در واتساپ برای ما بفرستید.",
+      n_police: "🚓 گزارش پولیس کشور میزبان دربارهٔ گم شدن پاسپورت هم لازم است.",
+      r_no: "متأسفیم — ممکن نیست",
+      x_de: "کسانی که در آلمان زندگی می‌کنند باید به سفارت افغانستان در آلمان مراجعه کنند.",
+      x_other: "قونسلگری دبی فقط مقیمان بریتانیا، امریکا، کانادا، آسترالیا یا اروپا (به جز آلمان) را می‌پذیرد.",
+      x_valid: "پاسپورت شما هنوز اعتبار دارد. قونسلگری فقط وقتی می‌پذیرد که تاریخش ختم شده یا کمتر از ۱ سال مانده باشد.",
+      x_never: "بدون پاسپورت قبلی افغانی، قونسلگری دبی درخواست را نمی‌پذیرد.",
+      x_taz: "تذکره لازم است.", x_res: "سندی که نشان دهد در این کشور زندگی می‌کنید لازم است.",
+      x_par: "پدر و مادر هر دو باید پاسپورت و تذکرهٔ افغانی داشته باشند.", x_birth: "سند تولد و نکاح‌خط لازم است.",
+      qz_send: "ارسال اسناد در واتساپ", qz_ask: "مطمئن نیستید؟ در واتساپ بپرسید", qz_again: "↻ دوباره", qz_back: "برگشت →",
+      qz_msg: "بررسی سریع: می‌توانم درخواست بدهم.",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -1892,6 +1965,27 @@
       sim_i3: "بشپړ غوښتنلیک", sim_i3s: "ستاسو لپاره یې ډکوو او ثبتوو",
       sim_i4: "تر پایه ستاسو سره یو", sim_i4s: "تر هغه چې پاسپورټ کور ته ورسیږي",
       sim_studio: "📷 یوازې عکس په سټوډیو کې ۸ تر ۹ یورو دی — زموږ سره شامل دی",
+      qz_title: "ایا زه غوښتنه کولی شم؟", qz_intro: "چټکه کتنه — په ځوابونو کلیک وکړئ (۳۰ ثانیې)",
+      q_live: "چېرته اوسېږئ؟", o_live_ok: "بریتانیا، امریکا، کاناډا، آسټرالیا یا اروپا", o_live_de: "آلمان", o_live_other: "بل هېواد",
+      q_who: "پاسپورټ د چا لپاره دی؟", o_adult: "زما لپاره (لوی، ۱۸+)", o_child: "زما د ماشوم لپاره (له ۱۸ کم)",
+      q_pass: "ستاسو پخوانی افغاني پاسپورټ؟", o_pass_exp: "نېټه یې پوره شوې، یا له ۱ کال کم پاتې", o_pass_lost: "ورک شوی — عکس یا کاپي یې لرم",
+      o_pass_valid: "لا هم له ۱ کال زیات اعتبار لري", o_pass_never: "هېڅکله مې پاسپورټ نه دی لرلی",
+      q_taz: "ایا تذکره لرئ؟ (کاغذي یا برېښنايي)",
+      q_res: "ایا داسې سند لرئ چې ثابته کړي په دې هېواد کې اوسېږئ؟", q_res_s: "د اقامت کارت، د هویت کارت، ویزه، د پناه یا لنډمهاله اقامت تصدیق",
+      q_par: "ایا پلار او مور دواړه افغاني پاسپورټ او تذکره لري؟",
+      q_birth: "ایا د ماشوم د زېږېدو سند او د مور او پلار نکاح خط لرئ؟",
+      o_yes: "هو", o_no: "نه",
+      r_ok: "هو — تاسو غوښتنه کولی شئ! 🎉", r_ok_s: "د خپلو اسنادو عکسونه موږ ته په واټساپ کې ولېږئ.",
+      n_police: "🚓 د کوربه هېواد د پولیسو راپور هم پکار دی چې پاسپورټ ورک شوی.",
+      r_no: "بښنه غواړو — ممکنه نه ده",
+      x_de: "څوک چې په آلمان کې اوسېږي باید په آلمان کې د افغانستان سفارت ته ورشي.",
+      x_other: "د دوبۍ قونسلګري یوازې د بریتانیا، امریکا، کاناډا، آسټرالیا یا اروپا (پرته له آلمان) اوسېدونکي مني.",
+      x_valid: "ستاسو پاسپورټ لا اعتبار لري. قونسلګري یوازې هغه وخت مني چې نېټه یې پوره وي یا له ۱ کال کم پاتې وي.",
+      x_never: "له پخواني افغاني پاسپورټ پرته د دوبۍ قونسلګري غوښتنلیک نه مني.",
+      x_taz: "تذکره اړینه ده.", x_res: "داسې سند اړین دی چې ثابته کړي په دې هېواد کې اوسېږئ.",
+      x_par: "پلار او مور دواړه باید افغاني پاسپورټ او تذکره ولري.", x_birth: "د زېږېدو سند او نکاح خط اړین دي.",
+      qz_send: "اسناد په واټساپ کې ولېږئ", qz_ask: "ډاډه نه یاست؟ په واټساپ کې وپوښتئ", qz_again: "↻ بیا پیل", qz_back: "شاته →",
+      qz_msg: "چټکه کتنه: زه غوښتنه کولی شم.",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
@@ -2037,6 +2131,7 @@
         "<div><i>2️⃣ " + d.sim_second + '</i><strong class="num">≈ €' + eur(x.rem) + "</strong></div></div></div>";
     }).join("");
     $("simAsk").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
+    renderQuiz();
     $("meWa").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
     $("simWa").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
     $("barWa").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
@@ -2200,6 +2295,66 @@
     if (navigator.share) { navigator.share({ title: "ALAKHIL MOBILE — Afghan Passport", text: t("share_msg"), url: url }).catch(function () {}); return; }
     if (navigator.clipboard) { navigator.clipboard.writeText(url).then(done, function () { prompt("", url); }); }
     else { prompt("", url); }
+  });
+
+
+  // ===== "Can I apply?" quick check =====
+  var QUIZ = {
+    live:    { q: "q_live", opts: [["🇬🇧🇺🇸🇨🇦🇦🇺🇪🇺", "o_live_ok", "who"], ["🇩🇪", "o_live_de", "x_de"], ["🌍", "o_live_other", "x_other"]] },
+    who:     { q: "q_who", opts: [["🧑", "o_adult", "pass"], ["👶", "o_child", "parents"]] },
+    pass:    { q: "q_pass", opts: [["📘", "o_pass_exp", "taz"], ["🚓", "o_pass_lost", "taz", "n_police"], ["⏳", "o_pass_valid", "x_valid"], ["🚫", "o_pass_never", "x_never"]] },
+    taz:     { q: "q_taz", opts: [["✅", "o_yes", "res"], ["❌", "o_no", "x_taz"]] },
+    res:     { q: "q_res", sub: "q_res_s", opts: [["✅", "o_yes", "ok"], ["❌", "o_no", "x_res"]] },
+    parents: { q: "q_par", opts: [["✅", "o_yes", "birth"], ["❌", "o_no", "x_par"]] },
+    birth:   { q: "q_birth", opts: [["✅", "o_yes", "ok"], ["❌", "o_no", "x_birth"]] }
+  };
+  var qPath = []; // [[node, optionIndex], ...]
+  function qNode() {
+    var node = "live";
+    qPath.forEach(function (st) { node = QUIZ[st[0]].opts[st[1]][2]; });
+    return node;
+  }
+  function renderQuiz() {
+    var box = $("quiz"); if (!box) return;
+    var node = qNode(), html = "";
+    var steps = qPath.length;
+    html += '<div class="qz-dots">' + [0, 1, 2, 3, 4].map(function (i) { return '<i class="' + (i < steps ? "on" : i === steps && QUIZ[node] ? "cur" : "") + '"></i>'; }).join("") + "</div>";
+    if (QUIZ[node]) {
+      var n = QUIZ[node];
+      html += '<div class="qz-q">' + t(n.q) + (n.sub ? '<small>' + t(n.sub) + "</small>" : "") + "</div>";
+      html += '<div class="qz-opts">' + n.opts.map(function (o, i) {
+        return '<button type="button" class="qz-opt" data-i="' + i + '"><span class="qz-e">' + o[0] + "</span><span>" + t(o[1]) + "</span></button>";
+      }).join("") + "</div>";
+    } else {
+      var notes = qPath.map(function (st) { return QUIZ[st[0]].opts[st[1]][3]; }).filter(Boolean);
+      if (node === "ok") {
+        html += '<div class="qz-res ok"><div class="qz-big">✅</div><b>' + t("r_ok") + "</b><p>" + t("r_ok_s") + "</p>" +
+          notes.map(function (k) { return '<p class="qz-note">' + t(k) + "</p>"; }).join("") +
+          '<a class="btn btn-wa qz-wa" id="qzWa" target="_blank" rel="noopener" href="#"><span>💬</span> <span>' + t("qz_send") + "</span></a></div>";
+      } else {
+        html += '<div class="qz-res no"><div class="qz-big">❌</div><b>' + t("r_no") + "</b><p>" + t(node) + "</p>" +
+          '<a class="btn btn-ghost qz-wa" id="qzWa" target="_blank" rel="noopener" href="#"><span>💬</span> <span>' + t("qz_ask") + "</span></a></div>";
+      }
+    }
+    html += '<div class="qz-nav">' + (steps ? '<button type="button" class="qz-link" id="qzBack">' + t("qz_back") + "</button>" : "<span></span>") +
+      (steps ? '<button type="button" class="qz-link" id="qzAgain">' + t("qz_again") + "</button>" : "") + "</div>";
+    box.innerHTML = html;
+    var wa = $("qzWa");
+    if (wa) {
+      var lines = [t("m_hello"), "", (node === "ok" ? "✅ " + t("qz_msg") : "❓ " + t("r_no") + " — " + t(node)), ""];
+      qPath.forEach(function (st) { var n = QUIZ[st[0]]; lines.push("• " + t(n.q).replace(/<[^>]+>/g, "") + " → " + t(n.opts[st[1]][1])); });
+      wa.href = "https://wa.me/33605654592?text=" + encodeURIComponent(lines.join("\n"));
+    }
+  }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".qz-opt, #qzBack, #qzAgain");
+    if (!b || !$("quiz").contains(b)) return;
+    if (b.id === "qzBack") qPath.pop();
+    else if (b.id === "qzAgain") qPath = [];
+    else qPath.push([qNode(), +b.getAttribute("data-i")]);
+    renderQuiz();
+    var top = $("quizBlock").getBoundingClientRect().top;
+    if (top < 70 || top > window.innerHeight * 0.5) $("quizBlock").scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
   // Simple view <-> full details
