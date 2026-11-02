@@ -728,6 +728,17 @@
   .s-more { background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.45)); border: 1.5px solid #fff;
     box-shadow: 0 10px 22px rgba(45,75,170,.15), inset 0 2px 0 #fff, inset 0 -6px 12px rgba(110,140,230,.14); }
   .s-tiles.no .s-tile::after { top: 6px; inset-inline-end: 6px; }
+
+  .s-note { display: block; margin-top: 4px; font-size: 13.5px; line-height: 1.45; font-weight: 600; color: #3c4870; }
+  html[dir="rtl"] .s-note { font-size: 14.5px; }
+  .s-tile.wide .s-note { margin-top: 2px; }
+  .s-tile.wide { text-align: start; }
+  .s-step b u { text-decoration-color: #c9971f; text-decoration-thickness: 3px; text-underline-offset: 4px; }
+  .s-ask { display: block; margin-top: 14px; text-align: center; font-weight: 800; font-size: 16px; color: #167a43; text-decoration: none;
+    padding: 12px 14px; border-radius: 18px; background: linear-gradient(165deg, rgba(225,245,233,.95), rgba(255,255,255,.6));
+    border: 1.5px solid #fff; box-shadow: 0 8px 18px rgba(31,168,85,.15), inset 0 2px 0 #fff; }
+  .s-tiles.no .s-tile { padding-top: 22px; }
+  .s-tiles.no .s-tile::after { top: 4px; inset-inline-end: 4px; width: 22px; height: 22px; font-size: 12px; line-height: 22px; }
 </style>
 </head>
 <body>
@@ -863,11 +874,11 @@
     <div class="s-block reveal">
       <h2 class="s-h" data-t="sim_send"></h2>
       <div class="s-tiles">
-        <div class="s-tile"><span class="s-ico">📘</span><b data-t="sim_d1"></b></div>
-        <div class="s-tile"><span class="s-ico">🪪</span><b data-t="sim_d2"></b></div>
-        <div class="s-tile"><span class="s-ico">🏠</span><b data-t="sim_d3"></b></div>
-        <div class="s-tile"><span class="s-ico">🤳</span><b data-t="sim_d4"></b></div>
-        <div class="s-tile wide"><span class="s-ico">📞</span><b data-t="sim_d5"></b></div>
+        <div class="s-tile"><span class="s-ico">📘</span><b data-t="sim_d1"></b><small class="s-note" data-t="sim_d1s"></small></div>
+        <div class="s-tile"><span class="s-ico">🪪</span><b data-t="sim_d2"></b><small class="s-note" data-t="sim_d2s"></small></div>
+        <div class="s-tile"><span class="s-ico">🏠</span><b data-t="sim_d3"></b><small class="s-note" data-t="sim_d3s"></small></div>
+        <div class="s-tile"><span class="s-ico">🤳</span><b data-t="sim_d4"></b><small class="s-note" data-t="sim_d4s"></small></div>
+        <div class="s-tile wide"><span class="s-ico">📞</span><span><b data-t="sim_d5"></b><small class="s-note" data-t="sim_d5s"></small></span></div>
       </div>
       <div class="s-sub" data-t="sim_child"></div>
       <div class="s-tiles three">
@@ -891,6 +902,7 @@
         <div class="s-tile"><span class="s-ico">🚫</span><b data-t="sim_n2"></b></div>
         <div class="s-tile"><span class="s-ico">🌍</span><b data-t="sim_n3"></b></div>
       </div>
+      <a class="s-ask" id="simAsk" href="https://wa.me/33605654592" target="_blank" rel="noopener" data-t="sim_ask"></a>
     </div>
     <div class="s-actions">
       <a class="btn btn-wa s-big" id="simWa" href="https://wa.me/33605654592" target="_blank" rel="noopener"><span>💬</span> <span>WhatsApp</span></a>
@@ -1209,7 +1221,7 @@
       docs: [
         "Your previous Afghan <b>electronic (biometric) passport</b> — scan, photo or copy. It must be <b>expired</b> or have <b>less than 1 year</b> validity.",
         "Your <b>Afghan Tazkira</b> — paper or electronic (e-Tazkira).",
-        "Proof that you live in your host country: <b>residence permit</b>, <b>visa</b> or <b>residence attestation</b>.",
+        "Proof that you live in your host country: <b>residence card</b>, <b>ID card</b>, <b>visa</b>, <b>asylum or temporary residence attestation</b> — any document that proves you live there.",
         "One <b>face photo</b> — a normal photo taken with your phone is fine. We make it into a professional passport photo for you.",
         "Your <b>phone number</b> and <b>email address</b>."
       ],
@@ -1278,13 +1290,17 @@
       fact1: "⏱ 2–4 weeks", fact2: "🏠 Home delivery", fact3: "💶 €50 all inclusive",
       bar_apply: "Send documents",
       sim_steps: "3 easy steps",
-      sim_s1: "Send photos of your documents on WhatsApp", sim_s2: "Pay our €50", sim_s3: "Your passport comes to your home", sim_s3b: "2–4 weeks",
+      sim_s1: "Send photos of <u>these documents</u> on WhatsApp ⬇", sim_s2: "Pay our €50", sim_s3: "Your passport comes to your home", sim_s3b: "2–4 weeks",
       sim_send: "What to send?",
-      sim_d1: "Old Afghan passport", sim_d2: "Tazkira", sim_d3: "Residence card", sim_d4: "Face photo (phone)", sim_d5: "Phone number + email",
+      sim_d1: "Old Afghan passport", sim_d2: "Tazkira", sim_d3: "Proof you live here", sim_d4: "Face photo (phone)", sim_d5: "Phone number + email",
       sim_child: "For a child:", sim_c1: "Birth certificate", sim_c2: "Parents' passports + Tazkira", sim_c3: "Marriage certificate",
       sim_price: "Price", sim_p5: "5 years", sim_p10: "10 years", sim_plus: "+ €50 our service — everything included",
       sim_no: "Not possible", sim_n1: "Living in Germany", sim_n2: "Never had an Afghan passport", sim_n3: "Other countries",
       sim_call: "Call", sim_more: "📖 Read all details", sim_back: "✨ Back to simple view",
+      sim_d1s: "Expired, or less than 1 year left", sim_d2s: "Paper or electronic",
+      sim_d3s: "Residence card, ID card, asylum or temporary attestation — any document that proves you live in this country",
+      sim_d4s: "A normal phone photo — we make it professional", sim_d5s: "To receive the consulate's emails",
+      sim_ask: "Not sure? Ask us on WhatsApp — we are happy to help 💬",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -1303,7 +1319,7 @@
       grp_adult: "Adult", grp_child: "Child",
       d_pass: "Previous Afghan electronic passport (expired or less than 1 year validity)",
       d_taz: "Afghan Tazkira (paper or electronic)",
-      d_res: "Residence permit / visa / residence attestation",
+      d_res: "Proof you live here: residence card / ID / visa / asylum or temporary attestation",
       d_photo: "Face photo (a normal phone photo is fine)",
       d_police: "Police report of the lost passport (from your host country)",
       d_etaz: "e-Tazkira OR English Tazkira translation attested by the Ministry of Foreign Affairs — same details as residence permit",
@@ -1364,7 +1380,7 @@
       docs: [
         "<b>پاسپورت الکترونیکی (بایومتریک)</b> قبلی افغانی — اسکن، عکس یا کاپی. باید <b>تاریخ آن ختم شده باشد</b> یا <b>کمتر از یک سال</b> اعتبار داشته باشد.",
         "<b>تذکرهٔ افغانی</b> — کاغذی یا الکترونیکی.",
-        "سند زندگی در کشور میزبان: <b>کارت اقامت</b>، <b>ویزه</b> یا <b>تصدیق سکونت</b>.",
+        "سند زندگی در کشور میزبان: <b>کارت اقامت</b>، <b>کارت هویت</b>، <b>ویزه</b>، <b>تصدیق پناهندگی یا اقامت موقت</b> — هر سندی که نشان دهد آنجا زندگی می‌کنید.",
         "یک قطعه <b>عکس چهره</b> — عکس عادی که با تلفون گرفته‌اید کافی است. ما آن را برای شما به عکس پاسپورتی حرفه‌ای تبدیل می‌کنیم.",
         "<b>شمارهٔ تلفون</b> و <b>آدرس ایمیل</b> شما."
       ],
@@ -1433,13 +1449,17 @@
       fact1: "⏱ ۲ تا ۴ هفته", fact2: "🏠 تحویل در خانه", fact3: "💶 ۵۰ یورو، همه‌چیز شامل",
       bar_apply: "ارسال اسناد",
       sim_steps: "۳ قدم ساده",
-      sim_s1: "عکس اسناد خود را در واتساپ بفرستید", sim_s2: "۵۰ یوروی ما را بپردازید", sim_s3: "پاسپورت شما به خانه می‌آید", sim_s3b: "۲ تا ۴ هفته",
+      sim_s1: "عکس <u>این اسناد</u> را در واتساپ بفرستید ⬇", sim_s2: "۵۰ یوروی ما را بپردازید", sim_s3: "پاسپورت شما به خانه می‌آید", sim_s3b: "۲ تا ۴ هفته",
       sim_send: "چه چیزی بفرستید؟",
-      sim_d1: "پاسپورت قبلی افغانی", sim_d2: "تذکره", sim_d3: "کارت اقامت", sim_d4: "عکس چهره (با تلفون)", sim_d5: "شمارهٔ تلفون + ایمیل",
+      sim_d1: "پاسپورت قبلی افغانی", sim_d2: "تذکره", sim_d3: "سند اقامت در این کشور", sim_d4: "عکس چهره (با تلفون)", sim_d5: "شمارهٔ تلفون + ایمیل",
       sim_child: "برای طفل:", sim_c1: "سند تولد", sim_c2: "پاسپورت و تذکرهٔ پدر و مادر", sim_c3: "نکاح‌خط",
       sim_price: "قیمت", sim_p5: "۵ ساله", sim_p10: "۱۰ ساله", sim_plus: "+ ۵۰ یورو خدمات ما — همه‌چیز شامل",
       sim_no: "ممکن نیست", sim_n1: "زندگی در آلمان", sim_n2: "هرگز پاسپورت افغانی نداشته‌اید", sim_n3: "کشورهای دیگر",
       sim_call: "زنگ", sim_more: "📖 همهٔ معلومات را بخوانید", sim_back: "✨ برگشت به نمای ساده",
+      sim_d1s: "تاریخش ختم شده، یا کمتر از ۱ سال مانده", sim_d2s: "کاغذی یا الکترونیکی",
+      sim_d3s: "کارت اقامت، کارت هویت، تصدیق پناهندگی یا اقامت موقت — هر سندی که نشان دهد در این کشور زندگی می‌کنید",
+      sim_d4s: "عکس عادی با تلفون — ما آن را حرفه‌ای می‌سازیم", sim_d5s: "برای دریافت ایمیل‌های قونسلگری",
+      sim_ask: "مطمئن نیستید؟ در واتساپ از ما بپرسید — با خوشی کمک می‌کنیم 💬",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -1458,7 +1478,7 @@
       grp_adult: "بزرگسال", grp_child: "طفل",
       d_pass: "پاسپورت الکترونیکی قبلی افغانی (ختم شده یا کمتر از یک سال اعتبار)",
       d_taz: "تذکرهٔ افغانی (کاغذی یا الکترونیکی)",
-      d_res: "کارت اقامت / ویزه / تصدیق سکونت",
+      d_res: "سند اقامت: کارت اقامت / کارت هویت / ویزه / تصدیق پناهندگی یا اقامت موقت",
       d_photo: "عکس چهره (عکس عادی با تلفون کافی است)",
       d_police: "گزارش پولیس دربارهٔ گم شدن پاسپورت (از کشور میزبان)",
       d_etaz: "تذکرهٔ الکترونیکی یا ترجمهٔ انگلیسی تذکرهٔ تصدیق‌شده از وزارت امور خارجه — با معلومات مانند کارت اقامت",
@@ -1519,7 +1539,7 @@
       docs: [
         "ستاسو پخوانی افغاني <b>برېښنايي (بایومتریک) پاسپورټ</b> — سکن، عکس یا کاپي. باید <b>نېټه یې پوره شوې وي</b> یا <b>له یو کال کم</b> اعتبار ولري.",
         "ستاسو <b>افغاني تذکره</b> — کاغذي یا برېښنايي.",
-        "په کوربه هېواد کې د اوسېدو سند: <b>د اقامت کارت</b>، <b>ویزه</b> یا <b>د اوسېدو تصدیق</b>.",
+        "په کوربه هېواد کې د اوسېدو سند: <b>د اقامت کارت</b>، <b>د هویت کارت</b>، <b>ویزه</b>، <b>د پناه غوښتنې یا لنډمهاله اقامت تصدیق</b> — هر سند چې ثابته کړي هلته اوسېږئ.",
         "یو <b>د مخ عکس</b> — هغه عادي عکس چې په موبایل مو اخیستی کافي دی. موږ یې ستاسو لپاره په مسلکي پاسپورټي عکس بدلوو.",
         "ستاسو <b>د تلیفون شمېره</b> او <b>د ایمیل پته</b>."
       ],
@@ -1588,13 +1608,17 @@
       fact1: "⏱ ۲ تر ۴ اونۍ", fact2: "🏠 کور ته رسول", fact3: "💶 ۵۰ یورو، هر څه شامل",
       bar_apply: "اسناد ولېږئ",
       sim_steps: "۳ اسانه ګامونه",
-      sim_s1: "د خپلو اسنادو عکسونه په واټساپ کې ولېږئ", sim_s2: "زموږ ۵۰ یورو ورکړئ", sim_s3: "ستاسو پاسپورټ کور ته درځي", sim_s3b: "۲ تر ۴ اونۍ",
+      sim_s1: "د <u>دې اسنادو</u> عکسونه په واټساپ کې ولېږئ ⬇", sim_s2: "زموږ ۵۰ یورو ورکړئ", sim_s3: "ستاسو پاسپورټ کور ته درځي", sim_s3b: "۲ تر ۴ اونۍ",
       sim_send: "څه ولېږئ؟",
-      sim_d1: "پخوانی افغاني پاسپورټ", sim_d2: "تذکره", sim_d3: "د اقامت کارت", sim_d4: "د مخ عکس (موبایل)", sim_d5: "د تلیفون شمېره + ایمیل",
+      sim_d1: "پخوانی افغاني پاسپورټ", sim_d2: "تذکره", sim_d3: "په دې هېواد کې د اوسېدو سند", sim_d4: "د مخ عکس (موبایل)", sim_d5: "د تلیفون شمېره + ایمیل",
       sim_child: "د ماشوم لپاره:", sim_c1: "د زېږېدو سند", sim_c2: "د مور او پلار پاسپورټ او تذکره", sim_c3: "نکاح خط",
       sim_price: "بیه", sim_p5: "۵ کلن", sim_p10: "۱۰ کلن", sim_plus: "+ زموږ د خدمت ۵۰ یورو — هر څه شامل",
       sim_no: "ممکنه نه ده", sim_n1: "په آلمان کې اوسېدل", sim_n2: "هېڅکله مو افغاني پاسپورټ نه دی لرلی", sim_n3: "نور هېوادونه",
       sim_call: "زنګ", sim_more: "📖 ټول معلومات ولولئ", sim_back: "✨ ساده بڼې ته ورګرځئ",
+      sim_d1s: "نېټه یې پوره شوې، یا له ۱ کال کم پاتې", sim_d2s: "کاغذي یا برېښنايي",
+      sim_d3s: "د اقامت کارت، د هویت کارت، د پناه غوښتنې یا لنډمهاله اقامت تصدیق — هر سند چې ثابته کړي په دې هېواد کې اوسېږئ",
+      sim_d4s: "د موبایل عادي عکس — موږ یې مسلکي کوو", sim_d5s: "د قونسلګرۍ د ایمیلونو د ترلاسه کولو لپاره",
+      sim_ask: "ډاډه نه یاست؟ په واټساپ کې له موږ وپوښتئ — په خوښۍ مرسته کوو 💬",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
@@ -1613,7 +1637,7 @@
       grp_adult: "لویان", grp_child: "ماشوم",
       d_pass: "پخوانی افغاني برېښنايي پاسپورټ (نېټه یې پوره یا له یو کال کم اعتبار)",
       d_taz: "افغاني تذکره (کاغذي یا برېښنايي)",
-      d_res: "د اقامت کارت / ویزه / د اوسېدو تصدیق",
+      d_res: "د اوسېدو سند: د اقامت کارت / د هویت کارت / ویزه / د پناه یا لنډمهاله اقامت تصدیق",
       d_photo: "د مخ عکس (د موبایل عادي عکس کافي دی)",
       d_police: "د پاسپورټ د ورکېدو په اړه د پولیسو راپور (له کوربه هېواد)",
       d_etaz: "برېښنايي تذکره یا د بهرنیو چارو وزارت لخوا تصدیق شوې د تذکرې انګلیسي ژباړه — د اقامت د کارت په شان معلومات",
@@ -1735,6 +1759,7 @@
     }).join("");
     $("sP5").textContent = "≈ €" + eTot(PASSPORTS[0]);
     $("sP10").textContent = "≈ €" + eTot(PASSPORTS[1]);
+    $("simAsk").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
     $("simWa").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
     $("barWa").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
     $("revBtn").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.rev_msg);
