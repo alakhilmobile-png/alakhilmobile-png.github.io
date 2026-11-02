@@ -163,6 +163,7 @@
   html[dir="rtl"] input[type=tel], html[dir="rtl"] input[type=email] { text-align: right; }
   .opts { display: grid; gap: 8px; }
   @media (min-width: 620px) { .opts.two { grid-template-columns: 1fr 1fr; } }
+  .field .opt { display: flex; margin-bottom: 0; font-weight: 600; }
   .opt { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border: 1.5px solid #c5d1cd; border-radius: 12px; background: #fff; cursor: pointer; }
   .opt:has(input:checked) { border-color: var(--green-2); background: var(--green-soft); }
   .opt input { width: 22px; height: 22px; margin: 3px 0 0; flex: none; accent-color: var(--green-2); }
@@ -244,7 +245,7 @@
     <div class="grid grid-3">
       <div class="card ok"><span class="tag ok" data-t="tag_yes"></span><div data-t="elig_yes"></div></div>
       <div class="card warn"><span class="tag warn" data-t="tag_de"></span><div data-t="elig_de"></div></div>
-      <div class="card no"><span class="tag no" data-t="tag_no"></span><div data-t="elig_no"></div></div>
+      <div class="card no"><span class="tag no" data-t="tag_no"></span><div data-t="elig_no"></div><div data-t="elig_no2" style="margin-top:8px"></div></div>
     </div>
   </section>
 
@@ -275,6 +276,10 @@
   <section id="cases">
     <h2 data-t="cases_title"></h2>
     <div class="grid">
+      <details class="case">
+        <summary data-t="case_first_t"></summary>
+        <div class="body"><div class="alert no" style="margin-top:0" data-t="case_first"></div></div>
+      </details>
       <details class="case">
         <summary data-t="case_lost_t"></summary>
         <div class="body"><p style="margin:0" data-t="case_lost"></p></div>
@@ -356,11 +361,13 @@
           <div class="field" style="margin-top:16px">
             <span class="lbl" data-t="f_situation"></span>
             <div class="opts">
+              <label class="opt" id="sitFirstOpt"><input type="checkbox" id="sitFirst"><span data-t="sit_first"></span></label>
               <label class="opt"><input type="checkbox" id="sitLost"><span data-t="sit_lost"></span></label>
               <label class="opt"><input type="checkbox" id="sitName"><span data-t="sit_name"></span></label>
             </div>
             <div class="alert warn hidden" id="lostAlert" data-t="case_lost"></div>
             <div class="alert warn hidden" id="nameAlert" data-t="case_name_short"></div>
+            <div class="alert no hidden" id="firstAlert" data-t="case_first"></div>
           </div>
 
           <div class="field" style="margin-top:16px">
@@ -496,6 +503,10 @@
         "The child's previous Afghan passport, if the child had one"
       ],
       case_child_no: "If one parent does not have an Afghan passport or a Tazkira, it is not possible.",
+      elig_no2: "Afghans who <b>never had an Afghan passport</b> (only a Tazkira): <b>not possible</b>.",
+      case_first_t: "Never had an Afghan passport (only a Tazkira)",
+      case_first: "If you have only a Tazkira (paper or electronic) and you <b>never had an Afghan passport</b> before, getting a passport through the Dubai consulate is <b>not possible</b>. You must have a previous Afghan electronic passport.",
+      sit_first: "I have never had an Afghan passport — I only have a Tazkira",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -602,6 +613,10 @@
         "پاسپورت قبلی افغانی طفل، اگر داشته باشد"
       ],
       case_child_no: "اگر یکی از والدین پاسپورت افغانی یا تذکره نداشته باشد، ممکن نیست.",
+      elig_no2: "افغان‌هایی که <b>هرگز پاسپورت افغانی نداشته‌اند</b> (فقط تذکره دارند): <b>ممکن نیست</b>.",
+      case_first_t: "هرگز پاسپورت افغانی نداشته‌اید (فقط تذکره)",
+      case_first: "اگر فقط تذکره (کاغذی یا الکترونیکی) دارید و <b>هرگز پاسپورت افغانی نداشته‌اید</b>، گرفتن پاسپورت از طریق قونسلگری دبی <b>ممکن نیست</b>. باید پاسپورت الکترونیکی قبلی افغانی داشته باشید.",
+      sit_first: "من هرگز پاسپورت افغانی نداشته‌ام — فقط تذکره دارم",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -708,6 +723,10 @@
         "د ماشوم پخوانی افغاني پاسپورټ، که یې درلود"
       ],
       case_child_no: "که له مور او پلار څخه یو یې افغاني پاسپورټ یا تذکره ونه لري، ممکنه نه ده.",
+      elig_no2: "هغه افغانان چې <b>هېڅکله یې افغاني پاسپورټ نه دی لرلی</b> (یوازې تذکره لري): <b>ممکنه نه ده</b>.",
+      case_first_t: "هېڅکله مو افغاني پاسپورټ نه دی لرلی (یوازې تذکره)",
+      case_first: "که یوازې تذکره (کاغذي یا برېښنايي) لرئ او <b>هېڅکله مو افغاني پاسپورټ نه دی لرلی</b>، د دوبۍ د قونسلګرۍ له لارې د پاسپورټ اخیستل <b>ممکنه نه ده</b>. تاسو باید پخوانی افغاني برېښنايي پاسپورټ ولرئ.",
+      sit_first: "ما هېڅکله افغاني پاسپورټ نه دی لرلی — یوازې تذکره لرم",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
@@ -834,6 +853,7 @@
     $("childAlert").classList.toggle("hidden", who === "adult");
   }
 
+  function whoNow() { return document.querySelector('input[name="for"]:checked').value; }
   var count = 1;
   function updateFee() {
     $("count").textContent = count;
@@ -867,9 +887,18 @@
   document.querySelectorAll('input[name="for"]').forEach(function (r) {
     r.addEventListener("change", function () {
       if (r.value === "family" && count < 2) count = 2;
-      updateFee(); renderDocs();
+      updateFee(); renderDocs(); updateFirst();
     });
   });
+  function updateFirst() {
+    var who = document.querySelector('input[name="for"]:checked').value;
+    if (who === "child") $("sitFirst").checked = false;
+    $("sitFirstOpt").classList.toggle("hidden", who === "child");
+    var on = $("sitFirst").checked;
+    $("firstAlert").classList.toggle("hidden", !on);
+    $("send").disabled = on && who === "adult";
+  }
+  $("sitFirst").addEventListener("change", updateFirst);
   $("sitLost").addEventListener("change", function () { $("lostAlert").classList.toggle("hidden", !this.checked); renderDocs(); });
   $("sitName").addEventListener("change", function () { $("nameAlert").classList.toggle("hidden", !this.checked); renderDocs(); });
   $("minus").addEventListener("click", function () { if (count > 1) { count--; updateFee(); } });
@@ -889,6 +918,7 @@
       return;
     }
     $("err").classList.remove("show");
+    if ($("sitFirst").checked && whoNow() === "adult") { $("firstAlert").scrollIntoView({ behavior: "smooth", block: "center" }); return; }
 
     var p = PASSPORTS.filter(function (x) { return x.id === ptype; })[0];
     var whoVal = document.querySelector('input[name="for"]:checked').value;
@@ -898,6 +928,7 @@
       (i.checked ? have : missing).push("• " + t(i.value));
     });
     var sit = [];
+    if ($("sitFirst").checked) sit.push(t("sit_first"));
     if ($("sitLost").checked) sit.push(t("sit_lost"));
     if ($("sitName").checked) sit.push(t("sit_name"));
 
