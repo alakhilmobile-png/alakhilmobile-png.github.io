@@ -681,6 +681,53 @@
   .back-simple { padding-top: 18px; }
   .back-simple .btn { width: 100%; min-height: 52px; }
   main section, #simple { scroll-margin-top: 84px; }
+
+  /* ===== Glass pop-up buttons (simple view + bottom bar) ===== */
+  .s-block { background: linear-gradient(160deg, rgba(255,255,255,.62), rgba(255,255,255,.32)); }
+  .s-step, .s-tile, .s-price {
+    position: relative; overflow: hidden; isolation: isolate;
+    background: linear-gradient(165deg, rgba(255,255,255,.82) 0%, rgba(255,255,255,.42) 55%, rgba(225,234,255,.5) 100%);
+    border: 1.5px solid rgba(255,255,255,.95);
+    -webkit-backdrop-filter: blur(10px) saturate(1.4); backdrop-filter: blur(10px) saturate(1.4);
+    box-shadow: 0 12px 26px rgba(45,75,170,.18), 0 3px 6px rgba(45,75,170,.08),
+                inset 0 2px 0 rgba(255,255,255,1), inset 0 -8px 16px rgba(110,140,230,.14);
+    transition: transform .18s ease, box-shadow .18s ease; -webkit-tap-highlight-color: transparent; }
+  .s-step::before, .s-tile::before, .s-price::before { content: ""; position: absolute; left: 4%; right: 4%; top: 2px; height: 46%; z-index: -1;
+    border-radius: 16px 16px 40% 40% / 16px 16px 18px 18px; pointer-events: none;
+    background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,0)); }
+  .s-step:active, .s-tile:active, .s-price:active { transform: scale(.96) translateY(2px); box-shadow: 0 4px 10px rgba(45,75,170,.15), inset 0 2px 0 #fff; }
+  @media (hover: hover) { .s-step:hover, .s-tile:hover, .s-price:hover { transform: translateY(-3px); box-shadow: 0 18px 34px rgba(45,75,170,.22), inset 0 2px 0 #fff, inset 0 -8px 16px rgba(110,140,230,.14); } }
+  .s-tiles.no .s-tile { background: linear-gradient(165deg, rgba(255,240,238,.9), rgba(255,225,222,.5)); border-color: rgba(255,255,255,.95); }
+  .s-tiles.no .s-tile::after { z-index: 2; }
+  .s-ico { filter: drop-shadow(0 4px 6px rgba(30,50,120,.25)); }
+  .s-num { box-shadow: 0 6px 12px rgba(37,84,230,.4), inset 0 2px 0 rgba(255,255,255,.5); }
+
+  /* Pop-up entrance, one after another */
+  .js .s-block.reveal { transform: none; }
+  .js .s-block.reveal .s-step, .js .s-block.reveal .s-tile, .js .s-block.reveal .s-price, .js .s-block.reveal .s-plus { opacity: 0; transform: scale(.6); }
+  .s-block.in .s-step, .s-block.in .s-tile, .s-block.in .s-price, .s-block.in .s-plus { animation: popIn .55s cubic-bezier(.2,1.5,.4,1) both; }
+  .s-block.in :is(.s-step, .s-tile, .s-price):nth-child(2) { animation-delay: .08s; }
+  .s-block.in :is(.s-step, .s-tile, .s-price):nth-child(3) { animation-delay: .16s; }
+  .s-block.in :is(.s-step, .s-tile, .s-price):nth-child(4) { animation-delay: .24s; }
+  .s-block.in :is(.s-step, .s-tile, .s-price):nth-child(5) { animation-delay: .32s; }
+  .s-block.in .s-plus { animation-delay: .3s; }
+  .s-steps .s-step:nth-of-type(2) { animation-delay: .25s !important; } .s-steps .s-step:nth-of-type(3) { animation-delay: .5s !important; }
+  @keyframes popIn { 0% { opacity: 0; transform: scale(.6); } 70% { opacity: 1; transform: scale(1.05); } 100% { opacity: 1; transform: scale(1); } }
+
+  /* Glass buttons: WhatsApp (green glass) and Call (blue glass) */
+  .cta-bar .btn, .s-actions .btn { position: relative; overflow: hidden; border: 1.5px solid rgba(255,255,255,.65);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: transform .15s ease; }
+  .cta-bar .btn-wa, .s-actions .btn-wa {
+    background: linear-gradient(180deg, rgba(255,255,255,.42) 0%, rgba(255,255,255,.1) 48%, rgba(255,255,255,0) 50%), linear-gradient(180deg, rgba(60,207,120,.88), rgba(21,138,69,.92));
+    box-shadow: 0 12px 26px rgba(31,168,85,.38), inset 0 2px 0 rgba(255,255,255,.6), inset 0 -4px 10px rgba(0,60,20,.25); }
+  .cta-bar .btn-amber, .s-actions .btn-amber {
+    background: linear-gradient(180deg, rgba(255,255,255,.42) 0%, rgba(255,255,255,.1) 48%, rgba(255,255,255,0) 50%), linear-gradient(180deg, rgba(90,143,255,.88), rgba(28,63,208,.92));
+    box-shadow: 0 12px 26px rgba(37,84,230,.38), inset 0 2px 0 rgba(255,255,255,.6), inset 0 -4px 10px rgba(0,10,60,.25); }
+  .cta-bar .btn:active, .s-actions .btn:active { transform: scale(.96) translateY(2px); }
+  .cta-bar { background: rgba(255,255,255,.55); -webkit-backdrop-filter: blur(20px) saturate(1.5); backdrop-filter: blur(20px) saturate(1.5); }
+  .s-more { background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.45)); border: 1.5px solid #fff;
+    box-shadow: 0 10px 22px rgba(45,75,170,.15), inset 0 2px 0 #fff, inset 0 -6px 12px rgba(110,140,230,.14); }
+  .s-tiles.no .s-tile::after { top: 6px; inset-inline-end: 6px; }
 </style>
 </head>
 <body>
