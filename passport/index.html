@@ -8,7 +8,7 @@
 <meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
 <meta property="og:description" content="New Afghan passport delivered to your address — documents, prices and delivery time. English · دری · پښتو">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0d5446">
+<meta name="theme-color" content="#eaf0fd">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d5446'/%3E%3Crect x='18' y='12' width='28' height='40' rx='4' fill='none' stroke='%23f2b33d' stroke-width='4'/%3E%3Ccircle cx='32' cy='28' r='7' fill='none' stroke='%23f2b33d' stroke-width='3'/%3E%3Cpath d='M24 43h16' stroke='%23f2b33d' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
   :root {
@@ -355,9 +355,119 @@
   .hero .chips { justify-content: center; animation-delay: 1.25s; }
   .hero p { animation-delay: 1.4s; }
   .hero .btns { animation-delay: 1.55s; }
+
+  /* ===================== Blue & white glass theme ===================== */
+  :root {
+    --green: #1f45d8; --green-2: #2f6bff; --green-soft: #e4ebff;
+    --ink: #0f1a3d; --muted: #5b6690; --line: rgba(255,255,255,.9);
+    --bg: #eaf0fd; --card: rgba(255,255,255,.58);
+    --glass-shadow: 0 10px 30px rgba(45,75,170,.13), 0 2px 6px rgba(45,75,170,.06), inset 0 1px 0 rgba(255,255,255,.95);
+    --neu-in: inset 4px 4px 10px rgba(150,168,215,.45), inset -4px -4px 10px rgba(255,255,255,.95);
+    --neu-out: 6px 6px 16px rgba(150,168,215,.45), -6px -6px 16px rgba(255,255,255,.95);
+    --blue-grad: linear-gradient(180deg, #5a8fff 0%, #2d62f2 50%, #1c3fd0 100%);
+  }
+  body { background: linear-gradient(170deg, #f3f6ff 0%, #e6edfd 45%, #dfe7fc 100%) fixed; color: var(--ink); }
+  .deco { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+  .deco i { position: absolute; border-radius: 50%; background: radial-gradient(circle at 32% 30%, #ffffff 0%, #eef3ff 45%, #dde6fc 100%);
+    box-shadow: 10px 12px 0 0 rgba(72,112,255,.18), 24px 30px 60px rgba(60,90,200,.12), inset -10px -10px 24px rgba(160,180,240,.2); opacity: .9; }
+  .deco i:nth-child(1) { width: 340px; height: 340px; top: -170px; left: -150px; }
+  .deco i:nth-child(2) { width: 170px; height: 170px; top: 22%; right: -80px; }
+  .deco i:nth-child(3) { width: 260px; height: 260px; bottom: -120px; left: -110px; }
+  .deco i:nth-child(4) { width: 300px; height: 300px; bottom: -150px; right: -120px; }
+  .deco i:nth-child(5) { width: 120px; height: 120px; top: 58%; left: -60px; }
+
+  /* Header */
+  header.top { background: rgba(255,255,255,.72); color: var(--ink); -webkit-backdrop-filter: blur(18px) saturate(1.4); backdrop-filter: blur(18px) saturate(1.4);
+    box-shadow: 0 6px 24px rgba(45,75,170,.12); border-bottom: 1px solid rgba(255,255,255,.9); }
+  header.top .brand { color: var(--ink); } header.top .brand span { color: var(--green-2); }
+  .langs { background: #e8eefc; box-shadow: var(--neu-in); }
+  .langs button { color: #3a4878; }
+  .langs button[aria-pressed="true"] { background: var(--blue-grad); color: #fff; box-shadow: 0 4px 12px rgba(37,84,230,.4), inset 0 1px 0 rgba(255,255,255,.45); }
+  .menu-btn { background: linear-gradient(145deg, #ffffff, #e7edfb); box-shadow: var(--neu-out); }
+  .menu-btn span { background: var(--ink); }
+  .menu { background: rgba(246,249,255,.985); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); box-shadow: 0 18px 30px rgba(45,75,170,.18); }
+  .menu a { color: var(--ink); }
+  .menu a:hover, .menu a:focus { background: rgba(47,107,255,.08); }
+  .menu .mi { background: linear-gradient(145deg, #ffffff, #e4ebfc); box-shadow: 3px 3px 8px rgba(150,168,215,.45), -3px -3px 8px #fff; }
+  .menu a.wa-link { background: linear-gradient(180deg, #34c46e, #1a9c4e); color: #fff; box-shadow: 0 8px 18px rgba(31,168,85,.35), inset 0 1px 0 rgba(255,255,255,.45); }
+
+  /* Hero */
+  .hero { background: transparent; color: var(--ink); }
+  .hero::before { background: radial-gradient(circle, rgba(90,140,255,.28), transparent 70%); }
+  .hero::after { background: radial-gradient(circle, rgba(255,255,255,.9), transparent 70%); }
+  .hero h1 { color: var(--ink); letter-spacing: -.01em; }
+  .hero p { color: #3c4870; opacity: 1; }
+  .bismillah { background-image: linear-gradient(110deg, #1c3fd0 0%, #6f9bff 22%, #2d62f2 45%, #14309e 62%, #7aa4ff 82%, #1c3fd0 100%); }
+  .orn { background: linear-gradient(90deg, transparent, #2f6bff); } .orn.r { background: linear-gradient(90deg, #2f6bff, transparent); }
+  .orn::after { color: #2f6bff; }
+  .welcome { background: rgba(255,255,255,.6); color: var(--ink); border: 1px solid rgba(255,255,255,.95); box-shadow: var(--glass-shadow);
+    animation: rise .8s .7s ease both; }
+  .chips li { background: rgba(255,255,255,.62); border: 1px solid rgba(255,255,255,.95); color: var(--ink); box-shadow: 0 6px 16px rgba(45,75,170,.1), inset 0 1px 0 #fff; }
+  .particles i { background: #7ea6ff; box-shadow: 0 0 10px 2px rgba(90,140,255,.5); }
+  .spk { color: #4f80ff; text-shadow: 0 0 10px rgba(79,128,255,.6); }
+  .route #route { stroke: rgba(47,107,255,.5); }
+  .route text { fill: #1f2d5a; }
+  .route > g:last-of-type path { fill: #2f6bff; }
+  .route > g[transform] > path:first-child { fill: #2f6bff; }
+  .route > g[transform] > rect { fill: #2f6bff; }
+  .shadow { background: radial-gradient(ellipse at center, rgba(30,50,120,.32), transparent 70%); }
+
+  /* Buttons: glossy 3D glass */
+  .btn { border-radius: 18px; }
+  .btn-amber { background: var(--blue-grad); color: #fff; border: 1px solid rgba(255,255,255,.35);
+    box-shadow: 0 12px 26px rgba(37,84,230,.42), inset 0 1px 0 rgba(255,255,255,.55), inset 0 -4px 8px rgba(0,10,60,.25); }
+  .btn-amber::before { content: "→"; order: 2; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 900;
+    background: rgba(255,255,255,.22); box-shadow: inset 0 1px 0 rgba(255,255,255,.5); margin-inline-start: 6px; }
+  html[dir="rtl"] .btn-amber::before { content: "←"; }
+  .btn-ghost { background: rgba(255,255,255,.6); color: #1f45d8; border: 1px solid rgba(255,255,255,.95);
+    box-shadow: var(--glass-shadow); }
+  .btn-wa { background: linear-gradient(180deg, #3ccf78 0%, #1fa855 55%, #158a45 100%); border: 1px solid rgba(255,255,255,.35);
+    box-shadow: 0 12px 26px rgba(31,168,85,.38), inset 0 1px 0 rgba(255,255,255,.5), inset 0 -4px 8px rgba(0,40,10,.22); border-radius: 18px; }
+  .btn-wa:disabled { background: #b9c4dc; box-shadow: none; }
+  .fab { background: linear-gradient(180deg, #3ccf78, #158a45); box-shadow: 0 10px 24px rgba(31,168,85,.45), inset 0 1px 0 rgba(255,255,255,.5); }
+
+  /* Notice + trust + cards */
+  .notice { background: rgba(255,255,255,.6); border-bottom: 1px solid rgba(255,255,255,.9); color: #24315e; }
+  .card, ol.steps li, details.case, .trust li {
+    background: linear-gradient(160deg, rgba(255,255,255,.86), rgba(255,255,255,.62)); border: 1px solid rgba(255,255,255,.95); box-shadow: var(--glass-shadow); border-radius: 22px; }
+  @media (hover: hover) { .card:hover, ol.steps li:hover { box-shadow: 0 18px 40px rgba(45,75,170,.18), inset 0 1px 0 #fff; } }
+  h2 { color: var(--ink); }
+  .h-ico, .li-ico { background: linear-gradient(145deg, #ffffff, #e2e9fb); box-shadow: 4px 4px 10px rgba(150,168,215,.45), -4px -4px 10px #fff; }
+  ol.steps li::before { background: var(--blue-grad); box-shadow: 0 6px 14px rgba(37,84,230,.35), inset 0 1px 0 rgba(255,255,255,.5); }
+  ol.steps li.you::before { background: linear-gradient(180deg, #7fb0ff, #3d74ff); color: #fff; }
+  .tag.ok { background: #e1f5e9; color: #167a43; }
+  .elig .ok { border-inline-start: 6px solid #2fb36a; }
+  .price-card.std .kind { background: #e4ebff; color: #1f45d8; }
+  .total { color: #1f45d8; }
+  .time { background: rgba(234,240,253,.9); box-shadow: var(--neu-in); }
+  .fee-box { background: linear-gradient(150deg, #4b82ff 0%, #2d62f2 45%, #1a37b8 100%); box-shadow: 0 16px 36px rgba(37,84,230,.35), inset 0 1px 0 rgba(255,255,255,.4); border-radius: 22px; }
+  .fee-box strong { color: #fff; text-decoration: underline; text-decoration-color: rgba(255,255,255,.5); }
+  .fee-box .small { color: #e3eaff; }
+  ul.check li::before { background-color: #e4ebff; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.2 4.2L19 7' fill='none' stroke='%232f6bff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+  details.case summary::after { color: #2f6bff; }
+  .doc-group-title { color: #1f45d8; }
+
+  /* Form: soft 3D fields */
+  input[type=text], input[type=tel], input[type=email], select, input[type=number] {
+    background: #edf2fd; border: 1px solid rgba(255,255,255,.9); border-radius: 16px; box-shadow: var(--neu-in); }
+  input:focus, select:focus { outline: 3px solid rgba(47,107,255,.25); border-color: #2f6bff; }
+  .opt { background: rgba(255,255,255,.65); border: 1px solid rgba(255,255,255,.95); border-radius: 16px; box-shadow: 0 6px 16px rgba(45,75,170,.08), inset 0 1px 0 #fff; }
+  .opt:has(input:checked) { background: rgba(228,235,255,.9); border-color: #2f6bff; box-shadow: 0 0 0 2px rgba(47,107,255,.25), 0 8px 18px rgba(45,75,170,.12); }
+  .opt input { accent-color: #2f6bff; }
+  .stepper button { background: linear-gradient(145deg, #ffffff, #e5ecfb); border: 1px solid rgba(255,255,255,.95); border-radius: 16px; box-shadow: var(--neu-out); color: #1f45d8; }
+
+  /* Picker + footer */
+  .picker { background: rgba(225,233,252,.75); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
+  .picker .box { background: rgba(255,255,255,.8); border: 1px solid #fff; box-shadow: 0 24px 60px rgba(45,75,170,.25), inset 0 1px 0 #fff; border-radius: 28px; }
+  .picker .brand { color: var(--ink); } .picker .brand span { color: #2f6bff; }
+  .picker button { border: 1px solid rgba(255,255,255,.95); background: linear-gradient(145deg, #ffffff, #e8eefc); color: #1f45d8; border-radius: 18px; box-shadow: var(--neu-out); }
+  .picker button:hover, .picker button:focus { background: var(--blue-grad); color: #fff; box-shadow: 0 10px 22px rgba(37,84,230,.4), inset 0 1px 0 rgba(255,255,255,.5); }
+  footer { background: linear-gradient(160deg, #13205a 0%, #0c1640 100%); color: #c9d4f5; }
+  footer .brand span { color: #7ea6ff !important; }
 </style>
 </head>
 <body>
+<div class="deco" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
 
 <!-- Language picker (first visit) -->
 <div class="picker hidden" id="picker" role="dialog" aria-modal="true" aria-label="Choose language">
