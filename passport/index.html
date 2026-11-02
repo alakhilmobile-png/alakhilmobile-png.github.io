@@ -464,6 +464,20 @@
   .picker button:hover, .picker button:focus { background: var(--blue-grad); color: #fff; box-shadow: 0 10px 22px rgba(37,84,230,.4), inset 0 1px 0 rgba(255,255,255,.5); }
   footer { background: linear-gradient(160deg, #13205a 0%, #0c1640 100%); color: #c9d4f5; }
   footer .brand span { color: #7ea6ff !important; }
+
+  /* What's included */
+  .inc { position: relative; }
+  .inc h3 { margin: 10px 0 4px; color: var(--ink); }
+  .inc p { margin: 0; color: #3c4870; }
+  .inc-ico { width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center; font-size: 28px;
+    background: linear-gradient(145deg, #ffffff, #e2e9fb); box-shadow: 5px 5px 12px rgba(150,168,215,.45), -5px -5px 12px #fff; }
+  #incGrid .inc:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .studio { margin-top: 12px; background: linear-gradient(150deg, rgba(225,245,233,.95), rgba(255,255,255,.7)) !important; }
+  .studio-row { display: flex; gap: 12px; align-items: center; font-weight: 800; color: #14532d; }
+  .studio-ico { font-size: 30px; flex: none; }
+  .hours { margin-top: 12px; }
+  .hours .btns .btn { flex: 1; white-space: nowrap; }
+  .btn-amber.no-arrow::before { display: none; }
 </style>
 </head>
 <body>
@@ -495,6 +509,7 @@
       <li><a href="#who"><span class="mi">🌍</span><span data-t="nav_who"></span></a></li>
       <li><a href="#steps"><span class="mi">🧭</span><span data-t="nav_steps"></span></a></li>
       <li><a href="#prices"><span class="mi">💶</span><span data-t="nav_prices"></span></a></li>
+      <li><a href="#included"><span class="mi">🎁</span><span data-t="nav_inc"></span></a></li>
       <li><a href="#docs"><span class="mi">📋</span><span data-t="nav_docs"></span></a></li>
       <li><a href="#cases"><span class="mi">⚠️</span><span data-t="nav_cases"></span></a></li>
       <li><a href="#apply" class="wa-link"><span class="mi">💬</span><span data-t="nav_apply"></span></a></li>
@@ -607,6 +622,23 @@
       <p class="small" style="margin:8px 0 0" data-t="fee_rules"></p>
     </div>
     <p class="small" data-t="prices_note"></p>
+  </section>
+
+  <!-- What the €50 includes -->
+  <section id="included">
+    <h2><span class="h-ico">🎁</span><span data-t="inc_title"></span></h2>
+    <p style="margin-top:-6px" data-t="inc_intro"></p>
+    <div class="grid grid-2" id="incGrid"></div>
+    <div class="card studio reveal">
+      <div class="studio-row"><span class="studio-ico">📷</span><span data-t="inc_studio"></span></div>
+    </div>
+    <div class="card hours reveal">
+      <p style="margin:0 0 12px;font-weight:700" data-t="inc_hours"></p>
+      <div class="btns">
+        <a class="btn btn-amber no-arrow" href="tel:+33605654592"><span>📞</span> <span data-t="inc_call"></span></a>
+        <a class="btn btn-wa" style="width:auto;flex:1;font-size:17px;min-height:50px" href="https://wa.me/33605654592" target="_blank" rel="noopener"><span>💬</span> <span data-t="inc_wa"></span></a>
+      </div>
+    </div>
   </section>
 
   <!-- Documents -->
@@ -812,7 +844,7 @@
       rem_label: "Remaining fee (after approval, includes $55 ≈ €50 delivery)",
       time_std: "⏱ Processing: 4–8 weeks + delivery time",
       time_urg: "⏱ Processing: up to 15 working days + delivery time",
-      fee_box: "<strong>+ Our service fee: €50 per passport</strong> — adult or child. Example: 2 children = €100.",
+      fee_box: "<strong>+ Our service fee: €50 per passport</strong> — adult or child. Example: 2 children = €100. <a href=\"#included\" style=\"color:#fff;font-weight:800\">See what is included ↓</a>",
       fee_rules: "You pay our fee by bank transfer, only after we have checked your documents. You have 30 days to pay each consulate fee — if you don't pay in time, the application is closed and you must apply again. The consulate's initial fee is non-refundable.",
       prices_note: "Consulate fees are in US dollars and you pay them yourself, directly to the consulate, by bank card. Prices are from the consulate website (November 2026) and the consulate can change them. Euro amounts are approximate (1 $ ≈ 0.90 €): the consulate charges in US dollars and your bank converts it, so the amount on your bank statement can be a little different.",
       docs_title: "Required documents (adult)",
@@ -820,7 +852,7 @@
         "Your previous Afghan <b>electronic (biometric) passport</b> — scan, photo or copy. It must be <b>expired</b> or have <b>less than 1 year</b> validity.",
         "Your <b>Afghan Tazkira</b> — paper or electronic (e-Tazkira).",
         "Proof that you live in your host country: <b>residence permit</b>, <b>visa</b> or <b>residence attestation</b>.",
-        "One <b>passport-size face photo</b> — recent, in colour, plain white background.",
+        "One <b>face photo</b> — a normal photo taken with your phone is fine. We make it into a professional passport photo for you.",
         "Your <b>phone number</b> and <b>email address</b>."
       ],
       cases_title: "Special cases — please read",
@@ -841,7 +873,7 @@
         "Afghan <b>passport of the father and of the mother</b> (copy or scan)",
         "Afghan <b>Tazkira of the father and of the mother</b>",
         "The parents' <b>marriage certificate</b> (Nikah Khat)",
-        "The child's <b>passport photo</b> (white background)",
+        "The child's <b>face photo</b> (a normal phone photo is fine)",
         "The child's <b>residence permit or visa</b>",
         "The child's previous Afghan passport, if the child had one"
       ],
@@ -853,6 +885,19 @@
       menu: "Menu", nav_who: "Who can apply", nav_steps: "How it works", nav_prices: "Prices", nav_docs: "Documents", nav_cases: "Special cases", nav_apply: "Apply on WhatsApp",
       trust1: "Documents checked before you pay", trust2: "We never ask for your card details", trust3: "Passport delivered to your home", trust4: "Help in Pashto, Dari & English",
       welcome: "Assalamu Alaikum — Welcome!",
+      nav_inc: "What €50 includes",
+      inc_title: "What is included in our €50",
+      inc_intro: "One fee — everything is done for you, from your first message until the passport arrives at your home.",
+      inc: [
+        ["Scan & repair your documents", "We scan and edit all your documents and photos. Even <b>blurry, torn or damaged</b> copies are cleaned up and made clear and readable."],
+        ["Professional passport photo", "Just send a <b>normal photo taken with your phone</b>. We turn it into a professional passport photo in <b>Adobe Photoshop</b>, like a photo studio."],
+        ["Complete application, done professionally", "We fill in your <b>full application form</b> correctly and submit it to the consulate for you."],
+        ["Advice and corrections", "We check everything, tell you exactly what is needed and <b>correct mistakes</b> before anything is sent."],
+        ["With you until the end", "We stay with you <b>until you receive your passport</b>. Got an email or WhatsApp from the consulate? Send it to us, call us or message us."]
+      ],
+      inc_studio: "A photo studio charges €8–9 for passport photos — with us, the photo is included in the €50.",
+      inc_hours: "🕙 We are available from 10:00 to 20:00 (Paris time). Call us or send a WhatsApp message.",
+      inc_call: "Call us", inc_wa: "WhatsApp",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -872,14 +917,14 @@
       d_pass: "Previous Afghan electronic passport (expired or less than 1 year validity)",
       d_taz: "Afghan Tazkira (paper or electronic)",
       d_res: "Residence permit / visa / residence attestation",
-      d_photo: "Passport-size face photo (white background)",
+      d_photo: "Face photo (a normal phone photo is fine)",
       d_police: "Police report of the lost passport (from your host country)",
       d_etaz: "e-Tazkira OR English Tazkira translation attested by the Ministry of Foreign Affairs — same details as residence permit",
       d_birth: "Child's birth certificate",
       d_ppass: "Afghan passport of father and mother",
       d_ptaz: "Afghan Tazkira of father and mother",
       d_marr: "Parents' marriage certificate (Nikah Khat)",
-      d_cphoto: "Child's passport photo",
+      d_cphoto: "Child's face photo (a normal phone photo is fine)",
       d_cres: "Child's residence permit / visa",
       f_name: "Full name", f_phone: "Phone number (with country code)", f_email: "Email address",
       err_required: "Please fill in: country, name, phone and a valid email, and choose a passport.",
@@ -925,7 +970,7 @@
       rem_label: "باقی فیس (بعد از منظوری، شامل ۵۵ دالر ≈ ۵۰ یورو انتقال)",
       time_std: "⏱ مدت کار: ۴ تا ۸ هفته + زمان انتقال پاسپورت",
       time_urg: "⏱ مدت کار: تا ۱۵ روز کاری + زمان انتقال پاسپورت",
-      fee_box: "<strong>+ فیس خدمات ما: ۵۰ یورو برای هر پاسپورت</strong> — بزرگسال یا طفل. مثال: ۲ طفل = ۱۰۰ یورو.",
+      fee_box: "<strong>+ فیس خدمات ما: ۵۰ یورو برای هر پاسپورت</strong> — بزرگسال یا طفل. مثال: ۲ طفل = ۱۰۰ یورو. <a href=\"#included\" style=\"color:#fff;font-weight:800\">ببینید شامل چه خدماتی است ↓</a>",
       fee_rules: "فیس ما را فقط بعد از بررسی اسناد، از طریق انتقال بانکی می‌پردازید. برای پرداخت هر فیس قونسلگری ۳۰ روز وقت دارید — اگر به وقت پرداخت نکنید، درخواست بسته می‌شود و باید دوباره درخواست بدهید. فیس ابتدایی قونسلگری پس داده نمی‌شود.",
       prices_note: "فیس‌های قونسلگری به دالر امریکایی است و شما خودتان آن را مستقیماً با کارت بانکی به قونسلگری می‌پردازید. قیمت‌ها از ویبسایت قونسلگری (نومبر ۲۰۲۶) گرفته شده و قونسلگری می‌تواند آن را تغییر دهد. مبالغ یورو تقریبی است (۱ دالر ≈ ۰٫۹۰ یورو): قونسلگری به دالر پول می‌گیرد و بانک شما آن را تبدیل می‌کند، پس مبلغ در صورت‌حساب بانکی شما ممکن است کمی فرق داشته باشد.",
       docs_title: "اسناد لازم (بزرگسال)",
@@ -933,7 +978,7 @@
         "<b>پاسپورت الکترونیکی (بایومتریک)</b> قبلی افغانی — اسکن، عکس یا کاپی. باید <b>تاریخ آن ختم شده باشد</b> یا <b>کمتر از یک سال</b> اعتبار داشته باشد.",
         "<b>تذکرهٔ افغانی</b> — کاغذی یا الکترونیکی.",
         "سند زندگی در کشور میزبان: <b>کارت اقامت</b>، <b>ویزه</b> یا <b>تصدیق سکونت</b>.",
-        "یک قطعه <b>عکس پاسپورتی</b> — جدید، رنگه، با پس‌زمینهٔ سفید ساده.",
+        "یک قطعه <b>عکس چهره</b> — عکس عادی که با تلفون گرفته‌اید کافی است. ما آن را برای شما به عکس پاسپورتی حرفه‌ای تبدیل می‌کنیم.",
         "<b>شمارهٔ تلفون</b> و <b>آدرس ایمیل</b> شما."
       ],
       cases_title: "حالت‌های خاص — لطفاً بخوانید",
@@ -954,7 +999,7 @@
         "<b>پاسپورت افغانی پدر و مادر</b> (کاپی یا اسکن)",
         "<b>تذکرهٔ افغانی پدر و مادر</b>",
         "<b>نکاح‌خط</b> (سند ازدواج) والدین",
-        "<b>عکس پاسپورتی</b> طفل (پس‌زمینهٔ سفید)",
+        "<b>عکس چهرهٔ</b> طفل (عکس عادی با تلفون کافی است)",
         "<b>کارت اقامت یا ویزهٔ</b> طفل",
         "پاسپورت قبلی افغانی طفل، اگر داشته باشد"
       ],
@@ -966,6 +1011,19 @@
       menu: "مینو", nav_who: "چه کسانی می‌توانند", nav_steps: "مراحل کار", nav_prices: "قیمت‌ها", nav_docs: "اسناد لازم", nav_cases: "حالت‌های خاص", nav_apply: "درخواست در واتساپ",
       trust1: "اسناد قبل از پرداخت بررسی می‌شود", trust2: "ما هرگز معلومات کارت بانکی شما را نمی‌خواهیم", trust3: "پاسپورت تا خانهٔ شما می‌رسد", trust4: "کمک به پشتو، دری و انگلیسی",
       welcome: "السلام علیکم — خوش آمدید!",
+      nav_inc: "۵۰ یورو شامل چیست",
+      inc_title: "۵۰ یوروی ما شامل چه خدماتی است؟",
+      inc_intro: "یک فیس — همه کارها برای شما انجام می‌شود، از اولین پیام تا رسیدن پاسپورت به خانهٔ شما.",
+      inc: [
+        ["اسکن و ترمیم اسناد شما", "ما همهٔ اسناد و عکس‌های شما را اسکن و ویرایش می‌کنیم. حتی کاپی‌های <b>تار، پاره یا خراب</b> را پاک، واضح و خوانا می‌سازیم."],
+        ["عکس پاسپورتی حرفه‌ای", "فقط یک <b>عکس عادی که با تلفون خود گرفته‌اید</b> بفرستید. ما آن را در <b>Adobe Photoshop</b> مانند عکاسخانه به یک عکس پاسپورتی حرفه‌ای تبدیل می‌کنیم."],
+        ["فورم کامل درخواست، به‌صورت حرفه‌ای", "ما <b>فورم کامل درخواست</b> شما را درست پُر می‌کنیم و برای شما به قونسلگری ثبت می‌کنیم."],
+        ["مشوره و اصلاح", "ما همه چیز را بررسی می‌کنیم، دقیقاً می‌گوییم چه چیزی لازم است و <b>اشتباهات را اصلاح می‌کنیم</b> قبل از اینکه چیزی فرستاده شود."],
+        ["تا آخر با شما هستیم", "ما <b>تا زمانی که پاسپورت شما برسد</b> با شما هستیم. اگر از قونسلگری ایمیل یا پیام واتساپ گرفتید، برای ما بفرستید، زنگ بزنید یا پیام بدهید."]
+      ],
+      inc_studio: "عکاسخانه برای عکس پاسپورتی ۸ تا ۹ یورو می‌گیرد — نزد ما عکس شامل همان ۵۰ یورو است.",
+      inc_hours: "🕙 از ساعت ۱۰ صبح تا ۸ شب (به وقت پاریس) در خدمت شما هستیم. زنگ بزنید یا در واتساپ پیام بفرستید.",
+      inc_call: "زنگ بزنید", inc_wa: "واتساپ",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -985,14 +1043,14 @@
       d_pass: "پاسپورت الکترونیکی قبلی افغانی (ختم شده یا کمتر از یک سال اعتبار)",
       d_taz: "تذکرهٔ افغانی (کاغذی یا الکترونیکی)",
       d_res: "کارت اقامت / ویزه / تصدیق سکونت",
-      d_photo: "عکس پاسپورتی (پس‌زمینهٔ سفید)",
+      d_photo: "عکس چهره (عکس عادی با تلفون کافی است)",
       d_police: "گزارش پولیس دربارهٔ گم شدن پاسپورت (از کشور میزبان)",
       d_etaz: "تذکرهٔ الکترونیکی یا ترجمهٔ انگلیسی تذکرهٔ تصدیق‌شده از وزارت امور خارجه — با معلومات مانند کارت اقامت",
       d_birth: "سند تولد طفل",
       d_ppass: "پاسپورت افغانی پدر و مادر",
       d_ptaz: "تذکرهٔ افغانی پدر و مادر",
       d_marr: "نکاح‌خط والدین",
-      d_cphoto: "عکس پاسپورتی طفل",
+      d_cphoto: "عکس چهرهٔ طفل (عکس عادی با تلفون کافی است)",
       d_cres: "کارت اقامت / ویزهٔ طفل",
       f_name: "نام کامل", f_phone: "شمارهٔ تلفون (با کود کشور)", f_email: "آدرس ایمیل",
       err_required: "لطفاً کشور، نام، تلفون و ایمیل درست را پُر کنید و یک پاسپورت انتخاب کنید.",
@@ -1038,7 +1096,7 @@
       rem_label: "پاتې فیس (له منظورۍ وروسته، د ۵۵ ډالرو ≈ ۵۰ یورو لېږد پکې شامل دی)",
       time_std: "⏱ د کار موده: ۴ تر ۸ اونۍ + د پاسپورټ د لېږد وخت",
       time_urg: "⏱ د کار موده: تر ۱۵ کاري ورځو پورې + د پاسپورټ د لېږد وخت",
-      fee_box: "<strong>+ زموږ د خدمت فیس: د هر پاسپورټ لپاره ۵۰ یورو</strong> — لوی وي که ماشوم. بېلګه: ۲ ماشومان = ۱۰۰ یورو.",
+      fee_box: "<strong>+ زموږ د خدمت فیس: د هر پاسپورټ لپاره ۵۰ یورو</strong> — لوی وي که ماشوم. بېلګه: ۲ ماشومان = ۱۰۰ یورو. <a href=\"#included\" style=\"color:#fff;font-weight:800\">وګورئ څه پکې شامل دي ↓</a>",
       fee_rules: "زموږ فیس یوازې وروسته له دې چې ستاسو اسناد وګورو، د بانکي لېږد له لارې ورکوئ. د قونسلګرۍ د هر فیس د ورکړې لپاره ۳۰ ورځې وخت لرئ — که په وخت یې ورنکړئ، غوښتنلیک بندیږي او باید بیا غوښتنه وکړئ. د قونسلګرۍ لومړنی فیس بېرته نه ورکول کیږي.",
       prices_note: "د قونسلګرۍ فیسونه په امریکايي ډالرو دي او تاسو یې پخپله، مستقیم قونسلګرۍ ته د بانکي کارت په وسیله ورکوئ. بیې د قونسلګرۍ له وېبپاڼې (نومبر ۲۰۲۶) اخیستل شوې او قونسلګري یې بدلولی شي. د یورو اندازې اټکلي دي (۱ ډالر ≈ ۰٫۹۰ یورو): قونسلګري په ډالرو پیسې اخلي او ستاسو بانک یې بدلوي، نو ستاسو په بانکي حساب کې اندازه ښايي لږ توپیر ولري.",
       docs_title: "اړین اسناد (لویان)",
@@ -1046,7 +1104,7 @@
         "ستاسو پخوانی افغاني <b>برېښنايي (بایومتریک) پاسپورټ</b> — سکن، عکس یا کاپي. باید <b>نېټه یې پوره شوې وي</b> یا <b>له یو کال کم</b> اعتبار ولري.",
         "ستاسو <b>افغاني تذکره</b> — کاغذي یا برېښنايي.",
         "په کوربه هېواد کې د اوسېدو سند: <b>د اقامت کارت</b>، <b>ویزه</b> یا <b>د اوسېدو تصدیق</b>.",
-        "یو <b>پاسپورټي عکس</b> — نوی، رنګه، له سپین ساده شاليد سره.",
+        "یو <b>د مخ عکس</b> — هغه عادي عکس چې په موبایل مو اخیستی کافي دی. موږ یې ستاسو لپاره په مسلکي پاسپورټي عکس بدلوو.",
         "ستاسو <b>د تلیفون شمېره</b> او <b>د ایمیل پته</b>."
       ],
       cases_title: "ځانګړي حالتونه — مهرباني وکړئ ولولئ",
@@ -1067,7 +1125,7 @@
         "<b>د پلار او مور افغاني پاسپورټ</b> (کاپي یا سکن)",
         "<b>د پلار او مور افغاني تذکره</b>",
         "د مور او پلار <b>نکاح خط</b>",
-        "د ماشوم <b>پاسپورټي عکس</b> (سپین شاليد)",
+        "د ماشوم <b>د مخ عکس</b> (د موبایل عادي عکس کافي دی)",
         "د ماشوم <b>د اقامت کارت یا ویزه</b>",
         "د ماشوم پخوانی افغاني پاسپورټ، که یې درلود"
       ],
@@ -1079,6 +1137,19 @@
       menu: "مینو", nav_who: "څوک غوښتنه کولی شي", nav_steps: "د کار پړاوونه", nav_prices: "بیې", nav_docs: "اړین اسناد", nav_cases: "ځانګړي حالتونه", nav_apply: "په واټساپ کې غوښتنه",
       trust1: "اسناد د پیسو له ورکړې مخکې کتل کیږي", trust2: "موږ هېڅکله ستاسو د بانکي کارت معلومات نه غواړو", trust3: "پاسپورټ ستاسو تر کوره رسیږي", trust4: "په پښتو، دري او انګلیسي مرسته",
       welcome: "السلام علیکم — ښه راغلاست!",
+      nav_inc: "په ۵۰ یورو کې څه شامل دي",
+      inc_title: "زموږ په ۵۰ یورو کې څه شامل دي؟",
+      inc_intro: "یو فیس — ټول کارونه ستاسو لپاره کیږي، له لومړي پیغام څخه تر هغه چې پاسپورټ ستاسو کور ته ورسیږي.",
+      inc: [
+        ["ستاسو د اسنادو سکن او سمول", "موږ ستاسو ټول اسناد او عکسونه سکن او اېډیټ کوو. حتی <b>تت، شلېدلې یا خرابې</b> کاپيانې پاکې، روښانه او د لوستلو وړ کوو."],
+        ["مسلکي پاسپورټي عکس", "یوازې یو <b>عادي عکس چې په خپل موبایل مو اخیستی</b> ولېږئ. موږ یې په <b>Adobe Photoshop</b> کې د عکاسۍ د سټوډیو په څېر په مسلکي پاسپورټي عکس بدلوو."],
+        ["بشپړ غوښتنلیک، په مسلکي ډول", "موږ ستاسو <b>بشپړه د غوښتنلیک فورمه</b> سمه ډکوو او ستاسو لپاره یې قونسلګرۍ ته ثبتوو."],
+        ["مشورې او سمونې", "موږ هر څه ګورو، دقیقاً وایو چې څه پکار دي او <b>تېروتنې سموو</b> مخکې له دې چې څه ولېږل شي."],
+        ["تر پایه ستاسو سره یو", "موږ <b>تر هغه وخته چې پاسپورټ مو ترلاسه کړئ</b> ستاسو سره یو. که له قونسلګرۍ څخه ایمیل یا واټساپ پیغام درغی، موږ ته یې ولېږئ، زنګ ووهئ یا پیغام راکړئ."]
+      ],
+      inc_studio: "د عکاسۍ سټوډیو د پاسپورټي عکس لپاره ۸ تر ۹ یورو اخلي — زموږ سره عکس په همدې ۵۰ یورو کې شامل دی.",
+      inc_hours: "🕙 د سهار له ۱۰ بجو تر ماښام ۸ بجو پورې (د پاریس په وخت) ستاسو په خدمت کې یو. زنګ ووهئ یا په واټساپ کې پیغام ولېږئ.",
+      inc_call: "زنګ ووهئ", inc_wa: "واټساپ",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
@@ -1098,14 +1169,14 @@
       d_pass: "پخوانی افغاني برېښنايي پاسپورټ (نېټه یې پوره یا له یو کال کم اعتبار)",
       d_taz: "افغاني تذکره (کاغذي یا برېښنايي)",
       d_res: "د اقامت کارت / ویزه / د اوسېدو تصدیق",
-      d_photo: "پاسپورټي عکس (سپین شاليد)",
+      d_photo: "د مخ عکس (د موبایل عادي عکس کافي دی)",
       d_police: "د پاسپورټ د ورکېدو په اړه د پولیسو راپور (له کوربه هېواد)",
       d_etaz: "برېښنايي تذکره یا د بهرنیو چارو وزارت لخوا تصدیق شوې د تذکرې انګلیسي ژباړه — د اقامت د کارت په شان معلومات",
       d_birth: "د ماشوم د زېږېدو سند",
       d_ppass: "د پلار او مور افغاني پاسپورټ",
       d_ptaz: "د پلار او مور افغاني تذکره",
       d_marr: "د مور او پلار نکاح خط",
-      d_cphoto: "د ماشوم پاسپورټي عکس",
+      d_cphoto: "د ماشوم د مخ عکس (د موبایل عادي عکس کافي دی)",
       d_cres: "د ماشوم د اقامت کارت / ویزه",
       f_name: "بشپړ نوم", f_phone: "د تلیفون شمېره (د هېواد له کوډ سره)", f_email: "د ایمیل پته",
       err_required: "مهرباني وکړئ هېواد، نوم، تلیفون او سم ایمیل ولیکئ او یو پاسپورټ وټاکئ.",
@@ -1123,6 +1194,7 @@
 
   var STEP_ICONS = ["📖", "📲", "🔍", "💶", "📝", "📧", "⏳", "✈️"];
   var DOC_ICONS = ["📘", "🪪", "🏠", "📸", "📞"];
+  var INC_ICONS = ["🖨️", "📸", "📝", "💡", "🤝"];
   var CHILD_ICONS = ["👶", "📘", "🪪", "💍", "📸", "🏠", "📕"];
   var lang = "fa";
   var $ = function (id) { return document.getElementById(id); };
@@ -1170,6 +1242,9 @@
     var li = function (arr) { return arr.map(function (x) { return "<li>" + x + "</li>"; }).join(""); };
     var ili = function (arr, icons) { return arr.map(function (x, i) { return '<li><span class="li-ico">' + icons[i] + "</span><span>" + x + "</span></li>"; }).join(""); };
     $("docsAdult").innerHTML = ili(d.docs, DOC_ICONS);
+    $("incGrid").innerHTML = d.inc.map(function (x, i) {
+      return '<div class="card inc reveal" style="--d:' + (i % 2) * 0.08 + 's"><div class="inc-ico">' + INC_ICONS[i] + "</div><h3>" + x[0] + "</h3><p>" + x[1] + "</p></div>";
+    }).join("");
     $("nameList").innerHTML = li(d.name_list);
     $("childList").innerHTML = ili(d.child_list, CHILD_ICONS);
 
