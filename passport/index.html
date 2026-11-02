@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="site-version" content="39">
+<meta name="site-version" content="40">
 <title>ALAKHIL MOBILE — Afghan Passport Online</title>
 <meta name="description" content="Help for Afghans in Europe (except Germany), the UK, the USA, Canada and Australia to apply online for a new Afghan passport through the Afghan Consulate General in Dubai. English · دری · پښتو">
 <meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
@@ -19,7 +19,15 @@
 <meta property="og:image:alt" content="Afghan Passport Online — ALAKHIL MOBILE">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://alakhilmobile-png.github.io/passport/og-image.jpg">
-<meta name="theme-color" content="#eaf0fd">
+<meta name="theme-color" content="#e9ebef">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ALAKHIL">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="preload" href="amiri-arabic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="montserrat-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="logo-mark.webp" as="image">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
@@ -1011,6 +1019,57 @@
   .s-tiles.no .s-tile::after { background: linear-gradient(180deg, #f3a59f, #e0746b) !important; box-shadow: 0 2px 5px rgba(200,80,70,.25); border-width: 1.5px !important; }
   .s-tiles.no .s-tile { background: linear-gradient(180deg, rgba(255,235,232,.35), rgba(255,235,232,.1) 50%, rgba(255,235,232,.22)) !important; }
   .s-h.red { color: #b4453c !important; }
+
+  /* ===== Splash ===== */
+  .splash { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; cursor: pointer;
+    background: radial-gradient(120% 70% at 50% 30%, #fbfbfc 0%, #eceef1 55%, #e2e4e9 100%); transition: opacity .6s ease, transform .6s ease; }
+  .splash.out { opacity: 0; transform: scale(1.06); pointer-events: none; }
+  .sp-in { display: grid; justify-items: center; gap: 18px; }
+  .sp-logo { position: relative; width: 170px; height: 167px; border-radius: 34px; overflow: hidden;
+    animation: spLogo 1s cubic-bezier(.2,1.3,.4,1) both, spGlow 2s ease-in-out .8s infinite; }
+  .sp-logo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .sp-shine { position: absolute; top: -30%; bottom: -30%; left: 0; width: 55%;
+    background: linear-gradient(100deg, transparent, rgba(255,226,150,.5) 35%, #fff 50%, rgba(255,200,90,.6) 65%, transparent);
+    transform: translateX(-180%) skewX(-18deg); animation: spShine 1.2s ease-in-out .7s both; }
+  .sp-bism { font-family: "Amiri", "Noto Naskh Arabic", serif; font-weight: 700; font-size: clamp(30px, 8vw, 44px); line-height: 1.7; white-space: nowrap;
+    background: linear-gradient(110deg, #8f6408 0%, #dcaa30 22%, #b07d0f 45%, #7a5406 62%, #e6bb52 82%, #8f6408 100%); background-size: 220% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    -webkit-clip-path: inset(0 0 0 100%); clip-path: inset(0 0 0 100%); animation: spWrite 1.1s ease-out .9s forwards, foil 3s linear 1.6s infinite; }
+  .sp-dots { display: flex; gap: 7px; opacity: 0; animation: fadeIn .4s ease 1.6s forwards; }
+  .sp-dots i { width: 8px; height: 8px; border-radius: 50%; background: #c9971f; animation: dotB 1s ease-in-out infinite; }
+  .sp-dots i:nth-child(2) { animation-delay: .15s; } .sp-dots i:nth-child(3) { animation-delay: .3s; }
+  @keyframes spLogo { from { opacity: 0; transform: scale(.4) rotate(-12deg); } to { opacity: 1; transform: none; } }
+  @keyframes spGlow { 0%,100% { box-shadow: var(--clear-rim), 0 0 0 0 rgba(242,179,61,0); } 50% { box-shadow: var(--clear-rim), 0 0 34px 8px rgba(242,179,61,.45); } }
+  @keyframes spShine { from { transform: translateX(-180%) skewX(-18deg); } to { transform: translateX(260%) skewX(-18deg); } }
+  @keyframes spWrite { to { -webkit-clip-path: inset(0 0 0 0); clip-path: inset(0 0 0 0); } }
+  @keyframes fadeIn { to { opacity: 1; } }
+  @keyframes dotB { 0%,100% { transform: translateY(0); opacity: .5; } 50% { transform: translateY(-6px); opacity: 1; } }
+
+  /* ===== Holiday banner ===== */
+  .hol-wrap { position: relative; z-index: 2; margin: -14px auto 18px; text-align: center; }
+  .holiday { display: inline-flex; align-items: center; gap: 12px; padding: 10px 20px; border-radius: 999px; max-width: 100%;
+    background: linear-gradient(180deg, rgba(250,230,170,.85), rgba(230,187,82,.55) 60%, rgba(240,205,120,.7)); box-shadow: var(--clear-rim);
+    animation: popIn .7s cubic-bezier(.2,1.5,.4,1) .4s both; }
+  .holiday b { display: block; font-size: 22px; color: #3a2a00; font-family: "Amiri", "Noto Naskh Arabic", serif; line-height: 1.35; }
+  html[dir="ltr"] .holiday b { font-family: inherit; }
+  .holiday small { display: block; font-size: 12.5px; font-weight: 700; color: #6b5310; }
+  .hol-ico { font-size: 28px; line-height: 1; display: inline-block; animation: holSwing 3s ease-in-out infinite; transform-origin: 50% 0; }
+  .hol-ico.r { animation-delay: 1.5s; }
+  @keyframes holSwing { 0%,100% { transform: rotate(-10deg); } 50% { transform: rotate(10deg); } }
+
+  /* ===== Install app ===== */
+  .inst-btn { grid-column: 1 / -1; width: 100%; min-height: 48px; font-size: 16px; }
+  .inst-sheet { position: fixed; inset: 0; z-index: 90; display: flex; align-items: flex-end; justify-content: center; padding: 16px;
+    background: rgba(30,36,50,.35); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+  .inst-box { width: 100%; max-width: 420px; padding: 22px 18px 18px; border-radius: 30px; text-align: center;
+    background: rgba(246,247,250,.96); box-shadow: var(--clear-rim), 0 20px 50px rgba(20,30,60,.3); animation: barUp .4s ease both; }
+  .inst-logo { width: 64px; height: 64px; border-radius: 16px; box-shadow: var(--clear-rim); }
+  .inst-box > b { display: block; font-size: 20px; margin: 10px 0 12px; }
+  .inst-steps { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 10px; text-align: start; }
+  .inst-steps li { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 18px; background: var(--clear-bg); box-shadow: var(--clear-rim); font-weight: 700; }
+  .ix { width: 26px; height: 26px; border-radius: 50%; flex: none; display: grid; place-items: center; background: var(--frost-blue); box-shadow: var(--frost-rim); font-weight: 900; }
+  .share-ic { width: 22px; height: 22px; flex: none; }
+  #instClose { width: 100%; min-height: 50px; }
 </style>
 </head>
 <body>
@@ -1032,6 +1091,25 @@
 })();
 </script>
 <script>document.documentElement.classList.add(/[?&]full=1/.test(location.search) ? "full-mode" : "simple-mode");</script>
+<div class="splash" id="splash" aria-hidden="true">
+  <div class="sp-in">
+    <div class="sp-logo"><img src="logo-full.jpg" alt="" width="170" height="167"><span class="sp-shine"></span></div>
+    <div class="sp-bism" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <div class="sp-dots"><i></i><i></i><i></i></div>
+  </div>
+</div>
+<script>
+(function () {
+  var sp = document.getElementById("splash"), seen = false;
+  try { seen = sessionStorage.getItem("splash-seen"); } catch (e) {}
+  if (seen || /[?&]nosplash=1/.test(location.search)) { sp.parentNode.removeChild(sp); return; }
+  try { sessionStorage.setItem("splash-seen", "1"); } catch (e) {}
+  var done = false;
+  function go() { if (done) return; done = true; sp.classList.add("out"); setTimeout(function () { if (sp.parentNode) sp.parentNode.removeChild(sp); }, 650); }
+  sp.addEventListener("click", go);
+  setTimeout(go, 2300);
+})();
+</script>
 <div class="deco" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
 
 <!-- Language picker (first visit) -->
@@ -1047,7 +1125,7 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="brand2" href="#" aria-label="ALAKHIL MOBILE"><span class="logo-wrap"><span class="shine sh-head"><span class="sweep"></span><img src="logo-mark.png" alt="" width="40" height="40"></span><span class="logo-star">✦</span></span><span class="bt"><span class="l1">ALAKHIL</span><span class="l2">MOBILE</span></span></a>
+    <a class="brand2" href="#" aria-label="ALAKHIL MOBILE"><span class="logo-wrap"><span class="shine sh-head"><span class="sweep"></span><img src="logo-mark.webp" alt="" width="40" height="40"></span><span class="logo-star">✦</span></span><span class="bt"><span class="l1">ALAKHIL</span><span class="l2">MOBILE</span></span></a>
     <div class="langs" role="group" aria-label="Language">
       <button type="button" data-lang="ps" lang="ps">پښتو</button>
       <button type="button" data-lang="fa" lang="fa">دری</button>
@@ -1065,6 +1143,7 @@
       <li><a href="#photo"><span class="mi">📸</span><span data-t="nav_photo"></span></a></li>
       <li><a href="#cases"><span class="mi">⚠️</span><span data-t="nav_cases"></span></a></li>
       <li><a href="#share"><span class="mi">📤</span><span data-t="nav_share"></span></a></li>
+      <li class="inst-li hidden"><a href="#" class="inst-trigger"><span class="mi">📲</span><span data-t="inst_btn"></span></a></li>
       <li><a href="#apply" class="wa-link"><span class="mi">💬</span><span data-t="nav_apply"></span></a></li>
     </ul>
   </nav>
@@ -1073,6 +1152,7 @@
 <div class="hero">
   <div class="pattern" aria-hidden="true"></div>
   <div class="particles" aria-hidden="true"><i style="--x:6%;--t:9s;--d:0s;--z:5px"></i><i style="--x:15%;--t:12s;--d:3s;--z:4px"></i><i style="--x:24%;--t:10s;--d:6s;--z:6px"></i><i style="--x:33%;--t:13s;--d:1.5s;--z:4px"></i><i style="--x:45%;--t:11s;--d:4.5s;--z:5px"></i><i style="--x:55%;--t:9.5s;--d:2s;--z:4px"></i><i style="--x:64%;--t:12.5s;--d:7s;--z:6px"></i><i style="--x:72%;--t:10.5s;--d:0.5s;--z:4px"></i><i style="--x:81%;--t:13.5s;--d:5s;--z:5px"></i><i style="--x:90%;--t:11.5s;--d:2.5s;--z:4px"></i><i style="--x:96%;--t:9s;--d:8s;--z:5px"></i><i style="--x:39%;--t:14s;--d:9s;--z:3px"></i></div>
+  <div class="wrap hol-wrap hidden" id="holiday"><div class="holiday"><span class="hol-ico" id="holIco"></span><span><b id="holTxt"></b><small data-t="hol_from"></small></span><span class="hol-ico r" id="holIco2"></span></div></div>
   <div class="wrap bism-wrap">
     <div class="bism-row"><span class="orn"></span><div class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div><span class="orn r"></span></div>
     <div class="welcome"><span class="wave">👋</span><span data-t="welcome"></span></div>
@@ -1147,13 +1227,14 @@
 
 <div class="wrap me-wrap">
   <div class="me-card" id="me">
-    <div class="me-photo"><img src="alakhil.jpg" alt="ALAKHIL" width="120" height="120"><span class="me-ok">✓</span></div>
+    <div class="me-photo"><img src="alakhil.webp" alt="ALAKHIL" width="120" height="120" decoding="async"><span class="me-ok">✓</span></div>
     <div class="me-txt">
       <div class="me-name">ALAKHIL</div>
       <div class="me-role" data-t="me_role"></div>
       <p class="me-line" data-t="me_line"></p>
     </div>
     <div class="me-only"><span data-t="me_only"></span> <a class="num" href="tel:+33605654592">+33 6 05 65 45 92</a></div>
+    <button type="button" class="btn btn-ghost inst-btn inst-trigger hidden"><span>📲</span> <span data-t="inst_btn"></span></button>
     <a class="btn btn-wa me-wa" id="meWa" href="https://wa.me/33605654592" target="_blank" rel="noopener"><span>💬</span> <span data-t="me_wa"></span></a>
   </div>
 </div>
@@ -1466,15 +1547,27 @@
 <footer>
   <div class="pattern" aria-hidden="true"></div>
   <div class="wrap" style="position:relative;z-index:1">
-    <div class="foot-brand"><span class="shine sh-foot"><span class="sweep"></span><img src="logo-full.jpg" alt="ALAKHIL MOBILE — Qualité et satisfaction" width="120" height="118"></span></div>
+    <div class="foot-brand"><span class="shine sh-foot"><span class="sweep"></span><img loading="lazy" decoding="async" src="logo-full.jpg" alt="ALAKHIL MOBILE — Qualité et satisfaction" width="120" height="118"></span></div>
     <p data-t="disclaimer"></p>
     <p data-t="privacy"></p>
     <p data-t="sim_keep"></p>
     <p data-t="prices_note"></p>
-    <p class="ver">v39</p>
+    <p class="ver">v40</p>
   </div>
 </footer>
 
+<div class="inst-sheet hidden" id="instSheet" role="dialog" aria-modal="true">
+  <div class="inst-box">
+    <img src="logo-mark.webp" alt="" width="64" height="64" class="inst-logo">
+    <b data-t="inst_t"></b>
+    <ol class="inst-steps">
+      <li><span class="ix">1</span><span data-t="inst_i1"></span></li>
+      <li><span class="ix">2</span><span data-t="inst_i2"></span> <svg class="share-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5" fill="none" stroke="#2f6bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1" fill="none" stroke="#2f6bff" stroke-width="2" stroke-linecap="round"/></svg></li>
+      <li><span class="ix">3</span><span data-t="inst_i3"></span></li>
+    </ol>
+    <button type="button" class="btn btn-amber no-arrow" id="instClose" data-t="inst_ok"></button>
+  </div>
+</div>
 <div class="cta-bar" id="ctaBar">
   <a class="btn btn-wa" id="barWa" href="https://wa.me/33605654592" target="_blank" rel="noopener"><span>💬</span> <span>WhatsApp</span></a>
   <a class="btn btn-amber no-arrow only-full" href="#apply"><span>📲</span> <span data-t="bar_apply"></span></a>
@@ -1652,6 +1745,10 @@
       sim_wk_std: "⏱ 3–4 weeks", sim_wk_urg: "⏱ 2–3 weeks",
       sim_refund: "↩️ If the consulate rejects your application, we give back 50% of our fee (€25).",
       sim_keep: "🔒 We keep your documents only until you receive your passport — then we delete them.",
+      inst_btn: "Install our app on your phone", inst_t: "Add ALAKHIL MOBILE to your home screen",
+      inst_i1: "Open this page in Safari", inst_i2: "Tap the Share button", inst_i3: "Choose “Add to Home Screen” ➕, then “Add”",
+      inst_ok: "OK", hol_from: "from ALAKHIL MOBILE",
+      hol_ramadan: "Ramadan Mubarak", hol_fitr: "Eid Mubarak", hol_adha: "Eid al-Adha Mubarak", hol_nowruz: "Happy Nowruz",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -1846,6 +1943,10 @@
       sim_wk_std: "⏱ ۳ تا ۴ هفته", sim_wk_urg: "⏱ ۲ تا ۳ هفته",
       sim_refund: "↩️ اگر قونسلگری درخواست شما را رد کند، ۵۰٪ فیس ما (۲۵ یورو) را پس می‌دهیم.",
       sim_keep: "🔒 اسناد شما را فقط تا رسیدن پاسپورت نگه می‌داریم — بعد آن‌ها را پاک می‌کنیم.",
+      inst_btn: "اپ ما را روی تلفون خود نصب کنید", inst_t: "ALAKHIL MOBILE را به صفحهٔ اصلی تلفون اضافه کنید",
+      inst_i1: "این صفحه را در Safari باز کنید", inst_i2: "روی دکمهٔ Share بزنید", inst_i3: "«Add to Home Screen» ➕ را انتخاب کنید، بعد «Add»",
+      inst_ok: "خوب", hol_from: "از طرف ALAKHIL MOBILE",
+      hol_ramadan: "رمضان مبارک", hol_fitr: "عید شما مبارک", hol_adha: "عید قربان مبارک", hol_nowruz: "نوروز مبارک",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -2040,6 +2141,10 @@
       sim_wk_std: "⏱ ۳ تر ۴ اونۍ", sim_wk_urg: "⏱ ۲ تر ۳ اونۍ",
       sim_refund: "↩️ که قونسلګري ستاسو غوښتنلیک رد کړي، زموږ د فیس ۵۰٪ (۲۵ یورو) بېرته درکوو.",
       sim_keep: "🔒 ستاسو اسناد یوازې د پاسپورټ تر رسېدو پورې ساتو — بیا یې پاکوو.",
+      inst_btn: "زموږ اپ په خپل موبایل کې نصب کړئ", inst_t: "ALAKHIL MOBILE د موبایل اصلي پاڼې ته ور اضافه کړئ",
+      inst_i1: "دا پاڼه په Safari کې خلاصه کړئ", inst_i2: "د Share تڼۍ کېکاږئ", inst_i3: "«Add to Home Screen» ➕ وټاکئ، بیا «Add»",
+      inst_ok: "سمه ده", hol_from: "د ALAKHIL MOBILE له لوري",
+      hol_ramadan: "رمضان مو مبارک", hol_fitr: "اختر مو مبارک", hol_adha: "لوی اختر مو مبارک", hol_nowruz: "نوی کال مو مبارک",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
@@ -2187,6 +2292,7 @@
     }).join("");
     $("simAsk").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
     renderQuiz();
+    renderHoliday();
     $("meWa").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
     $("simWa").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
     $("barWa").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
@@ -2422,6 +2528,59 @@
     var node = qNode(), i = +b.getAttribute("data-i");
     setTimeout(function () { box.classList.remove("busy"); qPath.push([node, i]); after(); }, 650);
   });
+
+
+  // ===== Holiday greetings (Ramadan, Eid al-Fitr, Eid al-Adha, Nowruz) =====
+  var HOL = { ramadan: ["🌙", "🏮"], fitr: ["🌙", "✨"], adha: ["🌙", "🕌"], nowruz: ["🌷", "🌱"] };
+  function holidayKey() {
+    var q = (location.search.match(/[?&]holiday=(ramadan|fitr|adha|nowruz)/) || [])[1];
+    if (q) return q;
+    var now = new Date(), m = now.getMonth() + 1, d = now.getDate();
+    if (m === 3 && d >= 19 && d <= 23) return "nowruz";
+    try {
+      var f = new Intl.DateTimeFormat("en-u-ca-islamic-umalqura", { day: "numeric", month: "numeric" });
+      if (!/^islamic/.test(f.resolvedOptions().calendar)) return null;
+      var hm = 0, hd = 0;
+      f.formatToParts(now).forEach(function (pt) { if (pt.type === "month") hm = parseInt(pt.value, 10); if (pt.type === "day") hd = parseInt(pt.value, 10); });
+      if (hm === 10 && hd <= 3) return "fitr";
+      if (hm === 12 && hd >= 9 && hd <= 13) return "adha";
+      if (hm === 9) return "ramadan";
+    } catch (e) {}
+    return null;
+  }
+  var holKey = holidayKey();
+  function renderHoliday() {
+    if (!holKey) return;
+    $("holiday").classList.remove("hidden");
+    $("holIco").textContent = HOL[holKey][0]; $("holIco2").textContent = HOL[holKey][1];
+    $("holTxt").textContent = t("hol_" + holKey);
+  }
+
+  // ===== Install as an app =====
+  var deferredPrompt = null;
+  var isStandalone = (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone === true;
+  var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  function showInstall(on) {
+    document.querySelectorAll(".inst-btn, .inst-li").forEach(function (el) { el.classList.toggle("hidden", !on); });
+  }
+  if (!isStandalone) {
+    if (isIOS) showInstall(true);
+    window.addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); deferredPrompt = e; showInstall(true); });
+  }
+  window.addEventListener("appinstalled", function () { showInstall(false); });
+  document.addEventListener("click", function (e) {
+    var tr = e.target.closest && e.target.closest(".inst-trigger");
+    if (!tr) return;
+    e.preventDefault();
+    var mn = $("menu"); if (mn) { mn.classList.remove("open"); $("menuBtn").setAttribute("aria-expanded", "false"); }
+    if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(function () { deferredPrompt = null; }); return; }
+    $("instSheet").classList.remove("hidden");
+  });
+  $("instClose").addEventListener("click", function () { $("instSheet").classList.add("hidden"); });
+  $("instSheet").addEventListener("click", function (e) { if (e.target === this) this.classList.add("hidden"); });
+  if ("serviceWorker" in navigator && location.protocol === "https:") {
+    window.addEventListener("load", function () { navigator.serviceWorker.register("sw.js").catch(function () {}); });
+  }
 
   // Simple view <-> full details
   var root = document.documentElement;
