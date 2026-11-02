@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="site-version" content="34">
 <title>ALAKHIL MOBILE — Afghan Passport Online</title>
 <meta name="description" content="Help for Afghans in Europe (except Germany), the UK, the USA, Canada and Australia to apply online for a new Afghan passport through the Afghan Consulate General in Dubai. English · دری · پښتو">
 <meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
@@ -937,9 +941,27 @@
   .s-studio { margin-top: 14px; text-align: center; font-weight: 800; font-size: 16px; color: #0c3a1f; padding: 12px 16px; border-radius: 999px;
     background: var(--frost-green); box-shadow: var(--frost-rim); }
   .s-steps .s-step:last-child small { color: #1f45d8 !important; font-size: 18px !important; }
+  footer .ver { opacity: .45; font-size: 12px; margin-top: 14px; }
 </style>
 </head>
 <body>
+<script>
+(function () {
+  // Auto-update: if a newer version of this page is online, reload it (once per version).
+  try {
+    var mine = document.querySelector('meta[name="site-version"]').content;
+    var url = location.pathname + "?nocache=" + Date.now();
+    fetch(url, { cache: "no-store" }).then(function (r) { return r.text(); }).then(function (html) {
+      var m = html.match(/name="site-version" content="(\d+)"/);
+      if (!m || m[1] === mine) return;
+      var key = "reloaded-" + m[1];
+      try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, "1"); } catch (e) {}
+      var q = new URLSearchParams(location.search); q.set("v", m[1]);
+      location.replace(location.pathname + "?" + q.toString() + location.hash);
+    }).catch(function () {});
+  } catch (e) {}
+})();
+</script>
 <script>document.documentElement.classList.add(/[?&]full=1/.test(location.search) ? "full-mode" : "simple-mode");</script>
 <div class="deco" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
 
@@ -1373,6 +1395,7 @@
     <p data-t="disclaimer"></p>
     <p data-t="privacy"></p>
     <p data-t="prices_note"></p>
+    <p class="ver">v34</p>
   </div>
 </footer>
 
