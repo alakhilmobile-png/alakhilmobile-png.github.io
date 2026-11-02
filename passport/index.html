@@ -480,6 +480,13 @@
   .btn-amber.no-arrow::before { display: none; }
 
   .alert.info { background: linear-gradient(150deg, #e4ebff, #f3f6ff); color: #1a2f86; border: 1px solid rgba(47,107,255,.25); font-weight: 600; }
+
+  .notcons { display: flex; gap: 10px; align-items: flex-start; text-align: start; margin: 14px auto 0; max-width: 680px; padding: 12px 16px; border-radius: 18px;
+    background: linear-gradient(150deg, #fff6dc, #fffbef); border: 2px solid #f2b33d; color: #5b3d00; font-weight: 700; font-size: 16px; line-height: 1.6;
+    box-shadow: 0 10px 24px rgba(242,179,61,.25), inset 0 1px 0 #fff; animation: rise .8s .8s ease both; }
+  .notcons .nc-ico { font-size: 26px; line-height: 1.2; flex: none; animation: nudge 2.4s 2s ease-in-out infinite; }
+  @keyframes nudge { 0%, 70%, 100% { transform: scale(1); } 80% { transform: scale(1.25); } 90% { transform: scale(.95); } }
+  @media (max-width: 520px) { .hero .btns .btn-amber { flex: 1 1 100%; } .hero .btns .btn-ghost { flex: 1 1 100%; } }
 </style>
 </head>
 <body>
@@ -524,6 +531,7 @@
   <div class="wrap bism-wrap">
     <div class="bism-row"><span class="orn"></span><div class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div><span class="orn r"></span></div>
     <div class="welcome"><span class="wave">👋</span><span data-t="welcome"></span></div>
+    <div class="notcons"><span class="nc-ico">⚠️</span><span data-t="not_consulate"></span></div>
   </div>
   <div class="wrap hero-grid">
    <div class="hero-text">
@@ -828,7 +836,7 @@
       hero_title: "New Afghan passport, delivered to your address",
       hero_text: "We help Afghans living in Europe, the UK, the USA, Canada and Australia apply online for a new Afghan passport through the Consulate General of Afghanistan in Dubai. The passport is sent to your home address.",
       c_uk: "🇬🇧 UK", c_us: "🇺🇸 USA", c_ca: "🇨🇦 Canada", c_au: "🇦🇺 Australia", c_eu: "🇪🇺 Europe (except Germany)",
-      btn_start: "Start my application", btn_prices: "See prices",
+      btn_start: "📲 Send documents on WhatsApp", btn_prices: "See prices",
       independent: "<b>ALAKHIL MOBILE is an independent service — we are not the consulate.</b> We check your documents, then prepare and submit your online application for you.",
       elig_title: "Who can apply?",
       tag_yes: "Possible", tag_de: "Germany", tag_no: "Not possible",
@@ -911,6 +919,7 @@
       docs_child_title: "Required documents (child under 18)",
       child_born_note: "👶 This also applies to children <b>born in Europe</b> or in another host country who have <b>never had</b> an Afghan passport or Tazkira.",
       child_form_info: "👶 For a child — also children born in Europe — these are required: the child's <b>birth certificate</b>, the <b>Afghan passport</b> and <b>Afghan Tazkira</b> of both father and mother, and the parents' <b>marriage certificate</b> (Nikah Khat).",
+      not_consulate: "<b>This is NOT the consulate website.</b> You cannot apply on this site. This is the information page of ALAKHIL MOBILE — send us your documents on WhatsApp and <b>we apply for you</b>.",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -957,7 +966,7 @@
       hero_title: "پاسپورت جدید افغانی، تا آدرس خانهٔ شما",
       hero_text: "ما به افغان‌های مقیم اروپا، بریتانیا، امریکا، کانادا و آسترالیا کمک می‌کنیم تا از طریق جنرال قونسلگری افغانستان در دبی به‌صورت آنلاین برای پاسپورت جدید درخواست بدهند. پاسپورت به آدرس خانهٔ شما فرستاده می‌شود.",
       c_uk: "🇬🇧 بریتانیا", c_us: "🇺🇸 امریکا", c_ca: "🇨🇦 کانادا", c_au: "🇦🇺 آسترالیا", c_eu: "🇪🇺 اروپا (به جز آلمان)",
-      btn_start: "شروع درخواست", btn_prices: "دیدن قیمت‌ها",
+      btn_start: "📲 ارسال اسناد در واتساپ", btn_prices: "دیدن قیمت‌ها",
       independent: "<b>ALAKHIL MOBILE یک خدمت مستقل است — ما قونسلگری نیستیم.</b> ما اسناد شما را بررسی می‌کنیم و بعد درخواست آنلاین شما را آماده و ثبت می‌کنیم.",
       elig_title: "چه کسانی می‌توانند درخواست بدهند؟",
       tag_yes: "ممکن است", tag_de: "آلمان", tag_no: "ممکن نیست",
@@ -1040,6 +1049,7 @@
       docs_child_title: "اسناد لازم (طفل زیر ۱۸ سال)",
       child_born_note: "👶 این شامل اطفالی هم می‌شود که <b>در اروپا</b> یا کشور میزبان دیگر <b>تولد شده‌اند</b> و <b>هرگز</b> پاسپورت یا تذکرهٔ افغانی نداشته‌اند.",
       child_form_info: "👶 برای طفل — همچنین اطفالی که در اروپا تولد شده‌اند — این اسناد لازم است: <b>سند تولد</b> طفل، <b>پاسپورت افغانی</b> و <b>تذکرهٔ افغانی</b> پدر و مادر، و <b>نکاح‌خط</b> والدین.",
+      not_consulate: "<b>این ویبسایت قونسلگری نیست.</b> در این سایت نمی‌توانید درخواست بدهید. این صفحهٔ معلوماتی ALAKHIL MOBILE است — اسناد خود را در واتساپ برای ما بفرستید، <b>ما برای شما درخواست می‌دهیم</b>.",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -1086,7 +1096,7 @@
       hero_title: "نوی افغاني پاسپورټ، ستاسو تر کوره پورې",
       hero_text: "موږ له هغو افغانانو سره مرسته کوو چې په اروپا، بریتانیا، امریکا، کاناډا او آسټرالیا کې اوسېږي، څو د دوبۍ د افغانستان جنرال قونسلګرۍ له لارې آنلاین د نوي پاسپورټ غوښتنه وکړي. پاسپورټ ستاسو د کور پتې ته لېږل کیږي.",
       c_uk: "🇬🇧 بریتانیا", c_us: "🇺🇸 امریکا", c_ca: "🇨🇦 کاناډا", c_au: "🇦🇺 آسټرالیا", c_eu: "🇪🇺 اروپا (پرته له آلمان)",
-      btn_start: "غوښتنه پیل کړئ", btn_prices: "بیې وګورئ",
+      btn_start: "📲 اسناد په واټساپ کې ولېږئ", btn_prices: "بیې وګورئ",
       independent: "<b>ALAKHIL MOBILE یو خپلواک خدمت دی — موږ قونسلګري نه یو.</b> موږ ستاسو اسناد ګورو، بیا ستاسو آنلاین غوښتنلیک چمتو او ثبتوو.",
       elig_title: "څوک غوښتنه کولی شي؟",
       tag_yes: "ممکنه ده", tag_de: "آلمان", tag_no: "ممکنه نه ده",
@@ -1169,6 +1179,7 @@
       docs_child_title: "اړین اسناد (له ۱۸ کالو کم ماشوم)",
       child_born_note: "👶 دا هغو ماشومانو ته هم شامل دی چې <b>په اروپا</b> یا بل کوربه هېواد کې <b>زېږېدلي</b> دي او <b>هېڅکله</b> یې افغاني پاسپورټ یا تذکره نه ده لرلې.",
       child_form_info: "👶 د ماشوم لپاره — همدارنګه هغه ماشومان چې په اروپا کې زېږېدلي — دا اسناد اړین دي: د ماشوم <b>د زېږېدو سند</b>، د پلار او مور <b>افغاني پاسپورټ</b> او <b>افغاني تذکره</b>، او د مور او پلار <b>نکاح خط</b>.",
+      not_consulate: "<b>دا د قونسلګرۍ وېبپاڼه نه ده.</b> په دې سایټ کې غوښتنه نشئ کولی. دا د ALAKHIL MOBILE د معلوماتو پاڼه ده — خپل اسناد موږ ته په واټساپ کې ولېږئ، <b>موږ ستاسو لپاره غوښتنه کوو</b>.",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
