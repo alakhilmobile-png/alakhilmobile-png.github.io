@@ -196,6 +196,74 @@
   .picker button { display: block; width: 100%; margin: 10px 0 0; padding: 14px; border-radius: 14px; border: 2px solid var(--green); background: #fff; color: var(--green); font: inherit; font-size: 22px; font-weight: 800; cursor: pointer; }
   .picker button:hover, .picker button:focus { background: var(--green); color: #fff; }
   .picker .ar { font-family: "Noto Naskh Arabic", "Noto Sans Arabic", "Geeza Pro", Tahoma, sans-serif; }
+
+  /* ===== Effects & graphics ===== */
+  .menu-btn { width: 44px; height: 44px; border-radius: 12px; border: 0; background: rgba(255,255,255,.12); cursor: pointer; display: grid; place-content: center; gap: 5px; flex: none; }
+  .menu-btn span { display: block; width: 20px; height: 2.5px; border-radius: 2px; background: #fff; transition: transform .25s, opacity .25s; }
+  .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+  .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+  .menu { position: absolute; top: 100%; inset-inline: 0; background: #0b4439; box-shadow: 0 12px 24px rgba(0,0,0,.25);
+    max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+  .menu.open { max-height: 520px; }
+  .menu ul { list-style: none; margin: 0 auto; padding: 8px 16px 16px; max-width: 980px; display: grid; gap: 4px; }
+  .menu a { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; font-weight: 700; padding: 12px 12px; border-radius: 12px; }
+  .menu a:hover, .menu a:focus { background: rgba(255,255,255,.1); }
+  .menu .mi { width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,.12); display: grid; place-items: center; font-size: 20px; flex: none; }
+  .menu a.wa-link { background: var(--wa); margin-top: 6px; }
+  @media (max-width: 400px) { .brand { font-size: 15px; } .langs button { padding: 4px 9px; } header.top .wrap { gap: 8px; } }
+
+  .hero { position: relative; overflow: hidden; }
+  .hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; filter: blur(10px); pointer-events: none; }
+  .hero::before { width: 340px; height: 340px; background: radial-gradient(circle, rgba(242,179,61,.28), transparent 70%); top: -120px; inset-inline-end: -80px; animation: blob 9s ease-in-out infinite alternate; }
+  .hero::after { width: 280px; height: 280px; background: radial-gradient(circle, rgba(31,168,85,.30), transparent 70%); bottom: -140px; inset-inline-start: -60px; animation: blob 11s ease-in-out infinite alternate-reverse; }
+  @keyframes blob { to { transform: translate(30px, 25px) scale(1.15); } }
+  .hero-grid { position: relative; z-index: 1; display: grid; gap: 8px; align-items: center; }
+  @media (min-width: 820px) { .hero-grid { grid-template-columns: 1.25fr .9fr; gap: 24px; } }
+  .hero-art { max-width: 340px; width: 100%; margin: 6px auto 0; }
+  .hero-svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .hero-svg .pp { animation: float 5s ease-in-out infinite; transform-origin: 185px 175px; }
+  @keyframes float { 0%,100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-10px) rotate(-1deg); } }
+  .hero-svg .spark { animation: twinkle 2.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  .hero-svg .spark:nth-of-type(2) { animation-delay: .9s; } .hero-svg .spark:nth-of-type(3) { animation-delay: 1.7s; }
+  @keyframes twinkle { 0%,100% { opacity: .2; transform: scale(.6); } 50% { opacity: 1; transform: scale(1.1); } }
+  .hero h1 { animation: rise .7s ease both; } .hero p { animation: rise .7s .12s ease both; }
+  .hero .chips { animation: rise .7s .24s ease both; } .hero .btns { animation: rise .7s .36s ease both; }
+  .hero-art { animation: pop .9s .2s ease both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @keyframes pop { from { opacity: 0; transform: scale(.85); } to { opacity: 1; transform: none; } }
+  .btn-amber { position: relative; overflow: hidden; }
+  .btn-amber::after { content: ""; position: absolute; top: 0; bottom: 0; width: 40%; left: -60%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent); transform: skewX(-20deg); animation: sweep 3.2s 1.2s ease-in-out infinite; }
+  @keyframes sweep { 0% { left: -60%; } 45%,100% { left: 130%; } }
+  .btn { transition: transform .15s ease, box-shadow .15s ease; }
+  .btn:active { transform: scale(.97); }
+
+  .trust { list-style: none; margin: 0; padding: 18px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (min-width: 820px) { .trust { grid-template-columns: repeat(4, 1fr); } }
+  .trust li { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px; display: flex; gap: 10px; align-items: center; font-weight: 700; font-size: 15px; line-height: 1.45; box-shadow: var(--shadow); }
+  .trust .ti { font-size: 26px; flex: none; }
+
+  h2 { display: flex; align-items: center; gap: 10px; }
+  .h-ico { width: 44px; height: 44px; border-radius: 14px; background: var(--green-soft); display: grid; place-items: center; font-size: 24px; flex: none; }
+  .big-ico { font-size: 34px; line-height: 1; margin-bottom: 8px; }
+  .step-ico { float: inline-end; font-size: 28px; line-height: 1; margin-inline-start: 8px; }
+  .s-ico { font-size: 24px; flex: none; }
+  ul.icons { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  ul.icons li { display: flex; gap: 12px; align-items: flex-start; }
+  .li-ico { width: 42px; height: 42px; border-radius: 12px; background: var(--green-soft); display: grid; place-items: center; font-size: 22px; flex: none; }
+  .card, details.case, ol.steps li { transition: transform .2s ease, box-shadow .2s ease; }
+  @media (hover: hover) { .card:hover, ol.steps li:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(16,40,34,.06), 0 14px 30px rgba(16,40,34,.12); } }
+
+  .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; transition-delay: var(--d, 0s); }
+  .js .reveal.in { opacity: 1; transform: none; }
+
+  .fab::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 3px solid var(--wa); animation: ring 2.2s ease-out infinite; }
+  @keyframes ring { from { transform: scale(1); opacity: .8; } to { transform: scale(1.6); opacity: 0; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .js .reveal { opacity: 1; transform: none; }
+  }
 </style>
 </head>
 <body>
@@ -219,11 +287,23 @@
       <button type="button" data-lang="fa" lang="fa">دری</button>
       <button type="button" data-lang="en" lang="en">EN</button>
     </div>
+    <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span><b class="sr" data-t="menu" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></b></button>
   </div>
+  <nav class="menu" id="menu">
+    <ul>
+      <li><a href="#who"><span class="mi">🌍</span><span data-t="nav_who"></span></a></li>
+      <li><a href="#steps"><span class="mi">🧭</span><span data-t="nav_steps"></span></a></li>
+      <li><a href="#prices"><span class="mi">💶</span><span data-t="nav_prices"></span></a></li>
+      <li><a href="#docs"><span class="mi">📋</span><span data-t="nav_docs"></span></a></li>
+      <li><a href="#cases"><span class="mi">⚠️</span><span data-t="nav_cases"></span></a></li>
+      <li><a href="#apply" class="wa-link"><span class="mi">💬</span><span data-t="nav_apply"></span></a></li>
+    </ul>
+  </nav>
 </header>
 
 <div class="hero">
-  <div class="wrap">
+  <div class="wrap hero-grid">
+   <div class="hero-text">
     <h1 data-t="hero_title"></h1>
     <p data-t="hero_text"></p>
     <ul class="chips">
@@ -233,35 +313,91 @@
       <a class="btn btn-amber" href="#apply" data-t="btn_start"></a>
       <a class="btn btn-ghost" href="#prices" data-t="btn_prices"></a>
     </div>
+   </div>
+   <div class="hero-art">
+      <svg class="hero-svg" viewBox="0 0 360 330" role="img" aria-label="Afghan passport illustration">
+        <defs>
+          <linearGradient id="cov" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#17644f"/><stop offset="1" stop-color="#05251f"/></linearGradient>
+          <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe7a3"/><stop offset=".55" stop-color="#f2b33d"/><stop offset="1" stop-color="#c98a12"/></linearGradient>
+          <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".38"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+          <clipPath id="clipCov"><rect x="110" y="70" width="150" height="210" rx="12"/></clipPath>
+        </defs>
+        <path id="route" d="M28 262 C 40 70, 300 20, 334 190" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2.5" stroke-dasharray="5 8" stroke-linecap="round"/>
+        <circle cx="28" cy="262" r="8" fill="#f2b33d"/><circle cx="28" cy="262" r="3" fill="#0b4439"/>
+        <text x="28" y="292" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Arial, sans-serif">DUBAI</text>
+        <g transform="translate(334 190)">
+          <path d="M0 -26 C-12 -26 -18 -17 -18 -10 C-18 2 0 14 0 14 C0 14 18 2 18 -10 C18 -17 12 -26 0 -26Z" fill="#1fa855" stroke="#fff" stroke-width="2"/>
+          <path d="M-7 -8 L0 -15 L7 -8 L7 0 L-7 0Z" fill="#fff"/><rect x="-2" y="-5" width="4" height="5" fill="#1fa855"/>
+        </g>
+        <g>
+          <path d="M-13 -2.2 L9 -2.2 Q14 -2 15 0 Q14 2 9 2.2 L-13 2.2Z M-1 -2 L-9 -13 L-4.5 -13 L6 -2Z M-1 2 L-9 13 L-4.5 13 L6 2Z M-11 -2 L-15 -8 L-12 -8 L-7 -2Z M-11 2 L-15 8 L-12 8 L-7 2Z" fill="#fff"/>
+          <animateMotion dur="6s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion>
+        </g>
+        <g class="pp">
+          <ellipse cx="190" cy="300" rx="70" ry="9" fill="#000" opacity=".22"/>
+          <rect x="116" y="76" width="150" height="210" rx="12" fill="#e9e1c8"/>
+          <rect x="113" y="73" width="150" height="210" rx="12" fill="#f6f0dc"/>
+          <rect x="110" y="70" width="150" height="210" rx="12" fill="url(#cov)"/>
+          <rect x="110" y="70" width="12" height="210" rx="6" fill="#000" opacity=".2"/>
+          <rect x="124" y="84" width="122" height="182" rx="7" fill="none" stroke="url(#gold)" stroke-width="1.4" opacity=".85"/>
+          <text x="185" y="114" text-anchor="middle" fill="url(#gold)" font-size="18" font-weight="700" font-family="'Noto Naskh Arabic', Tahoma, sans-serif">افغانستان</text>
+          <text x="185" y="132" text-anchor="middle" fill="url(#gold)" font-size="10" font-weight="700" letter-spacing="2.6" font-family="Arial, sans-serif">AFGHANISTAN</text>
+          <g transform="translate(185 180)" fill="none" stroke="url(#gold)" stroke-width="2">
+            <circle r="29"/><ellipse rx="12" ry="29"/><ellipse rx="29" ry="10"/><path d="M-29 0 H29 M0 -29 V29"/>
+            <path d="M-38 16 Q-46 -10 -30 -34" stroke-width="2.4"/><path d="M38 16 Q46 -10 30 -34" stroke-width="2.4"/>
+            <path d="M-41 4 l-6 -3 M-42 -8 l-6 -4 M-38 -19 l-6 -5 M41 4 l6 -3 M42 -8 l6 -4 M38 -19 l6 -5" stroke-linecap="round"/>
+          </g>
+          <text x="185" y="236" text-anchor="middle" fill="url(#gold)" font-size="17" font-weight="700" font-family="'Noto Naskh Arabic', Tahoma, sans-serif">پاسپورت</text>
+          <text x="185" y="253" text-anchor="middle" fill="url(#gold)" font-size="10" font-weight="700" letter-spacing="3" font-family="Arial, sans-serif">PASSPORT</text>
+          <g transform="translate(185 266)" fill="none" stroke="url(#gold)" stroke-width="1.4">
+            <rect x="-11" y="-6.5" width="22" height="13" rx="2"/><circle r="3.6"/><path d="M-11 0 H-3.6 M3.6 0 H11"/>
+          </g>
+          <g clip-path="url(#clipCov)">
+            <polygon points="0,60 34,60 4,300 -30,300" fill="url(#shine)">
+              <animateTransform attributeName="transform" type="translate" values="60 0; 330 0; 330 0" keyTimes="0; .45; 1" dur="4.5s" repeatCount="indefinite"/>
+            </polygon>
+          </g>
+        </g>
+        <path class="spark" d="M300 60 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z" fill="#ffe7a3"/>
+        <path class="spark" d="M70 120 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2z" fill="#fff"/>
+        <path class="spark" d="M292 270 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5z" fill="#f2b33d"/>
+      </svg>
+   </div>
   </div>
 </div>
 
 <div class="notice"><div class="wrap" data-t="independent"></div></div>
 
 <main class="wrap">
+  <ul class="trust">
+    <li><span class="ti">🔍</span><span data-t="trust1"></span></li>
+    <li><span class="ti">🔒</span><span data-t="trust2"></span></li>
+    <li><span class="ti">🏠</span><span data-t="trust3"></span></li>
+    <li><span class="ti">💬</span><span data-t="trust4"></span></li>
+  </ul>
 
   <!-- Eligibility -->
   <section id="who" class="elig">
-    <h2 data-t="elig_title"></h2>
+    <h2><span class="h-ico">🌍</span><span data-t="elig_title"></span></h2>
     <div class="grid grid-3">
-      <div class="card ok"><span class="tag ok" data-t="tag_yes"></span><div data-t="elig_yes"></div></div>
-      <div class="card warn"><span class="tag warn" data-t="tag_de"></span><div data-t="elig_de"></div></div>
-      <div class="card no"><span class="tag no" data-t="tag_no"></span><div data-t="elig_no"></div><div data-t="elig_no2" style="margin-top:8px"></div></div>
+      <div class="card ok"><div class="big-ico">✅</div><span class="tag ok" data-t="tag_yes"></span><div data-t="elig_yes"></div></div>
+      <div class="card warn"><div class="big-ico">🇩🇪</div><span class="tag warn" data-t="tag_de"></span><div data-t="elig_de"></div></div>
+      <div class="card no"><div class="big-ico">⛔</div><span class="tag no" data-t="tag_no"></span><div data-t="elig_no"></div><div data-t="elig_no2" style="margin-top:8px"></div></div>
     </div>
   </section>
 
   <!-- Steps -->
   <section id="steps">
-    <h2 data-t="steps_title"></h2>
+    <h2><span class="h-ico">🧭</span><span data-t="steps_title"></span></h2>
     <ol class="steps" id="stepsList"></ol>
   </section>
 
   <!-- Prices -->
   <section id="prices">
-    <h2 data-t="prices_title"></h2>
+    <h2><span class="h-ico">💶</span><span data-t="prices_title"></span></h2>
     <div class="grid grid-2" id="priceGrid"></div>
     <div class="fee-box">
-      <div data-t="fee_box"></div>
+      <div><span style="font-size:24px">💶</span> <span data-t="fee_box"></span></div>
       <p class="small" style="margin:8px 0 0" data-t="fee_rules"></p>
     </div>
     <p class="small" data-t="prices_note"></p>
@@ -269,24 +405,24 @@
 
   <!-- Documents -->
   <section id="docs">
-    <h2 data-t="docs_title"></h2>
-    <div class="card"><ul class="check" id="docsAdult"></ul></div>
+    <h2><span class="h-ico">📋</span><span data-t="docs_title"></span></h2>
+    <div class="card"><ul class="icons" id="docsAdult"></ul></div>
   </section>
 
   <!-- Special cases -->
   <section id="cases">
-    <h2 data-t="cases_title"></h2>
+    <h2><span class="h-ico">⚠️</span><span data-t="cases_title"></span></h2>
     <div class="grid">
       <details class="case">
-        <summary data-t="case_first_t"></summary>
+        <summary><span class="s-ico">🚫</span><span data-t="case_first_t"></span></summary>
         <div class="body"><div class="alert no" style="margin-top:0" data-t="case_first"></div></div>
       </details>
       <details class="case">
-        <summary data-t="case_lost_t"></summary>
+        <summary><span class="s-ico">🚓</span><span data-t="case_lost_t"></span></summary>
         <div class="body"><p style="margin:0" data-t="case_lost"></p></div>
       </details>
       <details class="case">
-        <summary data-t="case_name_t"></summary>
+        <summary><span class="s-ico">✏️</span><span data-t="case_name_t"></span></summary>
         <div class="body">
           <p style="margin-top:0" data-t="case_name"></p>
           <ul class="check" id="nameList"></ul>
@@ -294,10 +430,10 @@
         </div>
       </details>
       <details class="case">
-        <summary data-t="case_child_t"></summary>
+        <summary><span class="s-ico">👶</span><span data-t="case_child_t"></span></summary>
         <div class="body">
           <p style="margin-top:0" data-t="case_child"></p>
-          <ul class="check" id="childList"></ul>
+          <ul class="icons" id="childList"></ul>
           <div class="alert no" data-t="case_child_no"></div>
         </div>
       </details>
@@ -310,7 +446,7 @@
 
   <!-- Apply form -->
   <section id="apply">
-    <h2 data-t="form_title"></h2>
+    <h2><span class="h-ico">💬</span><span data-t="form_title"></span></h2>
     <div class="card">
       <p style="margin-top:0" data-t="form_intro"></p>
       <form id="form" novalidate>
@@ -508,6 +644,8 @@
       case_first_t: "Never had an Afghan passport (only a Tazkira)",
       case_first: "If you have only a Tazkira (paper or electronic) and you <b>never had an Afghan passport</b> before, getting a passport through the Dubai consulate is <b>not possible</b>. You must have a previous Afghan electronic passport.",
       sit_first: "I have never had an Afghan passport — I only have a Tazkira",
+      menu: "Menu", nav_who: "Who can apply", nav_steps: "How it works", nav_prices: "Prices", nav_docs: "Documents", nav_cases: "Special cases", nav_apply: "Apply on WhatsApp",
+      trust1: "Documents checked before you pay", trust2: "We never ask for your card details", trust3: "Passport delivered to your home", trust4: "Help in Pashto, Dari & English",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -618,6 +756,8 @@
       case_first_t: "هرگز پاسپورت افغانی نداشته‌اید (فقط تذکره)",
       case_first: "اگر فقط تذکره (کاغذی یا الکترونیکی) دارید و <b>هرگز پاسپورت افغانی نداشته‌اید</b>، گرفتن پاسپورت از طریق قونسلگری دبی <b>ممکن نیست</b>. باید پاسپورت الکترونیکی قبلی افغانی داشته باشید.",
       sit_first: "من هرگز پاسپورت افغانی نداشته‌ام — فقط تذکره دارم",
+      menu: "مینو", nav_who: "چه کسانی می‌توانند", nav_steps: "مراحل کار", nav_prices: "قیمت‌ها", nav_docs: "اسناد لازم", nav_cases: "حالت‌های خاص", nav_apply: "درخواست در واتساپ",
+      trust1: "اسناد قبل از پرداخت بررسی می‌شود", trust2: "ما هرگز معلومات کارت بانکی شما را نمی‌خواهیم", trust3: "پاسپورت تا خانهٔ شما می‌رسد", trust4: "کمک به پشتو، دری و انگلیسی",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -728,6 +868,8 @@
       case_first_t: "هېڅکله مو افغاني پاسپورټ نه دی لرلی (یوازې تذکره)",
       case_first: "که یوازې تذکره (کاغذي یا برېښنايي) لرئ او <b>هېڅکله مو افغاني پاسپورټ نه دی لرلی</b>، د دوبۍ د قونسلګرۍ له لارې د پاسپورټ اخیستل <b>ممکنه نه ده</b>. تاسو باید پخوانی افغاني برېښنايي پاسپورټ ولرئ.",
       sit_first: "ما هېڅکله افغاني پاسپورټ نه دی لرلی — یوازې تذکره لرم",
+      menu: "مینو", nav_who: "څوک غوښتنه کولی شي", nav_steps: "د کار پړاوونه", nav_prices: "بیې", nav_docs: "اړین اسناد", nav_cases: "ځانګړي حالتونه", nav_apply: "په واټساپ کې غوښتنه",
+      trust1: "اسناد د پیسو له ورکړې مخکې کتل کیږي", trust2: "موږ هېڅکله ستاسو د بانکي کارت معلومات نه غواړو", trust3: "پاسپورټ ستاسو تر کوره رسیږي", trust4: "په پښتو، دري او انګلیسي مرسته",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
@@ -770,6 +912,9 @@
     }
   };
 
+  var STEP_ICONS = ["📖", "📲", "🔍", "💶", "📝", "📧", "⏳", "✈️"];
+  var DOC_ICONS = ["📘", "🪪", "🏠", "📸", "📞"];
+  var CHILD_ICONS = ["👶", "📘", "🪪", "💍", "📸", "🏠", "📕"];
   var lang = "fa";
   var $ = function (id) { return document.getElementById(id); };
   var t = function (k) { return T[lang][k]; };
@@ -798,13 +943,13 @@
       b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
     });
 
-    $("stepsList").innerHTML = d.steps.map(function (s) {
-      return '<li class="' + s[0] + '"><span class="who">' + (s[0] === "us" ? d.who_us : d.who_you) + "</span>" + s[1] + "</li>";
+    $("stepsList").innerHTML = d.steps.map(function (s, i) {
+      return '<li class="reveal ' + s[0] + '" style="--d:' + (i % 2) * 0.08 + 's"><span class="step-ico">' + STEP_ICONS[i] + '</span><span class="who">' + (s[0] === "us" ? d.who_us : d.who_you) + "</span>" + s[1] + "</li>";
     }).join("");
 
     $("priceGrid").innerHTML = PASSPORTS.map(function (p) {
-      return '<div class="card price-card ' + (p.urgent ? "urg" : "std") + '">' +
-        '<span class="kind">' + (p.urgent ? d.urgent : d.standard) + "</span>" +
+      return '<div class="card price-card reveal ' + (p.urgent ? "urg" : "std") + '">' +
+        '<span class="kind">' + (p.urgent ? "⚡ " + d.urgent : "🕐 " + d.standard) + "</span>" +
         "<h3>" + (p.years === 5 ? d.years5 : d.years10) + "</h3>" +
         '<div class="total"><span class="num">≈ €' + eTot(p) + "</span></div>" +
         '<div class="total-label">' + d.total_label + ' · <span class="num">' + usd(p.total) + "</span></div>" +
@@ -814,13 +959,23 @@
     }).join("");
 
     var li = function (arr) { return arr.map(function (x) { return "<li>" + x + "</li>"; }).join(""); };
-    $("docsAdult").innerHTML = li(d.docs);
+    var ili = function (arr, icons) { return arr.map(function (x, i) { return '<li><span class="li-ico">' + icons[i] + "</span><span>" + x + "</span></li>"; }).join(""); };
+    $("docsAdult").innerHTML = ili(d.docs, DOC_ICONS);
     $("nameList").innerHTML = li(d.name_list);
-    $("childList").innerHTML = li(d.child_list);
+    $("childList").innerHTML = ili(d.child_list, CHILD_ICONS);
 
     renderTypes();
     renderDocs();
     updateFee();
+    observeReveal();
+  }
+
+  // Scroll-in animations
+  var io = ("IntersectionObserver" in window) ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.12 }) : null;
+  function observeReveal() {
+    document.querySelectorAll(".reveal:not(.in)").forEach(function (el) { if (io) io.observe(el); else el.classList.add("in"); });
   }
 
   function renderTypes() {
@@ -956,6 +1111,23 @@
     $("after").classList.remove("hidden");
     window.open(url, "_blank") || (window.location.href = url);
   });
+
+  // Menu
+  var menu = $("menu"), menuBtn = $("menuBtn");
+  function setMenu(open) { menu.classList.toggle("open", open); menuBtn.setAttribute("aria-expanded", open ? "true" : "false"); }
+  menuBtn.addEventListener("click", function (e) { e.stopPropagation(); setMenu(!menu.classList.contains("open")); });
+  menu.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
+  document.addEventListener("click", function (e) { if (!menu.contains(e.target)) setMenu(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
+
+  document.documentElement.classList.add("js");
+  document.querySelectorAll("main section h2, .elig .card, details.case, .fee-box, .safety, .trust li, #docs .card").forEach(function (el, i) {
+    el.classList.add("reveal");
+    if (el.matches(".trust li, .elig .card")) el.style.setProperty("--d", (Array.prototype.indexOf.call(el.parentNode.children, el) * 0.1) + "s");
+  });
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll("svg").forEach(function (sv) { if (sv.pauseAnimations) sv.pauseAnimations(); });
+  }
 
   // Start: language from ?lang=, saved choice, or show picker
   var q = (location.search.match(/[?&]lang=(en|fa|ps|da|dari|pashto)/i) || [])[1];
