@@ -348,6 +348,13 @@
   .wave { display: inline-block; font-size: 22px; transform-origin: 70% 75%; animation: wave 2.6s 1.4s ease-in-out infinite; }
   @keyframes wave { 0%,60%,100% { transform: rotate(0); } 10% { transform: rotate(16deg); } 20% { transform: rotate(-8deg); } 30% { transform: rotate(16deg); } 40% { transform: rotate(-4deg); } 50% { transform: rotate(10deg); } }
   .hero h1 { animation-delay: .9s; } .hero p { animation-delay: 1.05s; } .hero .chips { animation-delay: 1.2s; } .hero .btns { animation-delay: 1.35s; }
+
+  /* Top section order: title, passport, flags, text, buttons */
+  .hero-grid { grid-template-columns: 1fr !important; max-width: 760px; }
+  .hero .hero-art { margin: 4px auto 6px; animation-delay: 1s; }
+  .hero .chips { justify-content: center; animation-delay: 1.25s; }
+  .hero p { animation-delay: 1.4s; }
+  .hero .btns { animation-delay: 1.55s; }
 </style>
 </head>
 <body>
@@ -394,15 +401,6 @@
   <div class="wrap hero-grid">
    <div class="hero-text">
     <h1 data-t="hero_title"></h1>
-    <p data-t="hero_text"></p>
-    <ul class="chips">
-      <li data-t="c_uk"></li><li data-t="c_us"></li><li data-t="c_ca"></li><li data-t="c_au"></li><li data-t="c_eu"></li>
-    </ul>
-    <div class="btns">
-      <a class="btn btn-amber" href="#apply" data-t="btn_start"></a>
-      <a class="btn btn-ghost" href="#prices" data-t="btn_prices"></a>
-    </div>
-   </div>
    <div class="hero-art" dir="ltr" aria-hidden="true">
     <div class="stage">
       <svg class="route" viewBox="0 0 340 310">
@@ -450,6 +448,15 @@
       <span class="spk" style="left:84%;top:6%">✦</span>
       <span class="spk" style="left:8%;top:30%;animation-delay:.9s;font-size:1.2em">✦</span>
       <span class="spk" style="left:80%;top:80%;animation-delay:1.7s">✦</span>
+    </div>
+   </div>
+    <ul class="chips">
+      <li data-t="c_uk"></li><li data-t="c_us"></li><li data-t="c_ca"></li><li data-t="c_au"></li><li data-t="c_eu"></li>
+    </ul>
+    <p data-t="hero_text"></p>
+    <div class="btns">
+      <a class="btn btn-amber" href="#apply" data-t="btn_start"></a>
+      <a class="btn btn-ghost" href="#prices" data-t="btn_prices"></a>
     </div>
    </div>
   </div>
