@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="site-version" content="38">
+<meta name="site-version" content="39">
 <title>ALAKHIL MOBILE — Afghan Passport Online</title>
 <meta name="description" content="Help for Afghans in Europe (except Germany), the UK, the USA, Canada and Australia to apply online for a new Afghan passport through the Afghan Consulate General in Dubai. English · دری · پښتو">
 <meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
@@ -990,6 +990,27 @@
   .qz-e.multi { font-size: 17px; letter-spacing: -1px; max-width: 96px; line-height: 1.3; white-space: normal; text-align: center; }
   .qz-t { min-width: 0; }
   .s-steps { gap: 12px !important; }
+
+  /* ===== Calmer details (v39) ===== */
+  /* 1. Light glass footer */
+  footer { background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(236,238,242,.85)) !important; color: #3d4558 !important;
+    box-shadow: inset 0 1.5px 0 #fff, 0 -1px 0 rgba(128,140,168,.3); }
+  footer .pattern { filter: none !important; opacity: .06 !important; }
+  footer p { color: #3d4558; }
+  footer a { color: #2a4f9e; }
+  footer .ver { color: #3d4558; }
+  .foot-brand img { box-shadow: var(--clear-rim) !important; border: 0 !important; }
+  /* 2. Fewer competing colours: warning, ask-line, studio line become clear glass */
+  .notcons { background: var(--clear-bg) !important; border: 0 !important; box-shadow: var(--clear-rim) !important; color: #1b2233 !important; }
+  .notcons .nc-ico { filter: saturate(.8); }
+  .notice { color: #3d4558 !important; }
+  .s-ask { background: var(--clear-bg) !important; box-shadow: var(--clear-rim) !important; color: #167a43 !important; }
+  .s-studio { background: var(--clear-bg) !important; box-shadow: var(--clear-rim) !important; color: #167a43 !important; }
+  .welcome { border: 0 !important; background: var(--clear-bg) !important; box-shadow: var(--clear-rim) !important; }
+  /* 3. Softer "not possible" badges */
+  .s-tiles.no .s-tile::after { background: linear-gradient(180deg, #f3a59f, #e0746b) !important; box-shadow: 0 2px 5px rgba(200,80,70,.25); border-width: 1.5px !important; }
+  .s-tiles.no .s-tile { background: linear-gradient(180deg, rgba(255,235,232,.35), rgba(255,235,232,.1) 50%, rgba(255,235,232,.22)) !important; }
+  .s-h.red { color: #b4453c !important; }
 </style>
 </head>
 <body>
@@ -1450,7 +1471,7 @@
     <p data-t="privacy"></p>
     <p data-t="sim_keep"></p>
     <p data-t="prices_note"></p>
-    <p class="ver">v38</p>
+    <p class="ver">v39</p>
   </div>
 </footer>
 
