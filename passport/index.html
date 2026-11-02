@@ -1355,7 +1355,7 @@
       '</g>';
     var fx = '';
     if (o.sun) fx += '<g stroke="#f2b33d" stroke-width="3" stroke-linecap="round"><circle cx="66" cy="13" r="6" fill="#ffd54f" stroke="none"/><path d="M66 2V4 M66 22V24 M55 13H57 M75 13H77 M58 5L59.5 6.5 M72.5 19.5L74 21 M58 21L59.5 19.5 M72.5 6.5L74 5"/></g>';
-    if (o.metre) fx += '<g stroke="#2f6bff" stroke-width="2" fill="none" stroke-linecap="round"><path d="M8 20 H72"/><path d="M12 16 L8 20 L12 24 M68 16 L72 20 L68 24"/></g><text x="40" y="14" text-anchor="middle" font-size="10" font-weight="800" fill="#2f6bff" font-family="Arial">1 m</text>';
+    if (o.metre) fx += '<g stroke="#2f6bff" stroke-width="2" fill="none" stroke-linecap="round"><path d="M8 27 H72"/><path d="M12 23 L8 27 L12 31 M68 23 L72 27 L68 31"/></g><text x="40" y="21" direction="ltr" unicode-bidi="bidi-override" text-anchor="middle" font-size="10" font-weight="800" fill="#2f6bff" font-family="Arial">1 m</text>';
     if (o.dark) fx += '<rect width="80" height="80" fill="#0b1020" opacity=".55"/>';
     var filt = o.dark ? ' style="filter:blur(1.2px)"' : '';
     return '<svg viewBox="0 0 80 80" aria-hidden="true"' + filt + '>' + bg + g + fx + '</svg>';
