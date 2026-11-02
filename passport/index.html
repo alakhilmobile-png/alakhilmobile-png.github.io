@@ -518,6 +518,35 @@
   .share-card { text-align: center; }
   .share-ico { font-size: 40px; line-height: 1; }
   .share-card h3 { margin: 8px 0 14px; font-size: 20px; }
+
+  /* ===== First screen boost ===== */
+  .stage { font-size: clamp(8px, 2.35vw, 10px); }
+  .bism-wrap { margin: -14px auto 14px; }
+  .bismillah { line-height: 1.75; }
+  .notcons { display: inline-flex; align-items: center; max-width: 100%; margin-top: 10px; padding: 7px 14px; border-radius: 999px; font-size: 14.5px; line-height: 1.45; font-weight: 700; }
+  .notcons .nc-ico { font-size: 20px; }
+  .hero h1 { margin-bottom: 0; }
+  .fact { position: absolute; z-index: 5; display: inline-flex; align-items: center; white-space: nowrap; padding: 6px 12px; border-radius: 999px;
+    font: 800 13.5px/1.3 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #0f1a3d;
+    background: rgba(255,255,255,.88); border: 1px solid #fff; box-shadow: 0 10px 22px rgba(45,75,170,.22), inset 0 1px 0 #fff;
+    animation: factIn .6s ease both, bob 4s ease-in-out infinite; }
+  html[dir="rtl"] .fact { direction: rtl; font-family: "Noto Naskh Arabic", "Geeza Pro", Tahoma, sans-serif; font-size: 14px; }
+  .fact.f1 { left: 0; top: 4%; animation-delay: 1.3s, 1.9s; }
+  .fact.f2 { right: 0; top: 30%; animation-delay: 1.55s, 2.6s; }
+  .fact.f3 { right: 2%; bottom: 3%; animation-delay: 1.8s, 3.3s; background: linear-gradient(180deg, #5a8fff, #1f45d8); color: #fff; border-color: rgba(255,255,255,.5); }
+  @keyframes factIn { from { opacity: 0; transform: scale(.6) translateY(10px); } to { opacity: 1; transform: none; } }
+  @keyframes bob { 0%,100% { translate: 0 0; } 50% { translate: 0 -6px; } }
+  .cta-bar { display: none; }
+  @media (max-width: 820px) {
+    .cta-bar { display: flex; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(255,255,255,.88); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); border-top: 1px solid #fff;
+      box-shadow: 0 -8px 24px rgba(45,75,170,.15); animation: barUp .6s 1.6s ease both; }
+    .cta-bar .btn { flex: 1; min-height: 52px; font-size: 17px; padding: 10px 12px; white-space: nowrap; width: auto; }
+    .cta-bar .btn-wa { flex: 0 1 42%; }
+    .fab { display: none; }
+    footer { padding-bottom: 120px; }
+  }
+  @keyframes barUp { from { transform: translateY(110%); } to { transform: none; } }
 </style>
 </head>
 <body>
@@ -564,7 +593,7 @@
   <div class="wrap bism-wrap">
     <div class="bism-row"><span class="orn"></span><div class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div><span class="orn r"></span></div>
     <div class="welcome"><span class="wave">👋</span><span data-t="welcome"></span></div>
-    <div class="notcons"><span class="nc-ico">⚠️</span><span data-t="not_consulate"></span></div>
+    <div class="notcons"><span class="nc-ico">⚠️</span><span data-t="not_consulate_short"></span></div>
   </div>
   <div class="wrap hero-grid">
    <div class="hero-text">
@@ -613,6 +642,9 @@
         </div>
         <div class="shadow"></div>
       </div>
+      <span class="fact f1"><span data-t="fact1"></span></span>
+      <span class="fact f2"><span data-t="fact2"></span></span>
+      <span class="fact f3"><span data-t="fact3"></span></span>
       <span class="spk" style="left:84%;top:6%">✦</span>
       <span class="spk" style="left:8%;top:30%;animation-delay:.9s;font-size:1.2em">✦</span>
       <span class="spk" style="left:80%;top:80%;animation-delay:1.7s">✦</span>
@@ -630,7 +662,7 @@
   </div>
 </div>
 
-<div class="notice"><div class="wrap" data-t="independent"></div></div>
+<div class="notice"><div class="wrap" data-t="not_consulate"></div></div>
 
 <main class="wrap">
   <ul class="trust">
@@ -880,6 +912,10 @@
   </div>
 </footer>
 
+<div class="cta-bar" id="ctaBar">
+  <a class="btn btn-wa" id="barWa" href="https://wa.me/33605654592" target="_blank" rel="noopener"><span>💬</span> <span>WhatsApp</span></a>
+  <a class="btn btn-amber no-arrow" href="#apply"><span>📲</span> <span data-t="bar_apply"></span></a>
+</div>
 <a class="fab" href="https://wa.me/33605654592" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.2-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6 0-5.9 4.9-10.7 11-10.7s11 4.8 11 10.7-4.9 10.8-10.9 10.8zm6-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
 </a>
@@ -902,7 +938,7 @@
     en: {
       dir: "ltr", htmlLang: "en",
       hero_title: "New Afghan passport, delivered to your address",
-      hero_text: "We help Afghans living in Europe, the UK, the USA, Canada and Australia apply online for a new Afghan passport through the Consulate General of Afghanistan in Dubai. The passport is sent to your home address.",
+      hero_text: "We help Afghans in <b>Europe, the UK, the USA, Canada and Australia</b> get a new Afghan passport from the Dubai consulate — <b>delivered to your home</b>.",
       c_uk: "🇬🇧 UK", c_us: "🇺🇸 USA", c_ca: "🇨🇦 Canada", c_au: "🇦🇺 Australia", c_eu: "🇪🇺 Europe (except Germany)",
       btn_start: "📲 Send documents on WhatsApp", btn_prices: "See prices",
       independent: "<b>ALAKHIL MOBILE is an independent service — we are not the consulate.</b> We check your documents, then prepare and submit your online application for you.",
@@ -1002,6 +1038,9 @@
       share_btn: "Share on WhatsApp", share_other: "Other apps / copy link", share_copied: "Link copied ✓",
       share_msg: "Afghan passport online through the Dubai consulate — documents, prices and steps in Pashto, Dari and English:",
       nav_photo: "Photo guide", nav_share: "Share with family",
+      not_consulate_short: "<b>Not the consulate website</b> — we apply for you via WhatsApp",
+      fact1: "⏱ 4–8 weeks", fact2: "🏠 Home delivery", fact3: "💶 €50 all inclusive",
+      bar_apply: "Send documents",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -1046,7 +1085,7 @@
     fa: {
       dir: "rtl", htmlLang: "fa-AF",
       hero_title: "پاسپورت جدید افغانی، تا آدرس خانهٔ شما",
-      hero_text: "ما به افغان‌های مقیم اروپا، بریتانیا، امریکا، کانادا و آسترالیا کمک می‌کنیم تا از طریق جنرال قونسلگری افغانستان در دبی به‌صورت آنلاین برای پاسپورت جدید درخواست بدهند. پاسپورت به آدرس خانهٔ شما فرستاده می‌شود.",
+      hero_text: "ما به افغان‌های مقیم <b>اروپا، بریتانیا، امریکا، کانادا و آسترالیا</b> کمک می‌کنیم تا پاسپورت جدید را از قونسلگری دبی بگیرند — <b>تا دروازهٔ خانهٔ شما</b>.",
       c_uk: "🇬🇧 بریتانیا", c_us: "🇺🇸 امریکا", c_ca: "🇨🇦 کانادا", c_au: "🇦🇺 آسترالیا", c_eu: "🇪🇺 اروپا (به جز آلمان)",
       btn_start: "📲 ارسال اسناد در واتساپ", btn_prices: "دیدن قیمت‌ها",
       independent: "<b>ALAKHIL MOBILE یک خدمت مستقل است — ما قونسلگری نیستیم.</b> ما اسناد شما را بررسی می‌کنیم و بعد درخواست آنلاین شما را آماده و ثبت می‌کنیم.",
@@ -1146,6 +1185,9 @@
       share_btn: "در واتساپ شریک کنید", share_other: "اپ‌های دیگر / کاپی لینک", share_copied: "لینک کاپی شد ✓",
       share_msg: "پاسپورت افغانی آنلاین از طریق قونسلگری دبی — اسناد، قیمت‌ها و مراحل به پشتو، دری و انگلیسی:",
       nav_photo: "راهنمای عکس", nav_share: "با فامیل شریک کنید",
+      not_consulate_short: "<b>این سایت قونسلگری نیست</b> — ما از طریق واتساپ برای شما درخواست می‌دهیم",
+      fact1: "⏱ ۴ تا ۸ هفته", fact2: "🏠 تحویل در خانه", fact3: "💶 ۵۰ یورو، همه‌چیز شامل",
+      bar_apply: "ارسال اسناد",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -1190,7 +1232,7 @@
     ps: {
       dir: "rtl", htmlLang: "ps",
       hero_title: "نوی افغاني پاسپورټ، ستاسو تر کوره پورې",
-      hero_text: "موږ له هغو افغانانو سره مرسته کوو چې په اروپا، بریتانیا، امریکا، کاناډا او آسټرالیا کې اوسېږي، څو د دوبۍ د افغانستان جنرال قونسلګرۍ له لارې آنلاین د نوي پاسپورټ غوښتنه وکړي. پاسپورټ ستاسو د کور پتې ته لېږل کیږي.",
+      hero_text: "موږ له هغو افغانانو سره مرسته کوو چې په <b>اروپا، بریتانیا، امریکا، کاناډا او آسټرالیا</b> کې اوسېږي، څو د دوبۍ له قونسلګرۍ نوی پاسپورټ ترلاسه کړي — <b>ستاسو تر کوره پورې</b>.",
       c_uk: "🇬🇧 بریتانیا", c_us: "🇺🇸 امریکا", c_ca: "🇨🇦 کاناډا", c_au: "🇦🇺 آسټرالیا", c_eu: "🇪🇺 اروپا (پرته له آلمان)",
       btn_start: "📲 اسناد په واټساپ کې ولېږئ", btn_prices: "بیې وګورئ",
       independent: "<b>ALAKHIL MOBILE یو خپلواک خدمت دی — موږ قونسلګري نه یو.</b> موږ ستاسو اسناد ګورو، بیا ستاسو آنلاین غوښتنلیک چمتو او ثبتوو.",
@@ -1290,6 +1332,9 @@
       share_btn: "په واټساپ کې یې شریک کړئ", share_other: "نور اپونه / لینک کاپي کړئ", share_copied: "لینک کاپي شو ✓",
       share_msg: "افغاني پاسپورټ آنلاین د دوبۍ د قونسلګرۍ له لارې — اسناد، بیې او پړاوونه په پښتو، دري او انګلیسي:",
       nav_photo: "د عکس لارښود", nav_share: "له کورنۍ سره یې شریک کړئ",
+      not_consulate_short: "<b>دا د قونسلګرۍ سایټ نه دی</b> — موږ د واټساپ له لارې ستاسو لپاره غوښتنه کوو",
+      fact1: "⏱ ۴ تر ۸ اونۍ", fact2: "🏠 کور ته رسول", fact3: "💶 ۵۰ یورو، هر څه شامل",
+      bar_apply: "اسناد ولېږئ",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
@@ -1428,6 +1473,7 @@
     $("revGrid").innerHTML = REVIEWS.map(function (r) {
       return '<div class="card rev reveal"><div class="stars">★★★★★</div><p>“' + (r.text[lang] || r.text.en) + '”</p><b>— ' + r.name + "</b></div>";
     }).join("");
+    $("barWa").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.m_hello);
     $("revBtn").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.rev_msg);
     var pageUrl = "https://alakhilmobile-png.github.io/passport/?lang=" + lang;
     $("shareWa").href = "https://wa.me/?text=" + encodeURIComponent(d.share_msg + "\n" + pageUrl);
