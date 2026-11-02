@@ -612,6 +612,31 @@
                         50% { box-shadow: 0 4px 12px rgba(45,75,170,.18), 0 0 18px 4px rgba(242,179,61,.55); } }
   @keyframes logoBreathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.045); } }
   @keyframes logoIn { from { opacity: 0; transform: scale(.7) rotate(-8deg); filter: blur(4px); } to { opacity: 1; transform: none; filter: none; } }
+
+  /* ===== Logo animation v2 (iPhone-safe, more visible) ===== */
+  .shine { -webkit-mask-image: -webkit-radial-gradient(white, black); transform: translateZ(0); }
+  .shine::after { display: none; }
+  .sweep { position: absolute; top: -20%; bottom: -20%; left: 0; width: 60%; z-index: 3; pointer-events: none;
+    background: linear-gradient(100deg, transparent 0%, rgba(255,222,140,.45) 30%, rgba(255,255,255,1) 50%, rgba(255,200,90,.65) 64%, transparent 100%);
+    -webkit-transform: translate3d(-170%,0,0) skewX(-18deg); transform: translate3d(-170%,0,0) skewX(-18deg);
+    -webkit-animation: sweep2 3.6s ease-in-out 1.2s infinite; animation: sweep2 3.6s ease-in-out 1.2s infinite; }
+  .sh-foot .sweep { -webkit-animation-delay: 2.2s; animation-delay: 2.2s; }
+  @-webkit-keyframes sweep2 { 0% { -webkit-transform: translate3d(-170%,0,0) skewX(-18deg); } 50%, 100% { -webkit-transform: translate3d(260%,0,0) skewX(-18deg); } }
+  @keyframes sweep2 { 0% { transform: translate3d(-170%,0,0) skewX(-18deg); } 50%, 100% { transform: translate3d(260%,0,0) skewX(-18deg); } }
+
+  /* Rotating gold ring around the header icon */
+  .logo-wrap { position: relative; display: inline-block; flex: none; }
+  .sh-head { padding: 3px; border-radius: 14px; background: #fff; }
+  .sh-head::before { content: ""; position: absolute; left: -50%; top: -50%; width: 200%; height: 200%; z-index: 0;
+    background: conic-gradient(from 0deg, #f6dc8f, #b07d0f, #fff6d2, #d9a52a, #8f6408, #f6dc8f);
+    -webkit-animation: ringSpin 4s linear infinite; animation: ringSpin 4s linear infinite; }
+  .sh-head img { position: relative; z-index: 1; border: 0 !important; border-radius: 11px !important; width: 40px !important; height: 40px !important; padding: 1px; }
+  @-webkit-keyframes ringSpin { to { -webkit-transform: rotate(360deg); } }
+  @keyframes ringSpin { to { transform: rotate(360deg); } }
+  .logo-star { position: absolute; top: -7px; right: -6px; z-index: 4; color: #e2b54a; font-size: 15px; line-height: 1;
+    text-shadow: 0 0 8px rgba(242,179,61,.9); -webkit-animation: starTw 2.4s ease-in-out infinite; animation: starTw 2.4s ease-in-out infinite; }
+  @-webkit-keyframes starTw { 0%,100% { opacity: .15; -webkit-transform: scale(.5) rotate(0); } 50% { opacity: 1; -webkit-transform: scale(1.2) rotate(90deg); } }
+  @keyframes starTw { 0%,100% { opacity: .15; transform: scale(.5) rotate(0); } 50% { opacity: 1; transform: scale(1.2) rotate(90deg); } }
 </style>
 </head>
 <body>
@@ -620,7 +645,7 @@
 <!-- Language picker (first visit) -->
 <div class="picker hidden" id="picker" role="dialog" aria-modal="true" aria-label="Choose language">
   <div class="box">
-    <span class="shine sh-pick"><img class="picker-logo" src="logo-full.jpg" alt="ALAKHIL MOBILE — Qualité et satisfaction" width="150" height="147"></span>
+    <span class="shine sh-pick"><span class="sweep"></span><img class="picker-logo" src="logo-full.jpg" alt="ALAKHIL MOBILE — Qualité et satisfaction" width="150" height="147"></span>
     <p><span class="ar" dir="rtl">ژبه وټاکئ</span> · <span class="ar" dir="rtl">زبان را انتخاب کنید</span><br>Choose your language</p>
     <button type="button" class="ar" data-pick="ps" lang="ps" dir="rtl">پښتو</button>
     <button type="button" class="ar" data-pick="fa" lang="fa" dir="rtl">دری</button>
@@ -630,7 +655,7 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="brand2" href="#" aria-label="ALAKHIL MOBILE"><span class="shine sh-head"><img src="logo-mark.png" alt="" width="40" height="40"></span><span class="bt"><span class="l1">ALAKHIL</span><span class="l2">MOBILE</span></span></a>
+    <a class="brand2" href="#" aria-label="ALAKHIL MOBILE"><span class="logo-wrap"><span class="shine sh-head"><span class="sweep"></span><img src="logo-mark.png" alt="" width="40" height="40"></span><span class="logo-star">✦</span></span><span class="bt"><span class="l1">ALAKHIL</span><span class="l2">MOBILE</span></span></a>
     <div class="langs" role="group" aria-label="Language">
       <button type="button" data-lang="ps" lang="ps">پښتو</button>
       <button type="button" data-lang="fa" lang="fa">دری</button>
@@ -972,7 +997,7 @@
 <footer>
   <div class="pattern" aria-hidden="true"></div>
   <div class="wrap" style="position:relative;z-index:1">
-    <div class="foot-brand"><span class="shine sh-foot"><img src="logo-full.jpg" alt="ALAKHIL MOBILE — Qualité et satisfaction" width="120" height="118"></span></div>
+    <div class="foot-brand"><span class="shine sh-foot"><span class="sweep"></span><img src="logo-full.jpg" alt="ALAKHIL MOBILE — Qualité et satisfaction" width="120" height="118"></span></div>
     <p data-t="disclaimer"></p>
     <p data-t="privacy"></p>
     <p data-t="prices_note"></p>
