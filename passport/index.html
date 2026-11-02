@@ -478,6 +478,8 @@
   .hours { margin-top: 12px; }
   .hours .btns .btn { flex: 1; white-space: nowrap; }
   .btn-amber.no-arrow::before { display: none; }
+
+  .alert.info { background: linear-gradient(150deg, #e4ebff, #f3f6ff); color: #1a2f86; border: 1px solid rgba(47,107,255,.25); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -645,6 +647,12 @@
   <section id="docs">
     <h2><span class="h-ico">📋</span><span data-t="docs_title"></span></h2>
     <div class="card"><ul class="icons" id="docsAdult"></ul></div>
+    <h2 style="margin-top:24px"><span class="h-ico">👶</span><span data-t="docs_child_title"></span></h2>
+    <div class="card">
+      <div class="alert info" style="margin:0 0 14px" data-t="child_born_note"></div>
+      <ul class="icons" id="childList2"></ul>
+      <div class="alert no" data-t="case_child_no"></div>
+    </div>
   </section>
 
   <!-- Special cases -->
@@ -670,6 +678,7 @@
       <details class="case">
         <summary><span class="s-ico">👶</span><span data-t="case_child_t"></span></summary>
         <div class="body">
+          <div class="alert info" style="margin:0 0 12px" data-t="child_born_note"></div>
           <p style="margin-top:0" data-t="case_child"></p>
           <ul class="icons" id="childList"></ul>
           <div class="alert no" data-t="case_child_no"></div>
@@ -746,6 +755,7 @@
           </div>
 
           <div class="field" style="margin-top:16px">
+            <div class="alert info hidden" id="childInfo" style="margin:0 0 12px" data-t="child_form_info"></div>
             <span class="lbl" data-t="f_docs"></span>
             <div class="opts" id="docOpts"></div>
             <div class="alert warn hidden" id="childAlert" data-t="case_child_no"></div>
@@ -898,6 +908,9 @@
       inc_studio: "A photo studio charges €8–9 for passport photos — with us, the photo is included in the €50.",
       inc_hours: "🕙 We are available from 10:00 to 20:00 (Paris time). Call us or send a WhatsApp message.",
       inc_call: "Call us", inc_wa: "WhatsApp",
+      docs_child_title: "Required documents (child under 18)",
+      child_born_note: "👶 This also applies to children <b>born in Europe</b> or in another host country who have <b>never had</b> an Afghan passport or Tazkira.",
+      child_form_info: "👶 For a child — also children born in Europe — these are required: the child's <b>birth certificate</b>, the <b>Afghan passport</b> and <b>Afghan Tazkira</b> of both father and mother, and the parents' <b>marriage certificate</b> (Nikah Khat).",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -1024,6 +1037,9 @@
       inc_studio: "عکاسخانه برای عکس پاسپورتی ۸ تا ۹ یورو می‌گیرد — نزد ما عکس شامل همان ۵۰ یورو است.",
       inc_hours: "🕙 از ساعت ۱۰ صبح تا ۸ شب (به وقت پاریس) در خدمت شما هستیم. زنگ بزنید یا در واتساپ پیام بفرستید.",
       inc_call: "زنگ بزنید", inc_wa: "واتساپ",
+      docs_child_title: "اسناد لازم (طفل زیر ۱۸ سال)",
+      child_born_note: "👶 این شامل اطفالی هم می‌شود که <b>در اروپا</b> یا کشور میزبان دیگر <b>تولد شده‌اند</b> و <b>هرگز</b> پاسپورت یا تذکرهٔ افغانی نداشته‌اند.",
+      child_form_info: "👶 برای طفل — همچنین اطفالی که در اروپا تولد شده‌اند — این اسناد لازم است: <b>سند تولد</b> طفل، <b>پاسپورت افغانی</b> و <b>تذکرهٔ افغانی</b> پدر و مادر، و <b>نکاح‌خط</b> والدین.",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -1150,6 +1166,9 @@
       inc_studio: "د عکاسۍ سټوډیو د پاسپورټي عکس لپاره ۸ تر ۹ یورو اخلي — زموږ سره عکس په همدې ۵۰ یورو کې شامل دی.",
       inc_hours: "🕙 د سهار له ۱۰ بجو تر ماښام ۸ بجو پورې (د پاریس په وخت) ستاسو په خدمت کې یو. زنګ ووهئ یا په واټساپ کې پیغام ولېږئ.",
       inc_call: "زنګ ووهئ", inc_wa: "واټساپ",
+      docs_child_title: "اړین اسناد (له ۱۸ کالو کم ماشوم)",
+      child_born_note: "👶 دا هغو ماشومانو ته هم شامل دی چې <b>په اروپا</b> یا بل کوربه هېواد کې <b>زېږېدلي</b> دي او <b>هېڅکله</b> یې افغاني پاسپورټ یا تذکره نه ده لرلې.",
+      child_form_info: "👶 د ماشوم لپاره — همدارنګه هغه ماشومان چې په اروپا کې زېږېدلي — دا اسناد اړین دي: د ماشوم <b>د زېږېدو سند</b>، د پلار او مور <b>افغاني پاسپورټ</b> او <b>افغاني تذکره</b>، او د مور او پلار <b>نکاح خط</b>.",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
@@ -1247,6 +1266,7 @@
     }).join("");
     $("nameList").innerHTML = li(d.name_list);
     $("childList").innerHTML = ili(d.child_list, CHILD_ICONS);
+    $("childList2").innerHTML = ili(d.child_list, CHILD_ICONS);
 
     renderTypes();
     renderDocs();
@@ -1295,6 +1315,7 @@
       return '<label class="opt"><input type="checkbox" value="' + x.k + '"' + (had[x.k] ? " checked" : "") + "><span>" + t(x.k) + "</span></label>";
     }).join("");
     $("childAlert").classList.toggle("hidden", who === "adult");
+    $("childInfo").classList.toggle("hidden", who === "adult");
   }
 
   function whoNow() { return document.querySelector('input[name="for"]:checked').value; }
