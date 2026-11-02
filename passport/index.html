@@ -828,6 +828,73 @@
   .s-plus { background: linear-gradient(180deg, rgba(250,230,170,.9), rgba(230,187,82,.6) 55%, rgba(240,205,120,.75)) !important;
     border: 2px solid rgba(255,255,255,.8); border-radius: 999px !important; box-shadow: var(--g-rim) !important; }
   .fee-box { border: 2px solid rgba(255,255,255,.6) !important; }
+
+  /* ===================== TRUE CLEAR GLASS (match the example) ===================== */
+  :root {
+    --clear-bg: linear-gradient(180deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,.06) 50%, rgba(255,255,255,.14) 100%);
+    --clear-rim:
+      inset 0 0 0 1.5px rgba(255,255,255,.95),        /* bright inner line */
+      inset 0 2px 2px rgba(255,255,255,.85),          /* top highlight */
+      inset 0 -3px 3px -1px rgba(120,132,160,.22),    /* glass thickness at the bottom */
+      0 0 0 1px rgba(128,140,168,.45),                /* fine grey outer line */
+      0 2px 0 0 rgba(255,255,255,.95),                /* light refraction under the edge */
+      0 3px 0 0 rgba(140,150,175,.25),
+      0 8px 18px rgba(50,62,95,.08);                  /* very soft shadow */
+    --clear-press: inset 0 0 0 1.5px rgba(255,255,255,.9), inset 0 2px 6px rgba(100,115,150,.22), 0 0 0 1px rgba(128,140,168,.5);
+    --frost-blue: linear-gradient(180deg, rgba(168,194,238,.82) 0%, rgba(132,166,226,.7) 60%, rgba(146,178,232,.78) 100%);
+    --frost-white: linear-gradient(180deg, rgba(255,255,255,.78) 0%, rgba(246,248,252,.55) 60%, rgba(250,251,253,.7) 100%);
+    --frost-green: linear-gradient(180deg, rgba(178,232,198,.85) 0%, rgba(130,210,160,.7) 60%, rgba(150,220,175,.8) 100%);
+    --frost-rim: inset 0 1px 0 rgba(255,255,255,.75), inset 0 -2px 4px rgba(70,90,140,.12), 0 0 0 1px rgba(150,165,195,.3), 0 6px 14px rgba(60,80,130,.14);
+  }
+
+  /* Sections become invisible containers: glass sits on the background */
+  .s-block { background: none !important; border: 0 !important; box-shadow: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; padding: 6px 2px 14px !important; }
+
+  /* Clear glass elements */
+  .s-step, .s-tile, .s-price, .card, ol.steps li, details.case, .trust li, .ph-card, .opt, .langs,
+  input[type=text], input[type=tel], input[type=email], select, .menu-btn, .stepper button {
+    background: var(--clear-bg) !important; border: 0 !important; box-shadow: var(--clear-rim) !important;
+    -webkit-backdrop-filter: blur(6px) saturate(1.2) !important; backdrop-filter: blur(6px) saturate(1.2) !important; }
+  .s-step::before, .s-tile::before, .s-price::before { display: none !important; }
+  .s-step:active, .s-tile:active, .s-price:active, .opt:active, .menu-btn:active, .stepper button:active { box-shadow: var(--clear-press) !important; transform: scale(.98) !important; }
+  .s-tiles.no .s-tile { background: linear-gradient(180deg, rgba(255,215,210,.28), rgba(255,215,210,.08) 50%, rgba(255,215,210,.18)) !important; }
+  .card.studio { background: linear-gradient(180deg, rgba(200,240,215,.35), rgba(200,240,215,.1)) !important; }
+  input[type=text], input[type=tel], input[type=email], select { color: #1b2233 !important; }
+  input::placeholder { color: #8a93a8; }
+
+  /* Frosted blue = "Continue" */
+  .btn-amber, .opt:has(input:checked), .langs button[aria-pressed="true"], .s-num, .picker button:hover, .picker button:focus {
+    background: var(--frost-blue) !important; color: #11182b !important; border: 0 !important; box-shadow: var(--frost-rim) !important; }
+  /* Frosted white = "Cancel" */
+  .btn-ghost, .s-more, .picker button {
+    background: var(--frost-white) !important; color: #11182b !important; border: 0 !important;
+    box-shadow: inset 0 1px 0 #fff, inset 0 -2px 4px rgba(90,100,130,.1), 0 0 0 1px rgba(150,160,185,.35), 0 6px 14px rgba(60,70,100,.1) !important; }
+  /* Frosted green = WhatsApp */
+  .btn-wa, .menu a.wa-link, .fab, .s-ask { background: var(--frost-green) !important; color: #0c3a1f !important; border: 0 !important; box-shadow: var(--frost-rim) !important; }
+  .btn-amber::before { background: rgba(255,255,255,.45) !important; color: #11182b !important; }
+  .btn, .s-more, .s-ask { text-shadow: none !important; font-weight: 700 !important; }
+  .langs button { color: #11182b !important; font-weight: 700 !important; }
+  .langs button + button::before { background: rgba(70,110,200,.55) !important; }
+
+  /* Calm, neutral text like the example */
+  .s-h { color: #11182b !important; }
+  .s-note { color: #4c5468 !important; }
+  .s-price b { color: #2a4f9e !important; }
+  .s-price.std em, .s-price.urg em { background: rgba(255,255,255,.35) !important; box-shadow: 0 0 0 1px rgba(150,160,185,.35); }
+
+  /* Thicker acrylic edge, like the example */
+  :root {
+    --clear-rim:
+      inset 0 0 0 1.5px rgba(255,255,255,.98),
+      inset 0 0 0 6px rgba(255,255,255,.28),
+      inset 0 0 0 7px rgba(130,142,170,.16),
+      inset 0 3px 3px rgba(255,255,255,.9),
+      inset 0 -5px 5px -2px rgba(115,128,160,.22),
+      0 0 0 1px rgba(125,137,165,.42),
+      0 3px 0 0 rgba(255,255,255,.95),
+      0 4px 0 0 rgba(135,146,172,.22),
+      0 12px 22px rgba(45,58,95,.13);
+  }
 </style>
 </head>
 <body>
