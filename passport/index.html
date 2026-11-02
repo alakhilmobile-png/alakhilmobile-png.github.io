@@ -16,7 +16,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://alakhilmobile-png.github.io/passport/og-image.jpg">
 <meta name="theme-color" content="#eaf0fd">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d5446'/%3E%3Crect x='18' y='12' width='28' height='40' rx='4' fill='none' stroke='%23f2b33d' stroke-width='4'/%3E%3Ccircle cx='32' cy='28' r='7' fill='none' stroke='%23f2b33d' stroke-width='3'/%3E%3Cpath d='M24 43h16' stroke='%23f2b33d' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
   :root {
     --green: #0d5446;
@@ -578,6 +579,20 @@
   /* Softer decorative circles */
   .deco i { box-shadow: 8px 10px 0 0 rgba(72,112,255,.12), 20px 26px 50px rgba(60,90,200,.08); opacity: .75; }
   @media (max-width: 600px) { .deco i:nth-child(1) { width: 240px; height: 240px; top: -130px; left: -120px; } .deco i:nth-child(2), .deco i:nth-child(5) { display: none; } }
+
+  /* ===== Real ALAKHIL MOBILE logo ===== */
+  @font-face { font-family: "Montserrat"; src: url("montserrat-latin-900-normal.woff2") format("woff2"); font-weight: 900; font-display: swap; }
+  @font-face { font-family: "Montserrat"; src: url("montserrat-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-display: swap; }
+  .brand2 { display: flex; align-items: center; gap: 9px; text-decoration: none; direction: ltr; flex: none; }
+  .brand2 img { width: 42px; height: 42px; border-radius: 12px; background: #fff; object-fit: contain; padding: 2px;
+    box-shadow: 0 4px 12px rgba(45,75,170,.18), inset 0 0 0 1px rgba(201,151,31,.35); border: 1.5px solid rgba(201,151,31,.55); }
+  .brand2 .bt { display: flex; flex-direction: column; line-height: 1; }
+  .brand2 .l1 { font: 900 18px/1 "Montserrat", -apple-system, "Segoe UI", Arial, sans-serif; color: #111; letter-spacing: .4px; }
+  .brand2 .l2 { font: 800 10.5px/1 "Montserrat", -apple-system, "Segoe UI", Arial, sans-serif; color: #e03020; letter-spacing: 4.9px; margin-top: 4px; }
+  @media (max-width: 370px) { .brand2 .l1 { font-size: 16px; } .brand2 .l2 { letter-spacing: 4.1px; } .brand2 img { width: 38px; height: 38px; } }
+  .picker-logo { display: block; width: 150px; height: auto; margin: 0 auto 6px; border-radius: 18px; }
+  .foot-brand img { display: block; width: 120px; height: auto; border-radius: 18px; background: #fff; padding: 6px; margin-bottom: 14px;
+    box-shadow: 0 10px 24px rgba(0,0,0,.25); border: 2px solid rgba(243,210,126,.7); }
 </style>
 </head>
 <body>
@@ -586,7 +601,7 @@
 <!-- Language picker (first visit) -->
 <div class="picker hidden" id="picker" role="dialog" aria-modal="true" aria-label="Choose language">
   <div class="box">
-    <div class="brand">ALAKHIL <span>MOBILE</span></div>
+    <img class="picker-logo" src="logo-full.jpg" alt="ALAKHIL MOBILE — Qualité et satisfaction" width="150" height="147">
     <p><span class="ar" dir="rtl">ژبه وټاکئ</span> · <span class="ar" dir="rtl">زبان را انتخاب کنید</span><br>Choose your language</p>
     <button type="button" class="ar" data-pick="ps" lang="ps" dir="rtl">پښتو</button>
     <button type="button" class="ar" data-pick="fa" lang="fa" dir="rtl">دری</button>
@@ -596,7 +611,7 @@
 
 <header class="top">
   <div class="wrap">
-    <div class="brand">ALAKHIL <span>MOBILE</span></div>
+    <a class="brand2" href="#" aria-label="ALAKHIL MOBILE"><img src="logo-mark.png" alt="" width="40" height="40"><span class="bt"><span class="l1">ALAKHIL</span><span class="l2">MOBILE</span></span></a>
     <div class="langs" role="group" aria-label="Language">
       <button type="button" data-lang="ps" lang="ps">پښتو</button>
       <button type="button" data-lang="fa" lang="fa">دری</button>
@@ -938,7 +953,7 @@
 <footer>
   <div class="pattern" aria-hidden="true"></div>
   <div class="wrap" style="position:relative;z-index:1">
-    <div class="brand">ALAKHIL <span style="color:var(--amber)">MOBILE</span></div>
+    <div class="foot-brand"><img src="logo-full.jpg" alt="ALAKHIL MOBILE — Qualité et satisfaction" width="120" height="118"></div>
     <p data-t="disclaimer"></p>
     <p data-t="privacy"></p>
     <p data-t="prices_note"></p>
