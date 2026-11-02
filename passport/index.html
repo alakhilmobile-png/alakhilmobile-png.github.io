@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="site-version" content="35">
+<meta name="site-version" content="36">
 <title>ALAKHIL MOBILE — Afghan Passport Online</title>
 <meta name="description" content="Help for Afghans in Europe (except Germany), the UK, the USA, Canada and Australia to apply online for a new Afghan passport through the Afghan Consulate General in Dubai. English · دری · پښتو">
 <meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
@@ -968,6 +968,9 @@
   .qz-wa { width: 100%; min-height: 56px; margin-top: 12px; font-size: 18px; }
   .qz-nav { display: flex; justify-content: space-between; margin-top: 12px; }
   .qz-link { border: 0; background: none; font: inherit; font-weight: 800; color: #2a4f9e; padding: 6px 4px; cursor: pointer; }
+  .s-wk { margin-top: 4px; font-size: 14px; font-weight: 800; color: #2a4f9e; }
+  .s-info { margin-top: 12px; text-align: center; font-weight: 700; font-size: 15.5px; line-height: 1.55; color: #1b2233; padding: 10px 16px; border-radius: 22px;
+    background: var(--clear-bg); box-shadow: var(--clear-rim); }
 </style>
 </head>
 <body>
@@ -1149,11 +1152,13 @@
         <div class="s-tile"><span class="s-ico">👨‍👩‍👧</span><b data-t="sim_c2"></b></div>
         <div class="s-tile"><span class="s-ico">💍</span><b data-t="sim_c3"></b></div>
       </div>
+      <div class="s-info" data-t="sim_keep"></div>
     </div>
     <div class="s-block reveal">
       <h2 class="s-h" data-t="sim_price"></h2>
       <div class="s-prices" id="sPrices"></div>
       <div class="s-plus" data-t="sim_plus"></div>
+      <div class="s-info" data-t="sim_refund"></div>
     </div>
     <div class="s-block reveal">
       <h2 class="s-h" data-t="sim_inc"></h2>
@@ -1212,6 +1217,7 @@
     <div class="fee-box">
       <div><span style="font-size:24px">💶</span> <span data-t="fee_box"></span></div>
       <p class="small" style="margin:8px 0 0" data-t="fee_rules"></p>
+      <p class="small" style="margin:8px 0 0;font-weight:800" data-t="sim_refund"></p>
     </div>
     <p class="small" data-t="prices_note"></p>
   </section>
@@ -1425,8 +1431,9 @@
     <div class="foot-brand"><span class="shine sh-foot"><span class="sweep"></span><img src="logo-full.jpg" alt="ALAKHIL MOBILE — Qualité et satisfaction" width="120" height="118"></span></div>
     <p data-t="disclaimer"></p>
     <p data-t="privacy"></p>
+    <p data-t="sim_keep"></p>
     <p data-t="prices_note"></p>
-    <p class="ver">v35</p>
+    <p class="ver">v36</p>
   </div>
 </footer>
 
@@ -1483,8 +1490,8 @@
       total_label: "Total paid to the consulate",
       init_label: "Initial fee (when you apply)",
       rem_label: "Remaining fee (after approval, includes $55 ≈ €50 delivery)",
-      time_std: "⏱ Delivery to your home: 2–4 weeks",
-      time_urg: "⏱ Processing: up to 15 working days + delivery time",
+      time_std: "⏱ Delivery to your home: 3–4 weeks",
+      time_urg: "⏱ Delivery to your home: 2–3 weeks",
       fee_box: "<strong>+ Our service fee: €50 per passport</strong> — adult or child. Example: 2 children = €100. <a href=\"#included\" style=\"color:#fff;font-weight:800\">See what is included ↓</a>",
       fee_rules: "You pay our fee by bank transfer, only after we have checked your documents. You have 30 days to pay each consulate fee — if you don't pay in time, the application is closed and you must apply again. The consulate's initial fee is non-refundable.",
       prices_note: "Consulate fees are in US dollars and you pay them yourself, directly to the consulate, by bank card. Prices are from the consulate website (November 2026) and the consulate can change them. Euro amounts are approximate (1 $ ≈ 0.90 €): the consulate charges in US dollars and your bank converts it, so the amount on your bank statement can be a little different.",
@@ -1604,6 +1611,9 @@
       x_par: "Both father and mother must have an Afghan passport and Tazkira.", x_birth: "The birth certificate and the marriage certificate are required.",
       qz_send: "Send documents on WhatsApp", qz_ask: "Not sure? Ask us on WhatsApp", qz_again: "↻ Start again", qz_back: "← Back",
       qz_msg: "Quick check: I can apply.",
+      sim_wk_std: "⏱ 3–4 weeks", sim_wk_urg: "⏱ 2–3 weeks",
+      sim_refund: "↩️ If the consulate rejects your application, we give back 50% of our fee (€25).",
+      sim_keep: "🔒 We keep your documents only until you receive your passport — then we delete them.",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -1674,8 +1684,8 @@
       total_label: "مجموع پرداخت به قونسلگری",
       init_label: "فیس ابتدایی (هنگام درخواست)",
       rem_label: "باقی فیس (بعد از منظوری، شامل ۵۵ دالر ≈ ۵۰ یورو انتقال)",
-      time_std: "⏱ رسیدن به خانهٔ شما: ۲ تا ۴ هفته",
-      time_urg: "⏱ مدت کار: تا ۱۵ روز کاری + زمان انتقال پاسپورت",
+      time_std: "⏱ رسیدن به خانهٔ شما: ۳ تا ۴ هفته",
+      time_urg: "⏱ رسیدن به خانهٔ شما: ۲ تا ۳ هفته",
       fee_box: "<strong>+ فیس خدمات ما: ۵۰ یورو برای هر پاسپورت</strong> — بزرگسال یا طفل. مثال: ۲ طفل = ۱۰۰ یورو. <a href=\"#included\" style=\"color:#fff;font-weight:800\">ببینید شامل چه خدماتی است ↓</a>",
       fee_rules: "فیس ما را فقط بعد از بررسی اسناد، از طریق انتقال بانکی می‌پردازید. برای پرداخت هر فیس قونسلگری ۳۰ روز وقت دارید — اگر به وقت پرداخت نکنید، درخواست بسته می‌شود و باید دوباره درخواست بدهید. فیس ابتدایی قونسلگری پس داده نمی‌شود.",
       prices_note: "فیس‌های قونسلگری به دالر امریکایی است و شما خودتان آن را مستقیماً با کارت بانکی به قونسلگری می‌پردازید. قیمت‌ها از ویبسایت قونسلگری (نومبر ۲۰۲۶) گرفته شده و قونسلگری می‌تواند آن را تغییر دهد. مبالغ یورو تقریبی است (۱ دالر ≈ ۰٫۹۰ یورو): قونسلگری به دالر پول می‌گیرد و بانک شما آن را تبدیل می‌کند، پس مبلغ در صورت‌حساب بانکی شما ممکن است کمی فرق داشته باشد.",
@@ -1795,6 +1805,9 @@
       x_par: "پدر و مادر هر دو باید پاسپورت و تذکرهٔ افغانی داشته باشند.", x_birth: "سند تولد و نکاح‌خط لازم است.",
       qz_send: "ارسال اسناد در واتساپ", qz_ask: "مطمئن نیستید؟ در واتساپ بپرسید", qz_again: "↻ دوباره", qz_back: "برگشت →",
       qz_msg: "بررسی سریع: می‌توانم درخواست بدهم.",
+      sim_wk_std: "⏱ ۳ تا ۴ هفته", sim_wk_urg: "⏱ ۲ تا ۳ هفته",
+      sim_refund: "↩️ اگر قونسلگری درخواست شما را رد کند، ۵۰٪ فیس ما (۲۵ یورو) را پس می‌دهیم.",
+      sim_keep: "🔒 اسناد شما را فقط تا رسیدن پاسپورت نگه می‌داریم — بعد آن‌ها را پاک می‌کنیم.",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -1865,8 +1878,8 @@
       total_label: "قونسلګرۍ ته ټوله ورکړه",
       init_label: "لومړنی فیس (د غوښتنلیک پر مهال)",
       rem_label: "پاتې فیس (له منظورۍ وروسته، د ۵۵ ډالرو ≈ ۵۰ یورو لېږد پکې شامل دی)",
-      time_std: "⏱ ستاسو کور ته رسېدل: ۲ تر ۴ اونۍ",
-      time_urg: "⏱ د کار موده: تر ۱۵ کاري ورځو پورې + د پاسپورټ د لېږد وخت",
+      time_std: "⏱ ستاسو کور ته رسېدل: ۳ تر ۴ اونۍ",
+      time_urg: "⏱ ستاسو کور ته رسېدل: ۲ تر ۳ اونۍ",
       fee_box: "<strong>+ زموږ د خدمت فیس: د هر پاسپورټ لپاره ۵۰ یورو</strong> — لوی وي که ماشوم. بېلګه: ۲ ماشومان = ۱۰۰ یورو. <a href=\"#included\" style=\"color:#fff;font-weight:800\">وګورئ څه پکې شامل دي ↓</a>",
       fee_rules: "زموږ فیس یوازې وروسته له دې چې ستاسو اسناد وګورو، د بانکي لېږد له لارې ورکوئ. د قونسلګرۍ د هر فیس د ورکړې لپاره ۳۰ ورځې وخت لرئ — که په وخت یې ورنکړئ، غوښتنلیک بندیږي او باید بیا غوښتنه وکړئ. د قونسلګرۍ لومړنی فیس بېرته نه ورکول کیږي.",
       prices_note: "د قونسلګرۍ فیسونه په امریکايي ډالرو دي او تاسو یې پخپله، مستقیم قونسلګرۍ ته د بانکي کارت په وسیله ورکوئ. بیې د قونسلګرۍ له وېبپاڼې (نومبر ۲۰۲۶) اخیستل شوې او قونسلګري یې بدلولی شي. د یورو اندازې اټکلي دي (۱ ډالر ≈ ۰٫۹۰ یورو): قونسلګري په ډالرو پیسې اخلي او ستاسو بانک یې بدلوي، نو ستاسو په بانکي حساب کې اندازه ښايي لږ توپیر ولري.",
@@ -1986,6 +1999,9 @@
       x_par: "پلار او مور دواړه باید افغاني پاسپورټ او تذکره ولري.", x_birth: "د زېږېدو سند او نکاح خط اړین دي.",
       qz_send: "اسناد په واټساپ کې ولېږئ", qz_ask: "ډاډه نه یاست؟ په واټساپ کې وپوښتئ", qz_again: "↻ بیا پیل", qz_back: "شاته →",
       qz_msg: "چټکه کتنه: زه غوښتنه کولی شم.",
+      sim_wk_std: "⏱ ۳ تر ۴ اونۍ", sim_wk_urg: "⏱ ۲ تر ۳ اونۍ",
+      sim_refund: "↩️ که قونسلګري ستاسو غوښتنلیک رد کړي، زموږ د فیس ۵۰٪ (۲۵ یورو) بېرته درکوو.",
+      sim_keep: "🔒 ستاسو اسناد یوازې د پاسپورټ تر رسېدو پورې ساتو — بیا یې پاکوو.",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
@@ -2127,6 +2143,7 @@
     $("sPrices").innerHTML = PASSPORTS.map(function (x) {
       return '<div class="s-price ' + (x.urgent ? "urg" : "std") + '"><em>' + (x.urgent ? "⚡ " + d.urgent : "🕐 " + d.standard) + "</em>" +
         "<span>" + (x.years === 5 ? d.sim_p5 : d.sim_p10) + '</span><b class="num">≈ €' + eTot(x) + "</b>" +
+        '<div class="s-wk">' + (x.urgent ? d.sim_wk_urg : d.sim_wk_std) + "</div>" +
         '<div class="s-split"><div><i>1️⃣ ' + d.sim_first + '</i><strong class="num">≈ €' + eur(x.init) + "</strong></div>" +
         "<div><i>2️⃣ " + d.sim_second + '</i><strong class="num">≈ €' + eur(x.rem) + "</strong></div></div></div>";
     }).join("");
