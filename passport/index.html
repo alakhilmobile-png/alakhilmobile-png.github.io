@@ -123,6 +123,7 @@
   .rows { margin: 12px 0 0; padding: 12px 0 0; border-top: 1px dashed var(--line); display: grid; gap: 6px; font-size: 15px; }
   .rows div { display: flex; justify-content: space-between; gap: 10px; }
   .rows b { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; white-space: nowrap; }
+  .rows small.usd { display: block; font-weight: 500; color: var(--muted); font-size: 12px; text-align: end; }
   .time { margin-top: 12px; background: var(--bg); border-radius: 10px; padding: 8px 12px; font-size: 15px; font-weight: 600; }
   .fee-box { background: var(--green); color: #fff; border-radius: var(--radius); padding: 18px; margin-top: 12px; }
   .fee-box strong { color: var(--amber); }
@@ -466,12 +467,12 @@
       standard: "Standard", urgent: "Urgent", years5: "5 years", years10: "10 years",
       total_label: "Total paid to the consulate",
       init_label: "Initial fee (when you apply)",
-      rem_label: "Remaining fee (after approval, includes $55 delivery)",
+      rem_label: "Remaining fee (after approval, includes $55 ≈ €50 delivery)",
       time_std: "⏱ Processing: 4–8 weeks + delivery time",
       time_urg: "⏱ Processing: up to 15 working days + delivery time",
       fee_box: "<strong>+ Our service fee: €50 per passport</strong> — adult or child. Example: 2 children = €100.",
       fee_rules: "You pay our fee by bank transfer, only after we have checked your documents. You have 30 days to pay each consulate fee — if you don't pay in time, the application is closed and you must apply again. The consulate's initial fee is non-refundable.",
-      prices_note: "Consulate fees are in US dollars and you pay them yourself, directly to the consulate, by bank card. Prices are from the consulate website (November 2026) and the consulate can change them.",
+      prices_note: "Consulate fees are in US dollars and you pay them yourself, directly to the consulate, by bank card. Prices are from the consulate website (November 2026) and the consulate can change them. Euro amounts are approximate (1 $ ≈ 0.90 €): the consulate charges in US dollars and your bank converts it, so the amount on your bank statement can be a little different.",
       docs_title: "Required documents (adult)",
       docs: [
         "Your previous Afghan <b>electronic (biometric) passport</b> — scan, photo or copy. It must be <b>expired</b> or have <b>less than 1 year</b> validity.",
@@ -576,12 +577,12 @@
       standard: "عادی", urgent: "عاجل", years5: "۵ ساله", years10: "۱۰ ساله",
       total_label: "مجموع پرداخت به قونسلگری",
       init_label: "فیس ابتدایی (هنگام درخواست)",
-      rem_label: "باقی فیس (بعد از منظوری، شامل ۵۵ دالر انتقال)",
+      rem_label: "باقی فیس (بعد از منظوری، شامل ۵۵ دالر ≈ ۵۰ یورو انتقال)",
       time_std: "⏱ مدت کار: ۴ تا ۸ هفته + زمان انتقال پاسپورت",
       time_urg: "⏱ مدت کار: تا ۱۵ روز کاری + زمان انتقال پاسپورت",
       fee_box: "<strong>+ فیس خدمات ما: ۵۰ یورو برای هر پاسپورت</strong> — بزرگسال یا طفل. مثال: ۲ طفل = ۱۰۰ یورو.",
       fee_rules: "فیس ما را فقط بعد از بررسی اسناد، از طریق انتقال بانکی می‌پردازید. برای پرداخت هر فیس قونسلگری ۳۰ روز وقت دارید — اگر به وقت پرداخت نکنید، درخواست بسته می‌شود و باید دوباره درخواست بدهید. فیس ابتدایی قونسلگری پس داده نمی‌شود.",
-      prices_note: "فیس‌های قونسلگری به دالر امریکایی است و شما خودتان آن را مستقیماً با کارت بانکی به قونسلگری می‌پردازید. قیمت‌ها از ویبسایت قونسلگری (نومبر ۲۰۲۶) گرفته شده و قونسلگری می‌تواند آن را تغییر دهد.",
+      prices_note: "فیس‌های قونسلگری به دالر امریکایی است و شما خودتان آن را مستقیماً با کارت بانکی به قونسلگری می‌پردازید. قیمت‌ها از ویبسایت قونسلگری (نومبر ۲۰۲۶) گرفته شده و قونسلگری می‌تواند آن را تغییر دهد. مبالغ یورو تقریبی است (۱ دالر ≈ ۰٫۹۰ یورو): قونسلگری به دالر پول می‌گیرد و بانک شما آن را تبدیل می‌کند، پس مبلغ در صورت‌حساب بانکی شما ممکن است کمی فرق داشته باشد.",
       docs_title: "اسناد لازم (بزرگسال)",
       docs: [
         "<b>پاسپورت الکترونیکی (بایومتریک)</b> قبلی افغانی — اسکن، عکس یا کاپی. باید <b>تاریخ آن ختم شده باشد</b> یا <b>کمتر از یک سال</b> اعتبار داشته باشد.",
@@ -686,12 +687,12 @@
       standard: "عادي", urgent: "عاجل", years5: "۵ کلن", years10: "۱۰ کلن",
       total_label: "قونسلګرۍ ته ټوله ورکړه",
       init_label: "لومړنی فیس (د غوښتنلیک پر مهال)",
-      rem_label: "پاتې فیس (له منظورۍ وروسته، د ۵۵ ډالرو لېږد پکې شامل دی)",
+      rem_label: "پاتې فیس (له منظورۍ وروسته، د ۵۵ ډالرو ≈ ۵۰ یورو لېږد پکې شامل دی)",
       time_std: "⏱ د کار موده: ۴ تر ۸ اونۍ + د پاسپورټ د لېږد وخت",
       time_urg: "⏱ د کار موده: تر ۱۵ کاري ورځو پورې + د پاسپورټ د لېږد وخت",
       fee_box: "<strong>+ زموږ د خدمت فیس: د هر پاسپورټ لپاره ۵۰ یورو</strong> — لوی وي که ماشوم. بېلګه: ۲ ماشومان = ۱۰۰ یورو.",
       fee_rules: "زموږ فیس یوازې وروسته له دې چې ستاسو اسناد وګورو، د بانکي لېږد له لارې ورکوئ. د قونسلګرۍ د هر فیس د ورکړې لپاره ۳۰ ورځې وخت لرئ — که په وخت یې ورنکړئ، غوښتنلیک بندیږي او باید بیا غوښتنه وکړئ. د قونسلګرۍ لومړنی فیس بېرته نه ورکول کیږي.",
-      prices_note: "د قونسلګرۍ فیسونه په امریکايي ډالرو دي او تاسو یې پخپله، مستقیم قونسلګرۍ ته د بانکي کارت په وسیله ورکوئ. بیې د قونسلګرۍ له وېبپاڼې (نومبر ۲۰۲۶) اخیستل شوې او قونسلګري یې بدلولی شي.",
+      prices_note: "د قونسلګرۍ فیسونه په امریکايي ډالرو دي او تاسو یې پخپله، مستقیم قونسلګرۍ ته د بانکي کارت په وسیله ورکوئ. بیې د قونسلګرۍ له وېبپاڼې (نومبر ۲۰۲۶) اخیستل شوې او قونسلګري یې بدلولی شي. د یورو اندازې اټکلي دي (۱ ډالر ≈ ۰٫۹۰ یورو): قونسلګري په ډالرو پیسې اخلي او ستاسو بانک یې بدلوي، نو ستاسو په بانکي حساب کې اندازه ښايي لږ توپیر ولري.",
       docs_title: "اړین اسناد (لویان)",
       docs: [
         "ستاسو پخوانی افغاني <b>برېښنايي (بایومتریک) پاسپورټ</b> — سکن، عکس یا کاپي. باید <b>نېټه یې پوره شوې وي</b> یا <b>له یو کال کم</b> اعتبار ولري.",
@@ -773,6 +774,10 @@
   var $ = function (id) { return document.getElementById(id); };
   var t = function (k) { return T[lang][k]; };
   var usd = function (n) { return "$" + n.toFixed(2); };
+  // Approximate euro amounts: 1 USD ≈ 0.90 EUR (Nov 2026), each fee rounded up to the next euro
+  var RATE = 0.90;
+  var eur = function (n) { return Math.ceil(n * RATE - 1e-9); };
+  var eTot = function (p) { return eur(p.init) + eur(p.rem); };
 
   function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
@@ -801,10 +806,10 @@
       return '<div class="card price-card ' + (p.urgent ? "urg" : "std") + '">' +
         '<span class="kind">' + (p.urgent ? d.urgent : d.standard) + "</span>" +
         "<h3>" + (p.years === 5 ? d.years5 : d.years10) + "</h3>" +
-        '<div class="total"><span class="num">' + usd(p.total) + "</span></div>" +
-        '<div class="total-label">' + d.total_label + "</div>" +
-        '<div class="rows"><div><span>' + d.init_label + '</span><b class="num">' + usd(p.init) + "</b></div>" +
-        "<div><span>" + d.rem_label + '</span><b class="num">' + usd(p.rem) + "</b></div></div>" +
+        '<div class="total"><span class="num">≈ €' + eTot(p) + "</span></div>" +
+        '<div class="total-label">' + d.total_label + ' · <span class="num">' + usd(p.total) + "</span></div>" +
+        '<div class="rows"><div><span>' + d.init_label + '</span><b class="num">≈ €' + eur(p.init) + ' <small class="usd">' + usd(p.init) + "</small></b></div>" +
+        "<div><span>" + d.rem_label + '</span><b class="num">≈ €' + eur(p.rem) + ' <small class="usd">' + usd(p.rem) + "</small></b></div></div>" +
         '<div class="time">' + (p.urgent ? d.time_urg : d.time_std) + "</div></div>";
     }).join("");
 
@@ -822,7 +827,7 @@
     var checked = (document.querySelector('input[name="ptype"]:checked') || {}).value;
     $("typeOpts").innerHTML = PASSPORTS.map(function (p) {
       return '<label class="opt"><input type="radio" name="ptype" value="' + p.id + '"' + (checked === p.id ? " checked" : "") + ">" +
-        "<span>" + passportName(p) + '<span class="sub"><span class="num">' + usd(p.total) + "</span> · " +
+        "<span>" + passportName(p) + '<span class="sub"><span class="num">≈ €' + eTot(p) + " (" + usd(p.total) + ")</span> · " +
         (p.urgent ? t("time_urg") : t("time_std")).replace("⏱ ", "") + "</span></span></label>";
     }).join("");
   }
@@ -940,7 +945,7 @@
       t("m_country") + ": " + countryText,
       t("m_for") + ": " + t("for_" + whoVal),
       t("m_count") + ": " + count + " (€" + (count * FEE) + ")",
-      t("m_type") + ": " + passportName(p) + " — " + usd(p.total)
+      t("m_type") + ": " + passportName(p) + " — ≈ €" + eTot(p) + " (" + usd(p.total) + ")"
     ];
     if (sit.length) lines.push(t("m_sit") + ": " + sit.join(" / "));
     lines.push("", "✅ " + t("m_have") + ":", have.length ? have.join("\n") : t("m_none"));
