@@ -8,6 +8,13 @@
 <meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
 <meta property="og:description" content="New Afghan passport delivered to your address — documents, prices and delivery time. English · دری · پښتو">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://alakhilmobile-png.github.io/passport/">
+<meta property="og:image" content="https://alakhilmobile-png.github.io/passport/og-image.jpg">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Afghan Passport Online — ALAKHIL MOBILE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://alakhilmobile-png.github.io/passport/og-image.jpg">
 <meta name="theme-color" content="#eaf0fd">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d5446'/%3E%3Crect x='18' y='12' width='28' height='40' rx='4' fill='none' stroke='%23f2b33d' stroke-width='4'/%3E%3Ccircle cx='32' cy='28' r='7' fill='none' stroke='%23f2b33d' stroke-width='3'/%3E%3Cpath d='M24 43h16' stroke='%23f2b33d' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
@@ -487,6 +494,30 @@
   .notcons .nc-ico { font-size: 26px; line-height: 1.2; flex: none; animation: nudge 2.4s 2s ease-in-out infinite; }
   @keyframes nudge { 0%, 70%, 100% { transform: scale(1); } 80% { transform: scale(1.25); } 90% { transform: scale(.95); } }
   @media (max-width: 520px) { .hero .btns .btn-amber { flex: 1 1 100%; } .hero .btns .btn-ghost { flex: 1 1 100%; } }
+
+  /* Price date */
+  .date-pill { display: inline-block; margin: -4px 0 14px; padding: 4px 14px; border-radius: 999px; font-size: 14px; font-weight: 700; color: #1f45d8;
+    background: rgba(255,255,255,.75); border: 1px solid #fff; box-shadow: 0 4px 12px rgba(45,75,170,.1); }
+  /* Photo guide */
+  .ph-head2 { display: inline-block; font-weight: 900; font-size: 17px; padding: 4px 16px; border-radius: 999px; margin: 6px 0 10px; }
+  .ph-head2.ok { background: #e1f5e9; color: #167a43; } .ph-head2.no { background: #fde8e6; color: #b3261e; margin-top: 18px; }
+  .ph-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (min-width: 820px) { .ph-grid { grid-template-columns: repeat(4, 1fr); } }
+  .ph-card { background: linear-gradient(160deg, rgba(255,255,255,.9), rgba(255,255,255,.65)); border: 1px solid #fff; border-radius: 20px; padding: 10px; box-shadow: var(--glass-shadow); }
+  .ph-card.ok { border-bottom: 4px solid #2fb36a; } .ph-card.no { border-bottom: 4px solid #e5534b; }
+  .ph-img { position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 1; }
+  .ph-img svg { width: 100%; height: 100%; display: block; }
+  .ph-badge { position: absolute; top: 6px; inset-inline-end: 6px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 900; font-size: 17px; border: 2px solid #fff; }
+  .ph-card.ok .ph-badge { background: linear-gradient(180deg, #3ccf78, #158a45); } .ph-card.no .ph-badge { background: linear-gradient(180deg, #ff6b61, #c62828); }
+  .ph-card p { margin: 8px 2px 2px; font-size: 15px; font-weight: 700; line-height: 1.5; }
+  /* Reviews */
+  .stars { color: #f2b33d; font-size: 22px; letter-spacing: 3px; }
+  .rev-invite { text-align: center; }
+  .rev p { font-style: italic; }
+  /* Share */
+  .share-card { text-align: center; }
+  .share-ico { font-size: 40px; line-height: 1; }
+  .share-card h3 { margin: 8px 0 14px; font-size: 20px; }
 </style>
 </head>
 <body>
@@ -520,7 +551,9 @@
       <li><a href="#prices"><span class="mi">💶</span><span data-t="nav_prices"></span></a></li>
       <li><a href="#included"><span class="mi">🎁</span><span data-t="nav_inc"></span></a></li>
       <li><a href="#docs"><span class="mi">📋</span><span data-t="nav_docs"></span></a></li>
+      <li><a href="#photo"><span class="mi">📸</span><span data-t="nav_photo"></span></a></li>
       <li><a href="#cases"><span class="mi">⚠️</span><span data-t="nav_cases"></span></a></li>
+      <li><a href="#share"><span class="mi">📤</span><span data-t="nav_share"></span></a></li>
       <li><a href="#apply" class="wa-link"><span class="mi">💬</span><span data-t="nav_apply"></span></a></li>
     </ul>
   </nav>
@@ -626,6 +659,7 @@
   <!-- Prices -->
   <section id="prices">
     <h2><span class="h-ico">💶</span><span data-t="prices_title"></span></h2>
+    <div class="date-pill" data-t="prices_date"></div>
     <div class="grid grid-2" id="priceGrid"></div>
     <div class="fee-box">
       <div><span style="font-size:24px">💶</span> <span data-t="fee_box"></span></div>
@@ -661,6 +695,16 @@
       <ul class="icons" id="childList2"></ul>
       <div class="alert no" data-t="case_child_no"></div>
     </div>
+  </section>
+
+  <!-- Photo guide -->
+  <section id="photo">
+    <h2><span class="h-ico">📸</span><span data-t="photo_title"></span></h2>
+    <p style="margin-top:-6px" data-t="photo_intro"></p>
+    <div class="ph-head2 ok" data-t="photo_do"></div>
+    <div class="ph-grid" id="photoDo"></div>
+    <div class="ph-head2 no" data-t="photo_dont"></div>
+    <div class="ph-grid" id="photoDont"></div>
   </section>
 
   <!-- Special cases -->
@@ -801,6 +845,30 @@
       </a>
     </div>
   </section>
+
+  <!-- Reviews -->
+  <section id="reviews">
+    <h2><span class="h-ico">⭐</span><span data-t="rev_title"></span></h2>
+    <div class="grid grid-2" id="revGrid"></div>
+    <div class="card rev-invite reveal">
+      <div class="stars">★★★★★</div>
+      <p style="margin:6px 0 14px" data-t="rev_invite"></p>
+      <a class="btn btn-ghost" id="revBtn" href="https://wa.me/33605654592" target="_blank" rel="noopener"><span>💬</span> <span data-t="rev_btn"></span></a>
+    </div>
+  </section>
+
+  <!-- Share -->
+  <section id="share">
+    <div class="card share-card reveal">
+      <div class="share-ico">📤</div>
+      <h3 data-t="share_title"></h3>
+      <div class="btns" style="justify-content:center">
+        <a class="btn btn-wa" id="shareWa" style="width:auto;flex:1 1 220px;font-size:17px;min-height:52px" href="#" target="_blank" rel="noopener"><span>💬</span> <span data-t="share_btn"></span></a>
+        <button type="button" class="btn btn-ghost" id="shareOther" style="flex:1 1 180px"><span>🔗</span> <span data-t="share_other"></span></button>
+      </div>
+      <p class="small" id="copied" style="margin:10px 0 0;display:none;font-weight:700;color:#167a43" data-t="share_copied"></p>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -920,6 +988,20 @@
       child_born_note: "👶 This also applies to children <b>born in Europe</b> or in another host country who have <b>never had</b> an Afghan passport or Tazkira.",
       child_form_info: "👶 For a child — also children born in Europe — these are required: the child's <b>birth certificate</b>, the <b>Afghan passport</b> and <b>Afghan Tazkira</b> of both father and mother, and the parents' <b>marriage certificate</b> (Nikah Khat).",
       not_consulate: "<b>This is NOT the consulate website.</b> You cannot apply on this site. This is the information page of ALAKHIL MOBILE — send us your documents on WhatsApp and <b>we apply for you</b>.",
+      prices_date: "📅 Prices updated: 2 November 2026",
+      photo_title: "How to take your photo with your phone",
+      photo_intro: "A normal phone photo is enough — we make it into a professional passport photo. Just follow these simple rules:",
+      photo_do: "✅ Do this", photo_dont: "❌ Don't do this",
+      photo_do_list: ["Stand in front of a plain, light wall", "Look straight at the camera, mouth closed", "Good light on your face — no shadows", "Ask someone else to take it, from about 1 metre"],
+      photo_dont_list: ["No glasses or sunglasses", "No cap or hat — a headscarf is OK if the whole face is visible", "No dark or blurry photos", "No busy background, no other people"],
+      rev_title: "What our clients say",
+      rev_invite: "We have just started this page. Did we help you get your passport? Send us a short message on WhatsApp — with your permission, we will add it here.",
+      rev_btn: "Send your review",
+      rev_msg: "My review for ALAKHIL MOBILE: ",
+      share_title: "Know someone who needs an Afghan passport? Send them this page.",
+      share_btn: "Share on WhatsApp", share_other: "Other apps / copy link", share_copied: "Link copied ✓",
+      share_msg: "Afghan passport online through the Dubai consulate — documents, prices and steps in Pashto, Dari and English:",
+      nav_photo: "Photo guide", nav_share: "Share with family",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -1050,6 +1132,20 @@
       child_born_note: "👶 این شامل اطفالی هم می‌شود که <b>در اروپا</b> یا کشور میزبان دیگر <b>تولد شده‌اند</b> و <b>هرگز</b> پاسپورت یا تذکرهٔ افغانی نداشته‌اند.",
       child_form_info: "👶 برای طفل — همچنین اطفالی که در اروپا تولد شده‌اند — این اسناد لازم است: <b>سند تولد</b> طفل، <b>پاسپورت افغانی</b> و <b>تذکرهٔ افغانی</b> پدر و مادر، و <b>نکاح‌خط</b> والدین.",
       not_consulate: "<b>این ویبسایت قونسلگری نیست.</b> در این سایت نمی‌توانید درخواست بدهید. این صفحهٔ معلوماتی ALAKHIL MOBILE است — اسناد خود را در واتساپ برای ما بفرستید، <b>ما برای شما درخواست می‌دهیم</b>.",
+      prices_date: "📅 تاریخ به‌روزرسانی قیمت‌ها: ۲ نومبر ۲۰۲۶",
+      photo_title: "چطور با تلفون خود عکس بگیرید",
+      photo_intro: "یک عکس عادی با تلفون کافی است — ما آن را به عکس پاسپورتی حرفه‌ای تبدیل می‌کنیم. فقط این قواعد ساده را رعایت کنید:",
+      photo_do: "✅ این کار را بکنید", photo_dont: "❌ این کار را نکنید",
+      photo_do_list: ["جلوی یک دیوار ساده و روشن بایستید", "مستقیم به کمره نگاه کنید، دهان بسته", "نور خوب روی صورت — بدون سایه", "از کسی دیگر بخواهید عکس بگیرد، از فاصلهٔ حدود ۱ متر"],
+      photo_dont_list: ["بدون عینک یا عینک آفتابی", "بدون کلاه — چادر یا روسری مشکلی ندارد اگر تمام صورت معلوم باشد", "عکس تاریک یا تار نباشد", "پس‌زمینهٔ شلوغ نباشد، افراد دیگر در عکس نباشند"],
+      rev_title: "نظر مشتریان ما",
+      rev_invite: "این بخش را تازه شروع کرده‌ایم. آیا ما در گرفتن پاسپورت به شما کمک کردیم؟ یک پیام کوتاه در واتساپ برای ما بفرستید — با اجازهٔ شما آن را اینجا می‌گذاریم.",
+      rev_btn: "نظر خود را بفرستید",
+      rev_msg: "نظر من دربارهٔ ALAKHIL MOBILE: ",
+      share_title: "کسی را می‌شناسید که پاسپورت افغانی لازم دارد؟ این صفحه را برایش بفرستید.",
+      share_btn: "در واتساپ شریک کنید", share_other: "اپ‌های دیگر / کاپی لینک", share_copied: "لینک کاپی شد ✓",
+      share_msg: "پاسپورت افغانی آنلاین از طریق قونسلگری دبی — اسناد، قیمت‌ها و مراحل به پشتو، دری و انگلیسی:",
+      nav_photo: "راهنمای عکس", nav_share: "با فامیل شریک کنید",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -1180,6 +1276,20 @@
       child_born_note: "👶 دا هغو ماشومانو ته هم شامل دی چې <b>په اروپا</b> یا بل کوربه هېواد کې <b>زېږېدلي</b> دي او <b>هېڅکله</b> یې افغاني پاسپورټ یا تذکره نه ده لرلې.",
       child_form_info: "👶 د ماشوم لپاره — همدارنګه هغه ماشومان چې په اروپا کې زېږېدلي — دا اسناد اړین دي: د ماشوم <b>د زېږېدو سند</b>، د پلار او مور <b>افغاني پاسپورټ</b> او <b>افغاني تذکره</b>، او د مور او پلار <b>نکاح خط</b>.",
       not_consulate: "<b>دا د قونسلګرۍ وېبپاڼه نه ده.</b> په دې سایټ کې غوښتنه نشئ کولی. دا د ALAKHIL MOBILE د معلوماتو پاڼه ده — خپل اسناد موږ ته په واټساپ کې ولېږئ، <b>موږ ستاسو لپاره غوښتنه کوو</b>.",
+      prices_date: "📅 د بیو د تازه کولو نېټه: ۲ نومبر ۲۰۲۶",
+      photo_title: "څنګه په خپل موبایل عکس واخلئ",
+      photo_intro: "د موبایل یو عادي عکس کافي دی — موږ یې په مسلکي پاسپورټي عکس بدلوو. یوازې دا ساده قاعدې په پام کې ونیسئ:",
+      photo_do: "✅ داسې وکړئ", photo_dont: "❌ داسې مه کوئ",
+      photo_do_list: ["د یو ساده او روښانه دېوال مخې ته ودرېږئ", "مستقیم کمرې ته وګورئ، خوله بنده", "پر مخ ښه رڼا — بې سیوري", "له بل چا وغواړئ چې عکس واخلي، له شاوخوا ۱ متر واټن څخه"],
+      photo_dont_list: ["بې عینکو یا د لمر عینکو", "بې خولۍ — څادر یا سرپوښ ستونزه نه لري که ټول مخ ښکاري", "تیاره یا تت عکس نه وي", "ګڼ شاليد نه وي، نور خلک په عکس کې نه وي"],
+      rev_title: "زموږ د پېرېدونکو نظر",
+      rev_invite: "دا برخه مو نوې پیل کړې ده. ایا موږ د پاسپورټ په اخیستو کې ستاسو مرسته کړې؟ موږ ته په واټساپ کې یو لنډ پیغام ولېږئ — ستاسو په اجازه به یې دلته واچوو.",
+      rev_btn: "خپل نظر ولېږئ",
+      rev_msg: "د ALAKHIL MOBILE په اړه زما نظر: ",
+      share_title: "څوک پېژنئ چې افغاني پاسپورټ ته اړتیا لري؟ دا پاڼه ورته ولېږئ.",
+      share_btn: "په واټساپ کې یې شریک کړئ", share_other: "نور اپونه / لینک کاپي کړئ", share_copied: "لینک کاپي شو ✓",
+      share_msg: "افغاني پاسپورټ آنلاین د دوبۍ د قونسلګرۍ له لارې — اسناد، بیې او پړاوونه په پښتو، دري او انګلیسي:",
+      nav_photo: "د عکس لارښود", nav_share: "له کورنۍ سره یې شریک کړئ",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
@@ -1224,6 +1334,35 @@
 
   var STEP_ICONS = ["📖", "📲", "🔍", "💶", "📝", "📧", "⏳", "✈️"];
   var DOC_ICONS = ["📘", "🪪", "🏠", "📸", "📞"];
+  // Real client reviews only — add here when clients send them: { text: {en:"",fa:"",ps:""}, name: "First name, city" }
+  var REVIEWS = [];
+
+  // Small face illustrations for the photo guide
+  function face(o) {
+    var bg = o.busy ? '<rect width="80" height="80" fill="#ffe1b3"/><circle cx="12" cy="18" r="9" fill="#ff8a65"/><rect x="58" y="6" width="18" height="30" fill="#7cb342"/><circle cx="66" cy="44" r="7" fill="#c9a27e"/><path d="M54 80 C54 62 78 62 78 80Z" fill="#5c6bc0"/>'
+                    : '<rect width="80" height="80" fill="#f4f7ff"/>';
+    var tilt = o.tilt ? ' transform="rotate(-14 40 46)"' : '';
+    var sc = o.small ? ' transform="translate(20 22) scale(.5)"' : '';
+    var g = '<g' + (o.small ? sc : tilt) + '>' +
+      '<path d="M14 82 C14 60 66 60 66 82Z" fill="#3f5aa8"/>' +
+      '<rect x="34" y="50" width="12" height="10" rx="4" fill="#d9a47c"/>' +
+      '<ellipse cx="40" cy="36" rx="15" ry="18" fill="#e8b791"/>' +
+      '<path d="M25 33 C25 16 55 16 55 33 C51 25 30 25 25 33Z" fill="#3b2a20"/>' +
+      (o.glasses ? '<g fill="#1d2433" stroke="#1d2433" stroke-width="1.5"><circle cx="34" cy="37" r="5"/><circle cx="46" cy="37" r="5"/><path d="M39 37 H41"/></g>'
+                 : '<circle cx="34.5" cy="37" r="1.8" fill="#2a1d16"/><circle cx="45.5" cy="37" r="1.8" fill="#2a1d16"/>') +
+      '<path d="M36 46 Q40 47.5 44 46" stroke="#a5604a" stroke-width="1.6" fill="none" stroke-linecap="round"/>' +
+      (o.cap ? '<path d="M23 30 C23 14 57 14 57 30Z" fill="#e53935"/><path d="M50 29 H66 Q66 33 57 33 H50Z" fill="#c62828"/>' : '') +
+      '</g>';
+    var fx = '';
+    if (o.sun) fx += '<g stroke="#f2b33d" stroke-width="3" stroke-linecap="round"><circle cx="66" cy="13" r="6" fill="#ffd54f" stroke="none"/><path d="M66 2V4 M66 22V24 M55 13H57 M75 13H77 M58 5L59.5 6.5 M72.5 19.5L74 21 M58 21L59.5 19.5 M72.5 6.5L74 5"/></g>';
+    if (o.metre) fx += '<g stroke="#2f6bff" stroke-width="2" fill="none" stroke-linecap="round"><path d="M8 20 H72"/><path d="M12 16 L8 20 L12 24 M68 16 L72 20 L68 24"/></g><text x="40" y="14" text-anchor="middle" font-size="10" font-weight="800" fill="#2f6bff" font-family="Arial">1 m</text>';
+    if (o.dark) fx += '<rect width="80" height="80" fill="#0b1020" opacity=".55"/>';
+    var filt = o.dark ? ' style="filter:blur(1.2px)"' : '';
+    return '<svg viewBox="0 0 80 80" aria-hidden="true"' + filt + '>' + bg + g + fx + '</svg>';
+  }
+  var PHOTO_DO = [ {}, { }, { sun: true }, { small: true, metre: true } ];
+  var PHOTO_DONT = [ { glasses: true }, { cap: true }, { dark: true }, { busy: true } ];
+
   var INC_ICONS = ["🖨️", "📸", "📝", "💡", "🤝"];
   var CHILD_ICONS = ["👶", "📘", "🪪", "💍", "📸", "🏠", "📕"];
   var lang = "fa";
@@ -1278,6 +1417,20 @@
     $("nameList").innerHTML = li(d.name_list);
     $("childList").innerHTML = ili(d.child_list, CHILD_ICONS);
     $("childList2").innerHTML = ili(d.child_list, CHILD_ICONS);
+    var phCard = function (list, texts, ok) {
+      return list.map(function (o, i) {
+        return '<div class="ph-card ' + (ok ? "ok" : "no") + ' reveal" style="--d:' + (i % 2) * 0.08 + 's"><div class="ph-img">' + face(o) +
+          '<span class="ph-badge">' + (ok ? "✓" : "✕") + "</span></div><p>" + texts[i] + "</p></div>";
+      }).join("");
+    };
+    $("photoDo").innerHTML = phCard(PHOTO_DO, d.photo_do_list, true);
+    $("photoDont").innerHTML = phCard(PHOTO_DONT, d.photo_dont_list, false);
+    $("revGrid").innerHTML = REVIEWS.map(function (r) {
+      return '<div class="card rev reveal"><div class="stars">★★★★★</div><p>“' + (r.text[lang] || r.text.en) + '”</p><b>— ' + r.name + "</b></div>";
+    }).join("");
+    $("revBtn").href = "https://wa.me/33605654592?text=" + encodeURIComponent(d.rev_msg);
+    var pageUrl = "https://alakhilmobile-png.github.io/passport/?lang=" + lang;
+    $("shareWa").href = "https://wa.me/?text=" + encodeURIComponent(d.share_msg + "\n" + pageUrl);
 
     renderTypes();
     renderDocs();
@@ -1426,6 +1579,15 @@
     var url = "https://wa.me/" + WA + "?text=" + encodeURIComponent(lines.join("\n"));
     $("after").classList.remove("hidden");
     window.open(url, "_blank") || (window.location.href = url);
+  });
+
+  // Share: native share sheet, or copy the link
+  $("shareOther").addEventListener("click", function () {
+    var url = "https://alakhilmobile-png.github.io/passport/?lang=" + lang;
+    var done = function () { $("copied").style.display = "block"; setTimeout(function () { $("copied").style.display = "none"; }, 2500); };
+    if (navigator.share) { navigator.share({ title: "ALAKHIL MOBILE — Afghan Passport", text: t("share_msg"), url: url }).catch(function () {}); return; }
+    if (navigator.clipboard) { navigator.clipboard.writeText(url).then(done, function () { prompt("", url); }); }
+    else { prompt("", url); }
   });
 
   // Menu
