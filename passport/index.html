@@ -1,0 +1,935 @@
+<!doctype html>
+<html lang="fa-AF" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALAKHIL MOBILE — Afghan Passport Online</title>
+<meta name="description" content="Help for Afghans in Europe (except Germany), the UK, the USA, Canada and Australia to apply online for a new Afghan passport through the Afghan Consulate General in Dubai. English · دری · پښتو">
+<meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
+<meta property="og:description" content="New Afghan passport delivered to your address — documents, prices and delivery time. English · دری · پښتو">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0d5446">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d5446'/%3E%3Crect x='18' y='12' width='28' height='40' rx='4' fill='none' stroke='%23f2b33d' stroke-width='4'/%3E%3Ccircle cx='32' cy='28' r='7' fill='none' stroke='%23f2b33d' stroke-width='3'/%3E%3Cpath d='M24 43h16' stroke='%23f2b33d' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --green: #0d5446;
+    --green-2: #127a64;
+    --green-soft: #e3f1ec;
+    --amber: #f2b33d;
+    --amber-soft: #fdf3dc;
+    --red: #b3261e;
+    --red-soft: #fce8e6;
+    --ink: #17221f;
+    --muted: #55635f;
+    --line: #dbe3e0;
+    --bg: #f6f8f7;
+    --card: #ffffff;
+    --wa: #1fa855;
+    --radius: 16px;
+    --shadow: 0 1px 2px rgba(16,40,34,.06), 0 6px 20px rgba(16,40,34,.06);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px; line-height: 1.6;
+  }
+  html[dir="rtl"] body {
+    font-family: "Noto Naskh Arabic", "Noto Sans Arabic", "Geeza Pro", Tahoma, "Segoe UI", Arial, sans-serif;
+    font-size: 18px; line-height: 1.85;
+  }
+  a { color: var(--green-2); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+  .num { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+
+  /* Header */
+  header.top {
+    position: sticky; top: 0; z-index: 20; background: var(--green); color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,.12);
+  }
+  header.top .wrap { display: flex; align-items: center; gap: 10px; min-height: 60px; }
+  .brand { font-weight: 800; letter-spacing: .5px; font-size: 18px; direction: ltr; white-space: nowrap; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+  .brand span { color: var(--amber); }
+  .langs { margin-inline-start: auto; display: flex; gap: 4px; background: rgba(255,255,255,.12); padding: 4px; border-radius: 999px; }
+  .langs button {
+    border: 0; background: transparent; color: #fff; font: inherit; font-size: 15px; font-weight: 700;
+    padding: 4px 12px; border-radius: 999px; cursor: pointer; line-height: 1.6;
+  }
+  .langs button[aria-pressed="true"] { background: #fff; color: var(--green); }
+
+  /* Hero */
+  .hero { background: linear-gradient(160deg, var(--green) 0%, #0b4439 100%); color: #fff; padding: 36px 0 44px; }
+  .hero h1 { font-size: clamp(26px, 6vw, 40px); line-height: 1.3; margin: 0 0 12px; }
+  .hero p { margin: 0 0 20px; font-size: 18px; opacity: .95; max-width: 680px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; padding: 0; list-style: none; }
+  .chips li { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25); padding: 4px 12px; border-radius: 999px; font-size: 15px; font-weight: 600; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    border: 0; border-radius: 12px; padding: 12px 20px; font: inherit; font-weight: 700; font-size: 17px;
+    cursor: pointer; text-decoration: none; min-height: 50px;
+  }
+  .btn-amber { background: var(--amber); color: #2b1d00; }
+  .btn-ghost { background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.4); }
+  .btn-wa { background: var(--wa); color: #fff; width: 100%; font-size: 19px; min-height: 58px; }
+  .btn-wa:disabled { background: #9db8a8; cursor: not-allowed; }
+  .btn svg { width: 22px; height: 22px; flex: none; }
+
+  .notice { background: var(--amber-soft); border-bottom: 1px solid #f0dca8; color: #5b4300; font-size: 15px; }
+  .notice .wrap { padding-top: 10px; padding-bottom: 10px; }
+
+  /* Sections */
+  section { padding: 34px 0 6px; }
+  h2 { font-size: clamp(22px, 5vw, 28px); margin: 0 0 16px; line-height: 1.35; color: var(--green); }
+  h3 { font-size: 19px; margin: 0 0 8px; line-height: 1.4; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .grid { display: grid; gap: 12px; }
+  @media (min-width: 720px) { .grid-2 { grid-template-columns: 1fr 1fr; } .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+
+  .elig .ok { border-inline-start: 6px solid var(--green-2); }
+  .elig .warn { border-inline-start: 6px solid var(--amber); }
+  .elig .no { border-inline-start: 6px solid var(--red); }
+  .tag { display: inline-block; font-size: 13px; font-weight: 800; padding: 1px 10px; border-radius: 999px; margin-bottom: 6px; }
+  .tag.ok { background: var(--green-soft); color: var(--green); }
+  .tag.warn { background: var(--amber-soft); color: #6a4c00; }
+  .tag.no { background: var(--red-soft); color: var(--red); }
+
+  /* Steps */
+  ol.steps { list-style: none; margin: 0; padding: 0; counter-reset: s; display: grid; gap: 10px; }
+  ol.steps li {
+    counter-increment: s; position: relative; background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 14px 16px; padding-inline-start: 62px; box-shadow: var(--shadow);
+  }
+  ol.steps li::before {
+    content: counter(s); position: absolute; inset-inline-start: 14px; top: 14px;
+    width: 34px; height: 34px; border-radius: 50%; background: var(--green); color: #fff;
+    display: grid; place-items: center; font-weight: 800; font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  ol.steps li.us::before { background: var(--green-2); }
+  ol.steps li.you::before { background: var(--amber); color: #2b1d00; }
+  .who { font-size: 13px; font-weight: 800; color: var(--muted); display: block; }
+  .paynow { display: inline-block; background: #f5c518; color: #222; font-weight: 800; font-size: 13px; padding: 0 8px; border-radius: 4px; direction: ltr; font-family: Arial, sans-serif; }
+
+  /* Prices */
+  .price-card { position: relative; overflow: hidden; }
+  .price-card .kind { font-size: 13px; font-weight: 800; padding: 1px 10px; border-radius: 999px; display: inline-block; margin-bottom: 4px; }
+  .price-card.std .kind { background: var(--green-soft); color: var(--green); }
+  .price-card.urg .kind { background: var(--amber-soft); color: #6a4c00; }
+  .price-card h3 { font-size: 21px; margin-bottom: 2px; }
+  .total { font-size: 32px; font-weight: 800; color: var(--green); line-height: 1.2; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+  .total-label { font-size: 14px; color: var(--muted); }
+  .rows { margin: 12px 0 0; padding: 12px 0 0; border-top: 1px dashed var(--line); display: grid; gap: 6px; font-size: 15px; }
+  .rows div { display: flex; justify-content: space-between; gap: 10px; }
+  .rows b { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; white-space: nowrap; }
+  .time { margin-top: 12px; background: var(--bg); border-radius: 10px; padding: 8px 12px; font-size: 15px; font-weight: 600; }
+  .fee-box { background: var(--green); color: #fff; border-radius: var(--radius); padding: 18px; margin-top: 12px; }
+  .fee-box strong { color: var(--amber); }
+  .small { font-size: 14px; color: var(--muted); }
+  .fee-box .small { color: #d7ebe4; }
+
+  /* Lists */
+  ul.check { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  ul.check li { position: relative; padding-inline-start: 32px; }
+  ul.check li::before {
+    content: ""; position: absolute; inset-inline-start: 0; top: .35em; width: 22px; height: 22px; border-radius: 6px;
+    background: var(--green-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.2 4.2L19 7' fill='none' stroke='%230d5446' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat;
+  }
+  .alert { border-radius: 12px; padding: 12px 14px; margin-top: 12px; font-weight: 600; font-size: 16px; }
+  .alert.no { background: var(--red-soft); color: var(--red); }
+  .alert.warn { background: var(--amber-soft); color: #5b4300; }
+  .alert.ok { background: var(--green-soft); color: var(--green); }
+
+  details.case { background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); }
+  details.case summary { cursor: pointer; padding: 14px 16px; font-weight: 700; font-size: 18px; list-style: none; display: flex; align-items: center; gap: 10px; }
+  details.case summary::-webkit-details-marker { display: none; }
+  details.case summary::after { content: "+"; margin-inline-start: auto; font-size: 24px; color: var(--green); line-height: 1; }
+  details.case[open] summary::after { content: "–"; }
+  details.case .body { padding: 0 16px 16px; }
+
+  .safety { background: var(--red-soft); border: 1px solid #f3c5c1; color: #6d1913; border-radius: var(--radius); padding: 16px; font-weight: 600; display: flex; gap: 12px; align-items: flex-start; }
+  .safety svg { width: 28px; height: 28px; flex: none; }
+
+  /* Form */
+  form { display: grid; gap: 16px; }
+  .field label, .field .lbl { display: block; font-weight: 700; margin-bottom: 6px; }
+  input[type=text], input[type=tel], input[type=email], select, input[type=number] {
+    width: 100%; font: inherit; font-size: 17px; padding: 12px 14px; border: 1.5px solid #c5d1cd; border-radius: 12px; background: #fff; color: var(--ink);
+    min-height: 50px;
+  }
+  input:focus, select:focus { outline: 3px solid rgba(18,122,100,.25); border-color: var(--green-2); }
+  input[type=tel], input[type=email] { direction: ltr; text-align: start; }
+  html[dir="rtl"] input[type=tel], html[dir="rtl"] input[type=email] { text-align: right; }
+  .opts { display: grid; gap: 8px; }
+  @media (min-width: 620px) { .opts.two { grid-template-columns: 1fr 1fr; } }
+  .opt { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border: 1.5px solid #c5d1cd; border-radius: 12px; background: #fff; cursor: pointer; }
+  .opt:has(input:checked) { border-color: var(--green-2); background: var(--green-soft); }
+  .opt input { width: 22px; height: 22px; margin: 3px 0 0; flex: none; accent-color: var(--green-2); }
+  .opt .sub { display: block; font-size: 14px; color: var(--muted); font-weight: 600; }
+  .stepper { display: flex; align-items: center; gap: 10px; }
+  .stepper button { width: 50px; height: 50px; border-radius: 12px; border: 1.5px solid #c5d1cd; background: #fff; font-size: 24px; font-weight: 700; color: var(--green); cursor: pointer; }
+  .stepper output { min-width: 40px; text-align: center; font-size: 22px; font-weight: 800; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+  .err { color: var(--red); font-weight: 700; display: none; }
+  .err.show { display: block; }
+  .hidden { display: none !important; }
+  .doc-group-title { font-weight: 800; color: var(--green); margin: 4px 0 2px; }
+
+  footer { margin-top: 40px; background: #0b2f28; color: #cfe2dc; padding: 28px 0 100px; font-size: 15px; }
+  footer .brand { color: #fff; font-size: 20px; margin-bottom: 8px; }
+  footer p { margin: 0 0 10px; }
+
+  .fab {
+    position: fixed; bottom: 16px; inset-inline-end: 16px; z-index: 30; width: 60px; height: 60px; border-radius: 50%;
+    background: var(--wa); display: grid; place-items: center; box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  }
+  .fab svg { width: 32px; height: 32px; }
+
+  /* Language picker */
+  .picker { position: fixed; inset: 0; z-index: 50; background: rgba(8,40,33,.92); display: grid; place-items: center; padding: 16px; }
+  .picker .box { background: #fff; border-radius: 20px; padding: 24px 20px; width: 100%; max-width: 380px; text-align: center; }
+  .picker .brand { color: var(--green); font-size: 22px; margin-bottom: 4px; }
+  .picker .brand span { color: #c48a12; }
+  .picker p { margin: 0 0 16px; color: var(--muted); font-size: 16px; line-height: 1.8; }
+  .picker button { display: block; width: 100%; margin: 10px 0 0; padding: 14px; border-radius: 14px; border: 2px solid var(--green); background: #fff; color: var(--green); font: inherit; font-size: 22px; font-weight: 800; cursor: pointer; }
+  .picker button:hover, .picker button:focus { background: var(--green); color: #fff; }
+  .picker .ar { font-family: "Noto Naskh Arabic", "Noto Sans Arabic", "Geeza Pro", Tahoma, sans-serif; }
+</style>
+</head>
+<body>
+
+<!-- Language picker (first visit) -->
+<div class="picker hidden" id="picker" role="dialog" aria-modal="true" aria-label="Choose language">
+  <div class="box">
+    <div class="brand">ALAKHIL <span>MOBILE</span></div>
+    <p><span class="ar" dir="rtl">ژبه وټاکئ</span> · <span class="ar" dir="rtl">زبان را انتخاب کنید</span><br>Choose your language</p>
+    <button type="button" class="ar" data-pick="ps" lang="ps" dir="rtl">پښتو</button>
+    <button type="button" class="ar" data-pick="fa" lang="fa" dir="rtl">دری</button>
+    <button type="button" data-pick="en" lang="en" dir="ltr">English</button>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">ALAKHIL <span>MOBILE</span></div>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-lang="ps" lang="ps">پښتو</button>
+      <button type="button" data-lang="fa" lang="fa">دری</button>
+      <button type="button" data-lang="en" lang="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1 data-t="hero_title"></h1>
+    <p data-t="hero_text"></p>
+    <ul class="chips">
+      <li data-t="c_uk"></li><li data-t="c_us"></li><li data-t="c_ca"></li><li data-t="c_au"></li><li data-t="c_eu"></li>
+    </ul>
+    <div class="btns">
+      <a class="btn btn-amber" href="#apply" data-t="btn_start"></a>
+      <a class="btn btn-ghost" href="#prices" data-t="btn_prices"></a>
+    </div>
+  </div>
+</div>
+
+<div class="notice"><div class="wrap" data-t="independent"></div></div>
+
+<main class="wrap">
+
+  <!-- Eligibility -->
+  <section id="who" class="elig">
+    <h2 data-t="elig_title"></h2>
+    <div class="grid grid-3">
+      <div class="card ok"><span class="tag ok" data-t="tag_yes"></span><div data-t="elig_yes"></div></div>
+      <div class="card warn"><span class="tag warn" data-t="tag_de"></span><div data-t="elig_de"></div></div>
+      <div class="card no"><span class="tag no" data-t="tag_no"></span><div data-t="elig_no"></div></div>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section id="steps">
+    <h2 data-t="steps_title"></h2>
+    <ol class="steps" id="stepsList"></ol>
+  </section>
+
+  <!-- Prices -->
+  <section id="prices">
+    <h2 data-t="prices_title"></h2>
+    <div class="grid grid-2" id="priceGrid"></div>
+    <div class="fee-box">
+      <div data-t="fee_box"></div>
+      <p class="small" style="margin:8px 0 0" data-t="fee_rules"></p>
+    </div>
+    <p class="small" data-t="prices_note"></p>
+  </section>
+
+  <!-- Documents -->
+  <section id="docs">
+    <h2 data-t="docs_title"></h2>
+    <div class="card"><ul class="check" id="docsAdult"></ul></div>
+  </section>
+
+  <!-- Special cases -->
+  <section id="cases">
+    <h2 data-t="cases_title"></h2>
+    <div class="grid">
+      <details class="case">
+        <summary data-t="case_lost_t"></summary>
+        <div class="body"><p style="margin:0" data-t="case_lost"></p></div>
+      </details>
+      <details class="case">
+        <summary data-t="case_name_t"></summary>
+        <div class="body">
+          <p style="margin-top:0" data-t="case_name"></p>
+          <ul class="check" id="nameList"></ul>
+          <div class="alert no" data-t="case_name_no"></div>
+        </div>
+      </details>
+      <details class="case">
+        <summary data-t="case_child_t"></summary>
+        <div class="body">
+          <p style="margin-top:0" data-t="case_child"></p>
+          <ul class="check" id="childList"></ul>
+          <div class="alert no" data-t="case_child_no"></div>
+        </div>
+      </details>
+    </div>
+    <div class="safety" style="margin-top:16px">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l9 4v6c0 5-3.8 9.4-9 10-5.2-.6-9-5-9-10V6l9-4z" fill="#b3261e"/><path d="M12 7v6m0 3.5v.5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <div data-t="safety"></div>
+    </div>
+  </section>
+
+  <!-- Apply form -->
+  <section id="apply">
+    <h2 data-t="form_title"></h2>
+    <div class="card">
+      <p style="margin-top:0" data-t="form_intro"></p>
+      <form id="form" novalidate>
+        <div class="field">
+          <label for="country" data-t="f_country"></label>
+          <select id="country" required>
+            <option value="" data-t="f_choose"></option>
+            <option value="uk" data-t="o_uk"></option>
+            <option value="us" data-t="o_us"></option>
+            <option value="ca" data-t="o_ca"></option>
+            <option value="au" data-t="o_au"></option>
+            <option value="eu" data-t="o_eu"></option>
+            <option value="de" data-t="o_de"></option>
+            <option value="other" data-t="o_other"></option>
+          </select>
+          <div class="alert no hidden" id="deAlert" data-t="elig_de"></div>
+          <div class="alert no hidden" id="otherAlert" data-t="elig_no"></div>
+        </div>
+        <div class="field hidden" id="euField">
+          <label for="euName" data-t="f_euname"></label>
+          <input type="text" id="euName" autocomplete="country-name">
+        </div>
+
+        <div id="restOfForm">
+          <div class="field">
+            <span class="lbl" data-t="f_for"></span>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="for" value="adult" checked><span data-t="for_adult"></span></label>
+              <label class="opt"><input type="radio" name="for" value="child"><span data-t="for_child"></span></label>
+              <label class="opt"><input type="radio" name="for" value="family"><span data-t="for_family"></span></label>
+            </div>
+          </div>
+
+          <div class="field" style="margin-top:16px">
+            <span class="lbl" data-t="f_count"></span>
+            <div class="stepper">
+              <button type="button" id="minus" aria-label="-">−</button>
+              <output id="count">1</output>
+              <button type="button" id="plus" aria-label="+">+</button>
+              <span class="small" id="feeLive"></span>
+            </div>
+          </div>
+
+          <div class="field" style="margin-top:16px">
+            <span class="lbl" data-t="f_type"></span>
+            <div class="opts two" id="typeOpts"></div>
+          </div>
+
+          <div class="field" style="margin-top:16px">
+            <span class="lbl" data-t="f_situation"></span>
+            <div class="opts">
+              <label class="opt"><input type="checkbox" id="sitLost"><span data-t="sit_lost"></span></label>
+              <label class="opt"><input type="checkbox" id="sitName"><span data-t="sit_name"></span></label>
+            </div>
+            <div class="alert warn hidden" id="lostAlert" data-t="case_lost"></div>
+            <div class="alert warn hidden" id="nameAlert" data-t="case_name_short"></div>
+          </div>
+
+          <div class="field" style="margin-top:16px">
+            <span class="lbl" data-t="f_docs"></span>
+            <div class="opts" id="docOpts"></div>
+            <div class="alert warn hidden" id="childAlert" data-t="case_child_no"></div>
+          </div>
+
+          <div class="field" style="margin-top:16px">
+            <label for="name" data-t="f_name"></label>
+            <input type="text" id="name" autocomplete="name" required>
+          </div>
+          <div class="field" style="margin-top:16px">
+            <label for="phone" data-t="f_phone"></label>
+            <input type="tel" id="phone" autocomplete="tel" placeholder="+44 7…" required>
+          </div>
+          <div class="field" style="margin-top:16px">
+            <label for="email" data-t="f_email"></label>
+            <input type="email" id="email" autocomplete="email" placeholder="name@email.com" required>
+          </div>
+
+          <p class="err" id="err" style="margin:16px 0 0" data-t="err_required"></p>
+          <button type="submit" class="btn btn-wa" id="send" style="margin-top:16px">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.2-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6 0-5.9 4.9-10.7 11-10.7s11 4.8 11 10.7-4.9 10.8-10.9 10.8zm6-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+            <span data-t="send"></span>
+          </button>
+          <div class="alert ok hidden" id="after" data-t="after"></div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <div class="card" style="text-align:center">
+      <h3 data-t="contact"></h3>
+      <a class="btn btn-wa" style="max-width:380px; margin:8px auto 0" href="https://wa.me/33605654592" target="_blank" rel="noopener">
+        <span class="num">+33 6 05 65 45 92</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">ALAKHIL <span style="color:var(--amber)">MOBILE</span></div>
+    <p data-t="disclaimer"></p>
+    <p data-t="privacy"></p>
+    <p data-t="prices_note"></p>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/33605654592" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.2-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6 0-5.9 4.9-10.7 11-10.7s11 4.8 11 10.7-4.9 10.8-10.9 10.8zm6-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<script>
+(function () {
+  "use strict";
+  var WA = "33605654592";
+  var FEE = 50;
+
+  // Consulate fees in USD (from afghanconsulate.ae, November 2026)
+  var PASSPORTS = [
+    { id: "s5",  urgent: false, years: 5,  init: 16.50, rem: 184.02, total: 200.52 },
+    { id: "s10", urgent: false, years: 10, init: 16.50, rem: 289.18, total: 305.68 },
+    { id: "u5",  urgent: true,  years: 5,  init: 26.81, rem: 236.60, total: 263.41 },
+    { id: "u10", urgent: true,  years: 10, init: 26.81, rem: 341.75, total: 368.56 }
+  ];
+
+  var T = {
+    en: {
+      dir: "ltr", htmlLang: "en",
+      hero_title: "New Afghan passport, delivered to your address",
+      hero_text: "We help Afghans living in Europe, the UK, the USA, Canada and Australia apply online for a new Afghan passport through the Consulate General of Afghanistan in Dubai. The passport is sent to your home address.",
+      c_uk: "🇬🇧 UK", c_us: "🇺🇸 USA", c_ca: "🇨🇦 Canada", c_au: "🇦🇺 Australia", c_eu: "🇪🇺 Europe (except Germany)",
+      btn_start: "Start my application", btn_prices: "See prices",
+      independent: "<b>ALAKHIL MOBILE is an independent service — we are not the consulate.</b> We check your documents, then prepare and submit your online application for you.",
+      elig_title: "Who can apply?",
+      tag_yes: "Possible", tag_de: "Germany", tag_no: "Not possible",
+      elig_yes: "Afghans living in the <b>United Kingdom, USA, Canada, Australia</b> or a <b>European country (except Germany)</b>.",
+      elig_de: "The Dubai consulate no longer accepts online passport applications from Afghans living in Germany. Please go directly to the <b>Afghan Embassy in Germany</b>.",
+      elig_no: "If you live in any other country, getting a new passport from the Dubai consulate is <b>not possible</b>.",
+      steps_title: "How it works — step by step",
+      who_you: "You", who_us: "We",
+      steps: [
+        ["you", "Read the information on this page and choose your passport: 5 or 10 years, standard or urgent."],
+        ["you", "Fill in the form below and send your documents to our WhatsApp."],
+        ["us", "We check your documents. If something is missing or not clear, we tell you."],
+        ["you", "When everything is OK, we send you our bank details (RIB) on WhatsApp. You pay our <b>€50 service fee</b> by bank transfer."],
+        ["us", "We create your account, fill in the form and submit your application to the consulate."],
+        ["you", "You receive an email from the consulate. At the bottom, click the yellow <span class=\"paynow\">PAY NOW</span> button and pay the <b>initial fee</b> with your bank card (card number, expiry date, security code, card holder name). You then get a confirmation email."],
+        ["you", "After some days the consulate emails you: <b>approved</b>, <b>on hold</b>, <b>under investigation</b> or <b>rejected</b>."],
+        ["you", "If approved, pay the <b>remaining fee</b> the same way. Your passport is then printed and sent to your address."]
+      ],
+      prices_title: "Prices and delivery time",
+      standard: "Standard", urgent: "Urgent", years5: "5 years", years10: "10 years",
+      total_label: "Total paid to the consulate",
+      init_label: "Initial fee (when you apply)",
+      rem_label: "Remaining fee (after approval, includes $55 delivery)",
+      time_std: "⏱ Processing: 4–8 weeks + delivery time",
+      time_urg: "⏱ Processing: up to 15 working days + delivery time",
+      fee_box: "<strong>+ Our service fee: €50 per passport</strong> — adult or child. Example: 2 children = €100.",
+      fee_rules: "You pay our fee by bank transfer, only after we have checked your documents. You have 30 days to pay each consulate fee — if you don't pay in time, the application is closed and you must apply again. The consulate's initial fee is non-refundable.",
+      prices_note: "Consulate fees are in US dollars and you pay them yourself, directly to the consulate, by bank card. Prices are from the consulate website (November 2026) and the consulate can change them.",
+      docs_title: "Required documents (adult)",
+      docs: [
+        "Your previous Afghan <b>electronic (biometric) passport</b> — scan, photo or copy. It must be <b>expired</b> or have <b>less than 1 year</b> validity.",
+        "Your <b>Afghan Tazkira</b> — paper or electronic (e-Tazkira).",
+        "Proof that you live in your host country: <b>residence permit</b>, <b>visa</b> or <b>residence attestation</b>.",
+        "One <b>passport-size face photo</b> — recent, in colour, plain white background.",
+        "Your <b>phone number</b> and <b>email address</b>."
+      ],
+      cases_title: "Special cases — please read",
+      case_lost_t: "Lost passport, or only a photo / copy",
+      case_lost: "If your passport is lost and you only have a photo, scan or copy of it, and it still has <b>more than 1 year</b> validity, the consulate accepts the application <b>only with a police report</b> of the lost passport from your host country.",
+      case_name_t: "Different name or date of birth",
+      case_name: "Your given name, surname or date of birth in your Afghan passport is different from your residence permit, and you want the new passport to match your residence permit? The consulate accepts this only if you have one of these:",
+      name_list: [
+        "an <b>electronic Tazkira</b> with the same given name, surname and date of birth as your residence permit, <b>or</b>",
+        "an <b>English translation of your Tazkira, attested by the Ministry of Foreign Affairs</b>, with the same details as your residence permit."
+      ],
+      case_name_no: "Without one of these, it is not possible. It is also not possible if your e-Tazkira or translation shows the same details as your old passport (and not as your residence permit).",
+      case_name_short: "You need an e-Tazkira, or an English Tazkira translation attested by the Ministry of Foreign Affairs, showing the same given name, surname and date of birth as your residence permit. Without it, a name or date-of-birth change is not possible.",
+      case_child_t: "Passport for a child (under 18)",
+      case_child: "For a child's passport, we need:",
+      child_list: [
+        "The child's <b>birth certificate</b>",
+        "Afghan <b>passport of the father and of the mother</b> (copy or scan)",
+        "Afghan <b>Tazkira of the father and of the mother</b>",
+        "The parents' <b>marriage certificate</b> (Nikah Khat)",
+        "The child's <b>passport photo</b> (white background)",
+        "The child's <b>residence permit or visa</b>",
+        "The child's previous Afghan passport, if the child had one"
+      ],
+      case_child_no: "If one parent does not have an Afghan passport or a Tazkira, it is not possible.",
+      safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
+      form_title: "Send your documents on WhatsApp",
+      form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
+      f_country: "Where do you live?", f_choose: "— Choose —",
+      o_uk: "United Kingdom", o_us: "USA", o_ca: "Canada", o_au: "Australia", o_eu: "A European country (not Germany)", o_de: "Germany", o_other: "Another country",
+      f_euname: "Which country?",
+      f_for: "Who is the passport for?",
+      for_adult: "Adult (18 or older)", for_child: "Child (under 18)", for_family: "Family (adults and children)",
+      f_count: "How many passports?",
+      fee_live: "Our service fee: €{n}",
+      f_type: "Which passport?",
+      f_situation: "Your situation (tick if true)",
+      sit_lost: "My passport is lost / I only have a photo or copy, and it has more than 1 year validity",
+      sit_name: "I want my name or date of birth to match my residence permit",
+      f_docs: "Your document checklist — tick what you have",
+      grp_adult: "Adult", grp_child: "Child",
+      d_pass: "Previous Afghan electronic passport (expired or less than 1 year validity)",
+      d_taz: "Afghan Tazkira (paper or electronic)",
+      d_res: "Residence permit / visa / residence attestation",
+      d_photo: "Passport-size face photo (white background)",
+      d_police: "Police report of the lost passport (from your host country)",
+      d_etaz: "e-Tazkira OR English Tazkira translation attested by the Ministry of Foreign Affairs — same details as residence permit",
+      d_birth: "Child's birth certificate",
+      d_ppass: "Afghan passport of father and mother",
+      d_ptaz: "Afghan Tazkira of father and mother",
+      d_marr: "Parents' marriage certificate (Nikah Khat)",
+      d_cphoto: "Child's passport photo",
+      d_cres: "Child's residence permit / visa",
+      f_name: "Full name", f_phone: "Phone number (with country code)", f_email: "Email address",
+      err_required: "Please fill in: country, name, phone and a valid email, and choose a passport.",
+      send: "Send on WhatsApp",
+      after: "WhatsApp is opening. Now attach a photo of each document in the chat and send. We will reply as soon as possible.",
+      contact: "Questions? Write to us on WhatsApp",
+      disclaimer: "ALAKHIL MOBILE is a private, independent service. We are not the Consulate General of Afghanistan and we are not part of any government. The consulate decides on every application.",
+      privacy: "This website does not save your information or documents. Your details go only to our WhatsApp, when you press send.",
+      m_hello: "Hello ALAKHIL MOBILE, I want a new Afghan passport.",
+      m_name: "Name", m_phone: "Phone", m_email: "Email", m_country: "Country", m_for: "Passport for",
+      m_count: "Number of passports", m_type: "Passport", m_sit: "Situation", m_have: "Documents I have", m_missing: "Documents I don't have yet",
+      m_none: "none", m_attach: "I am attaching my documents below 👇"
+    },
+
+    fa: {
+      dir: "rtl", htmlLang: "fa-AF",
+      hero_title: "پاسپورت جدید افغانی، تا آدرس خانهٔ شما",
+      hero_text: "ما به افغان‌های مقیم اروپا، بریتانیا، امریکا، کانادا و آسترالیا کمک می‌کنیم تا از طریق جنرال قونسلگری افغانستان در دبی به‌صورت آنلاین برای پاسپورت جدید درخواست بدهند. پاسپورت به آدرس خانهٔ شما فرستاده می‌شود.",
+      c_uk: "🇬🇧 بریتانیا", c_us: "🇺🇸 امریکا", c_ca: "🇨🇦 کانادا", c_au: "🇦🇺 آسترالیا", c_eu: "🇪🇺 اروپا (به جز آلمان)",
+      btn_start: "شروع درخواست", btn_prices: "دیدن قیمت‌ها",
+      independent: "<b>ALAKHIL MOBILE یک خدمت مستقل است — ما قونسلگری نیستیم.</b> ما اسناد شما را بررسی می‌کنیم و بعد درخواست آنلاین شما را آماده و ثبت می‌کنیم.",
+      elig_title: "چه کسانی می‌توانند درخواست بدهند؟",
+      tag_yes: "ممکن است", tag_de: "آلمان", tag_no: "ممکن نیست",
+      elig_yes: "افغان‌های مقیم <b>بریتانیا، امریکا، کانادا، آسترالیا</b> یا یک <b>کشور اروپایی (به جز آلمان)</b>.",
+      elig_de: "قونسلگری دبی دیگر درخواست آنلاین پاسپورت را از افغان‌های مقیم آلمان نمی‌پذیرد. لطفاً مستقیماً به <b>سفارت افغانستان در آلمان</b> مراجعه کنید.",
+      elig_no: "اگر در کشور دیگری زندگی می‌کنید، گرفتن پاسپورت جدید از قونسلگری دبی <b>ممکن نیست</b>.",
+      steps_title: "مراحل کار — قدم به قدم",
+      who_you: "شما", who_us: "ما",
+      steps: [
+        ["you", "معلومات این صفحه را بخوانید و پاسپورت خود را انتخاب کنید: ۵ ساله یا ۱۰ ساله، عادی یا عاجل."],
+        ["you", "فورم پایین را پُر کنید و اسناد خود را به واتساپ ما بفرستید."],
+        ["us", "ما اسناد شما را بررسی می‌کنیم. اگر چیزی کم یا نامعلوم باشد، به شما خبر می‌دهیم."],
+        ["you", "وقتی همه چیز درست بود، معلومات حساب بانکی (RIB) خود را در واتساپ برای شما می‌فرستیم. شما <b>فیس خدمات ما (۵۰ یورو)</b> را از طریق انتقال بانکی می‌پردازید."],
+        ["us", "ما برای شما حساب می‌سازیم، فورم را پُر می‌کنیم و درخواست شما را به قونسلگری ثبت می‌کنیم."],
+        ["you", "شما از قونسلگری یک ایمیل دریافت می‌کنید. در پایین ایمیل روی دکمهٔ زرد <span class=\"paynow\">PAY NOW</span> کلیک کنید و <b>فیس ابتدایی</b> را با کارت بانکی خود بپردازید (نمبر کارت، تاریخ ختم کارت، کود امنیتی و نام صاحب کارت). بعد ایمیل تأیید دریافت می‌کنید."],
+        ["you", "بعد از چند روز قونسلگری به شما ایمیل می‌فرستد: <b>منظور شد</b>، <b>معطل <span class=\"num\">(on hold)</span></b>، <b>تحت بررسی</b> یا <b>رد شد</b>."],
+        ["you", "اگر منظور شد، <b>باقی‌ماندهٔ فیس</b> را به همان روش بپردازید. بعد پاسپورت شما چاپ و به آدرس شما فرستاده می‌شود."]
+      ],
+      prices_title: "قیمت‌ها و مدت رسیدن",
+      standard: "عادی", urgent: "عاجل", years5: "۵ ساله", years10: "۱۰ ساله",
+      total_label: "مجموع پرداخت به قونسلگری",
+      init_label: "فیس ابتدایی (هنگام درخواست)",
+      rem_label: "باقی فیس (بعد از منظوری، شامل ۵۵ دالر انتقال)",
+      time_std: "⏱ مدت کار: ۴ تا ۸ هفته + زمان انتقال پاسپورت",
+      time_urg: "⏱ مدت کار: تا ۱۵ روز کاری + زمان انتقال پاسپورت",
+      fee_box: "<strong>+ فیس خدمات ما: ۵۰ یورو برای هر پاسپورت</strong> — بزرگسال یا طفل. مثال: ۲ طفل = ۱۰۰ یورو.",
+      fee_rules: "فیس ما را فقط بعد از بررسی اسناد، از طریق انتقال بانکی می‌پردازید. برای پرداخت هر فیس قونسلگری ۳۰ روز وقت دارید — اگر به وقت پرداخت نکنید، درخواست بسته می‌شود و باید دوباره درخواست بدهید. فیس ابتدایی قونسلگری پس داده نمی‌شود.",
+      prices_note: "فیس‌های قونسلگری به دالر امریکایی است و شما خودتان آن را مستقیماً با کارت بانکی به قونسلگری می‌پردازید. قیمت‌ها از ویبسایت قونسلگری (نومبر ۲۰۲۶) گرفته شده و قونسلگری می‌تواند آن را تغییر دهد.",
+      docs_title: "اسناد لازم (بزرگسال)",
+      docs: [
+        "<b>پاسپورت الکترونیکی (بایومتریک)</b> قبلی افغانی — اسکن، عکس یا کاپی. باید <b>تاریخ آن ختم شده باشد</b> یا <b>کمتر از یک سال</b> اعتبار داشته باشد.",
+        "<b>تذکرهٔ افغانی</b> — کاغذی یا الکترونیکی.",
+        "سند زندگی در کشور میزبان: <b>کارت اقامت</b>، <b>ویزه</b> یا <b>تصدیق سکونت</b>.",
+        "یک قطعه <b>عکس پاسپورتی</b> — جدید، رنگه، با پس‌زمینهٔ سفید ساده.",
+        "<b>شمارهٔ تلفون</b> و <b>آدرس ایمیل</b> شما."
+      ],
+      cases_title: "حالت‌های خاص — لطفاً بخوانید",
+      case_lost_t: "پاسپورت گم شده، یا فقط عکس / کاپی آن",
+      case_lost: "اگر پاسپورت شما گم شده و فقط عکس، اسکن یا کاپی آن را دارید، و هنوز <b>بیشتر از یک سال</b> اعتبار دارد، قونسلگری درخواست را <b>فقط با گزارش پولیس</b> کشور میزبان دربارهٔ گم شدن پاسپورت می‌پذیرد.",
+      case_name_t: "نام یا تاریخ تولد متفاوت",
+      case_name: "آیا نام، تخلص یا تاریخ تولد شما در پاسپورت افغانی با کارت اقامت شما فرق دارد و می‌خواهید پاسپورت جدید مانند کارت اقامت شما باشد؟ قونسلگری این را فقط در صورتی می‌پذیرد که یکی از این‌ها را داشته باشید:",
+      name_list: [
+        "<b>تذکرهٔ الکترونیکی</b> که نام، تخلص و تاریخ تولد آن با کارت اقامت شما یکی باشد، <b>یا</b>",
+        "<b>ترجمهٔ انگلیسی تذکره که از طرف وزارت امور خارجه تصدیق شده باشد</b> و معلومات آن با کارت اقامت شما یکی باشد."
+      ],
+      case_name_no: "بدون یکی از این‌ها ممکن نیست. اگر معلومات تذکرهٔ الکترونیکی یا ترجمهٔ شما مانند پاسپورت قبلی‌تان باشد (نه مانند کارت اقامت)، باز هم ممکن نیست.",
+      case_name_short: "به تذکرهٔ الکترونیکی، یا ترجمهٔ انگلیسی تذکرهٔ تصدیق‌شده از وزارت امور خارجه نیاز دارید که نام، تخلص و تاریخ تولد آن مانند کارت اقامت شما باشد. بدون آن، تغییر نام یا تاریخ تولد ممکن نیست.",
+      case_child_t: "پاسپورت برای طفل (زیر ۱۸ سال)",
+      case_child: "برای پاسپورت طفل این اسناد لازم است:",
+      child_list: [
+        "<b>سند تولد</b> طفل",
+        "<b>پاسپورت افغانی پدر و مادر</b> (کاپی یا اسکن)",
+        "<b>تذکرهٔ افغانی پدر و مادر</b>",
+        "<b>نکاح‌خط</b> (سند ازدواج) والدین",
+        "<b>عکس پاسپورتی</b> طفل (پس‌زمینهٔ سفید)",
+        "<b>کارت اقامت یا ویزهٔ</b> طفل",
+        "پاسپورت قبلی افغانی طفل، اگر داشته باشد"
+      ],
+      case_child_no: "اگر یکی از والدین پاسپورت افغانی یا تذکره نداشته باشد، ممکن نیست.",
+      safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
+      form_title: "اسناد خود را از طریق واتساپ بفرستید",
+      form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
+      f_country: "در کدام کشور زندگی می‌کنید؟", f_choose: "— انتخاب کنید —",
+      o_uk: "بریتانیا", o_us: "امریکا", o_ca: "کانادا", o_au: "آسترالیا", o_eu: "یک کشور اروپایی (به جز آلمان)", o_de: "آلمان", o_other: "کشور دیگر",
+      f_euname: "کدام کشور؟",
+      f_for: "پاسپورت برای کیست؟",
+      for_adult: "بزرگسال (۱۸ سال یا بیشتر)", for_child: "طفل (زیر ۱۸ سال)", for_family: "فامیل (بزرگسال و طفل)",
+      f_count: "چند پاسپورت؟",
+      fee_live: "فیس خدمات ما: {n} یورو",
+      f_type: "کدام پاسپورت؟",
+      f_situation: "وضعیت شما (اگر درست است علامه بزنید)",
+      sit_lost: "پاسپورت من گم شده / فقط عکس یا کاپی آن را دارم و بیشتر از یک سال اعتبار دارد",
+      sit_name: "می‌خواهم نام یا تاریخ تولدم مانند کارت اقامتم باشد",
+      f_docs: "فهرست اسناد شما — آنچه را دارید علامه بزنید",
+      grp_adult: "بزرگسال", grp_child: "طفل",
+      d_pass: "پاسپورت الکترونیکی قبلی افغانی (ختم شده یا کمتر از یک سال اعتبار)",
+      d_taz: "تذکرهٔ افغانی (کاغذی یا الکترونیکی)",
+      d_res: "کارت اقامت / ویزه / تصدیق سکونت",
+      d_photo: "عکس پاسپورتی (پس‌زمینهٔ سفید)",
+      d_police: "گزارش پولیس دربارهٔ گم شدن پاسپورت (از کشور میزبان)",
+      d_etaz: "تذکرهٔ الکترونیکی یا ترجمهٔ انگلیسی تذکرهٔ تصدیق‌شده از وزارت امور خارجه — با معلومات مانند کارت اقامت",
+      d_birth: "سند تولد طفل",
+      d_ppass: "پاسپورت افغانی پدر و مادر",
+      d_ptaz: "تذکرهٔ افغانی پدر و مادر",
+      d_marr: "نکاح‌خط والدین",
+      d_cphoto: "عکس پاسپورتی طفل",
+      d_cres: "کارت اقامت / ویزهٔ طفل",
+      f_name: "نام کامل", f_phone: "شمارهٔ تلفون (با کود کشور)", f_email: "آدرس ایمیل",
+      err_required: "لطفاً کشور، نام، تلفون و ایمیل درست را پُر کنید و یک پاسپورت انتخاب کنید.",
+      send: "ارسال در واتساپ",
+      after: "واتساپ باز می‌شود. حالا عکس هر سند را در چت ضمیمه کنید و بفرستید. ما در اسرع وقت جواب می‌دهیم.",
+      contact: "سوال دارید؟ در واتساپ به ما بنویسید",
+      disclaimer: "ALAKHIL MOBILE یک خدمت خصوصی و مستقل است. ما جنرال قونسلگری افغانستان نیستیم و به هیچ دولتی مربوط نیستیم. تصمیم دربارهٔ هر درخواست را قونسلگری می‌گیرد.",
+      privacy: "این ویبسایت معلومات یا اسناد شما را ذخیره نمی‌کند. معلومات شما فقط وقتی دکمهٔ ارسال را بزنید به واتساپ ما می‌رسد.",
+      m_hello: "سلام ALAKHIL MOBILE، من پاسپورت جدید افغانی می‌خواهم.",
+      m_name: "نام", m_phone: "تلفون", m_email: "ایمیل", m_country: "کشور", m_for: "پاسپورت برای",
+      m_count: "تعداد پاسپورت", m_type: "پاسپورت", m_sit: "وضعیت", m_have: "اسنادی که دارم", m_missing: "اسنادی که هنوز ندارم",
+      m_none: "هیچ", m_attach: "اسناد خود را در پایین می‌فرستم 👇"
+    },
+
+    ps: {
+      dir: "rtl", htmlLang: "ps",
+      hero_title: "نوی افغاني پاسپورټ، ستاسو تر کوره پورې",
+      hero_text: "موږ له هغو افغانانو سره مرسته کوو چې په اروپا، بریتانیا، امریکا، کاناډا او آسټرالیا کې اوسېږي، څو د دوبۍ د افغانستان جنرال قونسلګرۍ له لارې آنلاین د نوي پاسپورټ غوښتنه وکړي. پاسپورټ ستاسو د کور پتې ته لېږل کیږي.",
+      c_uk: "🇬🇧 بریتانیا", c_us: "🇺🇸 امریکا", c_ca: "🇨🇦 کاناډا", c_au: "🇦🇺 آسټرالیا", c_eu: "🇪🇺 اروپا (پرته له آلمان)",
+      btn_start: "غوښتنه پیل کړئ", btn_prices: "بیې وګورئ",
+      independent: "<b>ALAKHIL MOBILE یو خپلواک خدمت دی — موږ قونسلګري نه یو.</b> موږ ستاسو اسناد ګورو، بیا ستاسو آنلاین غوښتنلیک چمتو او ثبتوو.",
+      elig_title: "څوک غوښتنه کولی شي؟",
+      tag_yes: "ممکنه ده", tag_de: "آلمان", tag_no: "ممکنه نه ده",
+      elig_yes: "هغه افغانان چې په <b>بریتانیا، امریکا، کاناډا، آسټرالیا</b> یا یو <b>اروپايي هېواد (پرته له آلمان)</b> کې اوسېږي.",
+      elig_de: "د دوبۍ قونسلګري نور په آلمان کې د اوسېدونکو افغانانو آنلاین د پاسپورټ غوښتنې نه مني. مهرباني وکړئ مستقیم <b>په آلمان کې د افغانستان سفارت</b> ته ورشئ.",
+      elig_no: "که په بل هېواد کې اوسېږئ، د دوبۍ له قونسلګرۍ څخه د نوي پاسپورټ اخیستل <b>ممکنه نه ده</b>.",
+      steps_title: "د کار پړاوونه — ګام په ګام",
+      who_you: "تاسو", who_us: "موږ",
+      steps: [
+        ["you", "د دې پاڼې معلومات ولولئ او خپل پاسپورټ وټاکئ: ۵ کلن یا ۱۰ کلن، عادي یا عاجل."],
+        ["you", "لاندې فورمه ډکه کړئ او خپل اسناد زموږ واټساپ ته ولېږئ."],
+        ["us", "موږ ستاسو اسناد ګورو. که کوم شی کم یا ناڅرګند وي، تاسو ته به ووایو."],
+        ["you", "کله چې هر څه سم وو، موږ به تاسو ته په واټساپ کې د بانکي حساب معلومات (RIB) ولېږو. تاسو <b>زموږ د خدمت فیس (۵۰ یورو)</b> د بانکي لېږد له لارې ورکوئ."],
+        ["us", "موږ ستاسو لپاره حساب جوړوو، فورمه ډکوو او ستاسو غوښتنلیک قونسلګرۍ ته ثبتوو."],
+        ["you", "تاسو به له قونسلګرۍ څخه یو ایمیل ترلاسه کړئ. د ایمیل په پای کې په ژیړ <span class=\"paynow\">PAY NOW</span> تڼۍ کلیک وکړئ او <b>لومړنی فیس</b> د خپل بانکي کارت په وسیله ورکړئ (د کارت شمېره، د کارت د پای نېټه، امنیتي کوډ او د کارت د خاوند نوم). بیا به د تایید ایمیل ترلاسه کړئ."],
+        ["you", "څو ورځې وروسته قونسلګري تاسو ته ایمیل درلېږي: <b>منظور شو</b>، <b>ځنډول شوی <span class=\"num\">(on hold)</span></b>، <b>تر څېړنې لاندې</b> یا <b>رد شو</b>."],
+        ["you", "که منظور شو، <b>پاتې فیس</b> په همدې ډول ورکړئ. بیا ستاسو پاسپورټ چاپیږي او ستاسو پتې ته لېږل کیږي."]
+      ],
+      prices_title: "بیې او د رسېدو وخت",
+      standard: "عادي", urgent: "عاجل", years5: "۵ کلن", years10: "۱۰ کلن",
+      total_label: "قونسلګرۍ ته ټوله ورکړه",
+      init_label: "لومړنی فیس (د غوښتنلیک پر مهال)",
+      rem_label: "پاتې فیس (له منظورۍ وروسته، د ۵۵ ډالرو لېږد پکې شامل دی)",
+      time_std: "⏱ د کار موده: ۴ تر ۸ اونۍ + د پاسپورټ د لېږد وخت",
+      time_urg: "⏱ د کار موده: تر ۱۵ کاري ورځو پورې + د پاسپورټ د لېږد وخت",
+      fee_box: "<strong>+ زموږ د خدمت فیس: د هر پاسپورټ لپاره ۵۰ یورو</strong> — لوی وي که ماشوم. بېلګه: ۲ ماشومان = ۱۰۰ یورو.",
+      fee_rules: "زموږ فیس یوازې وروسته له دې چې ستاسو اسناد وګورو، د بانکي لېږد له لارې ورکوئ. د قونسلګرۍ د هر فیس د ورکړې لپاره ۳۰ ورځې وخت لرئ — که په وخت یې ورنکړئ، غوښتنلیک بندیږي او باید بیا غوښتنه وکړئ. د قونسلګرۍ لومړنی فیس بېرته نه ورکول کیږي.",
+      prices_note: "د قونسلګرۍ فیسونه په امریکايي ډالرو دي او تاسو یې پخپله، مستقیم قونسلګرۍ ته د بانکي کارت په وسیله ورکوئ. بیې د قونسلګرۍ له وېبپاڼې (نومبر ۲۰۲۶) اخیستل شوې او قونسلګري یې بدلولی شي.",
+      docs_title: "اړین اسناد (لویان)",
+      docs: [
+        "ستاسو پخوانی افغاني <b>برېښنايي (بایومتریک) پاسپورټ</b> — سکن، عکس یا کاپي. باید <b>نېټه یې پوره شوې وي</b> یا <b>له یو کال کم</b> اعتبار ولري.",
+        "ستاسو <b>افغاني تذکره</b> — کاغذي یا برېښنايي.",
+        "په کوربه هېواد کې د اوسېدو سند: <b>د اقامت کارت</b>، <b>ویزه</b> یا <b>د اوسېدو تصدیق</b>.",
+        "یو <b>پاسپورټي عکس</b> — نوی، رنګه، له سپین ساده شاليد سره.",
+        "ستاسو <b>د تلیفون شمېره</b> او <b>د ایمیل پته</b>."
+      ],
+      cases_title: "ځانګړي حالتونه — مهرباني وکړئ ولولئ",
+      case_lost_t: "ورک شوی پاسپورټ، یا یوازې یې عکس / کاپي",
+      case_lost: "که ستاسو پاسپورټ ورک شوی وي او یوازې یې عکس، سکن یا کاپي لرئ، او لا هم <b>له یو کال زیات</b> اعتبار لري، قونسلګري غوښتنلیک <b>یوازې د پولیسو له راپور سره</b> مني — د کوربه هېواد د پولیسو راپور چې پاسپورټ ورک شوی دی.",
+      case_name_t: "بل نوم یا د زېږېدو بله نېټه",
+      case_name: "ایا ستاسو نوم، تخلص یا د زېږېدو نېټه په افغاني پاسپورټ کې ستاسو د اقامت له کارت سره توپیر لري او غواړئ نوی پاسپورټ ستاسو د اقامت د کارت په شان وي؟ قونسلګري دا یوازې هغه وخت مني چې له دې دوو څخه یو مو ولري:",
+      name_list: [
+        "<b>برېښنايي تذکره</b> چې نوم، تخلص او د زېږېدو نېټه یې ستاسو د اقامت له کارت سره یو شان وي، <b>یا</b>",
+        "<b>د تذکرې انګلیسي ژباړه چې د بهرنیو چارو وزارت لخوا تصدیق شوې وي</b> او معلومات یې ستاسو د اقامت له کارت سره یو شان وي."
+      ],
+      case_name_no: "له دې پرته ممکنه نه ده. که ستاسو د برېښنايي تذکرې یا ژباړې معلومات ستاسو د پخواني پاسپورټ په شان وي (نه د اقامت د کارت په شان)، بیا هم ممکنه نه ده.",
+      case_name_short: "تاسو برېښنايي تذکرې، یا د بهرنیو چارو وزارت لخوا تصدیق شوې د تذکرې انګلیسي ژباړې ته اړتیا لرئ چې نوم، تخلص او د زېږېدو نېټه یې ستاسو د اقامت د کارت په شان وي. له دې پرته د نوم یا د زېږېدو نېټې بدلون ممکن نه دی.",
+      case_child_t: "د ماشوم لپاره پاسپورټ (له ۱۸ کالو کم)",
+      case_child: "د ماشوم د پاسپورټ لپاره دا اسناد اړین دي:",
+      child_list: [
+        "د ماشوم <b>د زېږېدو سند</b>",
+        "<b>د پلار او مور افغاني پاسپورټ</b> (کاپي یا سکن)",
+        "<b>د پلار او مور افغاني تذکره</b>",
+        "د مور او پلار <b>نکاح خط</b>",
+        "د ماشوم <b>پاسپورټي عکس</b> (سپین شاليد)",
+        "د ماشوم <b>د اقامت کارت یا ویزه</b>",
+        "د ماشوم پخوانی افغاني پاسپورټ، که یې درلود"
+      ],
+      case_child_no: "که له مور او پلار څخه یو یې افغاني پاسپورټ یا تذکره ونه لري، ممکنه نه ده.",
+      safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
+      form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
+      form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
+      f_country: "په کوم هېواد کې اوسېږئ؟", f_choose: "— وټاکئ —",
+      o_uk: "بریتانیا", o_us: "امریکا", o_ca: "کاناډا", o_au: "آسټرالیا", o_eu: "یو اروپايي هېواد (پرته له آلمان)", o_de: "آلمان", o_other: "بل هېواد",
+      f_euname: "کوم هېواد؟",
+      f_for: "پاسپورټ د چا لپاره دی؟",
+      for_adult: "لوی (۱۸ کاله یا زیات)", for_child: "ماشوم (له ۱۸ کالو کم)", for_family: "کورنۍ (لویان او ماشومان)",
+      f_count: "څو پاسپورټونه؟",
+      fee_live: "زموږ د خدمت فیس: {n} یورو",
+      f_type: "کوم پاسپورټ؟",
+      f_situation: "ستاسو حالت (که سم وي نښه یې کړئ)",
+      sit_lost: "زما پاسپورټ ورک شوی / یوازې یې عکس یا کاپي لرم او له یو کال زیات اعتبار لري",
+      sit_name: "غواړم زما نوم یا د زېږېدو نېټه زما د اقامت د کارت په شان وي",
+      f_docs: "ستاسو د اسنادو لیست — څه چې لرئ نښه یې کړئ",
+      grp_adult: "لویان", grp_child: "ماشوم",
+      d_pass: "پخوانی افغاني برېښنايي پاسپورټ (نېټه یې پوره یا له یو کال کم اعتبار)",
+      d_taz: "افغاني تذکره (کاغذي یا برېښنايي)",
+      d_res: "د اقامت کارت / ویزه / د اوسېدو تصدیق",
+      d_photo: "پاسپورټي عکس (سپین شاليد)",
+      d_police: "د پاسپورټ د ورکېدو په اړه د پولیسو راپور (له کوربه هېواد)",
+      d_etaz: "برېښنايي تذکره یا د بهرنیو چارو وزارت لخوا تصدیق شوې د تذکرې انګلیسي ژباړه — د اقامت د کارت په شان معلومات",
+      d_birth: "د ماشوم د زېږېدو سند",
+      d_ppass: "د پلار او مور افغاني پاسپورټ",
+      d_ptaz: "د پلار او مور افغاني تذکره",
+      d_marr: "د مور او پلار نکاح خط",
+      d_cphoto: "د ماشوم پاسپورټي عکس",
+      d_cres: "د ماشوم د اقامت کارت / ویزه",
+      f_name: "بشپړ نوم", f_phone: "د تلیفون شمېره (د هېواد له کوډ سره)", f_email: "د ایمیل پته",
+      err_required: "مهرباني وکړئ هېواد، نوم، تلیفون او سم ایمیل ولیکئ او یو پاسپورټ وټاکئ.",
+      send: "په واټساپ کې ولېږئ",
+      after: "واټساپ خلاصیږي. اوس د هر سند عکس په چټ کې ور اضافه کړئ او ویې لېږئ. موږ به ژر تر ژره ځواب درکړو.",
+      contact: "پوښتنه لرئ؟ په واټساپ کې موږ ته ولیکئ",
+      disclaimer: "ALAKHIL MOBILE یو خصوصي او خپلواک خدمت دی. موږ د افغانستان جنرال قونسلګري نه یو او له هېڅ دولت سره تړاو نه لرو. د هر غوښتنلیک په اړه پرېکړه قونسلګري کوي.",
+      privacy: "دا وېبپاڼه ستاسو معلومات یا اسناد نه ساتي. ستاسو معلومات یوازې هغه وخت زموږ واټساپ ته رسیږي چې د لېږلو تڼۍ کېکاږئ.",
+      m_hello: "سلام ALAKHIL MOBILE، زه نوی افغاني پاسپورټ غواړم.",
+      m_name: "نوم", m_phone: "تلیفون", m_email: "ایمیل", m_country: "هېواد", m_for: "پاسپورټ د",
+      m_count: "د پاسپورټونو شمېر", m_type: "پاسپورټ", m_sit: "حالت", m_have: "هغه اسناد چې لرم یې", m_missing: "هغه اسناد چې لا یې نه لرم",
+      m_none: "هېڅ", m_attach: "خپل اسناد لاندې لېږم 👇"
+    }
+  };
+
+  var lang = "fa";
+  var $ = function (id) { return document.getElementById(id); };
+  var t = function (k) { return T[lang][k]; };
+  var usd = function (n) { return "$" + n.toFixed(2); };
+
+  function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+
+  function passportName(p) {
+    return (p.urgent ? t("urgent") : t("standard")) + " — " + (p.years === 5 ? t("years5") : t("years10"));
+  }
+
+  function renderStatic() {
+    var d = T[lang];
+    document.documentElement.lang = d.htmlLang;
+    document.documentElement.dir = d.dir;
+    document.querySelectorAll("[data-t]").forEach(function (el) {
+      var v = d[el.getAttribute("data-t")];
+      if (typeof v === "string") { if (el.tagName === "OPTION") el.textContent = v; else el.innerHTML = v; }
+    });
+    document.querySelectorAll("[data-lang]").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
+    });
+
+    $("stepsList").innerHTML = d.steps.map(function (s) {
+      return '<li class="' + s[0] + '"><span class="who">' + (s[0] === "us" ? d.who_us : d.who_you) + "</span>" + s[1] + "</li>";
+    }).join("");
+
+    $("priceGrid").innerHTML = PASSPORTS.map(function (p) {
+      return '<div class="card price-card ' + (p.urgent ? "urg" : "std") + '">' +
+        '<span class="kind">' + (p.urgent ? d.urgent : d.standard) + "</span>" +
+        "<h3>" + (p.years === 5 ? d.years5 : d.years10) + "</h3>" +
+        '<div class="total"><span class="num">' + usd(p.total) + "</span></div>" +
+        '<div class="total-label">' + d.total_label + "</div>" +
+        '<div class="rows"><div><span>' + d.init_label + '</span><b class="num">' + usd(p.init) + "</b></div>" +
+        "<div><span>" + d.rem_label + '</span><b class="num">' + usd(p.rem) + "</b></div></div>" +
+        '<div class="time">' + (p.urgent ? d.time_urg : d.time_std) + "</div></div>";
+    }).join("");
+
+    var li = function (arr) { return arr.map(function (x) { return "<li>" + x + "</li>"; }).join(""); };
+    $("docsAdult").innerHTML = li(d.docs);
+    $("nameList").innerHTML = li(d.name_list);
+    $("childList").innerHTML = li(d.child_list);
+
+    renderTypes();
+    renderDocs();
+    updateFee();
+  }
+
+  function renderTypes() {
+    var checked = (document.querySelector('input[name="ptype"]:checked') || {}).value;
+    $("typeOpts").innerHTML = PASSPORTS.map(function (p) {
+      return '<label class="opt"><input type="radio" name="ptype" value="' + p.id + '"' + (checked === p.id ? " checked" : "") + ">" +
+        "<span>" + passportName(p) + '<span class="sub"><span class="num">' + usd(p.total) + "</span> · " +
+        (p.urgent ? t("time_urg") : t("time_std")).replace("⏱ ", "") + "</span></span></label>";
+    }).join("");
+  }
+
+  function currentDocs() {
+    var who = document.querySelector('input[name="for"]:checked').value;
+    var list = [];
+    if (who === "adult" || who === "family") {
+      list.push({ g: "grp_adult" }, { k: "d_pass" }, { k: "d_taz" }, { k: "d_res" }, { k: "d_photo" });
+    }
+    if (who === "child" || who === "family") {
+      list.push({ g: "grp_child" }, { k: "d_birth" }, { k: "d_ppass" }, { k: "d_ptaz" }, { k: "d_marr" }, { k: "d_cphoto" }, { k: "d_cres" });
+    }
+    if ($("sitLost").checked) list.push({ g: null }, { k: "d_police" });
+    if ($("sitName").checked) list.push({ k: "d_etaz" });
+    if (who === "adult") list = list.filter(function (x) { return !x.g; });
+    return list;
+  }
+
+  function renderDocs() {
+    var had = {};
+    document.querySelectorAll('#docOpts input:checked').forEach(function (i) { had[i.value] = true; });
+    var who = document.querySelector('input[name="for"]:checked').value;
+    $("docOpts").innerHTML = currentDocs().map(function (x) {
+      if ("g" in x) return x.g ? '<div class="doc-group-title">' + t(x.g) + "</div>" : "";
+      return '<label class="opt"><input type="checkbox" value="' + x.k + '"' + (had[x.k] ? " checked" : "") + "><span>" + t(x.k) + "</span></label>";
+    }).join("");
+    $("childAlert").classList.toggle("hidden", who === "adult");
+  }
+
+  var count = 1;
+  function updateFee() {
+    $("count").textContent = count;
+    $("feeLive").innerHTML = t("fee_live").replace("{n}", '<b class="num">' + (count * FEE) + "</b>");
+  }
+
+  function updateCountry() {
+    var c = $("country").value;
+    $("euField").classList.toggle("hidden", c !== "eu");
+    $("deAlert").classList.toggle("hidden", c !== "de");
+    $("otherAlert").classList.toggle("hidden", c !== "other");
+    var blocked = c === "de" || c === "other";
+    $("restOfForm").classList.toggle("hidden", blocked);
+  }
+
+  function setLang(l, remember) {
+    lang = T[l] ? l : "fa";
+    if (remember) store("lang", lang);
+    renderStatic();
+    $("picker").classList.add("hidden");
+  }
+
+  // Events
+  document.querySelectorAll("[data-lang]").forEach(function (b) {
+    b.addEventListener("click", function () { setLang(b.getAttribute("data-lang"), true); });
+  });
+  document.querySelectorAll("[data-pick]").forEach(function (b) {
+    b.addEventListener("click", function () { setLang(b.getAttribute("data-pick"), true); });
+  });
+  $("country").addEventListener("change", updateCountry);
+  document.querySelectorAll('input[name="for"]').forEach(function (r) {
+    r.addEventListener("change", function () {
+      if (r.value === "family" && count < 2) count = 2;
+      updateFee(); renderDocs();
+    });
+  });
+  $("sitLost").addEventListener("change", function () { $("lostAlert").classList.toggle("hidden", !this.checked); renderDocs(); });
+  $("sitName").addEventListener("change", function () { $("nameAlert").classList.toggle("hidden", !this.checked); renderDocs(); });
+  $("minus").addEventListener("click", function () { if (count > 1) { count--; updateFee(); } });
+  $("plus").addEventListener("click", function () { if (count < 15) { count++; updateFee(); } });
+
+  $("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var c = $("country").value;
+    var name = $("name").value.trim();
+    var phone = $("phone").value.trim();
+    var email = $("email").value.trim();
+    var ptype = (document.querySelector('input[name="ptype"]:checked') || {}).value;
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!c || c === "de" || c === "other" || !name || phone.replace(/\D/g, "").length < 7 || !emailOk || !ptype || (c === "eu" && !$("euName").value.trim())) {
+      $("err").classList.add("show");
+      $("err").scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+    $("err").classList.remove("show");
+
+    var p = PASSPORTS.filter(function (x) { return x.id === ptype; })[0];
+    var whoVal = document.querySelector('input[name="for"]:checked').value;
+    var countryText = c === "eu" ? $("euName").value.trim() : t("o_" + c);
+    var have = [], missing = [];
+    document.querySelectorAll("#docOpts input").forEach(function (i) {
+      (i.checked ? have : missing).push("• " + t(i.value));
+    });
+    var sit = [];
+    if ($("sitLost").checked) sit.push(t("sit_lost"));
+    if ($("sitName").checked) sit.push(t("sit_name"));
+
+    var lines = [
+      t("m_hello"), "",
+      t("m_name") + ": " + name,
+      t("m_phone") + ": " + phone,
+      t("m_email") + ": " + email,
+      t("m_country") + ": " + countryText,
+      t("m_for") + ": " + t("for_" + whoVal),
+      t("m_count") + ": " + count + " (€" + (count * FEE) + ")",
+      t("m_type") + ": " + passportName(p) + " — " + usd(p.total)
+    ];
+    if (sit.length) lines.push(t("m_sit") + ": " + sit.join(" / "));
+    lines.push("", "✅ " + t("m_have") + ":", have.length ? have.join("\n") : t("m_none"));
+    if (missing.length) lines.push("", "❌ " + t("m_missing") + ":", missing.join("\n"));
+    lines.push("", t("m_attach"));
+
+    var url = "https://wa.me/" + WA + "?text=" + encodeURIComponent(lines.join("\n"));
+    $("after").classList.remove("hidden");
+    window.open(url, "_blank") || (window.location.href = url);
+  });
+
+  // Start: language from ?lang=, saved choice, or show picker
+  var q = (location.search.match(/[?&]lang=(en|fa|ps|da|dari|pashto)/i) || [])[1];
+  if (q) { q = q.toLowerCase(); q = q === "da" || q === "dari" ? "fa" : q === "pashto" ? "ps" : q; }
+  var saved = load("lang");
+  if (q) setLang(q, true);
+  else if (saved && T[saved]) setLang(saved, false);
+  else { renderStatic(); $("picker").classList.remove("hidden"); }
+  updateCountry();
+})();
+</script>
+</body>
+</html>
