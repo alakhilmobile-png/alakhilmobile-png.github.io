@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="site-version" content="46">
+<meta name="site-version" content="47">
 <title>Afghan Passport Online via Dubai — پاسپورت افغانی — افغاني پاسپورټ | ALAKHIL MOBILE</title>
 <meta name="description" content="New Afghan passport from the Afghan Consulate in Dubai, delivered to your home in Europe (except Germany), UK, USA, Canada and Australia. پاسپورت جدید افغانی از قونسلگری دبی — نوی افغاني پاسپورټ د دوبۍ له قونسلګرۍ. Documents, prices, WhatsApp help in Pashto, Dari, English.">
 <meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
@@ -40,6 +40,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="ALAKHIL">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="preload" href="vazirmatn-arabic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="amiri-arabic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="montserrat-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="logo-mark.webp" as="image">
@@ -71,7 +72,7 @@
     font-size: 17px; line-height: 1.6;
   }
   html[dir="rtl"] body {
-    font-family: "Noto Naskh Arabic", "Noto Sans Arabic", "Geeza Pro", Tahoma, "Segoe UI", Arial, sans-serif;
+    font-family: "Vazirmatn", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", Tahoma, Arial, sans-serif;
     font-size: 18px; line-height: 1.85;
   }
   a { color: var(--green-2); }
@@ -230,7 +231,7 @@
   .picker p { margin: 0 0 16px; color: var(--muted); font-size: 16px; line-height: 1.8; }
   .picker button { display: block; width: 100%; margin: 10px 0 0; padding: 14px; border-radius: 14px; border: 2px solid var(--green); background: #fff; color: var(--green); font: inherit; font-size: 22px; font-weight: 800; cursor: pointer; }
   .picker button:hover, .picker button:focus { background: var(--green); color: #fff; }
-  .picker .ar { font-family: "Noto Naskh Arabic", "Noto Sans Arabic", "Geeza Pro", Tahoma, sans-serif; }
+  .picker .ar { font-family: "Vazirmatn", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", Tahoma, Arial, sans-serif; }
 
   /* ===== Effects & graphics ===== */
   .menu-btn { width: 44px; height: 44px; border-radius: 12px; border: 0; background: rgba(255,255,255,.12); cursor: pointer; display: grid; place-content: center; gap: 5px; flex: none; }
@@ -558,7 +559,7 @@
     font: 800 13.5px/1.3 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #0f1a3d;
     background: rgba(255,255,255,.88); border: 1px solid #fff; box-shadow: 0 10px 22px rgba(45,75,170,.22), inset 0 1px 0 #fff;
     animation: factIn .6s ease both, bob 4s ease-in-out infinite; }
-  html[dir="rtl"] .fact { direction: rtl; font-family: "Noto Naskh Arabic", "Geeza Pro", Tahoma, sans-serif; font-size: 14px; }
+  html[dir="rtl"] .fact { direction: rtl; font-family: "Vazirmatn", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", Tahoma, Arial, sans-serif; font-size: 14px; }
   .fact.f1 { left: 0; top: 4%; animation-delay: 1.3s, 1.9s; }
   .fact.f2 { right: 0; top: 30%; animation-delay: 1.55s, 2.6s; }
   .fact.f3 { right: 2%; bottom: 3%; animation-delay: 1.8s, 3.3s; background: linear-gradient(180deg, #5a8fff, #1f45d8); color: #fff; border-color: rgba(255,255,255,.5); }
@@ -1239,6 +1240,39 @@
   .cta-bar .btn.gloss, .s-actions .btn.gloss, .mn-cta .btn.gloss, .me-wa.gloss { padding-inline: 12px !important; }
   /* fixed bar: static glow (lighter on phones) */
   .cta-bar .btn.gloss { animation: none !important; }
+  @font-face { font-family: "Vazirmatn"; src: url("vazirmatn-arabic-400-normal.woff2") format("woff2"); font-weight: 100 500; font-style: normal; font-display: swap; unicode-range: U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC; }
+  @font-face { font-family: "Vazirmatn"; src: url("vazirmatn-arabic-700-normal.woff2") format("woff2"); font-weight: 600 700; font-style: normal; font-display: swap; unicode-range: U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC; }
+  @font-face { font-family: "Vazirmatn"; src: url("vazirmatn-arabic-800-normal.woff2") format("woff2"); font-weight: 800 900; font-style: normal; font-display: swap; unicode-range: U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC; }
+
+  html[dir="rtl"] body { line-height: 1.75; }
+  html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] .s-h, html[dir="rtl"] .qz-q { line-height: 1.45; }
+
+  /* ---------- 2. Passport badges float around the passport, not on it ---------- */
+  .floaty { top: 4.4em !important; }
+  .stage { height: 33em !important; }
+  .fact.f1 { left: 0 !important; top: 0 !important; }
+  .fact.f2 { right: 0 !important; left: auto !important; top: 0 !important; }
+  .fact.f3 { right: 0 !important; bottom: 0 !important; }
+
+  /* ---------- 3. Detailed view in the same colourful style ---------- */
+  html.full-mode main > section:not(#simple) {
+    border-radius: 32px; padding: 18px 12px 16px !important; margin: 0 0 18px !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 0 0 1px rgba(255,255,255,.35); }
+  html.full-mode main > section:not(#simple) > h2 { margin-top: 2px; }
+  #who      { background: linear-gradient(180deg, rgba(90,140,240,.13), rgba(90,140,240,.04)); }
+  #steps    { background: linear-gradient(180deg, rgba(90,140,240,.16), rgba(90,140,240,.05));
+              --clear-bg: linear-gradient(180deg, rgba(225,235,255,.8), rgba(205,222,255,.38) 55%, rgba(215,228,255,.6)); }
+  #prices   { background: linear-gradient(180deg, rgba(232,186,80,.18), rgba(232,186,80,.06)); padding-inline: 6px !important;
+              --clear-bg: linear-gradient(180deg, rgba(255,246,222,.85), rgba(255,236,190,.4) 55%, rgba(255,242,210,.62)); }
+  #included { background: linear-gradient(180deg, rgba(60,190,120,.16), rgba(60,190,120,.05));
+              --clear-bg: linear-gradient(180deg, rgba(228,248,236,.85), rgba(205,240,220,.4) 55%, rgba(218,245,229,.62)); }
+  #docs     { background: linear-gradient(180deg, rgba(255,255,255,.42), rgba(255,255,255,.12));
+              --clear-bg: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.32) 55%, rgba(250,251,253,.55)); }
+  #photo    { background: linear-gradient(180deg, rgba(150,140,240,.15), rgba(150,140,240,.05)); }
+  #cases    { background: linear-gradient(180deg, rgba(230,100,90,.12), rgba(230,100,90,.04)); }
+  #apply    { background: linear-gradient(180deg, rgba(90,140,240,.15), rgba(90,140,240,.05)); }
+  #reviews  { background: linear-gradient(180deg, rgba(232,186,80,.15), rgba(232,186,80,.05)); }
+  #share    { background: linear-gradient(180deg, rgba(60,190,120,.14), rgba(60,190,120,.04)); }
 </style>
 </head>
 <body>
@@ -1735,7 +1769,7 @@
     <p data-t="privacy"></p>
     <p data-t="sim_keep"></p>
     <p data-t="prices_note"></p>
-    <p class="ver">v46</p>
+    <p class="ver">v47</p>
   </div>
 </footer>
 
