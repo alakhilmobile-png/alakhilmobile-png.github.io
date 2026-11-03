@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="site-version" content="48">
+<meta name="site-version" content="49">
 <title>Afghan Passport Online via Dubai — پاسپورت افغانی — افغاني پاسپورټ | ALAKHIL MOBILE</title>
 <meta name="description" content="New Afghan passport from the Afghan Consulate in Dubai, delivered to your home in Europe (except Germany), UK, USA, Canada and Australia. پاسپورت جدید افغانی از قونسلگری دبی — نوی افغاني پاسپورټ د دوبۍ له قونسلګرۍ. Documents, prices, WhatsApp help in Pashto, Dari, English.">
 <meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
@@ -1298,6 +1298,15 @@
   /* Calmer helper-card WhatsApp (outline glass; bottom bar stays the main shiny one) */
   .me-card .me-wa { background: var(--clear-bg) !important; color: #0b7a39 !important; text-shadow: none !important; animation: none !important;
     box-shadow: var(--clear-rim), inset 0 0 0 2px rgba(22,181,88,.55) !important; }
+
+  /* Real flag images (Windows cannot show flag emojis) */
+  img.flag { display: inline-block; width: 1.4em; height: 1.05em; vertical-align: -0.16em; border-radius: 3px; object-fit: cover;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.18); }
+  .qz-e img.flag { margin: 1px; }
+  .qz-e.multi { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 2px; max-width: 92px; }
+  .s-ico img.flag, .big-ico img.flag { width: 1.35em; height: 1em; }
+  .qz-ans .qz-e { display: inline-flex; flex-wrap: wrap; gap: 2px; max-width: 70px; }
+  .qz-ans img.flag { width: 18px; height: 13px; }
 </style>
 </head>
 <body>
@@ -1553,7 +1562,7 @@
     <div class="s-block reveal" id="sNo">
       <h2 class="s-h red" data-t="sim_no"></h2>
       <div class="s-tiles three no">
-        <div class="s-tile"><span class="s-ico">🇩🇪</span><b data-t="sim_n1"></b></div>
+        <div class="s-tile"><span class="s-ico"><img class='flag' src='flags/de.svg' alt='' width='20' height='15'></span><b data-t="sim_n1"></b></div>
         <div class="s-tile"><span class="s-ico">🚫</span><b data-t="sim_n2"></b></div>
         <div class="s-tile"><span class="s-ico">🌍</span><b data-t="sim_n3"></b></div>
       </div>
@@ -1578,7 +1587,7 @@
     <h2><span class="h-ico">🌍</span><span data-t="elig_title"></span></h2>
     <div class="grid grid-3">
       <div class="card ok"><div class="big-ico">✅</div><span class="tag ok" data-t="tag_yes"></span><div data-t="elig_yes"></div></div>
-      <div class="card warn"><div class="big-ico">🇩🇪</div><span class="tag warn" data-t="tag_de"></span><div data-t="elig_de"></div></div>
+      <div class="card warn"><div class="big-ico"><img class='flag' src='flags/de.svg' alt='' width='20' height='15'></div><span class="tag warn" data-t="tag_de"></span><div data-t="elig_de"></div></div>
       <div class="card no"><div class="big-ico">⛔</div><span class="tag no" data-t="tag_no"></span><div data-t="elig_no"></div><div data-t="elig_no2" style="margin-top:8px"></div></div>
     </div>
   </section>
@@ -1813,7 +1822,7 @@
     <p data-t="privacy"></p>
     <p data-t="sim_keep"></p>
     <p data-t="prices_note"></p>
-    <p class="ver">v48</p>
+    <p class="ver">v49</p>
   </div>
 </footer>
 
@@ -1857,7 +1866,7 @@
       dir: "ltr", htmlLang: "en",
       hero_title: "New Afghan passport, delivered to your address",
       hero_text: "We help Afghans in <b>Europe, the UK, the USA, Canada and Australia</b> get a new Afghan passport from the Dubai consulate — <b>delivered to your home</b>.",
-      c_uk: "🇬🇧 UK", c_us: "🇺🇸 USA", c_ca: "🇨🇦 Canada", c_au: "🇦🇺 Australia", c_eu: "🇪🇺 Europe (except Germany)",
+      c_uk: "<img class='flag' src='flags/gb.svg' alt='' width='20' height='15'> UK", c_us: "<img class='flag' src='flags/us.svg' alt='' width='20' height='15'> USA", c_ca: "<img class='flag' src='flags/ca.svg' alt='' width='20' height='15'> Canada", c_au: "<img class='flag' src='flags/au.svg' alt='' width='20' height='15'> Australia", c_eu: "<img class='flag' src='flags/eu.svg' alt='' width='20' height='15'> Europe (except Germany)",
       btn_start: "📲 Send documents on WhatsApp", btn_prices: "See prices",
       independent: "<b>ALAKHIL MOBILE is an independent service — we are not the consulate.</b> We check your documents, then prepare and submit your online application for you.",
       elig_title: "Who can apply?",
@@ -2056,7 +2065,7 @@
       dir: "rtl", htmlLang: "fa-AF",
       hero_title: "پاسپورت جدید افغانی، تا آدرس خانهٔ شما",
       hero_text: "ما به افغان‌های مقیم <b>اروپا، بریتانیا، امریکا، کانادا و آسترالیا</b> کمک می‌کنیم تا پاسپورت جدید را از قونسلگری دبی بگیرند — <b>تا دروازهٔ خانهٔ شما</b>.",
-      c_uk: "🇬🇧 بریتانیا", c_us: "🇺🇸 امریکا", c_ca: "🇨🇦 کانادا", c_au: "🇦🇺 آسترالیا", c_eu: "🇪🇺 اروپا (به جز آلمان)",
+      c_uk: "<img class='flag' src='flags/gb.svg' alt='' width='20' height='15'> بریتانیا", c_us: "<img class='flag' src='flags/us.svg' alt='' width='20' height='15'> امریکا", c_ca: "<img class='flag' src='flags/ca.svg' alt='' width='20' height='15'> کانادا", c_au: "<img class='flag' src='flags/au.svg' alt='' width='20' height='15'> آسترالیا", c_eu: "<img class='flag' src='flags/eu.svg' alt='' width='20' height='15'> اروپا (به جز آلمان)",
       btn_start: "📲 ارسال اسناد در واتساپ", btn_prices: "دیدن قیمت‌ها",
       independent: "<b>ALAKHIL MOBILE یک خدمت مستقل است — ما قونسلگری نیستیم.</b> ما اسناد شما را بررسی می‌کنیم و بعد درخواست آنلاین شما را آماده و ثبت می‌کنیم.",
       elig_title: "چه کسانی می‌توانند درخواست بدهند؟",
@@ -2255,7 +2264,7 @@
       dir: "rtl", htmlLang: "ps",
       hero_title: "نوی افغاني پاسپورټ، ستاسو تر کوره پورې",
       hero_text: "موږ له هغو افغانانو سره مرسته کوو چې په <b>اروپا، بریتانیا، امریکا، کاناډا او آسټرالیا</b> کې اوسېږي، څو د دوبۍ له قونسلګرۍ نوی پاسپورټ ترلاسه کړي — <b>ستاسو تر کوره پورې</b>.",
-      c_uk: "🇬🇧 بریتانیا", c_us: "🇺🇸 امریکا", c_ca: "🇨🇦 کاناډا", c_au: "🇦🇺 آسټرالیا", c_eu: "🇪🇺 اروپا (پرته له آلمان)",
+      c_uk: "<img class='flag' src='flags/gb.svg' alt='' width='20' height='15'> بریتانیا", c_us: "<img class='flag' src='flags/us.svg' alt='' width='20' height='15'> امریکا", c_ca: "<img class='flag' src='flags/ca.svg' alt='' width='20' height='15'> کاناډا", c_au: "<img class='flag' src='flags/au.svg' alt='' width='20' height='15'> آسټرالیا", c_eu: "<img class='flag' src='flags/eu.svg' alt='' width='20' height='15'> اروپا (پرته له آلمان)",
       btn_start: "📲 اسناد په واټساپ کې ولېږئ", btn_prices: "بیې وګورئ",
       independent: "<b>ALAKHIL MOBILE یو خپلواک خدمت دی — موږ قونسلګري نه یو.</b> موږ ستاسو اسناد ګورو، بیا ستاسو آنلاین غوښتنلیک چمتو او ثبتوو.",
       elig_title: "څوک غوښتنه کولی شي؟",
@@ -2726,7 +2735,7 @@
 
   // ===== "Can I apply?" quick check =====
   var QUIZ = {
-    live:    { q: "q_live", opts: [["🇬🇧🇺🇸🇨🇦🇦🇺🇪🇺", "o_live_ok", "who"], ["🇩🇪", "o_live_de", "x_de"], ["🌍", "o_live_other", "x_other"]] },
+    live:    { q: "q_live", opts: [["<img class='flag' src='flags/gb.svg' alt='' width='20' height='15'><img class='flag' src='flags/us.svg' alt='' width='20' height='15'><img class='flag' src='flags/ca.svg' alt='' width='20' height='15'><img class='flag' src='flags/au.svg' alt='' width='20' height='15'><img class='flag' src='flags/eu.svg' alt='' width='20' height='15'>", "o_live_ok", "who"], ["<img class='flag' src='flags/de.svg' alt='' width='20' height='15'>", "o_live_de", "x_de"], ["🌍", "o_live_other", "x_other"]] },
     who:     { q: "q_who", opts: [["🧑", "o_adult", "pass"], ["👶", "o_child", "parents"]] },
     pass:    { q: "q_pass", opts: [["📘", "o_pass_exp", "taz"], ["🚓", "o_pass_lost", "taz", "n_police"], ["⏳", "o_pass_valid", "x_valid"], ["🚫", "o_pass_never", "x_never"]] },
     taz:     { q: "q_taz", opts: [["✅", "o_yes", "res"], ["❌", "o_no", "x_taz"]] },
@@ -2753,7 +2762,7 @@
       var n = QUIZ[node];
       html += '<div class="qz-q">' + t(n.q) + (n.sub ? '<small>' + t(n.sub) + "</small>" : "") + "</div>";
       html += '<div class="qz-opts">' + n.opts.map(function (o, i) {
-        return '<button type="button" class="qz-opt" data-i="' + i + '"><span class="qz-e' + (o[0].length > 4 ? " multi" : "") + '">' + o[0] + "</span><span class=\"qz-t\">" + t(o[1]) + '</span><span class="qz-tick" aria-hidden="true"></span></button>';
+        return '<button type="button" class="qz-opt" data-i="' + i + '"><span class="qz-e' + ((o[0].match(/<img/g) || []).length > 1 ? " multi" : "") + '">' + o[0] + "</span><span class=\"qz-t\">" + t(o[1]) + '</span><span class="qz-tick" aria-hidden="true"></span></button>';
       }).join("") + "</div>";
     } else {
       var notes = qPath.map(function (st) { return QUIZ[st[0]].opts[st[1]][3]; }).filter(Boolean);
