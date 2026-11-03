@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="site-version" content="43">
+<meta name="site-version" content="44">
 <title>Afghan Passport Online via Dubai — پاسپورت افغانی — افغاني پاسپورټ | ALAKHIL MOBILE</title>
 <meta name="description" content="New Afghan passport from the Afghan Consulate in Dubai, delivered to your home in Europe (except Germany), UK, USA, Canada and Australia. پاسپورت جدید افغانی از قونسلگری دبی — نوی افغاني پاسپورټ د دوبۍ له قونسلګرۍ. Documents, prices, WhatsApp help in Pashto, Dari, English.">
 <meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
@@ -1177,6 +1177,9 @@
   @keyframes glossGlow { 0%,100% { filter: drop-shadow(0 0 0 transparent); } 50% { filter: drop-shadow(0 6px 14px var(--glow)); } }
   .s-actions .btn-wa.gloss::before { display: none !important; }
   .s-actions .btn.gloss { padding-inline: 12px !important; }
+
+  .me-card .inst-link { grid-column: 1 / -1; justify-self: center; border: 0; background: none !important; box-shadow: none !important; min-height: 0 !important;
+    padding: 2px 8px !important; font: inherit; font-size: 14.5px !important; font-weight: 700; color: #2a4f9e; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; width: auto; }
 </style>
 </head>
 <body>
@@ -1354,9 +1357,9 @@
       <div class="me-role" data-t="me_role"></div>
       <p class="me-line" data-t="me_line"></p>
     </div>
-    <div class="me-only"><span data-t="me_only"></span> <a class="num" href="tel:+33605654592">+33 6 05 65 45 92</a></div>
-    <button type="button" class="btn btn-ghost inst-btn inst-trigger hidden"><span>📲</span> <span data-t="inst_btn"></span></button>
+    <div class="me-only"><span data-t="me_only"></span> <bdi dir="ltr"><a class="num" dir="ltr" href="tel:+33605654592">+33 6 05 65 45 92</a></bdi></div>
     <a class="btn btn-wa me-wa" id="meWa" href="https://wa.me/33605654592" target="_blank" rel="noopener"><span>💬</span> <span data-t="me_wa"></span></a>
+    <button type="button" class="inst-btn inst-link inst-trigger hidden"><span>📲</span> <span data-t="inst_btn"></span></button>
   </div>
 </div>
 <div class="notice"><div class="wrap" data-t="not_consulate"></div></div>
@@ -1635,7 +1638,7 @@
     <div class="card" style="text-align:center">
       <h3 data-t="contact"></h3>
       <a class="btn btn-wa" style="max-width:380px; margin:8px auto 0" href="https://wa.me/33605654592" target="_blank" rel="noopener">
-        <span class="num">+33 6 05 65 45 92</span>
+        <bdi dir="ltr"><span class="num" dir="ltr">+33 6 05 65 45 92</span></bdi>
       </a>
     </div>
   </section>
@@ -1673,7 +1676,7 @@
     <p data-t="privacy"></p>
     <p data-t="sim_keep"></p>
     <p data-t="prices_note"></p>
-    <p class="ver">v43</p>
+    <p class="ver">v44</p>
   </div>
 </footer>
 
@@ -2688,7 +2691,8 @@
   function showInstall(on) {
     document.querySelectorAll(".inst-btn, .inst-li").forEach(function (el) { el.classList.toggle("hidden", !on); });
   }
-  if (!isStandalone) {
+  var inApp = /Instagram|FBAN|FBAV|FB_IAB|musical_ly|Bytedance|TikTok|Snapchat|Line\/|LinkedInApp|Twitter/i.test(navigator.userAgent);
+  if (!isStandalone && !inApp) {
     if (isIOS) showInstall(true);
     window.addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); deferredPrompt = e; showInstall(true); });
   }
