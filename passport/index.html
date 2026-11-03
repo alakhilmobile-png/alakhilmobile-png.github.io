@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="site-version" content="45">
+<meta name="site-version" content="46">
 <title>Afghan Passport Online via Dubai — پاسپورت افغانی — افغاني پاسپورټ | ALAKHIL MOBILE</title>
 <meta name="description" content="New Afghan passport from the Afghan Consulate in Dubai, delivered to your home in Europe (except Germany), UK, USA, Canada and Australia. پاسپورت جدید افغانی از قونسلگری دبی — نوی افغاني پاسپورټ د دوبۍ له قونسلګرۍ. Documents, prices, WhatsApp help in Pashto, Dari, English.">
 <meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
@@ -1219,6 +1219,26 @@
   .me-card { --clear-bg: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.35) 55%, rgba(250,251,253,.55)); }
   #sPrice { padding-inline: 6px !important; }
   .hero { background: radial-gradient(55% 30% at 50% 6%, rgba(240,196,96,.34), transparent 72%), radial-gradient(75% 45% at 50% 55%, rgba(96,140,236,.3), transparent 72%) !important; }
+
+  /* ===== Liquid, pure-colour glossy buttons (v46) ===== */
+  .btn-wa.gloss { background:
+      radial-gradient(70% 55% at 50% 118%, rgba(160,255,200,.55), transparent 70%),
+      linear-gradient(180deg, #3fe08a 0%, #16b558 46%, #0c9446 54%, #087a39 100%) !important;
+    box-shadow: 0 10px 22px rgba(12,148,70,.45), 0 2px 4px rgba(8,90,40,.3),
+      inset 0 1.5px 0 rgba(255,255,255,.85), inset 0 -2px 4px rgba(0,60,25,.35), inset 0 0 0 1px rgba(255,255,255,.18) !important; --glow: rgba(22,181,88,.55); }
+  .btn-amber.gloss { background:
+      radial-gradient(70% 55% at 50% 118%, rgba(170,205,255,.6), transparent 70%),
+      linear-gradient(180deg, #6fa2ff 0%, #2f6bff 46%, #1f52e6 54%, #1638b8 100%) !important;
+    box-shadow: 0 10px 22px rgba(31,82,230,.45), 0 2px 4px rgba(16,40,140,.3),
+      inset 0 1.5px 0 rgba(255,255,255,.85), inset 0 -2px 4px rgba(0,15,80,.35), inset 0 0 0 1px rgba(255,255,255,.18) !important; --glow: rgba(47,107,255,.55); }
+  .btn.gloss::after { top: 3px !important; left: 7% !important; right: 7% !important; height: 44% !important;
+    background: linear-gradient(180deg, rgba(255,255,255,.75) 0%, rgba(255,255,255,.18) 70%, rgba(255,255,255,0) 100%) !important; }
+  .btn.gloss { border: 1px solid rgba(255,255,255,.45) !important; color: #fff !important; text-shadow: 0 1px 2px rgba(0,0,0,.25) !important; }
+  /* no arrow circles on the small paired buttons */
+  .cta-bar .btn.gloss::before, .s-actions .btn.gloss::before, .mn-cta .btn.gloss::before, .me-wa.gloss::before { display: none !important; }
+  .cta-bar .btn.gloss, .s-actions .btn.gloss, .mn-cta .btn.gloss, .me-wa.gloss { padding-inline: 12px !important; }
+  /* fixed bar: static glow (lighter on phones) */
+  .cta-bar .btn.gloss { animation: none !important; }
 </style>
 </head>
 <body>
@@ -1289,8 +1309,8 @@
         <div><b>ALAKHIL</b><small data-t="me_role"></small></div>
       </div>
       <div class="mn-cta">
-        <a class="btn btn-wa" id="mnWa" href="https://wa.me/33605654592" target="_blank" rel="noopener"><span>💬</span> <span>WhatsApp</span></a>
-        <a class="btn btn-amber no-arrow" href="tel:+33605654592"><span>📞</span> <span data-t="sim_call"></span></a>
+        <a class="btn btn-wa gloss" id="mnWa" href="https://wa.me/33605654592" target="_blank" rel="noopener"><span>💬</span> <span>WhatsApp</span></a>
+        <a class="btn btn-amber no-arrow gloss" href="tel:+33605654592"><span>📞</span> <span data-t="sim_call"></span></a>
       </div>
       <div class="mn-h" data-t="mn_quick"></div>
       <div class="mn-grid">
@@ -1397,7 +1417,7 @@
       <p class="me-line" data-t="me_line"></p>
     </div>
     <div class="me-only"><span data-t="me_only"></span> <bdi dir="ltr"><a class="num" dir="ltr" href="tel:+33605654592">+33 6 05 65 45 92</a></bdi></div>
-    <a class="btn btn-wa me-wa" id="meWa" href="https://wa.me/33605654592" target="_blank" rel="noopener"><span>💬</span> <span data-t="me_wa"></span></a>
+    <a class="btn btn-wa me-wa gloss" id="meWa" href="https://wa.me/33605654592" target="_blank" rel="noopener"><span>💬</span> <span data-t="me_wa"></span></a>
     <button type="button" class="inst-btn inst-link inst-trigger hidden"><span>📲</span> <span data-t="inst_btn"></span></button>
   </div>
 </div>
@@ -1463,7 +1483,7 @@
     </div>
     <div class="s-actions">
       <a class="btn btn-wa s-big gloss" id="simWa" href="https://wa.me/33605654592" target="_blank" rel="noopener"><span>💬</span> <span>WhatsApp</span></a>
-      <a class="btn btn-amber no-arrow s-big" href="tel:+33605654592"><span>📞</span> <span data-t="sim_call"></span></a>
+      <a class="btn btn-amber no-arrow s-big gloss" href="tel:+33605654592"><span>📞</span> <span data-t="sim_call"></span></a>
     </div>
     <button type="button" class="btn btn-ghost s-more" id="moreBtn" data-t="sim_more"></button>
   </section>
@@ -1715,7 +1735,7 @@
     <p data-t="privacy"></p>
     <p data-t="sim_keep"></p>
     <p data-t="prices_note"></p>
-    <p class="ver">v45</p>
+    <p class="ver">v46</p>
   </div>
 </footer>
 
@@ -1732,9 +1752,9 @@
   </div>
 </div>
 <div class="cta-bar" id="ctaBar">
-  <a class="btn btn-wa" id="barWa" href="https://wa.me/33605654592" target="_blank" rel="noopener"><span>💬</span> <span>WhatsApp</span></a>
-  <a class="btn btn-amber no-arrow only-full" href="#apply"><span>📲</span> <span data-t="bar_apply"></span></a>
-  <a class="btn btn-amber no-arrow only-simple" href="tel:+33605654592"><span>📞</span> <span data-t="sim_call"></span></a>
+  <a class="btn btn-wa gloss" id="barWa" href="https://wa.me/33605654592" target="_blank" rel="noopener"><span>💬</span> <span>WhatsApp</span></a>
+  <a class="btn btn-amber no-arrow only-full gloss" href="#apply"><span>📲</span> <span data-t="bar_apply"></span></a>
+  <a class="btn btn-amber no-arrow only-simple gloss" href="tel:+33605654592"><span>📞</span> <span data-t="sim_call"></span></a>
 </div>
 <a class="fab" href="https://wa.me/33605654592" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.2-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6 0-5.9 4.9-10.7 11-10.7s11 4.8 11 10.7-4.9 10.8-10.9 10.8zm6-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
