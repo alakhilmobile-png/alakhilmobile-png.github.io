@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="site-version" content="49">
+<meta name="site-version" content="50">
 <title>Afghan Passport Online via Dubai — پاسپورت افغانی — افغاني پاسپورټ | ALAKHIL MOBILE</title>
 <meta name="description" content="New Afghan passport from the Afghan Consulate in Dubai, delivered to your home in Europe (except Germany), UK, USA, Canada and Australia. پاسپورت جدید افغانی از قونسلگری دبی — نوی افغاني پاسپورټ د دوبۍ له قونسلګرۍ. Documents, prices, WhatsApp help in Pashto, Dari, English.">
 <meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
@@ -1307,6 +1307,30 @@
   .s-ico img.flag, .big-ico img.flag { width: 1.35em; height: 1em; }
   .qz-ans .qz-e { display: inline-flex; flex-wrap: wrap; gap: 2px; max-width: 70px; }
   .qz-ans img.flag { width: 18px; height: 13px; }
+
+  /* ===== Passport test result (v50) ===== */
+  .test-cta { display: flex !important; width: 100%; max-width: 520px; margin: 12px auto 4px; min-height: 58px; font-size: 18px !important; }
+  @media (max-width: 520px) { .test-cta { min-height: 52px; font-size: 16.5px !important; margin-top: 8px; } }
+  .qz-res.ok { text-align: start; }
+  .qz-res.ok > .qz-big, .qz-res.ok > b, .qz-res.ok > p:first-of-type { text-align: center; }
+  .r-sec { margin-top: 14px; padding: 12px 14px; border-radius: 22px; background: rgba(255,255,255,.55); box-shadow: var(--clear-rim); }
+  .r-sec.gold { background: linear-gradient(180deg, rgba(255,246,222,.9), rgba(255,236,190,.55)); }
+  .r-sec.red { background: linear-gradient(180deg, rgba(255,236,232,.9), rgba(255,220,214,.5)); }
+  .r-sec h4 { margin: 0 0 8px; font-size: 17px; }
+  .r-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+  .r-list li { position: relative; padding-inline-start: 28px; font-size: 15.5px; font-weight: 600; line-height: 1.45; }
+  .r-list li::before { content: "✓"; position: absolute; inset-inline-start: 0; top: 1px; width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center;
+    font-size: 12px; font-weight: 900; color: #fff; background: linear-gradient(180deg, #3fe08a, #0c9446); }
+  .r-list.x li::before { content: "✕"; background: linear-gradient(180deg, #f3a59f, #d65a50); }
+  .r-fees { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .r-fee { padding: 8px 10px; border-radius: 16px; background: rgba(255,255,255,.7); box-shadow: inset 0 0 0 1px rgba(255,255,255,.9), 0 2px 6px rgba(120,90,20,.1); }
+  .r-fee span { display: block; font-size: 13.5px; font-weight: 700; color: #4c5468; }
+  .r-fee b { display: block; font-size: 22px; font-weight: 900; color: #7a5406; }
+  .r-fee small { display: block; font-size: 12.5px; font-weight: 700; color: #2a4f9e; }
+  .r-small { font-size: 13.5px !important; color: #4c5468 !important; margin: 8px 0 0 !important; text-align: center; }
+  .r-two { margin: 18px 0 2px; text-align: center; font-weight: 900; font-size: 18px; }
+  .qz-self { width: 100%; min-height: 52px; margin-top: 10px; font-size: 16px; }
+  .qz-share { display: block; margin-top: 12px; text-align: center; font-weight: 800; color: #0b7a39; text-decoration: none; }
 </style>
 </head>
 <body>
@@ -1339,7 +1363,7 @@
 (function () {
   var sp = document.getElementById("splash"), seen = false;
   try { seen = sessionStorage.getItem("splash-seen"); } catch (e) {}
-  if (seen || /[?&]nosplash=1/.test(location.search)) { sp.parentNode.removeChild(sp); return; }
+  if (seen || /[?&](nosplash|test)=1/.test(location.search)) { sp.parentNode.removeChild(sp); return; }
   try { sessionStorage.setItem("splash-seen", "1"); } catch (e) {}
   var done = false;
   function go() { if (done) return; done = true; sp.classList.add("out"); setTimeout(function () { if (sp.parentNode) sp.parentNode.removeChild(sp); }, 650); }
@@ -1401,7 +1425,7 @@
       </div>
       <div class="mn-h" data-t="mn_quick"></div>
       <div class="mn-grid">
-        <a href="#quizBlock"><span class="gi gi-green"><svg aria-hidden="true"><use href="#i-check"/></svg></span><b data-t="qz_title"></b></a>
+        <a href="#quizBlock"><span class="gi gi-green"><svg aria-hidden="true"><use href="#i-check"/></svg></span><b data-t="test_short"></b></a>
         <a href="#sSend"><span class="gi gi-blue"><svg aria-hidden="true"><use href="#i-doc"/></svg></span><b data-t="sim_send"></b></a>
         <a href="#sPrice"><span class="gi gi-gold"><svg aria-hidden="true"><use href="#i-euro"/></svg></span><b data-t="sim_price"></b></a>
         <a href="#sInc"><span class="gi gi-purple"><svg aria-hidden="true"><use href="#i-gift"/></svg></span><b data-t="sim_inc"></b></a>
@@ -1486,6 +1510,7 @@
     <ul class="chips">
       <li data-t="c_uk"></li><li data-t="c_us"></li><li data-t="c_ca"></li><li data-t="c_au"></li><li data-t="c_eu"></li>
     </ul>
+    <a class="btn btn-amber gloss test-cta" href="#quizBlock" data-t="test_btn"></a>
     <p data-t="hero_text"></p>
     <div class="btns">
       <a class="btn btn-amber gloss" href="#apply" data-t="btn_start"></a>
@@ -1822,7 +1847,7 @@
     <p data-t="privacy"></p>
     <p data-t="sim_keep"></p>
     <p data-t="prices_note"></p>
-    <p class="ver">v49</p>
+    <p class="ver">v50</p>
   </div>
 </footer>
 
@@ -1991,7 +2016,7 @@
       sim_i3: "Complete application", sim_i3s: "Filled in and submitted for you",
       sim_i4: "With you until the end", sim_i4s: "Until the passport is at your home",
       sim_studio: "📷 A photo studio alone costs €8–9 — with us it's included",
-      qz_title: "Can I apply?", qz_intro: "Quick check — tap your answers (30 seconds)",
+      qz_title: "🧪 Passport test — can I get a new passport?", qz_intro: "Free test before you apply. Answer a few easy questions (1 minute).",
       q_live: "Where do you live?", o_live_ok: "UK, USA, Canada, Australia or Europe", o_live_de: "Germany", o_live_other: "Another country",
       q_who: "Who is the passport for?", o_adult: "Me (adult, 18+)", o_child: "My child (under 18)",
       q_pass: "Your old Afghan passport?", o_pass_exp: "Expired, or less than 1 year left", o_pass_lost: "Lost — I have a photo or copy",
@@ -2001,7 +2026,7 @@
       q_par: "Do the father AND mother both have an Afghan passport and Tazkira?",
       q_birth: "Do you have the child's birth certificate and the parents' marriage certificate?",
       o_yes: "Yes", o_no: "No",
-      r_ok: "Yes — you can apply! 🎉", r_ok_s: "Send photos of your documents to us on WhatsApp.",
+      r_ok: "Yes — you can apply! 🎉", r_ok_s: "Here is everything you need — read it before you apply.",
       n_police: "🚓 You also need a police report of the lost passport from your country.",
       r_no: "Sorry — not possible",
       x_de: "People living in Germany must go to the Afghan Embassy in Germany.",
@@ -2010,7 +2035,7 @@
       x_never: "Without a previous Afghan passport, the Dubai consulate does not accept the application.",
       x_taz: "A Tazkira is required.", x_res: "A document that proves you live in your country is required.",
       x_par: "Both father and mother must have an Afghan passport and Tazkira.", x_birth: "The birth certificate and the marriage certificate are required.",
-      qz_send: "Send documents on WhatsApp", qz_ask: "Not sure? Ask us on WhatsApp", qz_again: "↻ Start again", qz_back: "← Back",
+      qz_send: "We apply for you — €50 (WhatsApp)", qz_ask: "Not sure? Ask us on WhatsApp", qz_again: "↻ Start again", qz_back: "← Back",
       qz_msg: "Quick check: I can apply.",
       sim_wk_std: "⏱ 3–4 weeks", sim_wk_urg: "⏱ 2–3 weeks",
       sim_refund: "↩️ If the consulate rejects your application, we give back 50% of our fee (€25).",
@@ -2020,6 +2045,23 @@
       inst_ok: "OK", hol_from: "from ALAKHIL MOBILE",
       hol_ramadan: "Ramadan Mubarak", hol_fitr: "Eid Mubarak", hol_adha: "Eid al-Adha Mubarak", hol_nowruz: "Happy Nowruz",
       mn_quick: "Quick help", mn_more: "More details",
+      q_name: "Is your name and date of birth the same in your old passport and on your residence card?", o_same: "Yes, the same", o_diff: "No, they are different",
+      q_name2: "Do you have an e-Tazkira or an attested English Tazkira translation?", q_name2_s: "With the same name and date of birth as your residence card (translation attested by the Ministry of Foreign Affairs)",
+      n_name_ok: "✏️ Your new passport can have the same name and date of birth as your residence card. Also send the e-Tazkira / attested translation.",
+      n_name_keep: "✏️ Your new passport will keep the name and date of birth of your old passport. Changing them is only possible with an e-Tazkira or attested translation.",
+      q_cres: "Does the child have a residence card or another document that proves they live in your country?",
+      r_docs: "📋 Your documents", r_fees: "💶 Consulate fees",
+      r_fees_note: "Paid to the consulate by bank card. The first payment is not refunded if the application is rejected — so the application must be correct.",
+      r_mist: "⚠️ Avoid these mistakes (they cause rejection)",
+      r_m1: "Blurry, cut or dark scans and photos", r_m2: "Name or date of birth written differently from your documents",
+      r_m3: "Wrong email or phone — you miss the consulate's emails", r_m4: "Paying the fees after 30 days",
+      r_two: "How do you want to apply?",
+      qz_self: "I will apply myself — official consulate site ↗",
+      qz_self_s: "Free test by ALAKHIL MOBILE. We are not the consulate; the consulate decides on every application.",
+      qz_share: "Share this test with family and friends",
+      qz_share_msg: "🧪 Free test: can you get a new Afghan passport from the Dubai consulate? Check in 1 minute 👇",
+      test_btn: "🧪 Free passport test — 1 minute", test_short: "Passport test",
+      d_lostcopy: "Photo, scan or copy of your lost Afghan passport", d_contact: "Your email address and phone number",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -2190,7 +2232,7 @@
       sim_i3: "فورم کامل درخواست", sim_i3s: "برای شما پُر و ثبت می‌کنیم",
       sim_i4: "تا آخر با شما هستیم", sim_i4s: "تا رسیدن پاسپورت به خانهٔ شما",
       sim_studio: "📷 فقط عکس در عکاسخانه ۸ تا ۹ یورو است — نزد ما شامل است",
-      qz_title: "آیا می‌توانم درخواست بدهم؟", qz_intro: "بررسی سریع — روی جواب‌ها بزنید (۳۰ ثانیه)",
+      qz_title: "🧪 تست پاسپورت — آیا می‌توانم پاسپورت جدید بگیرم؟", qz_intro: "تست رایگان قبل از درخواست. به چند سوال ساده جواب دهید (۱ دقیقه).",
       q_live: "در کجا زندگی می‌کنید؟", o_live_ok: "بریتانیا، امریکا، کانادا، آسترالیا یا اروپا", o_live_de: "آلمان", o_live_other: "کشور دیگر",
       q_who: "پاسپورت برای کیست؟", o_adult: "برای خودم (بزرگسال، ۱۸+)", o_child: "برای طفلم (زیر ۱۸)",
       q_pass: "پاسپورت قبلی افغانی شما؟", o_pass_exp: "تاریخش ختم شده، یا کمتر از ۱ سال مانده", o_pass_lost: "گم شده — عکس یا کاپی آن را دارم",
@@ -2200,7 +2242,7 @@
       q_par: "آیا پدر و مادر هر دو پاسپورت و تذکرهٔ افغانی دارند؟",
       q_birth: "آیا سند تولد طفل و نکاح‌خط والدین را دارید؟",
       o_yes: "بلی", o_no: "نخیر",
-      r_ok: "بلی — می‌توانید درخواست بدهید! 🎉", r_ok_s: "عکس اسناد خود را در واتساپ برای ما بفرستید.",
+      r_ok: "بلی — می‌توانید درخواست بدهید! 🎉", r_ok_s: "همهٔ آنچه لازم دارید اینجاست — قبل از درخواست بخوانید.",
       n_police: "🚓 گزارش پولیس کشور میزبان دربارهٔ گم شدن پاسپورت هم لازم است.",
       r_no: "متأسفیم — ممکن نیست",
       x_de: "کسانی که در آلمان زندگی می‌کنند باید به سفارت افغانستان در آلمان مراجعه کنند.",
@@ -2209,7 +2251,7 @@
       x_never: "بدون پاسپورت قبلی افغانی، قونسلگری دبی درخواست را نمی‌پذیرد.",
       x_taz: "تذکره لازم است.", x_res: "سندی که نشان دهد در این کشور زندگی می‌کنید لازم است.",
       x_par: "پدر و مادر هر دو باید پاسپورت و تذکرهٔ افغانی داشته باشند.", x_birth: "سند تولد و نکاح‌خط لازم است.",
-      qz_send: "ارسال اسناد در واتساپ", qz_ask: "مطمئن نیستید؟ در واتساپ بپرسید", qz_again: "↻ دوباره", qz_back: "برگشت →",
+      qz_send: "ما برای شما درخواست می‌دهیم — ۵۰ یورو (واتساپ)", qz_ask: "مطمئن نیستید؟ در واتساپ بپرسید", qz_again: "↻ دوباره", qz_back: "برگشت →",
       qz_msg: "بررسی سریع: می‌توانم درخواست بدهم.",
       sim_wk_std: "⏱ ۳ تا ۴ هفته", sim_wk_urg: "⏱ ۲ تا ۳ هفته",
       sim_refund: "↩️ اگر قونسلگری درخواست شما را رد کند، ۵۰٪ فیس ما (۲۵ یورو) را پس می‌دهیم.",
@@ -2219,6 +2261,23 @@
       inst_ok: "خوب", hol_from: "از طرف ALAKHIL MOBILE",
       hol_ramadan: "رمضان مبارک", hol_fitr: "عید شما مبارک", hol_adha: "عید قربان مبارک", hol_nowruz: "نوروز مبارک",
       mn_quick: "کمک سریع", mn_more: "معلومات بیشتر",
+      q_name: "آیا نام و تاریخ تولد شما در پاسپورت قبلی و کارت اقامت یکی است؟", o_same: "بلی، یکی است", o_diff: "نخیر، فرق دارد",
+      q_name2: "آیا تذکرهٔ الکترونیکی یا ترجمهٔ انگلیسی تصدیق‌شدهٔ تذکره دارید؟", q_name2_s: "با همان نام و تاریخ تولد کارت اقامت (ترجمه تصدیق‌شده از وزارت امور خارجه)",
+      n_name_ok: "✏️ پاسپورت جدید شما می‌تواند همان نام و تاریخ تولد کارت اقامت را داشته باشد. تذکرهٔ الکترونیکی / ترجمهٔ تصدیق‌شده را هم بفرستید.",
+      n_name_keep: "✏️ پاسپورت جدید شما همان نام و تاریخ تولد پاسپورت قبلی را خواهد داشت. تغییر آن فقط با تذکرهٔ الکترونیکی یا ترجمهٔ تصدیق‌شده ممکن است.",
+      q_cres: "آیا طفل کارت اقامت یا سند دیگری دارد که نشان دهد در این کشور زندگی می‌کند؟",
+      r_docs: "📋 اسناد شما", r_fees: "💶 فیس قونسلگری",
+      r_fees_note: "با کارت بانکی به قونسلگری پرداخت می‌شود. اگر درخواست رد شود، پرداخت اول پس داده نمی‌شود — پس درخواست باید درست باشد.",
+      r_mist: "⚠️ از این اشتباهات دوری کنید (باعث رد درخواست می‌شوند)",
+      r_m1: "اسکن و عکس تار، بریده یا تاریک", r_m2: "نام یا تاریخ تولد متفاوت با اسناد شما",
+      r_m3: "ایمیل یا تلفون اشتباه — ایمیل‌های قونسلگری را از دست می‌دهید", r_m4: "پرداخت فیس بعد از ۳۰ روز",
+      r_two: "چطور می‌خواهید درخواست بدهید؟",
+      qz_self: "خودم درخواست می‌دهم — سایت رسمی قونسلگری ↗",
+      qz_self_s: "تست رایگان از ALAKHIL MOBILE. ما قونسلگری نیستیم؛ تصمیم دربارهٔ هر درخواست را قونسلگری می‌گیرد.",
+      qz_share: "این تست را با فامیل و دوستان شریک کنید",
+      qz_share_msg: "🧪 تست رایگان: آیا می‌توانید پاسپورت جدید افغانی از قونسلگری دبی بگیرید؟ در ۱ دقیقه بررسی کنید 👇",
+      test_btn: "🧪 تست رایگان پاسپورت — ۱ دقیقه", test_short: "تست پاسپورت",
+      d_lostcopy: "عکس، اسکن یا کاپی پاسپورت گم‌شدهٔ شما", d_contact: "آدرس ایمیل و شمارهٔ تلفون شما",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -2389,7 +2448,7 @@
       sim_i3: "بشپړ غوښتنلیک", sim_i3s: "ستاسو لپاره یې ډکوو او ثبتوو",
       sim_i4: "تر پایه ستاسو سره یو", sim_i4s: "تر هغه چې پاسپورټ کور ته ورسیږي",
       sim_studio: "📷 یوازې عکس په سټوډیو کې ۸ تر ۹ یورو دی — زموږ سره شامل دی",
-      qz_title: "ایا زه غوښتنه کولی شم؟", qz_intro: "چټکه کتنه — په ځوابونو کلیک وکړئ (۳۰ ثانیې)",
+      qz_title: "🧪 د پاسپورټ ازموینه — ایا زه نوی پاسپورټ اخیستلی شم؟", qz_intro: "له غوښتنې مخکې وړیا ازموینه. څو اسانو پوښتنو ته ځواب ورکړئ (۱ دقیقه).",
       q_live: "چېرته اوسېږئ؟", o_live_ok: "بریتانیا، امریکا، کاناډا، آسټرالیا یا اروپا", o_live_de: "آلمان", o_live_other: "بل هېواد",
       q_who: "پاسپورټ د چا لپاره دی؟", o_adult: "زما لپاره (لوی، ۱۸+)", o_child: "زما د ماشوم لپاره (له ۱۸ کم)",
       q_pass: "ستاسو پخوانی افغاني پاسپورټ؟", o_pass_exp: "نېټه یې پوره شوې، یا له ۱ کال کم پاتې", o_pass_lost: "ورک شوی — عکس یا کاپي یې لرم",
@@ -2399,7 +2458,7 @@
       q_par: "ایا پلار او مور دواړه افغاني پاسپورټ او تذکره لري؟",
       q_birth: "ایا د ماشوم د زېږېدو سند او د مور او پلار نکاح خط لرئ؟",
       o_yes: "هو", o_no: "نه",
-      r_ok: "هو — تاسو غوښتنه کولی شئ! 🎉", r_ok_s: "د خپلو اسنادو عکسونه موږ ته په واټساپ کې ولېږئ.",
+      r_ok: "هو — تاسو غوښتنه کولی شئ! 🎉", r_ok_s: "هر څه چې پکار دي دلته دي — له غوښتنې مخکې یې ولولئ.",
       n_police: "🚓 د کوربه هېواد د پولیسو راپور هم پکار دی چې پاسپورټ ورک شوی.",
       r_no: "بښنه غواړو — ممکنه نه ده",
       x_de: "څوک چې په آلمان کې اوسېږي باید په آلمان کې د افغانستان سفارت ته ورشي.",
@@ -2408,7 +2467,7 @@
       x_never: "له پخواني افغاني پاسپورټ پرته د دوبۍ قونسلګري غوښتنلیک نه مني.",
       x_taz: "تذکره اړینه ده.", x_res: "داسې سند اړین دی چې ثابته کړي په دې هېواد کې اوسېږئ.",
       x_par: "پلار او مور دواړه باید افغاني پاسپورټ او تذکره ولري.", x_birth: "د زېږېدو سند او نکاح خط اړین دي.",
-      qz_send: "اسناد په واټساپ کې ولېږئ", qz_ask: "ډاډه نه یاست؟ په واټساپ کې وپوښتئ", qz_again: "↻ بیا پیل", qz_back: "شاته →",
+      qz_send: "موږ ستاسو لپاره غوښتنه کوو — ۵۰ یورو (واټساپ)", qz_ask: "ډاډه نه یاست؟ په واټساپ کې وپوښتئ", qz_again: "↻ بیا پیل", qz_back: "شاته →",
       qz_msg: "چټکه کتنه: زه غوښتنه کولی شم.",
       sim_wk_std: "⏱ ۳ تر ۴ اونۍ", sim_wk_urg: "⏱ ۲ تر ۳ اونۍ",
       sim_refund: "↩️ که قونسلګري ستاسو غوښتنلیک رد کړي، زموږ د فیس ۵۰٪ (۲۵ یورو) بېرته درکوو.",
@@ -2418,6 +2477,23 @@
       inst_ok: "سمه ده", hol_from: "د ALAKHIL MOBILE له لوري",
       hol_ramadan: "رمضان مو مبارک", hol_fitr: "اختر مو مبارک", hol_adha: "لوی اختر مو مبارک", hol_nowruz: "نوی کال مو مبارک",
       mn_quick: "چټکه مرسته", mn_more: "نور معلومات",
+      q_name: "ایا ستاسو نوم او د زېږېدو نېټه په پخواني پاسپورټ او د اقامت په کارت کې یو شان دي؟", o_same: "هو، یو شان دي", o_diff: "نه، توپیر لري",
+      q_name2: "ایا برېښنايي تذکره یا د تذکرې تصدیق شوې انګلیسي ژباړه لرئ؟", q_name2_s: "د اقامت د کارت په شان نوم او د زېږېدو نېټه (ژباړه د بهرنیو چارو وزارت لخوا تصدیق شوې)",
+      n_name_ok: "✏️ ستاسو نوی پاسپورټ کولی شي د اقامت د کارت په شان نوم او د زېږېدو نېټه ولري. برېښنايي تذکره / تصدیق شوې ژباړه هم ولېږئ.",
+      n_name_keep: "✏️ ستاسو نوی پاسپورټ به د پخواني پاسپورټ نوم او د زېږېدو نېټه ولري. بدلول یې یوازې له برېښنايي تذکرې یا تصدیق شوې ژباړې سره ممکن دي.",
+      q_cres: "ایا ماشوم د اقامت کارت یا بل سند لري چې ثابته کړي په دې هېواد کې اوسېږي؟",
+      r_docs: "📋 ستاسو اسناد", r_fees: "💶 د قونسلګرۍ فیس",
+      r_fees_note: "قونسلګرۍ ته په بانکي کارت ورکول کیږي. که غوښتنلیک رد شي، لومړنۍ ورکړه بېرته نه درکول کیږي — نو غوښتنلیک باید سم وي.",
+      r_mist: "⚠️ له دې تېروتنو ډډه وکړئ (د ردېدو لامل کیږي)",
+      r_m1: "تت، پرې شوي یا تیاره سکن او عکسونه", r_m2: "نوم یا د زېږېدو نېټه له اسنادو سره توپیر ولري",
+      r_m3: "غلط ایمیل یا تلیفون — د قونسلګرۍ ایمیلونه له لاسه ورکوئ", r_m4: "له ۳۰ ورځو وروسته د فیس ورکول",
+      r_two: "څنګه غواړئ غوښتنه وکړئ؟",
+      qz_self: "زه پخپله غوښتنه کوم — د قونسلګرۍ رسمي سایټ ↗",
+      qz_self_s: "وړیا ازموینه د ALAKHIL MOBILE لخوا. موږ قونسلګري نه یو؛ د هر غوښتنلیک پرېکړه قونسلګري کوي.",
+      qz_share: "دا ازموینه له کورنۍ او ملګرو سره شریکه کړئ",
+      qz_share_msg: "🧪 وړیا ازموینه: ایا تاسو د دوبۍ له قونسلګرۍ نوی افغاني پاسپورټ اخیستلی شئ؟ په ۱ دقیقه کې یې وګورئ 👇",
+      test_btn: "🧪 د پاسپورټ وړیا ازموینه — ۱ دقیقه", test_short: "د پاسپورټ ازموینه",
+      d_lostcopy: "د ورک شوي پاسپورټ عکس، سکن یا کاپي", d_contact: "ستاسو د ایمیل پته او د تلیفون شمېره",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
@@ -2739,9 +2815,12 @@
     who:     { q: "q_who", opts: [["🧑", "o_adult", "pass"], ["👶", "o_child", "parents"]] },
     pass:    { q: "q_pass", opts: [["📘", "o_pass_exp", "taz"], ["🚓", "o_pass_lost", "taz", "n_police"], ["⏳", "o_pass_valid", "x_valid"], ["🚫", "o_pass_never", "x_never"]] },
     taz:     { q: "q_taz", opts: [["✅", "o_yes", "res"], ["❌", "o_no", "x_taz"]] },
-    res:     { q: "q_res", sub: "q_res_s", opts: [["✅", "o_yes", "ok"], ["❌", "o_no", "x_res"]] },
+    res:     { q: "q_res", sub: "q_res_s", opts: [["✅", "o_yes", "name"], ["❌", "o_no", "x_res"]] },
+    name:    { q: "q_name", opts: [["✅", "o_same", "ok"], ["✏️", "o_diff", "name2"]] },
+    name2:   { q: "q_name2", sub: "q_name2_s", opts: [["✅", "o_yes", "ok", "n_name_ok"], ["❌", "o_no", "ok", "n_name_keep"]] },
     parents: { q: "q_par", opts: [["✅", "o_yes", "birth"], ["❌", "o_no", "x_par"]] },
-    birth:   { q: "q_birth", opts: [["✅", "o_yes", "ok"], ["❌", "o_no", "x_birth"]] }
+    birth:   { q: "q_birth", opts: [["✅", "o_yes", "cres"], ["❌", "o_no", "x_birth"]] },
+    cres:    { q: "q_cres", opts: [["✅", "o_yes", "ok"], ["❌", "o_no", "x_res"]] }
   };
   var qPath = []; // [[node, optionIndex], ...]
   function qNode() {
@@ -2753,7 +2832,7 @@
     var box = $("quiz"); if (!box) return;
     var node = qNode(), html = "";
     var steps = qPath.length;
-    html += '<div class="qz-dots">' + [0, 1, 2, 3, 4].map(function (i) { return '<i class="' + (i < steps ? "on" : i === steps && QUIZ[node] ? "cur" : "") + '"></i>'; }).join("") + "</div>";
+    html += '<div class="qz-dots">' + Array.apply(null, Array(Math.max(6, steps + 1))).map(function (_, i) { return '<i class="' + (i < steps ? "on" : i === steps && QUIZ[node] ? "cur" : "") + '"></i>'; }).join("") + "</div>";
     if (steps) html += '<div class="qz-done">' + qPath.map(function (st) {
       var o = QUIZ[st[0]].opts[st[1]];
       return '<div class="qz-ans"><span class="qz-ck">✓</span><span class="qz-e">' + o[0] + "</span><span>" + t(o[1]) + "</span></div>";
@@ -2767,9 +2846,23 @@
     } else {
       var notes = qPath.map(function (st) { return QUIZ[st[0]].opts[st[1]][3]; }).filter(Boolean);
       if (node === "ok") {
+        var isChild = qPath.some(function (st) { return st[0] === "who" && st[1] === 1; });
+        var lost = notes.indexOf("n_police") >= 0, nameOk = notes.indexOf("n_name_ok") >= 0;
+        var docs = isChild ? ["d_birth", "d_ppass", "d_ptaz", "d_marr", "d_cphoto", "d_cres"]
+                           : [lost ? "d_lostcopy" : "d_pass", "d_taz", "d_res", "d_photo"].concat(lost ? ["d_police"] : []).concat(nameOk ? ["d_etaz"] : []).concat(["d_contact"]);
+        var fees = PASSPORTS.map(function (x) {
+          return '<div class="r-fee"><span>' + (x.urgent ? "⚡ " : "🕐 ") + passportName(x) + '</span><b class="num">≈ €' + eTot(x) + "</b><small>" + (x.urgent ? t("sim_wk_urg") : t("sim_wk_std")) + "</small></div>";
+        }).join("");
         html += '<div class="qz-res ok"><div class="qz-big">✅</div><b>' + t("r_ok") + "</b><p>" + t("r_ok_s") + "</p>" +
           notes.map(function (k) { return '<p class="qz-note">' + t(k) + "</p>"; }).join("") +
-          '<a class="btn btn-wa qz-wa gloss" id="qzWa" target="_blank" rel="noopener" href="#"><span>💬</span> <span>' + t("qz_send") + "</span></a></div>";
+          '<div class="r-sec"><h4>' + t("r_docs") + '</h4><ul class="r-list">' + docs.map(function (k) { return "<li>" + t(k) + "</li>"; }).join("") + "</ul></div>" +
+          '<div class="r-sec gold"><h4>' + t("r_fees") + '</h4><div class="r-fees">' + fees + '</div><p class="r-small">' + t("r_fees_note") + "</p></div>" +
+          '<div class="r-sec red"><h4>' + t("r_mist") + '</h4><ul class="r-list x">' + ["r_m1", "r_m2", "r_m3", "r_m4"].map(function (k) { return "<li>" + t(k) + "</li>"; }).join("") + "</ul></div>" +
+          '<div class="r-two">' + t("r_two") + "</div>" +
+          '<a class="btn btn-wa qz-wa gloss" id="qzWa" target="_blank" rel="noopener" href="#"><span>💬</span> <span>' + t("qz_send") + "</span></a>" +
+          '<a class="btn btn-ghost qz-self" href="https://afghanconsulate.ae/" target="_blank" rel="noopener"><span>🌐</span> <span>' + t("qz_self") + "</span></a>" +
+          '<p class="r-small">' + t("qz_self_s") + "</p>" +
+          '<a class="qz-share" id="qzShare" target="_blank" rel="noopener" href="#">📤 ' + t("qz_share") + "</a></div>";
       } else {
         html += '<div class="qz-res no"><div class="qz-big">❌</div><b>' + t("r_no") + "</b><p>" + t(node) + "</p>" +
           '<a class="btn btn-ghost qz-wa" id="qzWa" target="_blank" rel="noopener" href="#"><span>💬</span> <span>' + t("qz_ask") + "</span></a></div>";
@@ -2778,6 +2871,8 @@
     html += '<div class="qz-nav">' + (steps ? '<button type="button" class="qz-link" id="qzBack">' + t("qz_back") + "</button>" : "<span></span>") +
       (steps ? '<button type="button" class="qz-link" id="qzAgain">' + t("qz_again") + "</button>" : "") + "</div>";
     box.innerHTML = html;
+    var sh = $("qzShare");
+    if (sh) sh.href = "https://wa.me/?text=" + encodeURIComponent(t("qz_share_msg") + "\nhttps://alakhilmobile-png.github.io/passport/?test=1&lang=" + lang);
     var wa = $("qzWa");
     if (wa) {
       var lines = [t("m_hello"), "", (node === "ok" ? "✅ " + t("qz_msg") : "❓ " + t("r_no") + " — " + t(node)), ""];
@@ -2902,6 +2997,11 @@
     el.classList.add("reveal");
     if (el.matches(".trust li, .elig .card")) el.style.setProperty("--d", (Array.prototype.indexOf.call(el.parentNode.children, el) * 0.1) + "s");
   });
+
+  // ?test=1 opens straight on the passport test (link for TikTok / influencers)
+  if (/[?&]test=1/.test(location.search)) {
+    window.addEventListener("load", function () { setTimeout(function () { var q = $("quizBlock"); if (q) q.scrollIntoView({ behavior: "smooth", block: "start" }); }, 400); });
+  }
 
   // Start: language from ?lang=, saved choice, or show picker
   var q = (location.search.match(/[?&]lang=(en|fa|ps|da|dari|pashto)/i) || [])[1];
