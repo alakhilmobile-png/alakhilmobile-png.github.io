@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="site-version" content="54">
+<meta name="site-version" content="55">
 <title>Afghan Passport Online via Dubai — پاسپورت افغانی — افغاني پاسپورټ | ALAKHIL MOBILE</title>
 <meta name="description" content="New Afghan passport from the Afghan Consulate in Dubai, delivered to your home in Europe (except Germany), UK, USA, Canada and Australia. پاسپورت جدید افغانی از قونسلگری دبی — نوی افغاني پاسپورټ د دوبۍ له قونسلګرۍ. Documents, prices, WhatsApp help in Pashto, Dari, English.">
 <meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
@@ -1375,6 +1375,25 @@
   .qz-chip .no svg { opacity: .75; }
   .qz-chip small { display: block; margin-top: 6px; font-size: 12.5px; font-weight: 800; line-height: 1.35; color: #3c4870; }
   .qz-chip .no small { color: #b4453c; }
+
+  /* ===== Trust & transparency (v55) ===== */
+  .src-line { margin: 10px 4px 0; text-align: center; font-size: 13px; font-weight: 600; color: #5b6478; line-height: 1.5; }
+  .r-guide { margin: 12px 0 0 !important; padding: 8px 12px; border-radius: 14px; background: rgba(255,255,255,.55); text-align: center;
+    font-size: 13.5px !important; font-weight: 700; color: #3c4870 !important; }
+  .about-wrap { padding: 8px 16px 24px; }
+  .about { border-radius: 32px; padding: 18px 14px 16px; background: linear-gradient(180deg, rgba(90,140,240,.12), rgba(90,140,240,.04));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 0 0 1px rgba(255,255,255,.35); }
+  .about h2 { margin-top: 0; }
+  .ab-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .ab-list li { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border-radius: 20px; background: var(--clear-bg); box-shadow: var(--clear-rim);
+    font-size: 15.5px; line-height: 1.55; font-weight: 500; }
+  .ab-i { width: 26px; height: 26px; border-radius: 50%; flex: none; display: grid; place-items: center; font-size: 13px; font-weight: 900; color: #fff; margin-top: 1px; }
+  .ab-list .yes .ab-i { background: linear-gradient(180deg, #3fe08a, #0c9446); }
+  .ab-list .no .ab-i { background: linear-gradient(180deg, #f3a59f, #d65a50); }
+  .ab-list .lock .ab-i { background: rgba(255,255,255,.8); font-size: 14px; }
+  .ab-off { width: 100%; min-height: 52px; margin-top: 14px; font-size: 15.5px; }
+  .ab-note { margin: 8px 0 0; text-align: center; font-size: 13.5px; font-weight: 700; color: #5b6478; }
+  #about { scroll-margin-top: 80px; }
 </style>
 </head>
 <body>
@@ -1481,6 +1500,7 @@
         <a href="#photo"><span class="mn-e">📸</span><b data-t="nav_photo"></b><i>›</i></a>
         <a href="#cases"><span class="mn-e">⚠️</span><b data-t="nav_cases"></b><i>›</i></a>
         <a href="#share"><span class="mn-e">📤</span><b data-t="nav_share"></b><i>›</i></a>
+        <a href="#about"><span class="mn-e">🤝</span><b data-t="ab_title"></b><i>›</i></a>
         <a href="#" class="inst-trigger inst-li hidden"><span class="mn-e">📲</span><b data-t="inst_btn"></b><i>›</i></a>
       </div>
     </div>
@@ -1524,7 +1544,7 @@
               <div class="lines"><i style="width:90%"></i><i style="width:70%"></i><i style="width:80%"></i><i style="width:55%"></i><i style="width:75%"></i><i style="width:60%"></i></div>
             </div>
             <div class="mrz">P&lt;AFG&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</div>
-            <div class="stamp">✓ APPROVED<small>DUBAI ✈</small></div>
+            <div class="stamp">✓ INFO<small>GUIDE</small></div>
           </div>
           <div class="cover">
             <div class="face front">
@@ -1618,6 +1638,7 @@
       <div class="s-prices" id="sPrices"></div>
       <div class="s-plus" data-t="sim_plus"></div>
       <div class="s-info" data-t="sim_refund"></div>
+      <p class="src-line" data-t="src_line"></p>
     </div>
     <div class="s-block reveal" id="sInc">
       <h2 class="s-h" data-t="sim_inc"></h2>
@@ -1679,6 +1700,7 @@
       <p class="small" style="margin:8px 0 0;font-weight:800" data-t="sim_refund"></p>
     </div>
     <p class="small" data-t="prices_note"></p>
+    <p class="src-line" data-t="src_line"></p>
   </section>
 
   <!-- What the €50 includes -->
@@ -1884,6 +1906,21 @@
   </section>
 </main>
 
+<section id="about" class="wrap about-wrap">
+  <div class="about">
+    <h2><span class="h-ico">🤝</span><span data-t="ab_title"></span></h2>
+    <ul class="ab-list">
+      <li class="yes"><span class="ab-i">✓</span><span data-t="ab_we"></span></li>
+      <li class="yes"><span class="ab-i">✓</span><span data-t="ab_do"></span></li>
+      <li class="no"><span class="ab-i">✕</span><span data-t="ab_not"></span></li>
+      <li class="no"><span class="ab-i">✕</span><span data-t="ab_never"></span></li>
+      <li class="lock"><span class="ab-i">🔒</span><span data-t="privacy"></span></li>
+    </ul>
+    <a class="btn btn-ghost ab-off" href="https://afghanconsulate.ae/" target="_blank" rel="noopener"><span>🌐</span> <span data-t="ab_link"></span></a>
+    <p class="ab-note" data-t="ab_off"></p>
+  </div>
+</section>
+
 <footer>
   <div class="pattern" aria-hidden="true"></div>
   <div class="wrap" style="position:relative;z-index:1">
@@ -1893,7 +1930,7 @@
     <p data-t="privacy"></p>
     <p data-t="sim_keep"></p>
     <p data-t="prices_note"></p>
-    <p class="ver">v54</p>
+    <p class="ver">v55</p>
   </div>
 </footer>
 
@@ -2124,6 +2161,15 @@
       chip_ok: "Electronic (chip symbol) — accepted", chip_no: "Old handwritten — not accepted",
       o_hand: "I only have an old handwritten passport", o_hand_s: "No chip symbol on the cover",
       x_hand: "Old handwritten (non-electronic) passports are not accepted by the Dubai consulate. Only a previous electronic passport is accepted.",
+      src_line: "ℹ️ Prices and rules are based on the official Afghan Consulate Dubai website — last checked: 2 November 2026.",
+      r_guide: "This test is a guide only. The Afghan consulate makes the final decision on every application.",
+      ab_title: "About us — how we work",
+      ab_we: "<b>We are</b> ALAKHIL MOBILE, an independent mobile shop in Paris that helps Afghans understand the passport procedure.",
+      ab_do: "<b>We offer</b> free information and a free eligibility test. For clients who want it, we prepare and submit their online application (€50).",
+      ab_not: "<b>We are not</b> the Afghan consulate or any government office. We do not decide on applications and cannot guarantee a passport.",
+      ab_never: "<b>We never</b> take the consulate fees or ask for your bank card details. You pay the consulate yourself.",
+      ab_link: "Official Afghan Consulate Dubai website ↗",
+      ab_off: "If anything is different, the consulate's official information is correct.",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -2158,7 +2204,7 @@
       after: "WhatsApp is opening. Now attach a photo of each document in the chat and send. We will reply as soon as possible.",
       contact: "Questions? Write to us on WhatsApp",
       disclaimer: "ALAKHIL MOBILE is a private, independent service. We are not the Consulate General of Afghanistan and we are not part of any government. The consulate decides on every application.",
-      privacy: "This website does not save your information or documents. Your details go only to our WhatsApp, when you press send.",
+      privacy: "This website does not save your information or documents. We use your documents only to prepare your application, keep them until you receive your passport, then delete them. We never share them with anyone except the consulate.",
       m_hello: "Hello ALAKHIL MOBILE, I want a new Afghan passport.",
       m_name: "Name", m_phone: "Phone", m_email: "Email", m_country: "Country", m_for: "Passport for",
       m_count: "Number of passports", m_type: "Passport", m_sit: "Situation", m_have: "Documents I have", m_missing: "Documents I don't have yet",
@@ -2356,6 +2402,15 @@
       chip_ok: "الکترونیکی (علامهٔ چیپ) — پذیرفته می‌شود", chip_no: "قدیمی دست‌نویس — پذیرفته نمی‌شود",
       o_hand: "فقط پاسپورت قدیمی دست‌نویس دارم", o_hand_s: "روی جلد علامهٔ چیپ ندارد",
       x_hand: "پاسپورت‌های قدیمی دست‌نویس (غیر الکترونیکی) را قونسلگری دبی نمی‌پذیرد. فقط پاسپورت قبلی الکترونیکی پذیرفته می‌شود.",
+      src_line: "ℹ️ قیمت‌ها و قواعد بر اساس ویبسایت رسمی جنرال قونسلگری افغانستان در دبی است — آخرین بررسی: ۲ نومبر ۲۰۲۶.",
+      r_guide: "این تست فقط یک راهنما است. تصمیم نهایی دربارهٔ هر درخواست را قونسلگری افغانستان می‌گیرد.",
+      ab_title: "دربارهٔ ما — چطور کار می‌کنیم",
+      ab_we: "<b>ما</b> ALAKHIL MOBILE هستیم، یک دکان مستقل موبایل در پاریس که به افغان‌ها در فهمیدن مراحل پاسپورت کمک می‌کند.",
+      ab_do: "<b>ما ارائه می‌دهیم:</b> معلومات رایگان و تست رایگان واجد شرایط بودن. برای مشتریانی که بخواهند، درخواست آنلاین‌شان را آماده و ثبت می‌کنیم (۵۰ یورو).",
+      ab_not: "<b>ما</b> قونسلگری افغانستان یا هیچ ادارهٔ دولتی <b>نیستیم</b>. ما دربارهٔ درخواست‌ها تصمیم نمی‌گیریم و پاسپورت را تضمین نمی‌کنیم.",
+      ab_never: "<b>ما هرگز</b> فیس قونسلگری را نمی‌گیریم و معلومات کارت بانکی شما را نمی‌خواهیم. فیس قونسلگری را خودتان می‌پردازید.",
+      ab_link: "ویبسایت رسمی جنرال قونسلگری افغانستان در دبی ↗",
+      ab_off: "اگر چیزی فرق داشته باشد، معلومات رسمی قونسلگری درست است.",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -2390,7 +2445,7 @@
       after: "واتساپ باز می‌شود. حالا عکس هر سند را در چت ضمیمه کنید و بفرستید. ما در اسرع وقت جواب می‌دهیم.",
       contact: "سوال دارید؟ در واتساپ به ما بنویسید",
       disclaimer: "ALAKHIL MOBILE یک خدمت خصوصی و مستقل است. ما جنرال قونسلگری افغانستان نیستیم و به هیچ دولتی مربوط نیستیم. تصمیم دربارهٔ هر درخواست را قونسلگری می‌گیرد.",
-      privacy: "این ویبسایت معلومات یا اسناد شما را ذخیره نمی‌کند. معلومات شما فقط وقتی دکمهٔ ارسال را بزنید به واتساپ ما می‌رسد.",
+      privacy: "این ویبسایت معلومات یا اسناد شما را ذخیره نمی‌کند. ما اسناد شما را فقط برای آماده کردن درخواست استفاده می‌کنیم، تا رسیدن پاسپورت نگه می‌داریم و بعد پاک می‌کنیم. آن‌ها را به هیچ‌کس به جز قونسلگری نمی‌دهیم.",
       m_hello: "سلام ALAKHIL MOBILE، من پاسپورت جدید افغانی می‌خواهم.",
       m_name: "نام", m_phone: "تلفون", m_email: "ایمیل", m_country: "کشور", m_for: "پاسپورت برای",
       m_count: "تعداد پاسپورت", m_type: "پاسپورت", m_sit: "وضعیت", m_have: "اسنادی که دارم", m_missing: "اسنادی که هنوز ندارم",
@@ -2588,6 +2643,15 @@
       chip_ok: "برېښنايي (د چیپ نښه) — منل کیږي", chip_no: "زوړ لاس‌لیکلی — نه منل کیږي",
       o_hand: "یوازې زوړ لاس‌لیکلی پاسپورټ لرم", o_hand_s: "په پوښ یې د چیپ نښه نشته",
       x_hand: "زاړه لاس‌لیکلي (غیر برېښنايي) پاسپورټونه د دوبۍ قونسلګري نه مني. یوازې پخوانی برېښنايي پاسپورټ منل کیږي.",
+      src_line: "ℹ️ بیې او قواعد د دوبۍ د افغان جنرال قونسلګرۍ د رسمي وېبپاڼې پر بنسټ دي — وروستۍ کتنه: ۲ نومبر ۲۰۲۶.",
+      r_guide: "دا ازموینه یوازې لارښود دی. د هر غوښتنلیک وروستۍ پرېکړه د افغانستان قونسلګري کوي.",
+      ab_title: "زموږ په اړه — څنګه کار کوو",
+      ab_we: "<b>موږ</b> ALAKHIL MOBILE یو، په پاریس کې یو خپلواک موبایل دوکان چې له افغانانو سره د پاسپورټ د پړاوونو په پوهېدو کې مرسته کوي.",
+      ab_do: "<b>موږ وړاندې کوو:</b> وړیا معلومات او د وړتیا وړیا ازموینه. هغو پېرېدونکو ته چې وغواړي، د هغوی آنلاین غوښتنلیک چمتو او ثبتوو (۵۰ یورو).",
+      ab_not: "<b>موږ</b> د افغانستان قونسلګري یا کوم دولتي اداره <b>نه یو</b>. موږ د غوښتنلیکونو پرېکړه نه کوو او د پاسپورټ تضمین نشو ورکولی.",
+      ab_never: "<b>موږ هېڅکله</b> د قونسلګرۍ فیس نه اخلو او ستاسو د بانکي کارت معلومات نه غواړو. د قونسلګرۍ فیس تاسو پخپله ورکوئ.",
+      ab_link: "د دوبۍ د افغان جنرال قونسلګرۍ رسمي وېبپاڼه ↗",
+      ab_off: "که کوم شی توپیر ولري، د قونسلګرۍ رسمي معلومات سم دي.",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
@@ -2622,7 +2686,7 @@
       after: "واټساپ خلاصیږي. اوس د هر سند عکس په چټ کې ور اضافه کړئ او ویې لېږئ. موږ به ژر تر ژره ځواب درکړو.",
       contact: "پوښتنه لرئ؟ په واټساپ کې موږ ته ولیکئ",
       disclaimer: "ALAKHIL MOBILE یو خصوصي او خپلواک خدمت دی. موږ د افغانستان جنرال قونسلګري نه یو او له هېڅ دولت سره تړاو نه لرو. د هر غوښتنلیک په اړه پرېکړه قونسلګري کوي.",
-      privacy: "دا وېبپاڼه ستاسو معلومات یا اسناد نه ساتي. ستاسو معلومات یوازې هغه وخت زموږ واټساپ ته رسیږي چې د لېږلو تڼۍ کېکاږئ.",
+      privacy: "دا وېبپاڼه ستاسو معلومات یا اسناد نه ساتي. موږ ستاسو اسناد یوازې د غوښتنلیک د چمتو کولو لپاره کاروو، د پاسپورټ تر رسېدو پورې یې ساتو او بیا یې پاکوو. له قونسلګرۍ پرته یې هېچا ته نه ورکوو.",
       m_hello: "سلام ALAKHIL MOBILE، زه نوی افغاني پاسپورټ غواړم.",
       m_name: "نوم", m_phone: "تلیفون", m_email: "ایمیل", m_country: "هېواد", m_for: "پاسپورټ د",
       m_count: "د پاسپورټونو شمېر", m_type: "پاسپورټ", m_sit: "حالت", m_have: "هغه اسناد چې لرم یې", m_missing: "هغه اسناد چې لا یې نه لرم",
@@ -2989,10 +3053,12 @@
           '<a class="btn btn-wa qz-wa gloss" id="qzWa" target="_blank" rel="noopener" href="#"><span>💬</span> <span>' + t("qz_send") + "</span></a>" +
           '<a class="btn btn-ghost qz-self" href="https://afghanconsulate.ae/" target="_blank" rel="noopener"><span>🌐</span> <span>' + t("qz_self") + "</span></a>" +
           '<p class="r-small">' + t("qz_self_s") + "</p>" +
-          '<a class="qz-share" id="qzShare" target="_blank" rel="noopener" href="#">📤 ' + t("qz_share") + "</a></div>";
+          '<a class="qz-share" id="qzShare" target="_blank" rel="noopener" href="#">📤 ' + t("qz_share") + "</a>" +
+          '<p class="r-guide">ℹ️ ' + t("r_guide") + "</p></div>";
       } else {
         html += '<div class="qz-res no"><div class="qz-big">❌</div><b>' + t("r_no") + "</b><p>" + t(node) + "</p>" +
-          '<a class="btn btn-ghost qz-wa" id="qzWa" target="_blank" rel="noopener" href="#"><span>💬</span> <span>' + t("qz_ask") + "</span></a></div>";
+          '<a class="btn btn-ghost qz-wa" id="qzWa" target="_blank" rel="noopener" href="#"><span>💬</span> <span>' + t("qz_ask") + "</span></a>" +
+          '<p class="r-guide">ℹ️ ' + t("r_guide") + "</p></div>";
       }
     }
     html += '<div class="qz-nav">' + (steps ? '<button type="button" class="qz-link" id="qzBack">' + t("qz_back") + "</button>" : "<span></span>") +
