@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="site-version" content="52">
+<meta name="site-version" content="53">
 <title>Afghan Passport Online via Dubai — پاسپورت افغانی — افغاني پاسپورټ | ALAKHIL MOBILE</title>
 <meta name="description" content="New Afghan passport from the Afghan Consulate in Dubai, delivered to your home in Europe (except Germany), UK, USA, Canada and Australia. پاسپورت جدید افغانی از قونسلگری دبی — نوی افغاني پاسپورټ د دوبۍ له قونسلګرۍ. Documents, prices, WhatsApp help in Pashto, Dari, English.">
 <meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
@@ -1351,6 +1351,18 @@
   .me-card .social .soc-lbl { width: 100%; text-align: center; margin-bottom: -2px; }
   @media (max-width: 520px) { .me-card .soc { padding: 5px 12px 5px 6px; font-size: 13.5px; } .me-card .soc svg { width: 22px; height: 22px; } }
   .me-card .social .soc.wa { display: none; }
+
+  /* ===== Clearer passport questions (v53) ===== */
+  .qz-t b { display: block; font-weight: 800; }
+  .qz-t small { display: block; margin-top: 2px; font-size: 13.5px; font-weight: 700; color: #5b6478; }
+  .qz-opt.picked .qz-t small { color: #1b2a55; }
+  .qz-date { display: inline-block; direction: ltr; unicode-bidi: isolate; padding: 1px 8px; border-radius: 8px; background: #ffe36b; color: #11182b;
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; font-weight: 900; letter-spacing: .5px; white-space: nowrap; }
+  .qz-hint { margin: -4px auto 14px; max-width: 300px; text-align: center; }
+  .qz-hint svg { width: 100%; height: auto; display: block; filter: drop-shadow(0 6px 12px rgba(40,50,90,.15)); }
+  .qz-hint small { display: block; margin-top: 6px; font-size: 13.5px; font-weight: 700; color: #5b6478; }
+  .qz-hint svg text { direction: ltr; unicode-bidi: bidi-override; }
+  .qz-q bdi { white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -1869,7 +1881,7 @@
     <p data-t="privacy"></p>
     <p data-t="sim_keep"></p>
     <p data-t="prices_note"></p>
-    <p class="ver">v52</p>
+    <p class="ver">v53</p>
   </div>
 </footer>
 
@@ -2041,8 +2053,8 @@
       qz_title: "🧪 Passport test — can I get a new passport?", qz_intro: "Free test before you apply. Answer a few easy questions (1 minute).",
       q_live: "Where do you live?", o_live_ok: "UK, USA, Canada, Australia or Europe", o_live_de: "Germany", o_live_other: "Another country",
       q_who: "Who is the passport for?", o_adult: "Me (adult, 18+)", o_child: "My child (under 18)",
-      q_pass: "Your old Afghan passport?", o_pass_exp: "Expired, or less than 1 year left", o_pass_lost: "Lost — I have a photo or copy",
-      o_pass_valid: "Still more than 1 year left", o_pass_never: "I never had one",
+      q_pass: "Do you have your old Afghan passport?", o_pass_exp: "Expired, or less than 1 year left", o_pass_lost: "Lost — I have a photo or copy",
+      o_pass_valid: "Still more than 1 year left", o_pass_never: "I never had an Afghan passport",
       q_taz: "Do you have a Tazkira? (paper or electronic)",
       q_res: "Do you have a document that proves you live in your country?", q_res_s: "Residence card, ID card, visa, asylum or temporary attestation",
       q_par: "Do the father AND mother both have an Afghan passport and Tazkira?",
@@ -2085,6 +2097,17 @@
       test_btn: "🧪 Free passport test — 1 minute", test_short: "Passport test",
       d_lostcopy: "Photo, scan or copy of your lost Afghan passport", d_contact: "Your email address and phone number",
       soc_follow: "Follow us:", soc_follow2: "Follow ALAKHIL MOBILE",
+      o_have: "Yes, I have it", o_have_s: "The passport is with me",
+      o_lost: "It is lost or stolen", o_lost_s: "I only have a photo, scan or copy of it",
+      o_pass_never_s: "I only have a Tazkira",
+      q_exp: "Look at “<bdi dir=\"ltr\">Date of expiry</bdi>” in your passport. Which is true?",
+      q_lexp: "Look at “<bdi dir=\"ltr\">Date of expiry</bdi>” on the photo or copy. Which is true?",
+      qz_example: "Example — find this date in your passport",
+      o_exp_past: "The date has already passed", o_exp_past_s: "Expired",
+      o_exp_soon: "Before {date}", o_exp_soon_s: "Less than 1 year left",
+      o_exp_far: "After {date}", o_exp_far_s: "More than 1 year left",
+      q_police: "Do you have a police report about the lost passport?", q_police_s: "From the police in the country where you live",
+      x_police: "Your lost passport still has more than 1 year left, so the consulate needs a police report. Go to the police first, then come back.",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -2258,8 +2281,8 @@
       qz_title: "🧪 تست پاسپورت — آیا می‌توانم پاسپورت جدید بگیرم؟", qz_intro: "تست رایگان قبل از درخواست. به چند سوال ساده جواب دهید (۱ دقیقه).",
       q_live: "در کجا زندگی می‌کنید؟", o_live_ok: "بریتانیا، امریکا، کانادا، آسترالیا یا اروپا", o_live_de: "آلمان", o_live_other: "کشور دیگر",
       q_who: "پاسپورت برای کیست؟", o_adult: "برای خودم (بزرگسال، ۱۸+)", o_child: "برای طفلم (زیر ۱۸)",
-      q_pass: "پاسپورت قبلی افغانی شما؟", o_pass_exp: "تاریخش ختم شده، یا کمتر از ۱ سال مانده", o_pass_lost: "گم شده — عکس یا کاپی آن را دارم",
-      o_pass_valid: "هنوز بیشتر از ۱ سال اعتبار دارد", o_pass_never: "هرگز پاسپورت نداشته‌ام",
+      q_pass: "آیا پاسپورت قبلی افغانی خود را دارید؟", o_pass_exp: "تاریخش ختم شده، یا کمتر از ۱ سال مانده", o_pass_lost: "گم شده — عکس یا کاپی آن را دارم",
+      o_pass_valid: "هنوز بیشتر از ۱ سال اعتبار دارد", o_pass_never: "هرگز پاسپورت افغانی نداشته‌ام",
       q_taz: "آیا تذکره دارید؟ (کاغذی یا الکترونیکی)",
       q_res: "آیا سندی دارید که نشان دهد در این کشور زندگی می‌کنید؟", q_res_s: "کارت اقامت، کارت هویت، ویزه، تصدیق پناهندگی یا اقامت موقت",
       q_par: "آیا پدر و مادر هر دو پاسپورت و تذکرهٔ افغانی دارند؟",
@@ -2302,6 +2325,17 @@
       test_btn: "🧪 تست رایگان پاسپورت — ۱ دقیقه", test_short: "تست پاسپورت",
       d_lostcopy: "عکس، اسکن یا کاپی پاسپورت گم‌شدهٔ شما", d_contact: "آدرس ایمیل و شمارهٔ تلفون شما",
       soc_follow: "ما را دنبال کنید:", soc_follow2: "ALAKHIL MOBILE را دنبال کنید",
+      o_have: "بلی، دارم", o_have_s: "پاسپورت پیش خودم است",
+      o_lost: "گم یا دزدی شده", o_lost_s: "فقط عکس، اسکن یا کاپی آن را دارم",
+      o_pass_never_s: "فقط تذکره دارم",
+      q_exp: "به «<bdi dir=\"ltr\">Date of expiry</bdi>» (تاریخ ختم) در پاسپورت خود نگاه کنید. کدام درست است؟",
+      q_lexp: "به «<bdi dir=\"ltr\">Date of expiry</bdi>» (تاریخ ختم) در عکس یا کاپی نگاه کنید. کدام درست است؟",
+      qz_example: "مثال — این تاریخ را در پاسپورت خود پیدا کنید",
+      o_exp_past: "تاریخ گذشته است", o_exp_past_s: "ختم شده",
+      o_exp_soon: "قبل از {date}", o_exp_soon_s: "کمتر از ۱ سال مانده",
+      o_exp_far: "بعد از {date}", o_exp_far_s: "بیشتر از ۱ سال مانده",
+      q_police: "آیا گزارش پولیس دربارهٔ گم شدن پاسپورت دارید؟", q_police_s: "از پولیس کشوری که در آن زندگی می‌کنید",
+      x_police: "پاسپورت گم‌شدهٔ شما هنوز بیشتر از ۱ سال اعتبار دارد، پس قونسلگری گزارش پولیس می‌خواهد. اول به پولیس بروید، بعد برگردید.",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -2475,8 +2509,8 @@
       qz_title: "🧪 د پاسپورټ ازموینه — ایا زه نوی پاسپورټ اخیستلی شم؟", qz_intro: "له غوښتنې مخکې وړیا ازموینه. څو اسانو پوښتنو ته ځواب ورکړئ (۱ دقیقه).",
       q_live: "چېرته اوسېږئ؟", o_live_ok: "بریتانیا، امریکا، کاناډا، آسټرالیا یا اروپا", o_live_de: "آلمان", o_live_other: "بل هېواد",
       q_who: "پاسپورټ د چا لپاره دی؟", o_adult: "زما لپاره (لوی، ۱۸+)", o_child: "زما د ماشوم لپاره (له ۱۸ کم)",
-      q_pass: "ستاسو پخوانی افغاني پاسپورټ؟", o_pass_exp: "نېټه یې پوره شوې، یا له ۱ کال کم پاتې", o_pass_lost: "ورک شوی — عکس یا کاپي یې لرم",
-      o_pass_valid: "لا هم له ۱ کال زیات اعتبار لري", o_pass_never: "هېڅکله مې پاسپورټ نه دی لرلی",
+      q_pass: "ایا خپل پخوانی افغاني پاسپورټ لرئ؟", o_pass_exp: "نېټه یې پوره شوې، یا له ۱ کال کم پاتې", o_pass_lost: "ورک شوی — عکس یا کاپي یې لرم",
+      o_pass_valid: "لا هم له ۱ کال زیات اعتبار لري", o_pass_never: "هېڅکله مې افغاني پاسپورټ نه دی لرلی",
       q_taz: "ایا تذکره لرئ؟ (کاغذي یا برېښنايي)",
       q_res: "ایا داسې سند لرئ چې ثابته کړي په دې هېواد کې اوسېږئ؟", q_res_s: "د اقامت کارت، د هویت کارت، ویزه، د پناه یا لنډمهاله اقامت تصدیق",
       q_par: "ایا پلار او مور دواړه افغاني پاسپورټ او تذکره لري؟",
@@ -2519,6 +2553,17 @@
       test_btn: "🧪 د پاسپورټ وړیا ازموینه — ۱ دقیقه", test_short: "د پاسپورټ ازموینه",
       d_lostcopy: "د ورک شوي پاسپورټ عکس، سکن یا کاپي", d_contact: "ستاسو د ایمیل پته او د تلیفون شمېره",
       soc_follow: "موږ فالو کړئ:", soc_follow2: "ALAKHIL MOBILE فالو کړئ",
+      o_have: "هو، لرم یې", o_have_s: "پاسپورټ زما سره دی",
+      o_lost: "ورک یا غلا شوی", o_lost_s: "یوازې یې عکس، سکن یا کاپي لرم",
+      o_pass_never_s: "یوازې تذکره لرم",
+      q_exp: "په خپل پاسپورټ کې «<bdi dir=\"ltr\">Date of expiry</bdi>» (د پای نېټه) وګورئ. کوم یو سم دی؟",
+      q_lexp: "په عکس یا کاپي کې «<bdi dir=\"ltr\">Date of expiry</bdi>» (د پای نېټه) وګورئ. کوم یو سم دی؟",
+      qz_example: "بېلګه — دا نېټه په خپل پاسپورټ کې پیدا کړئ",
+      o_exp_past: "نېټه تېره شوې", o_exp_past_s: "پای ته رسېدلی",
+      o_exp_soon: "تر {date} مخکې", o_exp_soon_s: "له ۱ کال کم پاتې",
+      o_exp_far: "تر {date} وروسته", o_exp_far_s: "له ۱ کال زیات پاتې",
+      q_police: "ایا د ورک شوي پاسپورټ په اړه د پولیسو راپور لرئ؟", q_police_s: "د هغه هېواد له پولیسو چې پکې اوسېږئ",
+      x_police: "ستاسو ورک شوی پاسپورټ لا له ۱ کال زیات اعتبار لري، نو قونسلګري د پولیسو راپور غواړي. لومړی پولیسو ته ورشئ، بیا راشئ.",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
@@ -2838,7 +2883,10 @@
   var QUIZ = {
     live:    { q: "q_live", opts: [["<img class='flag' src='flags/gb.svg' alt='' width='20' height='15'><img class='flag' src='flags/us.svg' alt='' width='20' height='15'><img class='flag' src='flags/ca.svg' alt='' width='20' height='15'><img class='flag' src='flags/au.svg' alt='' width='20' height='15'><img class='flag' src='flags/eu.svg' alt='' width='20' height='15'>", "o_live_ok", "who"], ["<img class='flag' src='flags/de.svg' alt='' width='20' height='15'>", "o_live_de", "x_de"], ["🌍", "o_live_other", "x_other"]] },
     who:     { q: "q_who", opts: [["🧑", "o_adult", "pass"], ["👶", "o_child", "parents"]] },
-    pass:    { q: "q_pass", opts: [["📘", "o_pass_exp", "taz"], ["🚓", "o_pass_lost", "taz", "n_police"], ["⏳", "o_pass_valid", "x_valid"], ["🚫", "o_pass_never", "x_never"]] },
+    pass:    { q: "q_pass", opts: [["📘", "o_have", "exp"], ["🚓", "o_lost", "lexp"], ["🚫", "o_pass_never", "x_never"]] },
+    exp:     { q: "q_exp", hint: true, opts: [["⌛", "o_exp_past", "taz"], ["⏳", "o_exp_soon", "taz"], ["📅", "o_exp_far", "x_valid"]] },
+    lexp:    { q: "q_lexp", hint: true, opts: [["⌛", "o_exp_past", "taz"], ["⏳", "o_exp_soon", "taz"], ["📅", "o_exp_far", "police"]] },
+    police:  { q: "q_police", sub: "q_police_s", opts: [["✅", "o_yes", "taz"], ["❌", "o_no", "x_police"]] },
     taz:     { q: "q_taz", opts: [["✅", "o_yes", "res"], ["❌", "o_no", "x_taz"]] },
     res:     { q: "q_res", sub: "q_res_s", opts: [["✅", "o_yes", "name"], ["❌", "o_no", "x_res"]] },
     name:    { q: "q_name", opts: [["✅", "o_same", "ok"], ["✏️", "o_diff", "name2"]] },
@@ -2848,6 +2896,22 @@
     cres:    { q: "q_cres", opts: [["✅", "o_yes", "ok"], ["❌", "o_no", "x_res"]] }
   };
   var qPath = []; // [[node, optionIndex], ...]
+  function yearAhead() {
+    var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+    var m = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"][d.getMonth()];
+    return '<span class="qz-date">' + ("0" + d.getDate()).slice(-2) + " " + m + " " + d.getFullYear() + "</span>";
+  }
+  function L(k) { var v = T[lang][k]; return v ? String(v).replace("{date}", yearAhead()) : ""; }
+  var PASS_HINT = '<div class="qz-hint"><svg viewBox="0 0 300 140" aria-hidden="true" direction="ltr" style="direction:ltr">' +
+    '<rect x="4" y="4" width="292" height="132" rx="12" fill="#f6efd8" stroke="#d8c99b" stroke-width="2"/>' +
+    '<text x="16" y="24" font-size="11" font-weight="800" fill="#127a64" font-family="Arial">PASSPORT · AFG</text>' +
+    '<rect x="16" y="34" width="62" height="78" rx="6" fill="#dfe8e4" stroke="#b9c9c3"/><circle cx="47" cy="62" r="13" fill="#9fb4ad"/><path d="M26 108c0-16 42-16 42 0z" fill="#9fb4ad"/>' +
+    '<rect x="92" y="36" width="120" height="7" rx="3.5" fill="#cfc3a0"/><rect x="92" y="52" width="90" height="7" rx="3.5" fill="#cfc3a0"/><rect x="92" y="68" width="105" height="7" rx="3.5" fill="#cfc3a0"/>' +
+    '<rect x="86" y="82" width="160" height="40" rx="8" fill="#ffe36b" stroke="#e0a800" stroke-width="2.5"/>' +
+    '<text x="94" y="97" font-size="10.5" font-weight="700" fill="#5b4300" font-family="Arial">Date of expiry</text>' +
+    '<text x="94" y="115" font-size="15" font-weight="900" fill="#11182b" font-family="Arial">12 MAR 2025</text>' +
+    '<path d="M268 72 L252 92" stroke="#d62828" stroke-width="4" stroke-linecap="round"/><path d="M246 84 L252 92 L261 88" fill="none" stroke="#d62828" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>' +
+    '</svg><small>' + "{EX}" + "</small></div>";
   function qNode() {
     var node = "live";
     qPath.forEach(function (st) { node = QUIZ[st[0]].opts[st[1]][2]; });
@@ -2857,24 +2921,27 @@
     var box = $("quiz"); if (!box) return;
     var node = qNode(), html = "";
     var steps = qPath.length;
-    html += '<div class="qz-dots">' + Array.apply(null, Array(Math.max(6, steps + 1))).map(function (_, i) { return '<i class="' + (i < steps ? "on" : i === steps && QUIZ[node] ? "cur" : "") + '"></i>'; }).join("") + "</div>";
+    html += '<div class="qz-dots">' + Array.apply(null, Array(Math.max(7, steps + 1))).map(function (_, i) { return '<i class="' + (i < steps ? "on" : i === steps && QUIZ[node] ? "cur" : "") + '"></i>'; }).join("") + "</div>";
     if (steps) html += '<div class="qz-done">' + qPath.map(function (st) {
       var o = QUIZ[st[0]].opts[st[1]];
-      return '<div class="qz-ans"><span class="qz-ck">✓</span><span class="qz-e">' + o[0] + "</span><span>" + t(o[1]) + "</span></div>";
+      return '<div class="qz-ans"><span class="qz-ck">✓</span><span class="qz-e">' + o[0] + "</span><span>" + L(o[1]) + "</span></div>";
     }).join("") + "</div>";
     if (QUIZ[node]) {
       var n = QUIZ[node];
-      html += '<div class="qz-q">' + t(n.q) + (n.sub ? '<small>' + t(n.sub) + "</small>" : "") + "</div>";
+      html += '<div class="qz-q">' + L(n.q) + (n.sub ? '<small>' + L(n.sub) + "</small>" : "") + "</div>";
+      if (n.hint) html += PASS_HINT.replace("{EX}", L("qz_example"));
       html += '<div class="qz-opts">' + n.opts.map(function (o, i) {
-        return '<button type="button" class="qz-opt" data-i="' + i + '"><span class="qz-e' + ((o[0].match(/<img/g) || []).length > 1 ? " multi" : "") + '">' + o[0] + "</span><span class=\"qz-t\">" + t(o[1]) + '</span><span class="qz-tick" aria-hidden="true"></span></button>';
+        return '<button type="button" class="qz-opt" data-i="' + i + '"><span class="qz-e' + ((o[0].match(/<img/g) || []).length > 1 ? " multi" : "") + '">' + o[0] + "</span><span class=\"qz-t\"><b>" + L(o[1]) + "</b>" + (L(o[1] + "_s") ? "<small>" + L(o[1] + "_s") + "</small>" : "") + '</span><span class="qz-tick" aria-hidden="true"></span></button>';
       }).join("") + "</div>";
     } else {
       var notes = qPath.map(function (st) { return QUIZ[st[0]].opts[st[1]][3]; }).filter(Boolean);
       if (node === "ok") {
         var isChild = qPath.some(function (st) { return st[0] === "who" && st[1] === 1; });
-        var lost = notes.indexOf("n_police") >= 0, nameOk = notes.indexOf("n_name_ok") >= 0;
+        var lost = qPath.some(function (st) { return st[0] === "pass" && st[1] === 1; });
+        var police = qPath.some(function (st) { return st[0] === "police"; });
+        var nameOk = notes.indexOf("n_name_ok") >= 0;
         var docs = isChild ? ["d_birth", "d_ppass", "d_ptaz", "d_marr", "d_cphoto", "d_cres"]
-                           : [lost ? "d_lostcopy" : "d_pass", "d_taz", "d_res", "d_photo"].concat(lost ? ["d_police"] : []).concat(nameOk ? ["d_etaz"] : []).concat(["d_contact"]);
+                           : [lost ? "d_lostcopy" : "d_pass", "d_taz", "d_res", "d_photo"].concat(police ? ["d_police"] : []).concat(nameOk ? ["d_etaz"] : []).concat(["d_contact"]);
         var fees = PASSPORTS.map(function (x) {
           return '<div class="r-fee"><span>' + (x.urgent ? "⚡ " : "🕐 ") + passportName(x) + '</span><b class="num">≈ €' + eTot(x) + "</b><small>" + (x.urgent ? t("sim_wk_urg") : t("sim_wk_std")) + "</small></div>";
         }).join("");
@@ -2901,7 +2968,7 @@
     var wa = $("qzWa");
     if (wa) {
       var lines = [t("m_hello"), "", (node === "ok" ? "✅ " + t("qz_msg") : "❓ " + t("r_no") + " — " + t(node)), ""];
-      qPath.forEach(function (st) { var n = QUIZ[st[0]]; lines.push("• " + t(n.q).replace(/<[^>]+>/g, "") + " → " + t(n.opts[st[1]][1])); });
+      qPath.forEach(function (st) { var n = QUIZ[st[0]]; lines.push("• " + L(n.q).replace(/<[^>]+>/g, "") + " → " + L(n.opts[st[1]][1]).replace(/<[^>]+>/g, "")); });
       wa.href = "https://wa.me/33605654592?text=" + encodeURIComponent(lines.join("\n"));
     }
   }
