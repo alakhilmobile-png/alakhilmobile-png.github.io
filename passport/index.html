@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="site-version" content="50">
+<meta name="site-version" content="51">
 <title>Afghan Passport Online via Dubai — پاسپورت افغانی — افغاني پاسپورټ | ALAKHIL MOBILE</title>
 <meta name="description" content="New Afghan passport from the Afghan Consulate in Dubai, delivered to your home in Europe (except Germany), UK, USA, Canada and Australia. پاسپورت جدید افغانی از قونسلگری دبی — نوی افغاني پاسپورټ د دوبۍ له قونسلګرۍ. Documents, prices, WhatsApp help in Pashto, Dari, English.">
 <meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
@@ -1331,6 +1331,26 @@
   .r-two { margin: 18px 0 2px; text-align: center; font-weight: 900; font-size: 18px; }
   .qz-self { width: 100%; min-height: 52px; margin-top: 10px; font-size: 16px; }
   .qz-share { display: block; margin-top: 12px; text-align: center; font-weight: 800; color: #0b7a39; text-decoration: none; }
+
+  /* ===== Social buttons ===== */
+  .social { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+  .me-card .social { grid-column: 1 / -1; }
+  .soc-lbl { font-size: 14px; font-weight: 800; color: #4c5468; }
+  .soc { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px 7px 8px; border-radius: 999px; text-decoration: none; color: #fff; font-weight: 800; font-size: 14.5px;
+    position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.45);
+    box-shadow: 0 6px 14px var(--sh), inset 0 1.5px 0 rgba(255,255,255,.7), inset 0 -2px 4px rgba(0,0,0,.2); transition: transform .15s ease; }
+  .soc::after { content: ""; position: absolute; left: 6%; right: 6%; top: 2px; height: 45%; border-radius: 999px; background: linear-gradient(180deg, rgba(255,255,255,.5), rgba(255,255,255,0)); pointer-events: none; }
+  .soc svg { width: 26px; height: 26px; padding: 4px; border-radius: 50%; background: rgba(255,255,255,.2); flex: none; }
+  .soc:active { transform: scale(.95); }
+  .soc.fb { background: linear-gradient(180deg, #4f8df7 0%, #1877f2 50%, #0f5bc4 100%); --sh: rgba(24,119,242,.35); }
+  .soc.wa { background: linear-gradient(180deg, #3fe08a 0%, #16b558 50%, #0c9446 100%); --sh: rgba(22,181,88,.35); }
+  .soc.tt { background: linear-gradient(180deg, #2a2a2a 0%, #111 50%, #000 100%); --sh: rgba(0,0,0,.3); }
+  .in-foot { justify-content: flex-start; margin-bottom: 16px; }
+  html[dir="rtl"] .in-foot { justify-content: flex-start; }
+  .in-foot .soc-lbl { width: 100%; color: #3d4558; }
+  .me-card .social .soc-lbl { width: 100%; text-align: center; margin-bottom: -2px; }
+  @media (max-width: 520px) { .me-card .soc { padding: 5px 12px 5px 6px; font-size: 13.5px; } .me-card .soc svg { width: 22px; height: 22px; } }
+  .me-card .social .soc.wa { display: none; }
 </style>
 </head>
 <body>
@@ -1529,6 +1549,7 @@
       <p class="me-line" data-t="me_line"></p>
     </div>
     <div class="me-only"><span data-t="me_only"></span> <bdi dir="ltr"><a class="num" dir="ltr" href="tel:+33605654592">+33 6 05 65 45 92</a></bdi></div>
+    <div class="social in-card"><span class="soc-lbl" data-t="soc_follow"></span><a class="soc fb" href="https://www.facebook.com/share/1cukCs4Q4B/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M13.6 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21z"/></svg><span>Facebook</span></a><a class="soc wa" href="https://wa.me/33605654592" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.2-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6 0-5.9 4.9-10.7 11-10.7s11 4.8 11 10.7-4.9 10.8-10.9 10.8zm6-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg><span>WhatsApp</span></a></div>
     <a class="btn btn-wa me-wa" id="meWa" href="https://wa.me/33605654592" target="_blank" rel="noopener"><span>💬</span> <span data-t="me_wa"></span></a>
     <button type="button" class="inst-btn inst-link inst-trigger hidden"><span>📲</span> <span data-t="inst_btn"></span></button>
   </div>
@@ -1842,12 +1863,13 @@
 <footer>
   <div class="pattern" aria-hidden="true"></div>
   <div class="wrap" style="position:relative;z-index:1">
+    <div class="social in-foot"><span class="soc-lbl" data-t="soc_follow2"></span><a class="soc fb" href="https://www.facebook.com/share/1cukCs4Q4B/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M13.6 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21z"/></svg><span>Facebook</span></a><a class="soc wa" href="https://wa.me/33605654592" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.2-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6 0-5.9 4.9-10.7 11-10.7s11 4.8 11 10.7-4.9 10.8-10.9 10.8zm6-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg><span>WhatsApp</span></a></div>
     <div class="foot-brand"><span class="shine sh-foot"><span class="sweep"></span><img loading="lazy" decoding="async" src="logo-full.jpg" alt="ALAKHIL MOBILE — Qualité et satisfaction" width="120" height="118"></span></div>
     <p data-t="disclaimer"></p>
     <p data-t="privacy"></p>
     <p data-t="sim_keep"></p>
     <p data-t="prices_note"></p>
-    <p class="ver">v50</p>
+    <p class="ver">v51</p>
   </div>
 </footer>
 
@@ -2062,6 +2084,7 @@
       qz_share_msg: "🧪 Free test: can you get a new Afghan passport from the Dubai consulate? Check in 1 minute 👇",
       test_btn: "🧪 Free passport test — 1 minute", test_short: "Passport test",
       d_lostcopy: "Photo, scan or copy of your lost Afghan passport", d_contact: "Your email address and phone number",
+      soc_follow: "Follow us:", soc_follow2: "Follow ALAKHIL MOBILE",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -2278,6 +2301,7 @@
       qz_share_msg: "🧪 تست رایگان: آیا می‌توانید پاسپورت جدید افغانی از قونسلگری دبی بگیرید؟ در ۱ دقیقه بررسی کنید 👇",
       test_btn: "🧪 تست رایگان پاسپورت — ۱ دقیقه", test_short: "تست پاسپورت",
       d_lostcopy: "عکس، اسکن یا کاپی پاسپورت گم‌شدهٔ شما", d_contact: "آدرس ایمیل و شمارهٔ تلفون شما",
+      soc_follow: "ما را دنبال کنید:", soc_follow2: "ALAKHIL MOBILE را دنبال کنید",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -2494,6 +2518,7 @@
       qz_share_msg: "🧪 وړیا ازموینه: ایا تاسو د دوبۍ له قونسلګرۍ نوی افغاني پاسپورټ اخیستلی شئ؟ په ۱ دقیقه کې یې وګورئ 👇",
       test_btn: "🧪 د پاسپورټ وړیا ازموینه — ۱ دقیقه", test_short: "د پاسپورټ ازموینه",
       d_lostcopy: "د ورک شوي پاسپورټ عکس، سکن یا کاپي", d_contact: "ستاسو د ایمیل پته او د تلیفون شمېره",
+      soc_follow: "موږ فالو کړئ:", soc_follow2: "ALAKHIL MOBILE فالو کړئ",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
