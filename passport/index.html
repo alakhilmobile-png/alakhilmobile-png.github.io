@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="site-version" content="53">
+<meta name="site-version" content="54">
 <title>Afghan Passport Online via Dubai — پاسپورت افغانی — افغاني پاسپورټ | ALAKHIL MOBILE</title>
 <meta name="description" content="New Afghan passport from the Afghan Consulate in Dubai, delivered to your home in Europe (except Germany), UK, USA, Canada and Australia. پاسپورت جدید افغانی از قونسلگری دبی — نوی افغاني پاسپورټ د دوبۍ له قونسلګرۍ. Documents, prices, WhatsApp help in Pashto, Dari, English.">
 <meta property="og:title" content="ALAKHIL MOBILE — Afghan Passport Online / پاسپورت افغانی / افغاني پاسپورټ">
@@ -1363,6 +1363,18 @@
   .qz-hint small { display: block; margin-top: 6px; font-size: 13.5px; font-weight: 700; color: #5b6478; }
   .qz-hint svg text { direction: ltr; unicode-bidi: bidi-override; }
   .qz-q bdi { white-space: nowrap; }
+
+  /* ===== Electronic vs handwritten passport (v54) ===== */
+  .qz-q u { text-decoration-color: #e0a800; text-decoration-thickness: 3px; text-underline-offset: 5px; }
+  .qz-chip { display: flex; justify-content: center; gap: 18px; margin: -4px 0 14px; }
+  .qz-chip .cv { position: relative; width: 112px; text-align: center; }
+  .qz-chip svg { width: 78px; height: auto; display: block; margin: 0 auto; filter: drop-shadow(0 6px 10px rgba(30,40,80,.2)); }
+  .qz-chip b { position: absolute; top: -6px; right: 10px; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 14px; border: 2px solid #fff; }
+  .qz-chip .ok b { background: linear-gradient(180deg, #3fe08a, #0c9446); }
+  .qz-chip .no b { background: linear-gradient(180deg, #f3a59f, #d65a50); }
+  .qz-chip .no svg { opacity: .75; }
+  .qz-chip small { display: block; margin-top: 6px; font-size: 12.5px; font-weight: 800; line-height: 1.35; color: #3c4870; }
+  .qz-chip .no small { color: #b4453c; }
 </style>
 </head>
 <body>
@@ -1881,7 +1893,7 @@
     <p data-t="privacy"></p>
     <p data-t="sim_keep"></p>
     <p data-t="prices_note"></p>
-    <p class="ver">v53</p>
+    <p class="ver">v54</p>
   </div>
 </footer>
 
@@ -2030,7 +2042,7 @@
       sim_steps: "3 easy steps",
       sim_s1: "Send photos of <u>these documents</u> on WhatsApp", sim_s2: "Pay our €50 service", sim_s3: "Your passport comes to your home", sim_s3b: "2–4 weeks",
       sim_send: "What to send?",
-      sim_d1: "Old Afghan passport", sim_d2: "Tazkira", sim_d3: "Proof you live here", sim_d4: "Face photo (phone)", sim_d5: "Phone number + email",
+      sim_d1: "Old Afghan electronic passport", sim_d2: "Tazkira", sim_d3: "Proof you live here", sim_d4: "Face photo (phone)", sim_d5: "Phone number + email",
       sim_child: "For a child:", sim_c1: "Birth certificate", sim_c2: "Parents' passports + Tazkira", sim_c3: "Marriage certificate",
       sim_price: "Price", sim_p5: "5 years", sim_p10: "10 years", sim_plus: "+ €50 our service — everything included",
       sim_no: "Not possible", sim_n1: "Living in Germany", sim_n2: "Never had an Afghan passport", sim_n3: "Other countries",
@@ -2053,7 +2065,7 @@
       qz_title: "🧪 Passport test — can I get a new passport?", qz_intro: "Free test before you apply. Answer a few easy questions (1 minute).",
       q_live: "Where do you live?", o_live_ok: "UK, USA, Canada, Australia or Europe", o_live_de: "Germany", o_live_other: "Another country",
       q_who: "Who is the passport for?", o_adult: "Me (adult, 18+)", o_child: "My child (under 18)",
-      q_pass: "Do you have your old Afghan passport?", o_pass_exp: "Expired, or less than 1 year left", o_pass_lost: "Lost — I have a photo or copy",
+      q_pass: "Do you have your old Afghan <u>electronic</u> passport?", o_pass_exp: "Expired, or less than 1 year left", o_pass_lost: "Lost — I have a photo or copy",
       o_pass_valid: "Still more than 1 year left", o_pass_never: "I never had an Afghan passport",
       q_taz: "Do you have a Tazkira? (paper or electronic)",
       q_res: "Do you have a document that proves you live in your country?", q_res_s: "Residence card, ID card, visa, asylum or temporary attestation",
@@ -2108,6 +2120,10 @@
       o_exp_far: "After {date}", o_exp_far_s: "More than 1 year left",
       q_police: "Do you have a police report about the lost passport?", q_police_s: "From the police in the country where you live",
       x_police: "Your lost passport still has more than 1 year left, so the consulate needs a police report. Go to the police first, then come back.",
+      q_pass_s: "The electronic passport has this chip symbol on the cover. Old handwritten passports are not accepted.",
+      chip_ok: "Electronic (chip symbol) — accepted", chip_no: "Old handwritten — not accepted",
+      o_hand: "I only have an old handwritten passport", o_hand_s: "No chip symbol on the cover",
+      x_hand: "Old handwritten (non-electronic) passports are not accepted by the Dubai consulate. Only a previous electronic passport is accepted.",
       safety: "Never send your bank card details to anyone — not even to us. You pay the consulate yourself, only through the yellow PAY NOW button in the consulate's email.",
       form_title: "Send your documents on WhatsApp",
       form_intro: "Fill in this short form. WhatsApp opens with your details ready — then <b>attach photos of your documents</b> in the chat and press send.",
@@ -2258,7 +2274,7 @@
       sim_steps: "۳ قدم ساده",
       sim_s1: "عکس <u>این اسناد</u> را در واتساپ بفرستید", sim_s2: "۵۰ یوروی خدمات ما را بپردازید", sim_s3: "پاسپورت شما به خانه می‌آید", sim_s3b: "۲ تا ۴ هفته",
       sim_send: "چه چیزی بفرستید؟",
-      sim_d1: "پاسپورت قبلی افغانی", sim_d2: "تذکره", sim_d3: "سند اقامت در این کشور", sim_d4: "عکس چهره (با تلفون)", sim_d5: "شمارهٔ تلفون + ایمیل",
+      sim_d1: "پاسپورت قبلی الکترونیکی افغانی", sim_d2: "تذکره", sim_d3: "سند اقامت در این کشور", sim_d4: "عکس چهره (با تلفون)", sim_d5: "شمارهٔ تلفون + ایمیل",
       sim_child: "برای طفل:", sim_c1: "سند تولد", sim_c2: "پاسپورت و تذکرهٔ پدر و مادر", sim_c3: "نکاح‌خط",
       sim_price: "قیمت", sim_p5: "۵ ساله", sim_p10: "۱۰ ساله", sim_plus: "+ ۵۰ یورو خدمات ما — همه‌چیز شامل",
       sim_no: "ممکن نیست", sim_n1: "زندگی در آلمان", sim_n2: "هرگز پاسپورت افغانی نداشته‌اید", sim_n3: "کشورهای دیگر",
@@ -2281,7 +2297,7 @@
       qz_title: "🧪 تست پاسپورت — آیا می‌توانم پاسپورت جدید بگیرم؟", qz_intro: "تست رایگان قبل از درخواست. به چند سوال ساده جواب دهید (۱ دقیقه).",
       q_live: "در کجا زندگی می‌کنید؟", o_live_ok: "بریتانیا، امریکا، کانادا، آسترالیا یا اروپا", o_live_de: "آلمان", o_live_other: "کشور دیگر",
       q_who: "پاسپورت برای کیست؟", o_adult: "برای خودم (بزرگسال، ۱۸+)", o_child: "برای طفلم (زیر ۱۸)",
-      q_pass: "آیا پاسپورت قبلی افغانی خود را دارید؟", o_pass_exp: "تاریخش ختم شده، یا کمتر از ۱ سال مانده", o_pass_lost: "گم شده — عکس یا کاپی آن را دارم",
+      q_pass: "آیا پاسپورت قبلی <u>الکترونیکی</u> افغانی دارید؟", o_pass_exp: "تاریخش ختم شده، یا کمتر از ۱ سال مانده", o_pass_lost: "گم شده — عکس یا کاپی آن را دارم",
       o_pass_valid: "هنوز بیشتر از ۱ سال اعتبار دارد", o_pass_never: "هرگز پاسپورت افغانی نداشته‌ام",
       q_taz: "آیا تذکره دارید؟ (کاغذی یا الکترونیکی)",
       q_res: "آیا سندی دارید که نشان دهد در این کشور زندگی می‌کنید؟", q_res_s: "کارت اقامت، کارت هویت، ویزه، تصدیق پناهندگی یا اقامت موقت",
@@ -2336,6 +2352,10 @@
       o_exp_far: "بعد از {date}", o_exp_far_s: "بیشتر از ۱ سال مانده",
       q_police: "آیا گزارش پولیس دربارهٔ گم شدن پاسپورت دارید؟", q_police_s: "از پولیس کشوری که در آن زندگی می‌کنید",
       x_police: "پاسپورت گم‌شدهٔ شما هنوز بیشتر از ۱ سال اعتبار دارد، پس قونسلگری گزارش پولیس می‌خواهد. اول به پولیس بروید، بعد برگردید.",
+      q_pass_s: "پاسپورت الکترونیکی این علامهٔ چیپ را روی جلد دارد. پاسپورت‌های قدیمی دست‌نویس پذیرفته نمی‌شوند.",
+      chip_ok: "الکترونیکی (علامهٔ چیپ) — پذیرفته می‌شود", chip_no: "قدیمی دست‌نویس — پذیرفته نمی‌شود",
+      o_hand: "فقط پاسپورت قدیمی دست‌نویس دارم", o_hand_s: "روی جلد علامهٔ چیپ ندارد",
+      x_hand: "پاسپورت‌های قدیمی دست‌نویس (غیر الکترونیکی) را قونسلگری دبی نمی‌پذیرد. فقط پاسپورت قبلی الکترونیکی پذیرفته می‌شود.",
       safety: "معلومات کارت بانکی خود را هرگز به هیچ‌کس نفرستید — حتی به ما. شما خودتان فقط از طریق دکمهٔ زرد PAY NOW در ایمیل قونسلگری پرداخت می‌کنید.",
       form_title: "اسناد خود را از طریق واتساپ بفرستید",
       form_intro: "این فورم کوتاه را پُر کنید. واتساپ با معلومات شما باز می‌شود — بعد <b>عکس اسناد خود را</b> در چت ضمیمه کنید و بفرستید.",
@@ -2486,7 +2506,7 @@
       sim_steps: "۳ اسانه ګامونه",
       sim_s1: "د <u>دې اسنادو</u> عکسونه په واټساپ کې ولېږئ", sim_s2: "زموږ د خدمت ۵۰ یورو ورکړئ", sim_s3: "ستاسو پاسپورټ کور ته درځي", sim_s3b: "۲ تر ۴ اونۍ",
       sim_send: "څه ولېږئ؟",
-      sim_d1: "پخوانی افغاني پاسپورټ", sim_d2: "تذکره", sim_d3: "په دې هېواد کې د اوسېدو سند", sim_d4: "د مخ عکس (موبایل)", sim_d5: "د تلیفون شمېره + ایمیل",
+      sim_d1: "پخوانی افغاني برېښنايي پاسپورټ", sim_d2: "تذکره", sim_d3: "په دې هېواد کې د اوسېدو سند", sim_d4: "د مخ عکس (موبایل)", sim_d5: "د تلیفون شمېره + ایمیل",
       sim_child: "د ماشوم لپاره:", sim_c1: "د زېږېدو سند", sim_c2: "د مور او پلار پاسپورټ او تذکره", sim_c3: "نکاح خط",
       sim_price: "بیه", sim_p5: "۵ کلن", sim_p10: "۱۰ کلن", sim_plus: "+ زموږ د خدمت ۵۰ یورو — هر څه شامل",
       sim_no: "ممکنه نه ده", sim_n1: "په آلمان کې اوسېدل", sim_n2: "هېڅکله مو افغاني پاسپورټ نه دی لرلی", sim_n3: "نور هېوادونه",
@@ -2509,7 +2529,7 @@
       qz_title: "🧪 د پاسپورټ ازموینه — ایا زه نوی پاسپورټ اخیستلی شم؟", qz_intro: "له غوښتنې مخکې وړیا ازموینه. څو اسانو پوښتنو ته ځواب ورکړئ (۱ دقیقه).",
       q_live: "چېرته اوسېږئ؟", o_live_ok: "بریتانیا، امریکا، کاناډا، آسټرالیا یا اروپا", o_live_de: "آلمان", o_live_other: "بل هېواد",
       q_who: "پاسپورټ د چا لپاره دی؟", o_adult: "زما لپاره (لوی، ۱۸+)", o_child: "زما د ماشوم لپاره (له ۱۸ کم)",
-      q_pass: "ایا خپل پخوانی افغاني پاسپورټ لرئ؟", o_pass_exp: "نېټه یې پوره شوې، یا له ۱ کال کم پاتې", o_pass_lost: "ورک شوی — عکس یا کاپي یې لرم",
+      q_pass: "ایا پخوانی افغاني <u>برېښنايي</u> پاسپورټ لرئ؟", o_pass_exp: "نېټه یې پوره شوې، یا له ۱ کال کم پاتې", o_pass_lost: "ورک شوی — عکس یا کاپي یې لرم",
       o_pass_valid: "لا هم له ۱ کال زیات اعتبار لري", o_pass_never: "هېڅکله مې افغاني پاسپورټ نه دی لرلی",
       q_taz: "ایا تذکره لرئ؟ (کاغذي یا برېښنايي)",
       q_res: "ایا داسې سند لرئ چې ثابته کړي په دې هېواد کې اوسېږئ؟", q_res_s: "د اقامت کارت، د هویت کارت، ویزه، د پناه یا لنډمهاله اقامت تصدیق",
@@ -2564,6 +2584,10 @@
       o_exp_far: "تر {date} وروسته", o_exp_far_s: "له ۱ کال زیات پاتې",
       q_police: "ایا د ورک شوي پاسپورټ په اړه د پولیسو راپور لرئ؟", q_police_s: "د هغه هېواد له پولیسو چې پکې اوسېږئ",
       x_police: "ستاسو ورک شوی پاسپورټ لا له ۱ کال زیات اعتبار لري، نو قونسلګري د پولیسو راپور غواړي. لومړی پولیسو ته ورشئ، بیا راشئ.",
+      q_pass_s: "برېښنايي پاسپورټ په پوښ دا د چیپ نښه لري. زاړه لاس‌لیکلي پاسپورټونه نه منل کیږي.",
+      chip_ok: "برېښنايي (د چیپ نښه) — منل کیږي", chip_no: "زوړ لاس‌لیکلی — نه منل کیږي",
+      o_hand: "یوازې زوړ لاس‌لیکلی پاسپورټ لرم", o_hand_s: "په پوښ یې د چیپ نښه نشته",
+      x_hand: "زاړه لاس‌لیکلي (غیر برېښنايي) پاسپورټونه د دوبۍ قونسلګري نه مني. یوازې پخوانی برېښنايي پاسپورټ منل کیږي.",
       safety: "د خپل بانکي کارت معلومات هېڅکله هېچا ته مه لېږئ — حتی موږ ته هم. تاسو پخپله یوازې د قونسلګرۍ په ایمیل کې د ژیړ PAY NOW تڼۍ له لارې پیسې ورکوئ.",
       form_title: "خپل اسناد د واټساپ له لارې ولېږئ",
       form_intro: "دا لنډه فورمه ډکه کړئ. واټساپ به ستاسو له معلوماتو سره خلاص شي — بیا <b>د خپلو اسنادو عکسونه</b> په چټ کې ور اضافه کړئ او ویې لېږئ.",
@@ -2883,7 +2907,7 @@
   var QUIZ = {
     live:    { q: "q_live", opts: [["<img class='flag' src='flags/gb.svg' alt='' width='20' height='15'><img class='flag' src='flags/us.svg' alt='' width='20' height='15'><img class='flag' src='flags/ca.svg' alt='' width='20' height='15'><img class='flag' src='flags/au.svg' alt='' width='20' height='15'><img class='flag' src='flags/eu.svg' alt='' width='20' height='15'>", "o_live_ok", "who"], ["<img class='flag' src='flags/de.svg' alt='' width='20' height='15'>", "o_live_de", "x_de"], ["🌍", "o_live_other", "x_other"]] },
     who:     { q: "q_who", opts: [["🧑", "o_adult", "pass"], ["👶", "o_child", "parents"]] },
-    pass:    { q: "q_pass", opts: [["📘", "o_have", "exp"], ["🚓", "o_lost", "lexp"], ["🚫", "o_pass_never", "x_never"]] },
+    pass:    { q: "q_pass", sub: "q_pass_s", chip: true, opts: [["📘", "o_have", "exp"], ["🚓", "o_lost", "lexp"], ["📜", "o_hand", "x_hand"], ["🚫", "o_pass_never", "x_never"]] },
     exp:     { q: "q_exp", hint: true, opts: [["⌛", "o_exp_past", "taz"], ["⏳", "o_exp_soon", "taz"], ["📅", "o_exp_far", "x_valid"]] },
     lexp:    { q: "q_lexp", hint: true, opts: [["⌛", "o_exp_past", "taz"], ["⏳", "o_exp_soon", "taz"], ["📅", "o_exp_far", "police"]] },
     police:  { q: "q_police", sub: "q_police_s", opts: [["✅", "o_yes", "taz"], ["❌", "o_no", "x_police"]] },
@@ -2902,6 +2926,16 @@
     return '<span class="qz-date">' + ("0" + d.getDate()).slice(-2) + " " + m + " " + d.getFullYear() + "</span>";
   }
   function L(k) { var v = T[lang][k]; return v ? String(v).replace("{date}", yearAhead()) : ""; }
+  var CHIP = '<g fill="none" stroke="#e9c46a" stroke-width="2.4"><rect x="-13" y="-8" width="26" height="16" rx="3"/><circle r="4.5"/><path d="M-13 0h8.5M4.5 0H13"/></g>';
+  var CHIP_HINT = '<div class="qz-chip">' +
+    '<div class="cv ok"><svg viewBox="0 0 90 120" aria-hidden="true"><rect x="3" y="3" width="84" height="114" rx="8" fill="#0f4f3e"/>' +
+      '<rect x="10" y="10" width="70" height="100" rx="5" fill="none" stroke="#e9c46a" stroke-opacity=".6"/>' +
+      '<circle cx="45" cy="46" r="16" fill="none" stroke="#e9c46a" stroke-width="2"/><g transform="translate(45 92)">' + CHIP + '</g>' +
+      '<circle cx="45" cy="92" r="21" fill="none" stroke="#ffd400" stroke-width="3"/></svg><b>✓</b><small>{OK}</small></div>' +
+    '<div class="cv no"><svg viewBox="0 0 90 120" aria-hidden="true"><rect x="3" y="3" width="84" height="114" rx="8" fill="#5b3a29"/>' +
+      '<rect x="10" y="10" width="70" height="100" rx="5" fill="none" stroke="#c9a46a" stroke-opacity=".5"/>' +
+      '<circle cx="45" cy="50" r="16" fill="none" stroke="#c9a46a" stroke-width="2"/><path d="M28 86h34M28 94h26" stroke="#c9a46a" stroke-width="2" stroke-linecap="round"/></svg><b>✕</b><small>{NO}</small></div>' +
+    '</div>';
   var PASS_HINT = '<div class="qz-hint"><svg viewBox="0 0 300 140" aria-hidden="true" direction="ltr" style="direction:ltr">' +
     '<rect x="4" y="4" width="292" height="132" rx="12" fill="#f6efd8" stroke="#d8c99b" stroke-width="2"/>' +
     '<text x="16" y="24" font-size="11" font-weight="800" fill="#127a64" font-family="Arial">PASSPORT · AFG</text>' +
@@ -2930,6 +2964,7 @@
       var n = QUIZ[node];
       html += '<div class="qz-q">' + L(n.q) + (n.sub ? '<small>' + L(n.sub) + "</small>" : "") + "</div>";
       if (n.hint) html += PASS_HINT.replace("{EX}", L("qz_example"));
+      if (n.chip) html += CHIP_HINT.replace("{OK}", L("chip_ok")).replace("{NO}", L("chip_no"));
       html += '<div class="qz-opts">' + n.opts.map(function (o, i) {
         return '<button type="button" class="qz-opt" data-i="' + i + '"><span class="qz-e' + ((o[0].match(/<img/g) || []).length > 1 ? " multi" : "") + '">' + o[0] + "</span><span class=\"qz-t\"><b>" + L(o[1]) + "</b>" + (L(o[1] + "_s") ? "<small>" + L(o[1] + "_s") + "</small>" : "") + '</span><span class="qz-tick" aria-hidden="true"></span></button>';
       }).join("") + "</div>";
