@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pépite · Café &amp; Bubble Tea à Juvisy (proposition de site)</title>
+<meta name="description" content="Proposition de site internet pour Pépite, café et bubble tea à Juvisy-sur-Orge et Montgeron.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#fcecef">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Nunito:wght@400;600;700;800;900&family=Sacramento&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rasp: #b8164f; --rasp-2: #d63a6f; --rasp-dark: #7d0f37;
+    --pink: #f9dbe2; --pink-2: #fcecef; --cream: #fffaf7; --card: #fff;
+    --ink: #3b1626; --soft: #86606f; --line: #f0d3da;
+    --marble: #24443a; --gold: #c9a24a; --boba: #2d1a12;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 74px; overflow-x: clip; }
+  body { margin: 0; font-family: 'Nunito', system-ui, sans-serif; font-size: 16.5px; line-height: 1.55; color: var(--ink); background: var(--cream); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  main { overflow-x: clip; } /* the tilted marquee is a little wider than the screen */
+  img { max-width: 100%; display: block; }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  .wrap { width: min(1140px, 100% - 32px); margin: 0 auto; }
+  .h { font-family: 'Bree Serif', Georgia, serif; font-weight: 400; }
+  .script { font-family: 'Sacramento', cursive; font-weight: 400; color: var(--rasp); line-height: .8; -webkit-text-stroke: .9px var(--rasp); }
+
+  .pitch { background: var(--rasp-dark); color: #ffe3ea; text-align: center; font-size: 13px; font-weight: 700; padding: 7px 12px; }
+  .pitch a { color: #fff; }
+
+  header { position: sticky; top: 0; z-index: 30; background: rgba(252, 236, 239, .88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav { height: 66px; display: flex; align-items: center; gap: 22px; }
+  .brand { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+  .brand img { width: 40px; height: 40px; }
+  .brand > span { display: flex; flex-direction: column; line-height: 1; }
+  .brand .script { font-size: 42px; line-height: .9; padding-top: 6px; }
+  .brand small { display: block; font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--soft); margin-top: 11px; }
+  .links { display: flex; gap: 22px; margin-left: auto; }
+  .links a { text-decoration: none; font-weight: 700; color: var(--soft); }
+  .links a:hover { color: var(--rasp); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 0; font-weight: 800; text-decoration: none; white-space: nowrap; transition: transform .15s, box-shadow .2s; }
+  .btn:active { transform: scale(.97); }
+  .btn-rasp { background: var(--rasp); color: #fff; box-shadow: 0 10px 22px -10px rgba(184, 22, 79, .8); }
+  .btn-rasp:hover { box-shadow: 0 14px 28px -10px rgba(184, 22, 79, .95); }
+  .btn-white { background: #fff; color: var(--rasp); border: 2px solid var(--line); }
+  .btn-uber { background: #000; color: #fff; }
+  .btn-uber::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: #06c167; }
+
+  /* Hero */
+  .hero { position: relative; overflow: hidden; padding: 50px 0 70px; background: radial-gradient(600px 400px at 80% 20%, #f8c9d4, transparent 70%), linear-gradient(180deg, var(--pink-2), var(--cream)); }
+  .bubbles { position: absolute; inset: 0; pointer-events: none; }
+  .bubbles i { position: absolute; bottom: -20px; width: var(--s); height: var(--s); border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.55), transparent 40%), var(--c); opacity: .5; animation: rise var(--d) linear var(--delay) infinite; }
+  @keyframes rise { to { transform: translateY(-115vh) translateX(var(--x)); } }
+  .hero .wrap { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; }
+  .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--rasp); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; }
+  .hero h1 { margin: 18px 0 6px; }
+  .hero h1 .script { font-size: clamp(110px, 18vw, 190px); display: block; margin-left: -6px; }
+  .hero h1 .h { display: block; font-size: clamp(22px, 3vw, 30px); color: var(--ink); margin-top: clamp(34px, 5.4vw, 60px); }
+  .lead { color: var(--soft); font-size: 18.5px; max-width: 470px; margin: 14px 0 26px; }
+  .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-size: 14.5px; font-weight: 700; text-decoration: none; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: #3bb273; box-shadow: 0 0 0 3px rgba(59, 178, 115, .2); }
+  .dot.off { background: #d9534f; box-shadow: 0 0 0 3px rgba(217, 83, 79, .2); }
+  .stars { color: #f0a92c; letter-spacing: 1px; }
+  .visual { position: relative; justify-self: center; width: min(420px, 100%); }
+  .arch { border-radius: 999px 999px 30px 30px; overflow: hidden; aspect-ratio: 4 / 5; border: 10px solid #fff; box-shadow: 0 40px 80px -34px rgba(125, 15, 55, .55); }
+  .arch img { width: 100%; height: 100%; object-fit: cover; }
+  .float { position: absolute; width: 36%; aspect-ratio: 1; border-radius: 50%; overflow: hidden; border: 7px solid #fff; box-shadow: 0 20px 40px -18px rgba(125,15,55,.6); animation: fl 6s ease-in-out infinite; }
+  .float img { width: 100%; height: 100%; object-fit: cover; }
+  .f1 { left: -34px; bottom: 40px; }
+  .f2 { right: -26px; top: 50px; width: 30%; animation-delay: -3s; }
+  .badge { position: absolute; right: -10px; bottom: -14px; background: var(--rasp); color: #fff; border-radius: 22px; padding: 12px 16px; font-weight: 800; box-shadow: 0 18px 30px -14px rgba(125,15,55,.8); transform: rotate(4deg); }
+  .badge b { display: block; font-family: 'Bree Serif', serif; font-weight: 400; font-size: 26px; line-height: 1; }
+  @keyframes fl { 50% { translate: 0 -10px; } }
+
+  .marquee { background: var(--rasp); color: #fff; overflow: hidden; transform: rotate(-1.2deg); margin: -16px 0 0; position: relative; z-index: 2; box-shadow: 0 14px 30px -16px rgba(125,15,55,.7); }
+  .track { display: flex; width: max-content; animation: mq 34s linear infinite; padding: 13px 0; }
+  .track span { font-family: 'Bree Serif', serif; font-size: 21px; padding: 0 22px; white-space: nowrap; }
+  .track i { font-style: normal; color: #ffc2d2; align-self: center; }
+  @keyframes mq { to { transform: translateX(-50%); } }
+
+  section { padding: 78px 0; }
+  .sh { text-align: center; max-width: 640px; margin: 0 auto 34px; }
+  .sh .script { font-size: 64px; display: block; margin-bottom: 14px; }
+  .sh h2 { font-family: 'Bree Serif', serif; font-weight: 400; font-size: clamp(32px, 5vw, 46px); line-height: 1.1; margin: 0; }
+  .sh p { color: var(--soft); margin: 12px 0 0; }
+
+  /* Cup illustration */
+  .cup { position: relative; width: 58px; height: 80px; flex: none; }
+  .cup .lid { position: absolute; left: 2px; right: 2px; top: 6px; height: 12px; border-radius: 50% 50% 4px 4px; background: rgba(255,255,255,.85); box-shadow: inset 0 -2px 0 rgba(0,0,0,.06); }
+  .cup .straw { position: absolute; left: 56%; top: -6px; width: 6px; height: 22px; border-radius: 3px; background: #f4d7a1; }
+  .cup .glass { position: absolute; left: 0; right: 0; top: 16px; bottom: 0; clip-path: polygon(4% 0, 96% 0, 84% 100%, 16% 100%); background: linear-gradient(var(--c1), var(--c2)); }
+  .cup .glass::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 30%; background: radial-gradient(circle, var(--b) 42%, transparent 46%) 0 0 / 9px 9px; }
+  .cup .glass::before { content: ''; position: absolute; top: 0; bottom: 0; left: 14%; width: 10%; background: rgba(255,255,255,.28); }
+  .cup .p { position: absolute; left: 50%; top: 52%; transform: translate(-50%, -50%); width: 22px; height: 22px; background: url('logo.svg') center / contain no-repeat; }
+  .cup.big { width: 150px; height: 210px; }
+  .cup.big .lid { top: 14px; height: 30px; left: 4px; right: 4px; }
+  .cup.big .straw { top: -18px; width: 13px; height: 56px; }
+  .cup.big .glass { top: 40px; }
+  .cup.big .glass::after { background-size: 20px 20px; height: 28%; }
+  .cup.big .p { width: 54px; height: 54px; }
+  .cup .glass, .cup .glass::after { transition: background .35s; }
+
+  /* Builder */
+  .builder { display: grid; grid-template-columns: .8fr 1.2fr; gap: 26px; background: #fff; border: 1px solid var(--line); border-radius: 32px; padding: 30px; box-shadow: 0 30px 60px -40px rgba(125,15,55,.5); }
+  .preview { background: linear-gradient(180deg, var(--pink-2), #fff); border-radius: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 16px; text-align: center; }
+  .preview .cup { margin: 20px 0 22px; animation: bob 3.5s ease-in-out infinite; }
+  @keyframes bob { 50% { translate: 0 -8px; } }
+  .preview b { font-family: 'Bree Serif', serif; font-weight: 400; font-size: 24px; }
+  .preview .sum { color: var(--soft); font-size: 14.5px; min-height: 44px; margin-top: 4px; }
+  .preview .price { font-family: 'Bree Serif', serif; font-size: 44px; color: var(--rasp); line-height: 1; margin: 12px 0 18px; }
+  .price.pop { animation: pop .4s cubic-bezier(.3, 1.6, .5, 1); }
+  @keyframes pop { 40% { transform: scale(1.18); } }
+  .step { margin-bottom: 18px; }
+  .step > b { display: block; font-size: 13px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--rasp); margin-bottom: 8px; }
+  .step select { width: 100%; min-height: 50px; border-radius: 14px; border: 1.5px solid var(--line); padding: 0 14px; font: inherit; font-weight: 700; background: var(--cream); color: var(--ink); }
+  .opts { display: flex; flex-wrap: wrap; gap: 8px; }
+  .opt { position: relative; }
+  .opt input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .opt span { display: inline-flex; align-items: center; gap: 7px; padding: 9px 15px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--cream); font-weight: 700; font-size: 14.5px; transition: background .15s, border-color .15s, color .15s; }
+  .opt span i { width: 12px; height: 12px; border-radius: 50%; background: var(--bc, #2d1a12); box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); }
+  .opt input:checked + span { background: var(--rasp); border-color: var(--rasp); color: #fff; }
+  .opt input:disabled + span { opacity: .4; }
+  .opt input:focus-visible + span { outline: 3px solid var(--rasp-2); outline-offset: 2px; }
+  .opt small { font-weight: 600; opacity: .75; }
+
+  /* Menu */
+  .tabs { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 22px; }
+  .tabs button { border: 1.5px solid var(--line); background: #fff; border-radius: 999px; padding: 10px 18px; font-weight: 800; color: var(--soft); }
+  .tabs button.on { background: var(--rasp); border-color: var(--rasp); color: #fff; }
+  .note { text-align: center; color: var(--soft); font-size: 14.5px; margin: -6px 0 20px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+  .item { display: flex; gap: 16px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 16px 18px; transition: transform .2s, box-shadow .2s; }
+  .item:hover { transform: translateY(-3px); box-shadow: 0 18px 34px -24px rgba(125,15,55,.6); }
+  .item .txt { flex: 1; min-width: 0; }
+  .item b { font-family: 'Bree Serif', serif; font-weight: 400; font-size: 19px; display: block; line-height: 1.2; }
+  .item p { margin: 3px 0 8px; color: var(--soft); font-size: 14px; line-height: 1.4; }
+  .item .pr { font-weight: 900; color: var(--rasp); }
+  .item .pr small { color: var(--soft); font-weight: 700; }
+  .ico { display: inline-block; font-size: 12px; font-weight: 800; border-radius: 99px; padding: 1px 8px; margin-left: 4px; vertical-align: 2px; }
+  .ico.veg { background: #e3f3e7; color: #2e8b57; }
+  .ico.cold { background: #e4f0fb; color: #3576b5; }
+  .ico.off { background: #f3e7ea; color: #9a6a77; }
+  .round { width: 64px; height: 64px; border-radius: 50%; flex: none; display: grid; place-items: center; font-size: 30px; background: var(--pink-2); }
+  .extras { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+  .ex { background: var(--pink-2); border-radius: 20px; padding: 18px 20px; }
+  .ex b { font-size: 13px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--rasp); }
+  .ex p { margin: 6px 0 0; font-weight: 700; }
+  .ex ul { list-style: none; padding: 0; margin: 6px 0 0; display: grid; grid-template-columns: 1fr auto; gap: 2px 14px; font-weight: 700; }
+  .ex li:nth-child(even) { text-align: right; color: var(--rasp); }
+
+  /* Onigiri + gourmandises feature */
+  .feature { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; align-items: center; }
+  .feature .ph { border-radius: 30px; overflow: hidden; aspect-ratio: 4 / 3.6; box-shadow: 0 30px 60px -36px rgba(125,15,55,.6); }
+  .feature .ph img { width: 100%; height: 100%; object-fit: cover; }
+  .feature h3 { font-family: 'Bree Serif', serif; font-weight: 400; font-size: clamp(28px, 4vw, 38px); margin: 6px 0 10px; line-height: 1.1; }
+  .feature .script { font-size: 54px; }
+  .feature p { color: var(--soft); }
+  .halal { display: inline-block; background: var(--marble); color: #fff; font-size: 12.5px; font-weight: 800; padding: 3px 10px; border-radius: 99px; vertical-align: 3px; }
+
+  /* Gallery */
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 210px; gap: 12px; }
+  .gallery button { border: 0; padding: 0; border-radius: 22px; overflow: hidden; cursor: zoom-in; background: var(--pink); }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+  .gallery button:hover img { transform: scale(1.06); }
+  .gallery .t { grid-row: span 2; }
+  .gallery .w { grid-column: span 2; }
+
+  /* Story */
+  .story { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; }
+  .story .ph { border-radius: 30px; overflow: hidden; box-shadow: 0 30px 60px -36px rgba(0,0,0,.6); }
+  .story .ph img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+  .story h2 { font-family: 'Bree Serif', serif; font-weight: 400; font-size: clamp(30px, 4.6vw, 42px); line-height: 1.1; margin: 6px 0 14px; }
+  .story p { color: var(--soft); }
+  .years { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+  .years div { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 12px 16px; }
+  .years b { display: block; font-family: 'Bree Serif', serif; font-weight: 400; font-size: 26px; color: var(--rasp); line-height: 1.1; }
+  .years span { font-size: 13.5px; color: var(--soft); font-weight: 700; }
+
+  /* Events */
+  .events { background: var(--marble); color: #fff; border-radius: 36px; padding: 40px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 30px; align-items: center; position: relative; overflow: hidden; }
+  .events::after { content: ''; position: absolute; right: -60px; top: -60px; width: 240px; height: 240px; border-radius: 50%; border: 26px solid rgba(255,255,255,.06); }
+  .events .script { color: #ffc2d2; -webkit-text-stroke-color: #ffc2d2; font-size: 58px; }
+  .events h2 { font-family: 'Bree Serif', serif; font-weight: 400; font-size: clamp(28px, 4vw, 40px); margin: 14px 0 10px; line-height: 1.1; }
+  .events p { color: #d5e4dd; margin: 0 0 18px; }
+  .events ul { list-style: none; padding: 0; margin: 0 0 22px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .events li { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); border-radius: 99px; padding: 6px 14px; font-weight: 700; font-size: 14.5px; }
+  .events .ph { border-radius: 26px; overflow: hidden; aspect-ratio: 1; border: 6px solid rgba(255,255,255,.12); }
+  .events .ph img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* Reviews */
+  .rev { display: flex; gap: 34px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 30px; padding: 32px 36px; }
+  .rev .score { text-align: center; flex: none; }
+  .rev .score b { font-family: 'Bree Serif', serif; font-weight: 400; font-size: 72px; line-height: 1; color: var(--rasp); display: block; }
+  .rev .score span { color: var(--soft); font-weight: 700; }
+  .rev h3 { font-family: 'Bree Serif', serif; font-weight: 400; font-size: 28px; margin: 0 0 12px; }
+  .rev .topics { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .rev .topics span { background: var(--pink-2); border-radius: 99px; padding: 7px 14px; font-weight: 700; font-size: 14.5px; }
+
+  /* Shops */
+  .shops { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .shop { background: #fff; border: 1px solid var(--line); border-radius: 28px; padding: 26px; }
+  .shop .top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px 10px; margin-bottom: 6px; }
+  .shop h3 { font-family: 'Bree Serif', serif; font-weight: 400; font-size: 26px; margin: 0; }
+  .shop .addr { color: var(--soft); font-weight: 700; margin: 0 0 14px; }
+  .shop table { width: 100%; border-collapse: collapse; font-size: 15px; margin-bottom: 18px; }
+  .shop td { padding: 6px 0; border-bottom: 1px dashed var(--line); }
+  .shop td:last-child { text-align: right; font-weight: 800; }
+  .shop tr.today td { color: var(--rasp); }
+  .shop .closed { color: var(--soft); font-weight: 600 !important; }
+  .shop .btns { display: flex; gap: 10px; flex-wrap: wrap; }
+  .shop .btn { min-height: 44px; padding: 0 18px; }
+  .metro { display: inline-block; font-size: 12.5px; font-weight: 800; background: #fff3d6; color: #8a6400; border-radius: 99px; padding: 3px 10px; }
+
+  .alakhil { max-width: 760px; margin: 0 auto; text-align: center; border: 2px dashed #e6b9c6; border-radius: 28px; padding: 28px; background: #fff; }
+  .alakhil h3 { font-family: 'Bree Serif', serif; font-weight: 400; font-size: 26px; margin: 0 0 8px; }
+  .alakhil p { color: var(--soft); margin: 0 0 16px; }
+  .alakhil .row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .wa { background: #25d366; color: #fff; }
+
+  footer { text-align: center; color: var(--soft); font-size: 13.5px; padding: 30px 16px 110px; border-top: 1px solid var(--line); }
+  footer .script { font-size: 50px; display: block; margin-bottom: 6px; }
+  footer .soc { display: flex; gap: 10px; justify-content: center; margin: 10px 0 14px; }
+  footer .soc a { font-weight: 800; color: var(--rasp); text-decoration: none; }
+
+  .mbar { display: none; }
+  dialog { border: 0; padding: 0; background: transparent; max-width: min(430px, calc(100% - 24px)); width: 100%; }
+  dialog::backdrop { background: rgba(59, 22, 38, .55); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+  dialog[open] { animation: dlg .25s ease-out; }
+  @keyframes dlg { from { opacity: 0; transform: translateY(14px) scale(.97); } }
+  .box { background: #fff; border-radius: 28px; padding: 28px 24px 22px; text-align: center; position: relative; }
+  .box .x { position: absolute; top: 12px; right: 12px; width: 38px; height: 38px; border-radius: 50%; border: 0; background: var(--pink-2); font-size: 22px; line-height: 1; }
+  .box h3 { font-family: 'Bree Serif', serif; font-weight: 400; font-size: 26px; margin: 10px 0 6px; line-height: 1.15; }
+  .box p { color: var(--soft); margin: 0 0 16px; }
+  .box .recap { background: var(--pink-2); border-radius: 16px; padding: 12px 14px; margin: 0 0 16px; font-weight: 700; text-align: left; }
+  .box .recap b { color: var(--rasp); float: right; }
+  .box .acts { display: grid; gap: 10px; }
+  .box .soonico { width: 64px; height: 64px; margin: 0 auto; border-radius: 50%; background: var(--pink-2); display: grid; place-items: center; font-size: 30px; box-shadow: 0 0 0 8px rgba(184,22,79,.08); }
+  .lb { max-width: 94vw; }
+  .lb img { max-height: 86vh; margin: 0 auto; border-radius: 16px; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .links { display: none; }
+    .nav .btn { margin-left: auto; min-height: 42px; padding: 0 16px; }
+    .hero { padding: 30px 0 64px; }
+    .hero .wrap, .builder, .feature, .story, .events, .shops { grid-template-columns: 1fr; }
+    .visual { width: min(300px, 78%); order: -1; margin-bottom: 10px; }
+    .f1 { left: -28px; } .f2 { right: -22px; }
+    .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 170px; }
+    .rev { flex-direction: column; text-align: center; padding: 26px 22px; }
+    .rev .topics { justify-content: center; }
+    .events { padding: 28px 22px; }
+    .events .ph { max-width: 320px; }
+    .feature .ph { order: -1; }
+    section { padding: 58px 0; }
+    .builder { padding: 18px; }
+    .mbar { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 8px; position: fixed; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); z-index: 40;
+      background: rgba(255,255,255,.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--line); border-radius: 20px; padding: 8px; box-shadow: 0 16px 34px -14px rgba(125,15,55,.45); }
+    .mbar a, .mbar button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; min-height: 52px; border-radius: 14px; text-decoration: none; font-size: 12.5px; font-weight: 800; color: var(--soft); border: 0; background: transparent; }
+    .mbar span { font-size: 18px; line-height: 1.1; }
+    .mbar .main { background: var(--rasp); color: #fff; }
+  }
+  @media (max-width: 560px) {
+    .extras { grid-template-columns: 1fr; }
+    .grid { grid-template-columns: 1fr; }
+    .brand .script { font-size: 36px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="pitch">Proposition de site internet pour <b>Pépite</b> · démo réalisée par <a href="#alakhil">Alakhil Mobile</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><img src="logo.svg" alt=""><span><span class="script">pépite</span><small>Café · Bubble Tea</small></span></a>
+    <nav class="links"><a href="#compose">Compose</a><a href="#carte">La carte</a><a href="#onigiris">Onigiris</a><a href="#evenements">Événements</a><a href="#boutiques">Boutiques</a></nav>
+    <button class="btn btn-rasp js-order">Commander</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+    <div class="wrap">
+      <div>
+        <span class="tag">🧋 Juvisy · gare RER C &amp; D</span>
+        <h1><span class="script">pépite</span><span class="h">Café · Bubble Tea · Encas sucrés &amp; salés</span></h1>
+        <p class="lead">Bubble teas fruités ou lactés préparés à la minute, cafés gourmands, onigiris faits maison et pâtisseries, à la sortie Mairie de la gare de Juvisy.</p>
+        <div class="cta"><a class="btn btn-rasp" href="#compose">Compose ton bubble tea</a><a class="btn btn-white" href="#carte">Voir la carte</a></div>
+        <div class="chips">
+          <span class="chip"><i class="dot" id="dot"></i><span id="openText">Ouvert</span></span>
+          <a class="chip" href="https://www.google.com/maps/search/?api=1&query=P%C3%A9pite+Juvisy+1+Av.+d%27Estienne+d%27Orves+91260+Juvisy-sur-Orge" target="_blank" rel="noopener"><span class="stars">★★★★★</span> 4,9 · 444 avis Google</a>
+        </div>
+      </div>
+      <div class="visual">
+        <div class="arch"><img src="img/arches.jpg" alt="La salle Pépite : arches roses, banquette et tables en marbre vert"></div>
+        <div class="float f1"><img src="img/fruits-rouges.jpg" alt="Bubble tea Fruits rouges" style="object-position:50% 40%"></div>
+        <div class="float f2"><img src="img/onigiri-boba.jpg" alt="Onigiris et bubble tea brown sugar"></div>
+        <div class="badge"><b>dès 5,50 €</b>le bubble tea</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="track" id="marquee"></div></div>
+
+  <section id="compose">
+    <div class="wrap">
+      <div class="sh reveal"><span class="script">à ton goût</span><h2>Compose ton bubble tea</h2><p>Choisis ta boisson, ta taille, tes perles et tes extras : le prix s’affiche en direct.</p></div>
+      <div class="builder reveal">
+        <div class="preview">
+          <div class="cup big" id="bigCup"><span class="straw"></span><span class="lid"></span><span class="glass"></span><span class="p"></span></div>
+          <b id="bName">Fruits rouges</b>
+          <div class="sum" id="bSum"></div>
+          <div class="price" id="bPrice">6,40 €</div>
+          <button class="btn btn-rasp js-order" data-from="builder">Commander</button>
+        </div>
+        <div>
+          <div class="step"><b>1 · La boisson</b><select id="bDrink" aria-label="Boisson"></select></div>
+          <div class="step" id="stepMode"><b>2 · La version</b><div class="opts" id="bMode"></div></div>
+          <div class="step" id="stepSize"><b>2 · La taille</b><div class="opts" id="bSize"></div></div>
+          <div class="step"><b>3 · Les perles (boba)</b><div class="opts" id="bBoba"></div></div>
+          <div class="step"><b>4 · Les extras</b><div class="opts" id="bExtras"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="carte" style="background:var(--pink-2)">
+    <div class="wrap">
+      <div class="sh reveal"><span class="script">la carte</span><h2>Bubble teas, cafés &amp; douceurs</h2></div>
+      <div class="tabs" id="tabs"></div>
+      <p class="note" id="tabNote"></p>
+      <div class="grid" id="grid"></div>
+      <div class="extras">
+        <div class="ex"><b>Boba disponibles</b><p>Tapioca · Fraise · Passion · Litchi · Pomme · Gelée de coco · Haricot rouge</p></div>
+        <div class="ex"><b>Suppléments</b><ul><li>Cream cheese</li><li>1,50 €</li><li>Crème brûlée</li><li>1,50 €</li><li>Lait de soja</li><li>1,00 €</li><li>Boba</li><li>1,00 €</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="onigiris">
+    <div class="wrap feature">
+      <div class="ph reveal"><img src="img/onigiri-boba.jpg" alt="Onigiris faits maison et bubble tea" style="object-position:50% 60%"></div>
+      <div class="reveal">
+        <span class="script">faits maison</span>
+        <h3>Nos onigiris, le duo parfait avec un bubble tea</h3>
+        <p>Riz japonais, algue nori croustillante et une garniture généreuse, préparés chaque jour. Nos clients adorent les associer à leur bubble tea.</p>
+        <div class="grid" id="onigiriGrid" style="grid-template-columns:1fr"></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="sh reveal"><span class="script">en images</span><h2>Une pause toute rose</h2></div>
+      <div class="gallery reveal" id="gallery">
+        <button class="t" data-src="img/arches.jpg"><img src="img/arches.jpg" alt="La salle et ses arches" loading="lazy"></button>
+        <button data-src="img/cookies.jpg"><img src="img/cookies.jpg" alt="Cookies, banana bread et carrot cake" loading="lazy"></button>
+        <button data-src="img/avocado.jpg"><img src="img/avocado.jpg" alt="Bubble tea Avocado zest" loading="lazy"></button>
+        <button class="t" data-src="img/eventail.jpg"><img src="img/eventail.jpg" alt="Bubble tea Mango tango et éventail" loading="lazy"></button>
+        <button data-src="img/ramen.jpg"><img src="img/ramen.jpg" alt="Ramen" loading="lazy"></button>
+        <button data-src="img/milk-tea.jpg"><img src="img/milk-tea.jpg" alt="Milk tea au cream cheese" loading="lazy"></button>
+        <button class="w" data-src="img/banana-bread.jpg"><img src="img/banana-bread.jpg" alt="Banana bread et cappuccino" loading="lazy"></button>
+        <button data-src="img/cookie-cacahuete.jpg"><img src="img/cookie-cacahuete.jpg" alt="Cookie cacahuète et bubble tea fruits rouges" loading="lazy"></button>
+        <button data-src="img/terrasse.jpg"><img src="img/terrasse.jpg" alt="Bubble teas en terrasse" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--pink-2)">
+    <div class="wrap story">
+      <div class="ph reveal"><img src="img/neon.jpg" alt="Le néon Pépite le soir" loading="lazy"></div>
+      <div class="reveal">
+        <span class="script" style="font-size:54px">notre histoire</span>
+        <h2>Un bubble tea goûté en Chine, une idée pour Juvisy</h2>
+        <p>En 2018, pendant un échange universitaire en Chine, Oksana découvre un bubble tea aux fruits rouges inoubliable, et toute l’ambiance qui va avec. De retour en France, impossible d’en retrouver un pareil sans faire des kilomètres.</p>
+        <p>Alors elle décide de recréer cette expérience ici. Pépite ouvre ses portes à Juvisy en juin 2023, puis une deuxième boutique à Montgeron.</p>
+        <div class="years"><div><b>2018</b><span>la découverte</span></div><div><b>2023</b><span>Pépite Juvisy</span></div><div><b>2</b><span>boutiques</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="evenements">
+    <div class="wrap events reveal">
+      <div>
+        <span class="script">Pépite Events</span>
+        <h2>Pépite s’invite à vos événements</h2>
+        <p>Un stand bubble tea, des onigiris et des douceurs pour rendre votre événement inoubliable.</p>
+        <ul><li>🎂 Anniversaires</li><li>💍 Mariages</li><li>🏢 Entreprises</li><li>🎪 Salons &amp; marchés</li><li>🎓 Écoles</li></ul>
+        <a class="btn btn-white" href="https://www.instagram.com/pepite_cafe_bubbletea/" target="_blank" rel="noopener">Demander un devis sur Instagram</a>
+      </div>
+      <div class="ph"><img src="img/terrasse.jpg" alt="Bubble teas Pépite" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="rev reveal">
+        <div class="score"><b>4,9</b><span class="stars">★★★★★</span><br><span>444 avis Google</span></div>
+        <div>
+          <h3>Ce que nos clients aiment le plus</h3>
+          <div class="topics"><span>🍙 Les onigiris</span><span>🍪 Les cookies</span><span>🍓 Les bubble teas fruités</span><span>💕 L’équipe adorable</span><span>🚆 Juste à côté de la gare</span></div>
+          <a class="btn btn-rasp" href="https://www.google.com/maps/search/?api=1&query=P%C3%A9pite+Juvisy+1+Av.+d%27Estienne+d%27Orves+91260+Juvisy-sur-Orge" target="_blank" rel="noopener">Laisser un avis</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="boutiques" style="background:var(--pink-2)">
+    <div class="wrap">
+      <div class="sh reveal"><span class="script">nous trouver</span><h2>Nos deux boutiques</h2></div>
+      <div class="shops">
+        <div class="shop reveal">
+          <div class="top"><h3>Pépite Juvisy</h3><span class="metro">RER C &amp; D · sortie Mairie</span></div>
+          <p class="addr">1 avenue d’Estienne d’Orves, 91260 Juvisy-sur-Orge</p>
+          <table id="hJuvisy"></table>
+          <div class="btns">
+            <a class="btn btn-rasp" href="https://www.google.com/maps/search/?api=1&query=P%C3%A9pite+Juvisy+1+Av.+d%27Estienne+d%27Orves+91260+Juvisy-sur-Orge" target="_blank" rel="noopener">Itinéraire</a>
+            <a class="btn btn-uber" href="https://www.ubereats.com/fr/search?q=P%C3%A9pite%20Juvisy" target="_blank" rel="noopener">Uber Eats</a>
+          </div>
+        </div>
+        <div class="shop reveal">
+          <div class="top"><h3>Pépite Montgeron</h3><span class="metro">Pépite 2</span></div>
+          <p class="addr">116 avenue de la République, 91230 Montgeron</p>
+          <table id="hMontgeron"></table>
+          <div class="btns">
+            <a class="btn btn-rasp" href="https://www.google.com/maps/search/?api=1&query=P%C3%A9pite+116+Av.+de+la+R%C3%A9publique+91230+Montgeron" target="_blank" rel="noopener">Itinéraire</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="alakhil">
+    <div class="wrap">
+      <div class="alakhil reveal">
+        <h3>Ce site vous plaît ?</h3>
+        <p>Cette proposition a été préparée gracieusement par <b>Alakhil Mobile</b>, avec votre carte et vos photos. On l’adapte à vos envies et on la met en ligne avec votre propre adresse internet, avec en option la commande et le paiement en ligne directement sur votre compte, sans commission.</p>
+        <div class="row">
+          <a class="btn wa" href="https://wa.me/33605654592?text=Bonjour%20Alakhil%20Mobile%2C%20j%E2%80%99ai%20vu%20la%20proposition%20de%20site%20pour%20P%C3%A9pite%20et%20j%E2%80%99aimerais%20en%20parler." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+          <a class="btn btn-white" href="tel:+33605654592">06 05 65 45 92</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span class="script">pépite</span>
+  Café · Bubble Tea · Juvisy-sur-Orge &amp; Montgeron
+  <div class="soc"><a href="https://www.instagram.com/pepite_cafe_bubbletea/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.tiktok.com/@pepite.cafe.bbt" target="_blank" rel="noopener">TikTok</a></div>
+  Proposition de site non officielle, réalisée par Alakhil Mobile à partir des informations publiques de la boutique.
+</footer>
+
+<nav class="mbar" aria-label="Actions rapides">
+  <a href="https://www.google.com/maps/search/?api=1&query=P%C3%A9pite+Juvisy+1+Av.+d%27Estienne+d%27Orves+91260+Juvisy-sur-Orge" target="_blank" rel="noopener"><span>📍</span>Itinéraire</a>
+  <button class="main js-order"><span>🧋</span>Commander</button>
+  <a href="https://www.instagram.com/pepite_cafe_bubbletea/" target="_blank" rel="noopener"><span>📸</span>Instagram</a>
+</nav>
+
+<dialog id="soon" aria-labelledby="soonTitle">
+  <form method="dialog" class="box">
+    <button class="x" value="close" aria-label="Fermer">×</button>
+    <div class="soonico" aria-hidden="true">🧋</div>
+    <h3 id="soonTitle">La commande en ligne arrive bientôt !</h3>
+    <div class="recap" id="recap" hidden></div>
+    <p>Bientôt, vous pourrez commander et payer ici, puis récupérer votre boisson sans attendre. En attendant, commandez sur Uber Eats ou passez nous voir.</p>
+    <div class="acts">
+      <a class="btn btn-uber" href="https://www.ubereats.com/fr/search?q=P%C3%A9pite%20Juvisy" target="_blank" rel="noopener">Commander sur Uber Eats</a>
+      <a class="btn btn-white" href="https://www.google.com/maps/search/?api=1&query=P%C3%A9pite+Juvisy+1+Av.+d%27Estienne+d%27Orves+91260+Juvisy-sur-Orge" target="_blank" rel="noopener">Itinéraire vers la boutique</a>
+    </div>
+  </form>
+</dialog>
+<dialog id="lb" class="lb" aria-label="Photo"><form method="dialog"><img id="lbImg" alt=""></form></dialog>
+
+<script>
+(function () {
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const eur = (n) => n.toFixed(2).replace('.', ',') + ' €';
+
+  /* ---------- Menu (prices from the shop's current menus) ---------- */
+  // c1/c2 = drink colours for the cup drawing; veg = plant milk possible; cold = cold only
+  const DRINKS = [
+    { id: 'fruits-rouges', cat: 'fruit', name: 'Fruits rouges', desc: 'Fraise, framboise, myrtille, thé jasmin, cream cheese', m: 6.4, c1: '#f7b6c4', c2: '#d8365b' },
+    { id: 'tropical', cat: 'fruit', name: 'Tropical', desc: 'Ananas, coulis de passion, thé jasmin', m: 6.4, c1: '#ffe08a', c2: '#f5a524' },
+    { id: 'avocado-zest', cat: 'fruit', name: 'Avocado zest', desc: 'Avocat, citron vert, thé jasmin', m: 6.8, c1: '#d9ef9b', c2: '#8cc63f' },
+    { id: 'papaya', cat: 'fruit', name: 'Papaya', desc: 'Papaye, thé jasmin, lait frais, cream cheese', m: 6.8, veg: true, c1: '#ffe3cf', c2: '#f7924f' },
+    { id: 'mango-tango', cat: 'fruit', name: 'Mango tango', desc: 'Mangue, thé jasmin, lait frais, cream cheese', m: 6.4, veg: true, c1: '#fff0b8', c2: '#f9b233' },
+    { id: 'cuba', cat: 'fruit', name: 'Cuba', desc: 'Menthe, citron vert, thé jasmin', m: 6.4, c1: '#eaf7cf', c2: '#98d06a' },
+    { id: 'garde-la-peche', cat: 'fruit', name: 'Garde la pêche', desc: 'Pêche blanche, thé jasmin', m: 6.4, c1: '#ffe2cc', c2: '#f6a77b' },
+    { id: 'fresh', cat: 'fruit', name: 'Fresh', desc: 'Pastèque, coulis de litchi, thé jasmin', m: 6.4, c1: '#ffd1d8', c2: '#f2657d' },
+    { id: 'milk-tea', cat: 'lait', name: 'Milk tea', desc: 'Thé noir au lait, classic boba', m: 5.5, l: 6.5, c1: '#f4e1c6', c2: '#d9b48a' },
+    { id: 'brown-sugar', cat: 'lait', name: 'Brown sugar', desc: 'Brown sugar, lait frais, classic boba', m: 5.5, l: 6.5, veg: true, c1: '#f7ead8', c2: '#9a5a2c' },
+    { id: 'booster', cat: 'lait', name: 'Booster', desc: 'Expresso, lait frais vanillé, classic boba', m: 6.4, l: 7.4, veg: true, c1: '#f3dcc0', c2: '#b27a4a' },
+    { id: 'oreo', cat: 'lait', name: 'Oreo', desc: 'Oreo, lait frais vanillé, cream cheese, classic boba', m: 6.4, l: 7.4, cold: true, c1: '#f2eef0', c2: '#9b95a0' },
+    { id: 'matcha', cat: 'lait', name: 'Matcha', desc: 'Thé matcha, lait frais vanillé, classic boba', m: 6.4, l: 7.4, veg: true, c1: '#d8ecc0', c2: '#77a85a' },
+    { id: 'taro', cat: 'lait', name: 'Taro', desc: 'Thé jasmin, lait frais, purée de taro maison, classic boba', m: 6.8, l: 7.8, veg: true, c1: '#e4d4f5', c2: '#a98bd8' },
+    { id: 'creme-brulee', cat: 'lait', name: 'Crème brûlée', desc: 'Thé noir au lait, crème brûlée, classic boba', m: 6.8, l: 7.8, c1: '#fde9bf', c2: '#e3a34c' },
+    { id: 'rose-vanilla-queen', cat: 'lait', name: 'Rose vanilla queen', desc: 'Expresso, lait vanillé, sirop de rose, cream cheese, sprinkles', m: 6.8, l: 7.8, veg: true, c1: '#fde4ea', c2: '#e8a1b4' },
+    { id: 'dolce-banana', cat: 'lait', name: 'Dolce banana', desc: 'Lait d’amande, fleur d’oranger, miel, banane, classic boba', m: 6.8, l: 7.8, veg: true, c1: '#fff4d1', c2: '#e9cf86' },
+    { id: 'king-choco', cat: 'lait', name: 'King choco', desc: 'Cacao, lait frais, chantilly, chamallow, classic boba', m: 7.8, l: 8.8, veg: true, c1: '#e7cdb8', c2: '#6b3b22' },
+    { id: 'speculoos-dream', cat: 'lait', name: 'Speculoos dream', desc: 'Speculoos, lait frais vanillé, cream cheese, classic boba', m: 7.8, l: 8.8, cold: true, c1: '#f4dfc3', c2: '#b9783e' },
+    { id: 'star-coffee', cat: 'lait', name: 'Star coffee', desc: 'Expresso, lait frais, brown sugar, cream cheese, classic boba', m: 7.8, l: 8.8, veg: true, c1: '#f5e3cc', c2: '#8a5530' },
+    { id: 'chai-latte', cat: 'lait', name: 'Chaï latte', desc: 'Thé chaï, gingembre confit, lait frais, cream cheese', m: 7.8, l: 8.8, veg: true, off: true, c1: '#f3dfc6', c2: '#c48b55' }
+  ];
+  const COFFEES = [
+    ['Chocolat signature', 'Chocolat, lait · chaud ou froid', 4, '🍫'], ['Rose vanilla queen', 'Sirop de rose, vanille, expresso et lait · chaud ou froid', 4.5, '🌹'],
+    ['Expresso', 'Classique, chaud', 1.8, '☕'], ['Cappuccino', 'Classique, chaud', 3.5, '☕'], ['Latte macchiato', 'Classique, chaud', 4, '🥛'], ['Mocaccino', 'Classique, chaud', 4, '☕']
+  ];
+  const SWEETS = [
+    ['Carrot cake', 'Fait maison', '3,50 €', '🥕'], ['Banana bread', 'Fait maison', '3,50 €', '🍌'],
+    ['Cookies', 'Chocolat, matcha, M&M’s…', '2,50 – 4,50 €', '🍪'], ['Pâtisseries du moment', 'Selon les arrivages', '3,00 – 4,50 €', '🧁']
+  ];
+  const ONIGIRIS = [
+    ['Saumon cream cheese', 'Saumon cuit mariné à la sauce soja sucrée et huile de sésame, cream cheese'],
+    ['Thon spicy mayo', 'Thon cuit mélangé à notre mayonnaise épicée'],
+    ['Poulet sauce verte <span class="halal">halal</span>', 'Mayonnaise, pointe de moutarde, ail, persil frisé']
+  ];
+  const BOBA = [['Tapioca', '#2d1a12'], ['Fraise', '#e5455c'], ['Passion', '#f2a33a'], ['Litchi', '#f3e6dc'], ['Pomme', '#9ccf5a'], ['Gelée de coco', '#f6f3ea'], ['Haricot rouge', '#7a2f2a']];
+  const EXTRAS = [['cream', 'Cream cheese', 1.5], ['brulee', 'Crème brûlée', 1.5], ['soja', 'Lait de soja', 1], ['boba', 'Boba en plus', 1]];
+
+  const cup = (d, boba = '#2d1a12') => `<div class="cup" style="--c1:${d.c1};--c2:${d.c2};--b:${boba}"><span class="straw"></span><span class="lid"></span><span class="glass"></span><span class="p"></span></div>`;
+  const icons = (d) => (d.veg ? '<span class="ico veg" title="Disponible en lait végétal">🌱 végétal</span>' : '') + (d.cold ? '<span class="ico cold">❄ froid</span>' : '') + (d.off ? '<span class="ico off">bientôt de retour</span>' : '');
+
+  /* ---------- Menu tabs ---------- */
+  const TABS = [
+    ['fruit', 'Fruités', '500 ml · version frozen (par défaut) ou fruit tea · boba au choix'],
+    ['lait', 'Lactés', 'Froids · M 500 ml / L 700 ml · 🌱 lait végétal en supplément · ❄ froid uniquement'],
+    ['cafe', 'Cafés', 'Lait végétal disponible (+1 €)'],
+    ['douceur', 'Gourmandises', 'Contient du gluten']
+  ];
+  let tab = 'fruit';
+  function drawMenu() {
+    $('#tabs').innerHTML = TABS.map(([k, l]) => `<button class="${k === tab ? 'on' : ''}" data-t="${k}">${l}</button>`).join('');
+    $('#tabNote').textContent = TABS.find((t) => t[0] === tab)[2];
+    let html = '';
+    if (tab === 'fruit' || tab === 'lait') {
+      html = DRINKS.filter((d) => d.cat === tab).map((d) => `<div class="item">${cup(d)}<div class="txt"><b>${d.name}${icons(d)}</b><p>${d.desc}</p>
+        <span class="pr">${d.l ? `M ${eur(d.m)} <small>·</small> L ${eur(d.l)}` : eur(d.m)}</span></div></div>`).join('');
+    } else if (tab === 'cafe') {
+      html = COFFEES.map(([n, d, p, e]) => `<div class="item"><div class="round">${e}</div><div class="txt"><b>${n}</b><p>${d}</p><span class="pr">${eur(p)}</span></div></div>`).join('');
+    } else {
+      html = SWEETS.map(([n, d, p, e]) => `<div class="item"><div class="round">${e}</div><div class="txt"><b>${n}</b><p>${d}</p><span class="pr">${p}</span></div></div>`).join('');
+    }
+    $('#grid').innerHTML = html;
+    $$('#tabs button').forEach((b) => b.onclick = () => { tab = b.dataset.t; drawMenu(); });
+  }
+  drawMenu();
+  $('#onigiriGrid').innerHTML = ONIGIRIS.map(([n, d]) => `<div class="item"><div class="round">🍙</div><div class="txt"><b>${n}</b><p>${d}</p><span class="pr">3,50 €</span></div></div>`).join('');
+
+  /* ---------- Bubble tea builder ---------- */
+  const st = { drink: 'fruits-rouges', size: 'M', mode: 'Frozen', boba: 'Tapioca', extras: new Set() };
+  const available = DRINKS.filter((d) => !d.off);
+  $('#bDrink').innerHTML = [['fruit', 'Fruités'], ['lait', 'Lactés']].map(([c, l]) =>
+    `<optgroup label="${l}">${available.filter((d) => d.cat === c).map((d) => `<option value="${d.id}">${d.name} · ${eur(d.m)}</option>`).join('')}</optgroup>`).join('');
+  const radio = (name, value, label, checked, extra = '') => `<label class="opt"><input type="radio" name="${name}" value="${value}" ${checked ? 'checked' : ''}><span ${extra}>${label}</span></label>`;
+  function drawOptions() {
+    const d = DRINKS.find((x) => x.id === st.drink);
+    if (d.cat === 'fruit') st.size = 'M';
+    $('#stepMode').hidden = d.cat !== 'fruit';
+    $('#stepSize').hidden = d.cat === 'fruit';
+    $('#bMode').innerHTML = ['Frozen', 'Fruit tea'].map((m) => radio('mode', m, m, st.mode === m)).join('');
+    $('#bSize').innerHTML = [['M', `M · 500 ml · ${eur(d.m)}`], ['L', `L · 700 ml · ${d.l ? eur(d.l) : ''}`]].map(([v, l]) => radio('size', v, l, st.size === v)).join('');
+    $('#bBoba').innerHTML = BOBA.map(([n, c]) => radio('boba', n, `<i></i>${n}`, st.boba === n, `style="--bc:${c}"`)).join('');
+    if (!d.veg) st.extras.delete('soja');
+    $('#bExtras').innerHTML = EXTRAS.map(([k, l, p]) => `<label class="opt"><input type="checkbox" value="${k}" ${st.extras.has(k) ? 'checked' : ''} ${k === 'soja' && !d.veg ? 'disabled' : ''}><span>${l} <small>+${eur(p)}</small></span></label>`).join('');
+  }
+  function recap() {
+    const d = DRINKS.find((x) => x.id === st.drink);
+    const base = st.size === 'L' && d.l ? d.l : d.m;
+    const ex = EXTRAS.filter(([k]) => st.extras.has(k));
+    const total = base + ex.reduce((s, e) => s + e[2], 0);
+    const parts = [d.cat === 'fruit' ? `${st.mode} · 500 ml` : `Taille ${st.size}`, `boba ${st.boba.toLowerCase()}`, ...ex.map((e) => e[1].toLowerCase())];
+    return { d, total, text: parts.join(' · ') };
+  }
+  let lastPrice = '';
+  function drawPreview() {
+    const r = recap();
+    const big = $('#bigCup');
+    big.style.setProperty('--c1', r.d.c1);
+    big.style.setProperty('--c2', r.d.c2);
+    big.style.setProperty('--b', BOBA.find((b) => b[0] === st.boba)[1]);
+    $('#bName').textContent = r.d.name;
+    $('#bSum').textContent = r.text;
+    const p = $('#bPrice');
+    const price = eur(r.total);
+    if (price !== lastPrice) { p.textContent = price; p.classList.remove('pop'); void p.offsetWidth; p.classList.add('pop'); lastPrice = price; }
+  }
+  $('#bDrink').onchange = (e) => { st.drink = e.target.value; drawOptions(); drawPreview(); };
+  document.querySelector('.builder').addEventListener('change', (e) => {
+    const el = e.target;
+    if (el.name === 'mode') st.mode = el.value;
+    else if (el.name === 'size') st.size = el.value;
+    else if (el.name === 'boba') st.boba = el.value;
+    else if (el.type === 'checkbox') el.checked ? st.extras.add(el.value) : st.extras.delete(el.value);
+    else return;
+    drawPreview();
+  });
+  drawOptions(); drawPreview();
+
+  /* ---------- "Coming soon" ordering ---------- */
+  const soon = $('#soon');
+  $$('.js-order').forEach((b) => b.addEventListener('click', (e) => {
+    e.preventDefault();
+    const rc = $('#recap');
+    if (b.dataset.from === 'builder') {
+      const r = recap();
+      rc.innerHTML = `🧋 ${r.d.name}<b>${eur(r.total)}</b><br><small style="color:var(--soft);font-weight:600">${r.text}</small>`;
+      rc.hidden = false;
+    } else rc.hidden = true;
+    soon.showModal();
+  }));
+  soon.addEventListener('click', (e) => { if (e.target === soon) soon.close(); });
+
+  /* ---------- Opening hours (Paris time) ---------- */
+  const NAMES = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+  const JUVISY = { 1: ['11:30', '20:00'], 2: ['11:30', '20:00'], 3: ['11:30', '20:00'], 4: ['11:30', '20:00'], 5: ['11:30', '20:00'], 6: ['11:30', '20:00'] };
+  const MONTGERON = { 2: ['11:30', '20:00'], 3: ['11:30', '20:00'], 4: ['11:30', '20:00'], 5: ['11:30', '20:00'], 6: ['11:30', '20:00'] };
+  const fr = (t) => t.replace(':', 'h');
+  const toMin = (t) => { const [h, m] = t.split(':').map(Number); return h * 60 + m; };
+  let now = { day: new Date().getDay(), min: new Date().getHours() * 60 + new Date().getMinutes() };
+  try {
+    const parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date());
+    const g = (k) => parts.find((p) => p.type === k).value;
+    now = { day: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(g('weekday')), min: Number(g('hour')) * 60 + Number(g('minute')) };
+  } catch (e) { /* keep local time */ }
+  const table = (H) => [1, 2, 3, 4, 5, 6, 0].map((d) => `<tr class="${d === now.day ? 'today' : ''}"><td>${NAMES[d]}</td><td class="${H[d] ? '' : 'closed'}">${H[d] ? fr(H[d][0]) + ' – ' + fr(H[d][1]) : 'Fermé'}</td></tr>`).join('');
+  $('#hJuvisy').innerHTML = table(JUVISY);
+  $('#hMontgeron').innerHTML = table(MONTGERON);
+  (function status() {
+    const h = JUVISY[now.day];
+    let open = false, text = '';
+    if (h && now.min >= toMin(h[0]) && now.min < toMin(h[1])) { open = true; text = `Ouvert · jusqu’à ${fr(h[1])}`; }
+    else if (h && now.min < toMin(h[0])) text = `Ouvre à ${fr(h[0])}`;
+    else {
+      for (let i = 1; i <= 7; i++) { const d = (now.day + i) % 7; if (JUVISY[d]) { text = `Fermé · ouvre ${i === 1 ? 'demain' : NAMES[d].toLowerCase()} à ${fr(JUVISY[d][0])}`; break; } }
+    }
+    $('#openText').textContent = text;
+    $('#dot').classList.toggle('off', !open);
+  })();
+
+  /* ---------- Decorations ---------- */
+  const words = ['Bubble tea', 'Onigiris faits maison', 'Cookies', 'Matcha', 'Brown sugar', 'Carrot cake', 'Juvisy', 'Montgeron', 'Mango tango'];
+  $('#marquee').innerHTML = [0, 1].map(() => words.map((w) => `<span>${w}</span><i>✿</i>`).join('')).join('');
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const cols = ['#b8164f', '#2d1a12', '#e5455c', '#f2a33a', '#9ccf5a', '#f7b6c4'];
+    $('#bubbles').innerHTML = Array.from({ length: 18 }, () => `<i style="left:${Math.random() * 100}%;--s:${8 + Math.random() * 18}px;--c:${cols[Math.floor(Math.random() * cols.length)]};--d:${10 + Math.random() * 12}s;--delay:${-Math.random() * 20}s;--x:${Math.random() * 60 - 30}px"></i>`).join('');
+  }
+  const lb = $('#lb');
+  $$('#gallery button').forEach((b) => b.onclick = () => { $('#lbImg').src = b.dataset.src; $('#lbImg').alt = $('img', b).alt; lb.showModal(); });
+  lb.addEventListener('click', () => lb.close());
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .1 });
+    $$('.reveal').forEach((el) => io.observe(el));
+  } else $$('.reveal').forEach((el) => el.classList.add('in'));
+})();
+</script>
+</body>
+</html>
