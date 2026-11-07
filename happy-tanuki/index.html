@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Tanuki · Banh-mi &amp; Bô-bun, Paris 15ᵉ (proposition de site)</title>
+<meta name="description" content="Proposition de site internet pour Happy Tanuki, banh-mi, bô-bun et épicerie asiatique au 25 rue de Cronstadt, Paris 15ᵉ.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#121212">
+<link rel="icon" href="img/tanuki.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #121212; --black-2: #1c1c1c; --black-3: #262626;
+    --red: #e8452c; --red-2: #ff6a4d; --green: #8cc152; --green-2: #a9d66f; --green-dark: #4f7d2a;
+    --cream: #fbf6ee; --paper: #fff; --ink: #1d1a17; --soft: #6f665d; --line: #ebe1d3; --wood: #c69c6d;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body { margin: 0; font-family: 'Nunito', system-ui, sans-serif; font-size: 16.5px; line-height: 1.55; color: var(--ink); background: var(--cream); -webkit-font-smoothing: antialiased; }
+  main { overflow-x: clip; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  .wrap { width: min(1140px, 100% - 32px); margin: 0 auto; }
+  .bebas { font-family: 'Bebas Neue', Impact, sans-serif; font-weight: 400; letter-spacing: .02em; }
+  .hand { font-family: 'Caveat', cursive; font-weight: 700; color: var(--green-dark); }
+
+  .pitch { background: var(--green); color: #14240a; text-align: center; font-size: 13px; font-weight: 800; padding: 7px 12px; }
+  .pitch a { color: #14240a; }
+
+  header { position: sticky; top: 0; z-index: 30; background: rgba(18, 18, 18, .94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 3px solid var(--green); }
+  .nav { height: 64px; display: flex; align-items: center; gap: 20px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+  .brand img { width: 44px; height: 44px; border-radius: 50%; box-shadow: 0 0 0 2px var(--green); }
+  .brand b { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: .06em; color: var(--red); line-height: 1; padding-top: 3px; white-space: nowrap; }
+  .links { display: flex; gap: 22px; margin-left: auto; }
+  .links a { text-decoration: none; font-weight: 800; color: #cfc8bf; font-size: 15px; }
+  .links a:hover { color: var(--green-2); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 0; font-weight: 900; text-decoration: none; white-space: nowrap; transition: transform .15s, box-shadow .2s, background .2s; }
+  .btn:active { transform: scale(.97); }
+  .btn-red { background: var(--red); color: #fff; box-shadow: 0 10px 22px -10px rgba(232, 69, 44, .8); }
+  .btn-red:hover { background: #f05238; }
+  .btn-green { background: var(--green); color: #14240a; }
+  .btn-ghost { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.3); }
+  .btn-line { background: #fff; color: var(--ink); border: 2px solid var(--line); }
+
+  /* Hero */
+  .hero { position: relative; background: var(--black); color: #fff; overflow: hidden; padding: 46px 0 66px; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(520px 380px at 85% 30%, rgba(140, 193, 82, .22), transparent 70%), radial-gradient(420px 320px at 10% 90%, rgba(232, 69, 44, .2), transparent 70%); }
+  .hero::after { content: ''; position: absolute; inset: 0; opacity: .06; background-image: linear-gradient(30deg, #fff 12%, transparent 12.5%, transparent 87%, #fff 87.5%, #fff), linear-gradient(150deg, #fff 12%, transparent 12.5%, transparent 87%, #fff 87.5%, #fff), linear-gradient(90deg, #fff 2%, transparent 2.5%, transparent 97%, #fff 97.5%, #fff); background-size: 40px 70px; }
+  .hero .wrap { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: var(--green-2); }
+  .hero h1 { margin: 12px 0 0; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(76px, 13vw, 150px); line-height: .86; letter-spacing: .03em; color: var(--red); }
+  .hero h1 span { color: #fff; display: block; }
+  .hero .sub { font-family: 'Caveat', cursive; font-size: clamp(28px, 4vw, 40px); color: var(--green-2); margin: 10px 0 6px; }
+  .lead { color: #cfc8bf; font-size: 18px; max-width: 480px; margin: 0 0 24px; }
+  .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+  .chip { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); border-radius: 999px; padding: 7px 14px; font-size: 14.5px; font-weight: 800; text-decoration: none; color: #fff; }
+  .stars { color: #f5b82e; letter-spacing: 1px; }
+  .visual { position: relative; justify-self: center; width: min(420px, 100%); }
+  .visual .main { border-radius: 26px; overflow: hidden; aspect-ratio: 4 / 4.6; border: 6px solid var(--black-3); box-shadow: 0 40px 70px -30px rgba(0,0,0,.9); transform: rotate(1.5deg); }
+  .visual .main img { width: 100%; height: 100%; object-fit: cover; }
+  .visual .logo { position: absolute; left: -30px; top: -24px; width: 120px; height: 120px; border-radius: 50%; box-shadow: 0 0 0 6px var(--black), 0 0 0 9px var(--green), 0 20px 40px rgba(0,0,0,.6); animation: wob 6s ease-in-out infinite; }
+  .visual .food { position: absolute; right: -24px; bottom: -28px; width: 46%; aspect-ratio: 1; border-radius: 50%; overflow: hidden; border: 6px solid var(--black); box-shadow: 0 0 0 3px var(--red), 0 24px 40px rgba(0,0,0,.6); animation: wob 6s ease-in-out -3s infinite; }
+  .visual .food img { width: 100%; height: 100%; object-fit: cover; }
+  .price-tag { position: absolute; left: -14px; bottom: 34px; background: var(--red); color: #fff; padding: 10px 16px; border-radius: 16px; transform: rotate(-5deg); box-shadow: 0 16px 30px -12px rgba(0,0,0,.7); }
+  .price-tag b { display: block; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 34px; line-height: 1; letter-spacing: .03em; }
+  .price-tag span { font-weight: 800; font-size: 13px; }
+  @keyframes wob { 50% { translate: 0 -10px; rotate: 3deg; } }
+
+  .marquee { background: var(--red); color: #fff; overflow: hidden; transform: rotate(-1.3deg); margin-top: -14px; position: relative; z-index: 2; border-top: 3px solid var(--black); border-bottom: 3px solid var(--black); }
+  .track { display: flex; width: max-content; animation: mq 30s linear infinite; padding: 10px 0 8px; }
+  .track span { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: .06em; padding: 0 22px; white-space: nowrap; }
+  .track i { font-style: normal; align-self: center; font-size: 20px; }
+  @keyframes mq { to { transform: translateX(-50%); } }
+
+  section { padding: 76px 0; }
+  .sh { text-align: center; max-width: 660px; margin: 0 auto 32px; }
+  .sh .hand { font-size: 34px; display: block; line-height: 1; }
+  .sh h2 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(44px, 7vw, 66px); line-height: .95; letter-spacing: .03em; margin: 6px 0 0; }
+  .sh h2 em { font-style: normal; color: var(--red); }
+  .sh p { color: var(--soft); margin: 12px 0 0; }
+
+  /* Builder */
+  .builder { display: grid; grid-template-columns: .85fr 1.15fr; gap: 26px; background: var(--paper); border: 1px solid var(--line); border-radius: 30px; padding: 26px; box-shadow: 0 30px 60px -44px rgba(0,0,0,.6); }
+  .preview { background: var(--black); color: #fff; border-radius: 24px; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+  .preview .pic { border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 3.2; background: var(--black-3); position: relative; }
+  .preview .pic img { width: 100%; height: 100%; object-fit: cover; transition: opacity .3s; }
+  .preview .pic .badge { position: absolute; left: 12px; top: 12px; background: var(--green); color: #14240a; font-weight: 900; font-size: 13px; padding: 4px 11px; border-radius: 99px; }
+  .preview b.name { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 34px; letter-spacing: .03em; line-height: 1; }
+  .preview .sum { color: #bdb5ab; font-size: 14.5px; min-height: 42px; }
+  .preview .ing { display: flex; flex-wrap: wrap; gap: 6px; }
+  .preview .ing span { background: rgba(255,255,255,.08); border-radius: 99px; padding: 3px 10px; font-size: 13px; font-weight: 700; color: #e6dfd6; }
+  .preview .bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; }
+  .preview .price { font-family: 'Bebas Neue', sans-serif; font-size: 52px; line-height: 1; color: var(--green-2); letter-spacing: .02em; }
+  .price.pop { animation: pop .4s cubic-bezier(.3, 1.6, .5, 1); }
+  @keyframes pop { 40% { transform: scale(1.2); } }
+  .step { margin-bottom: 18px; }
+  .step > b { display: block; font-size: 13px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+  .opts { display: flex; flex-wrap: wrap; gap: 8px; }
+  .opt { position: relative; }
+  .opt input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .opt > span { display: inline-flex; align-items: center; gap: 6px; padding: 10px 15px; border-radius: 999px; border: 2px solid var(--line); background: var(--cream); font-weight: 800; font-size: 14.5px; transition: background .15s, border-color .15s, color .15s; }
+  .opt small { font-weight: 700; opacity: .7; }
+  .opt input:checked + span { background: var(--black); border-color: var(--black); color: #fff; }
+  .opt input:focus-visible + span { outline: 3px solid var(--green); outline-offset: 2px; }
+  .opt.big span { padding: 12px 20px; font-size: 16px; }
+  .star { color: var(--red); }
+  .opt input:checked + span .star { color: var(--green-2); }
+
+  /* Menu */
+  .tabs { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .tabs button { border: 2px solid var(--line); background: #fff; border-radius: 999px; padding: 10px 18px; font-weight: 900; color: var(--soft); }
+  .tabs button.on { background: var(--black); border-color: var(--black); color: #fff; }
+  .note { text-align: center; color: var(--soft); font-size: 14.5px; margin: 0 0 18px; }
+  .note b { color: var(--red); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+  .item { display: flex; gap: 14px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 14px 16px; transition: transform .2s, box-shadow .2s; }
+  .item:hover { transform: translateY(-3px); box-shadow: 0 16px 30px -22px rgba(0,0,0,.5); }
+  .item .ic { width: 58px; height: 58px; flex: none; border-radius: 16px; background: var(--cream); display: grid; place-items: center; font-size: 28px; border: 1px solid var(--line); }
+  .item .txt { flex: 1; min-width: 0; }
+  .item b { display: block; font-weight: 900; font-size: 17px; line-height: 1.25; }
+  .item p { margin: 2px 0 0; color: var(--soft); font-size: 14px; line-height: 1.4; }
+  .item .pr { flex: none; font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: var(--red); line-height: 1; }
+  .item.special { border: 2px solid var(--red); background: #fff6f3; }
+  .item.special .ic { background: var(--red); border-color: var(--red); }
+  .menus { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+  .formule { background: var(--black); color: #fff; border-radius: 22px; padding: 20px 22px; display: flex; align-items: center; gap: 16px; }
+  .formule .p { white-space: nowrap; flex: none; font-family: 'Bebas Neue', sans-serif; font-size: 50px; color: var(--green-2); line-height: 1; }
+  .formule b { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: .04em; display: block; line-height: 1; }
+  .formule span { color: #bdb5ab; font-size: 14px; }
+
+  /* Ingredients */
+  .ingredients { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+  .ingr { text-align: center; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 16px 8px; }
+  .ingr span { font-size: 34px; display: block; line-height: 1.2; }
+  .ingr b { font-size: 14px; font-weight: 800; }
+
+  /* Feature split */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+  .split .ph { border-radius: 28px; overflow: hidden; aspect-ratio: 4 / 3.6; box-shadow: 0 30px 60px -36px rgba(0,0,0,.7); }
+  .split .ph img { width: 100%; height: 100%; object-fit: cover; }
+  .split h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(40px, 5.6vw, 56px); line-height: .95; letter-spacing: .03em; margin: 4px 0 12px; }
+  .split h3 em { font-style: normal; color: var(--red); }
+  .split p { color: var(--soft); }
+  .ticks { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 8px; }
+  .ticks li { display: flex; gap: 10px; align-items: center; font-weight: 800; }
+  .ticks li::before { content: '✓'; flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--green); color: #14240a; display: grid; place-items: center; font-size: 13px; font-weight: 900; }
+
+  /* Gallery */
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 210px; gap: 12px; }
+  .gallery button { border: 0; padding: 0; border-radius: 20px; overflow: hidden; cursor: zoom-in; background: var(--black-3); }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+  .gallery button:hover img { transform: scale(1.06); }
+  .gallery .t { grid-row: span 2; }
+
+  /* Reviews + info */
+  .dark { background: var(--black); color: #fff; }
+  .rev { display: flex; gap: 34px; align-items: center; background: var(--black-2); border: 1px solid rgba(255,255,255,.1); border-radius: 28px; padding: 30px 34px; }
+  .rev .score { text-align: center; flex: none; }
+  .rev .score b { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 84px; line-height: .9; color: var(--green-2); display: block; }
+  .rev .score span { color: #bdb5ab; font-weight: 700; }
+  .rev h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 36px; letter-spacing: .03em; margin: 0 0 6px; }
+  .rev p { color: #bdb5ab; margin: 0 0 16px; }
+  .info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+  .card { background: var(--black-2); border: 1px solid rgba(255,255,255,.1); border-radius: 22px; padding: 22px; }
+  .card small { display: block; font-size: 12.5px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; color: var(--green-2); margin-bottom: 6px; }
+  .card p { margin: 0 0 4px; font-weight: 700; }
+  .card .muted { color: #bdb5ab; font-weight: 600; }
+  .card .btn { margin-top: 12px; min-height: 42px; padding: 0 18px; }
+
+  .alakhil { max-width: 760px; margin: 0 auto; text-align: center; border: 2px dashed #cbbfae; border-radius: 26px; padding: 26px; background: #fff; }
+  .alakhil h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 36px; letter-spacing: .03em; margin: 0 0 6px; }
+  .alakhil p { color: var(--soft); margin: 0 0 16px; }
+  .alakhil .row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .wa { background: #25d366; color: #fff; }
+
+  footer { background: var(--black); color: #9c948a; text-align: center; font-size: 13.5px; padding: 30px 16px 110px; }
+  footer img { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 8px; }
+  footer b { color: var(--red); font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 28px; letter-spacing: .06em; display: block; }
+
+  .mbar { display: none; }
+  dialog { border: 0; padding: 0; background: transparent; max-width: min(430px, calc(100% - 24px)); width: 100%; }
+  dialog::backdrop { background: rgba(10, 10, 10, .7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+  dialog[open] { animation: dlg .25s ease-out; }
+  @keyframes dlg { from { opacity: 0; transform: translateY(14px) scale(.97); } }
+  .box { background: #fff; border-radius: 26px; padding: 26px 22px 22px; text-align: center; position: relative; }
+  .box .x { position: absolute; top: 12px; right: 12px; width: 38px; height: 38px; border-radius: 50%; border: 0; background: var(--cream); font-size: 22px; line-height: 1; }
+  .box img.lg { width: 76px; height: 76px; border-radius: 50%; margin: 0 auto; box-shadow: 0 0 0 5px rgba(140,193,82,.3); }
+  .box h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 34px; letter-spacing: .03em; line-height: 1; margin: 12px 0 8px; }
+  .box p { color: var(--soft); margin: 0 0 16px; }
+  .box .recap { background: var(--cream); border-radius: 16px; padding: 12px 14px; margin: 0 0 16px; font-weight: 800; text-align: left; }
+  .box .recap b { color: var(--red); float: right; }
+  .box .recap small { display: block; color: var(--soft); font-weight: 600; }
+  .box .acts { display: grid; gap: 10px; }
+  .lb { max-width: 94vw; }
+  .lb img { max-height: 86vh; margin: 0 auto; border-radius: 16px; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .links { display: none; }
+    .nav .btn { margin-left: auto; min-height: 42px; padding: 0 16px; }
+    .hero { padding: 28px 0 60px; }
+    .hero .wrap, .builder, .split, .menus { grid-template-columns: 1fr; }
+    .visual { width: min(300px, 80%); order: -1; margin: 18px auto 24px; }
+    .visual .logo { width: 92px; height: 92px; left: -22px; top: -18px; }
+    .ingredients { grid-template-columns: repeat(4, 1fr); }
+    .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 170px; }
+    .rev { flex-direction: column; text-align: center; padding: 26px 22px; }
+    .info { grid-template-columns: 1fr; }
+    .split .ph { order: -1; }
+    section { padding: 58px 0; }
+    .builder { padding: 14px; }
+    .mbar { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 8px; position: fixed; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); z-index: 40;
+      background: rgba(28, 28, 28, .96); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 8px; box-shadow: 0 16px 34px -12px rgba(0,0,0,.7); }
+    .mbar a, .mbar button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; min-height: 52px; border-radius: 14px; text-decoration: none; font-size: 12.5px; font-weight: 900; color: #cfc8bf; border: 0; background: transparent; }
+    .mbar span { font-size: 18px; line-height: 1.1; }
+    .mbar .main { background: var(--red); color: #fff; }
+  }
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: 1fr; }
+    .brand b { font-size: 26px; }
+    .ingredients { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .ingr { padding: 12px 4px; border-radius: 16px; }
+    .ingr span { font-size: 28px; }
+    .ingr b { font-size: 12.5px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="pitch">Proposition de site internet pour <b>Happy Tanuki</b> · démo réalisée par <a href="#alakhil">Alakhil Mobile</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><img src="img/tanuki.png" alt=""><b>Happy Tanuki</b></a>
+    <nav class="links"><a href="#compose">Compose</a><a href="#carte">La carte</a><a href="#epicerie">Épicerie</a><a href="#infos">Infos</a></nav>
+    <button class="btn btn-red js-order">Commander</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">🥢 Street food vietnamienne · Paris 15ᵉ</span>
+        <h1>Happy<span>Tanuki</span></h1>
+        <p class="sub">Banh-mi, bô-bun &amp; épicerie</p>
+        <p class="lead">Des banh-mi croustillants et des bô-bun généreux préparés devant vous, avec des légumes frais, de la coriandre et des cacahuètes. Sur place ou à emporter, au 25 rue de Cronstadt.</p>
+        <div class="cta"><a class="btn btn-red" href="#compose">Compose ton plat</a><a class="btn btn-ghost" href="tel:+33640266897">📞 06 40 26 68 97</a></div>
+        <div class="chips">
+          <a class="chip" href="https://www.google.com/maps/search/?api=1&query=Happy+Tanuki+25+Rue+de+Cronstadt+75015+Paris" target="_blank" rel="noopener"><span class="stars">★★★★★</span> 4,7 · 34 avis Google</a>
+          <span class="chip">💶 1 à 10 € par personne</span>
+          <span class="chip">🕗 Ferme à 20h30</span>
+        </div>
+      </div>
+      <div class="visual">
+        <div class="main"><img src="img/facade.jpg" alt="La façade de Happy Tanuki, 25 rue de Cronstadt" style="object-position:50% 30%"></div>
+        <img class="logo" src="img/tanuki.png" alt="">
+        <div class="food"><img src="img/bobun-photo.jpg" alt="Bô-bun au bœuf"></div>
+        <div class="price-tag"><b>Dès 5 €</b><span>le banh-mi</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="track" id="marquee"></div></div>
+
+  <section id="compose">
+    <div class="wrap">
+      <div class="sh reveal"><span class="hand">à ta façon</span><h2>Compose ton <em>banh-mi</em> ou ton <em>bô-bun</em></h2><p>Choisis ton plat, ta garniture et ta formule : le prix s’affiche en direct.</p></div>
+      <div class="builder reveal">
+        <div class="preview">
+          <div class="pic"><img id="bPic" src="img/banhmi.jpg" alt=""><span class="badge" id="bBadge">Banh-mi</span></div>
+          <b class="name" id="bName">Banh-mi bœuf citronnelle</b>
+          <div class="sum" id="bSum"></div>
+          <div class="ing" id="bIng"></div>
+          <div class="bottom"><span class="price" id="bPrice">5,00 €</span><button class="btn btn-red js-order" data-from="builder">Commander</button></div>
+        </div>
+        <div>
+          <div class="step"><b>1 · Le plat</b><div class="opts" id="bDish"></div></div>
+          <div class="step"><b>2 · La garniture</b><div class="opts" id="bFill"></div></div>
+          <div class="step"><b>3 · La formule</b><div class="opts" id="bForm"></div></div>
+          <div class="step" id="stepDessert"><b>4 · Le dessert du menu</b><div class="opts" id="bDessert"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="sh reveal"><span class="hand">toujours frais</span><h2>Les ingrédients</h2></div>
+      <div class="ingredients reveal" id="ingredients"></div>
+    </div>
+  </section>
+
+  <section id="carte" style="background:#f3ece1">
+    <div class="wrap">
+      <div class="sh reveal"><span class="hand">la carte</span><h2>Notre menu</h2></div>
+      <div class="tabs" id="tabs"></div>
+      <p class="note" id="tabNote"></p>
+      <div class="grid" id="grid"></div>
+      <div class="menus">
+        <div class="formule reveal"><span class="p">8 €</span><div><b>Menu Banh-mi</b><span>Banh-mi + dessert + canette · +1,50 € avec le Spécial Tanuki</span></div></div>
+        <div class="formule reveal"><span class="p">11 €</span><div><b>Menu Bô-bun</b><span>Bô-bun + dessert + canette · +1,50 € avec le Spécial Tanuki</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="epicerie">
+    <div class="wrap split">
+      <div class="ph reveal"><img src="img/salle.jpg" alt="La salle et l’épicerie de Happy Tanuki" loading="lazy" style="object-position:50% 40%"></div>
+      <div class="reveal">
+        <span class="hand" style="font-size:32px">et aussi</span>
+        <h3>Une petite <em>épicerie</em> asiatique</h3>
+        <p>Snacks, boissons, nouilles et petites douceurs d’Asie à emporter. Le bon réflexe pour une pause gourmande dans le 15ᵉ.</p>
+        <ul class="ticks"><li>Sur place, à l’intérieur ou en terrasse</li><li>À emporter</li><li>Carte bancaire acceptée</li><li>Bubble tea &amp; bubble coffee</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="sh reveal"><span class="hand">en images</span><h2>Bienvenue chez le tanuki</h2></div>
+      <div class="gallery reveal" id="gallery">
+        <button class="t" data-src="img/facade.jpg"><img src="img/facade.jpg" alt="Façade" loading="lazy"></button>
+        <button data-src="img/bobun-photo.jpg"><img src="img/bobun-photo.jpg" alt="Bô-bun" loading="lazy"></button>
+        <button data-src="img/facade-nuit.jpg"><img src="img/facade-nuit.jpg" alt="La boutique le soir" loading="lazy"></button>
+        <button class="t" data-src="img/comptoir.jpg"><img src="img/comptoir.jpg" alt="Le comptoir et le tanuki" loading="lazy"></button>
+        <button data-src="img/buffet.jpg"><img src="img/buffet.jpg" alt="Les menus et les garnitures" loading="lazy"></button>
+        <button data-src="img/salle.jpg"><img src="img/salle.jpg" alt="La salle" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark" id="infos">
+    <div class="wrap">
+      <div class="rev reveal">
+        <div class="score"><b>4,7</b><span class="stars">★★★★★</span><br><span>34 avis Google</span></div>
+        <div>
+          <h3>Vous avez aimé ?</h3>
+          <p>Un petit avis sur Google aide énormément un restaurant de quartier. Merci !</p>
+          <a class="btn btn-green" href="https://www.google.com/maps/search/?api=1&query=Happy+Tanuki+25+Rue+de+Cronstadt+75015+Paris" target="_blank" rel="noopener">Laisser un avis</a>
+        </div>
+      </div>
+      <div class="info">
+        <div class="card reveal"><small>Adresse</small><p>25 rue de Cronstadt</p><p class="muted">75015 Paris</p>
+          <a class="btn btn-red" href="https://www.google.com/maps/search/?api=1&query=Happy+Tanuki+25+Rue+de+Cronstadt+75015+Paris" target="_blank" rel="noopener">Itinéraire</a></div>
+        <div class="card reveal"><small>Téléphone</small><p>06 40 26 68 97</p><p class="muted">Commandez à emporter par téléphone</p>
+          <a class="btn btn-green" href="tel:+33640266897">Appeler</a></div>
+        <div class="card reveal"><small>Horaires</small><p>Fermeture à 20h30</p><p class="muted">Sur place · à emporter · terrasse</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="alakhil">
+    <div class="wrap">
+      <div class="alakhil reveal">
+        <h3>Ce site vous plaît ?</h3>
+        <p>Cette proposition a été préparée par <b>Alakhil Mobile</b> avec votre carte et vos photos. La démo est offerte, sans engagement. Si elle vous plaît, on crée votre site officiel avec votre propre adresse internet : à partir de 249 €, ou 590 € avec la commande et le paiement en ligne directement sur votre compte, sans commission.</p>
+        <div class="row">
+          <a class="btn wa" href="https://wa.me/33605654592?text=Bonjour%20Alakhil%20Mobile%2C%20j%E2%80%99ai%20vu%20la%20proposition%20de%20site%20pour%20Happy%20Tanuki%20et%20j%E2%80%99aimerais%20en%20parler." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+          <a class="btn btn-line" href="tel:+33605654592">06 05 65 45 92</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <img src="img/tanuki.png" alt="">
+  <b>Happy Tanuki</b>
+  Banh-mi · Bô-bun · Épicerie · 25 rue de Cronstadt, 75015 Paris · 06 40 26 68 97<br>
+  Proposition de site non officielle, réalisée par Alakhil Mobile à partir des informations publiques du restaurant.
+</footer>
+
+<nav class="mbar" aria-label="Actions rapides">
+  <a href="tel:+33640266897"><span>📞</span>Appeler</a>
+  <button class="main js-order"><span>🥢</span>Commander</button>
+  <a href="https://www.google.com/maps/search/?api=1&query=Happy+Tanuki+25+Rue+de+Cronstadt+75015+Paris" target="_blank" rel="noopener"><span>📍</span>Itinéraire</a>
+</nav>
+
+<dialog id="soon" aria-labelledby="soonTitle">
+  <form method="dialog" class="box">
+    <button class="x" value="close" aria-label="Fermer">×</button>
+    <img class="lg" src="img/tanuki.png" alt="">
+    <h3 id="soonTitle">La commande en ligne arrive bientôt !</h3>
+    <div class="recap" id="recap" hidden></div>
+    <p>Bientôt, vous pourrez commander et payer ici, puis récupérer votre plat sans attendre. En attendant, appelez-nous pour commander à emporter.</p>
+    <div class="acts">
+      <a class="btn btn-red" href="tel:+33640266897">📞 Appeler le 06 40 26 68 97</a>
+      <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=Happy+Tanuki+25+Rue+de+Cronstadt+75015+Paris" target="_blank" rel="noopener">Itinéraire vers le restaurant</a>
+    </div>
+  </form>
+</dialog>
+<dialog id="lb" class="lb" aria-label="Photo"><form method="dialog"><img id="lbImg" alt=""></form></dialog>
+
+<script>
+(function () {
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const eur = (n) => n.toFixed(2).replace('.', ',') + ' €';
+
+  /* ---------- Menu (prices from the restaurant's menu boards) ---------- */
+  const FILLINGS = {
+    banhmi: [
+      ['boeuf', 'Bœuf citronnelle', 5, '🥩'], ['curry', 'Poulet curry', 5, '🍛'], ['caramel', 'Poulet caramel', 5, '🍗'],
+      ['mortadelle', 'Mortadelle vietnamienne', 5, '🥓'], ['tofu', 'Végétarien (tofu)', 5, '🌱'],
+      ['special', 'Spécial Tanuki', 7, '⭐', 'Mortadelle + porc grillé + boulette de porc']
+    ],
+    bobun: [
+      ['boeuf', 'Bœuf citronnelle', 8, '🥩'], ['curry', 'Poulet curry', 8, '🍛'], ['caramel', 'Poulet caramel', 8, '🍗'],
+      ['crevettes', 'Crevettes', 9, '🦐'], ['tofu', 'Végétarien (tofu)', 8, '🌱'],
+      ['special', 'Spécial Tanuki', 10, '⭐', 'Nems ×2 + beignet de crevettes + viande au choix']
+    ]
+  };
+  const MENU_PRICE = { banhmi: 8, bobun: 11 };
+  const DISH = {
+    banhmi: { name: 'Banh-mi', pic: 'img/banhmi.jpg', ing: ['Carottes', 'Concombre', 'Coriandre', 'Oignons frits', 'Cacahuètes'] },
+    bobun: { name: 'Bô-bun', pic: 'img/bobun-photo.jpg', ing: ['Nems', 'Vermicelle de riz', 'Carottes', 'Concombre', 'Coriandre', 'Oignons frits', 'Cacahuètes'] }
+  };
+  const OTHERS = {
+    soupe: [['Soupe Phở', 'Bouillon parfumé, nouilles de riz, herbes fraîches', 10, '🍜'], ['Nems (2 pièces)', 'Croustillants, avec sauce', 2.5, '🥟'], ['Rouleau de printemps', 'Frais, avec sauce', 2.5, '🌯']],
+    douceurs: [['Boule de coco', 'Dessert', 1.5, '🥥'], ['Mochi', 'Dessert', 1.5, '🍡'], ['Canette', 'Boisson fraîche', 2, '🥤'], ['Bubble tea', 'Boisson', 4.5, '🧋'], ['Bubble coffee', 'Boisson', 5, '☕']]
+  };
+  const INGREDIENTS = [['🥟', 'Nems'], ['🍜', 'Vermicelle'], ['🥕', 'Carottes'], ['🥒', 'Concombre'], ['🌿', 'Coriandre'], ['🧅', 'Oignons frits'], ['🥜', 'Cacahuètes']];
+
+  /* ---------- Menu tabs ---------- */
+  const TABS = [
+    ['banhmi', 'Banh-mi', 'Carottes, concombre, coriandre, oignons frits et cacahuètes · <b>Menu 8 €</b> avec dessert + canette'],
+    ['bobun', 'Bô-bun', 'Nems, vermicelle de riz, carottes, concombre, coriandre, oignons frits et cacahuètes · <b>Menu 11 €</b> avec dessert + canette'],
+    ['soupe', 'Phở & entrées', ''],
+    ['douceurs', 'Desserts & boissons', '']
+  ];
+  let tab = 'banhmi';
+  function drawMenu() {
+    $('#tabs').innerHTML = TABS.map(([k, l]) => `<button class="${k === tab ? 'on' : ''}" data-t="${k}">${l}</button>`).join('');
+    const note = TABS.find((t) => t[0] === tab)[2];
+    $('#tabNote').innerHTML = note; $('#tabNote').hidden = !note;
+    const rows = FILLINGS[tab]
+      ? FILLINGS[tab].map(([k, n, p, e, d]) => `<div class="item ${k === 'special' ? 'special' : ''}"><div class="ic">${e}</div><div class="txt"><b>${DISH[tab].name} ${n.toLowerCase().startsWith('spécial') ? n : n.charAt(0).toLowerCase() + n.slice(1)}</b>${d ? `<p>${d}</p>` : ''}</div><span class="pr">${eur(p).replace(',00', '')}</span></div>`)
+      : OTHERS[tab].map(([n, d, p, e]) => `<div class="item"><div class="ic">${e}</div><div class="txt"><b>${n}</b><p>${d}</p></div><span class="pr">${eur(p).replace(',00', '')}</span></div>`);
+    $('#grid').innerHTML = rows.join('');
+    $$('#tabs button').forEach((b) => b.onclick = () => { tab = b.dataset.t; drawMenu(); });
+  }
+  drawMenu();
+  $('#ingredients').innerHTML = INGREDIENTS.map(([e, n]) => `<div class="ingr"><span>${e}</span><b>${n}</b></div>`).join('');
+
+  /* ---------- Builder ---------- */
+  const st = { dish: 'banhmi', fill: 'boeuf', form: 'seul', dessert: 'Boule de coco' };
+  const radio = (name, value, label, checked, cls = '') => `<label class="opt ${cls}"><input type="radio" name="${name}" value="${value}" ${checked ? 'checked' : ''}><span>${label}</span></label>`;
+  function calc() {
+    const f = FILLINGS[st.dish].find((x) => x[0] === st.fill);
+    const special = st.fill === 'special';
+    const price = st.form === 'menu' ? MENU_PRICE[st.dish] + (special ? 1.5 : 0) : f[2];
+    return { f, price };
+  }
+  function drawOptions() {
+    if (!FILLINGS[st.dish].some((x) => x[0] === st.fill)) st.fill = 'boeuf';
+    $('#bDish').innerHTML = [['banhmi', '🥖 Banh-mi <small>dès 5 €</small>'], ['bobun', '🍜 Bô-bun <small>dès 8 €</small>']].map(([v, l]) => radio('dish', v, l, st.dish === v, 'big')).join('');
+    $('#bFill').innerHTML = FILLINGS[st.dish].map(([k, n, p]) => radio('fill', k, `${k === 'special' ? '<span class="star">★</span> ' : ''}${n} <small>${eur(p).replace(',00', '')}</small>`, st.fill === k)).join('');
+    const special = st.fill === 'special';
+    const menuPrice = MENU_PRICE[st.dish] + (special ? 1.5 : 0);
+    $('#bForm').innerHTML = radio('form', 'seul', 'Seul', st.form === 'seul') + radio('form', 'menu', `Menu + dessert + canette <small>${eur(menuPrice)}</small>`, st.form === 'menu');
+    $('#stepDessert').hidden = st.form !== 'menu';
+    $('#bDessert').innerHTML = ['Boule de coco', 'Mochi'].map((d) => radio('dessert', d, d === 'Mochi' ? '🍡 Mochi' : '🥥 Boule de coco', st.dessert === d)).join('');
+  }
+  let last = '';
+  function drawPreview() {
+    const { f, price } = calc();
+    const d = DISH[st.dish];
+    const pic = $('#bPic');
+    if (!pic.src.endsWith(d.pic)) { pic.style.opacity = 0; setTimeout(() => { pic.src = d.pic; pic.style.opacity = 1; }, 150); }
+    pic.style.objectPosition = st.dish === 'banhmi' ? '50% 55%' : '50% 50%';
+    $('#bBadge').textContent = d.name;
+    $('#bName').textContent = `${d.name} ${f[1].toLowerCase().startsWith('spécial') ? f[1] : f[1].charAt(0).toLowerCase() + f[1].slice(1)}`;
+    $('#bSum').textContent = (f[4] ? f[4] + ' · ' : '') + (st.form === 'menu' ? `Menu avec ${st.dessert.toLowerCase()} et une canette` : 'Seul');
+    $('#bIng').innerHTML = d.ing.map((i) => `<span>${i}</span>`).join('');
+    const p = $('#bPrice'), txt = eur(price);
+    if (txt !== last) { p.textContent = txt; p.classList.remove('pop'); void p.offsetWidth; p.classList.add('pop'); last = txt; }
+  }
+  document.querySelector('.builder').addEventListener('change', (e) => {
+    const el = e.target;
+    if (!['dish', 'fill', 'form', 'dessert'].includes(el.name)) return;
+    st[el.name] = el.value;
+    if (el.name !== 'dessert') drawOptions();
+    drawPreview();
+  });
+  drawOptions(); drawPreview();
+
+  /* ---------- "Coming soon" ordering ---------- */
+  const soon = $('#soon');
+  $$('.js-order').forEach((b) => b.addEventListener('click', (e) => {
+    e.preventDefault();
+    const rc = $('#recap');
+    if (b.dataset.from === 'builder') {
+      const { price } = calc();
+      rc.innerHTML = `🥢 ${$('#bName').textContent}<b>${eur(price)}</b><small>${$('#bSum').textContent}</small>`;
+      rc.hidden = false;
+    } else rc.hidden = true;
+    soon.showModal();
+  }));
+  soon.addEventListener('click', (e) => { if (e.target === soon) soon.close(); });
+
+  /* ---------- Decorations ---------- */
+  const words = ['Banh-mi', 'Bô-bun', 'Soupe Phở', 'Nems', 'Mochi', 'Bubble tea', 'Épicerie asiatique', 'Paris 15ᵉ'];
+  $('#marquee').innerHTML = [0, 1].map(() => words.map((w) => `<span>${w}</span><i>🥢</i>`).join('')).join('');
+  const lb = $('#lb');
+  $$('#gallery button').forEach((b) => b.onclick = () => { $('#lbImg').src = b.dataset.src; $('#lbImg').alt = $('img', b).alt; lb.showModal(); });
+  lb.addEventListener('click', () => lb.close());
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .1 });
+    $$('.reveal').forEach((el) => io.observe(el));
+  } else $$('.reveal').forEach((el) => el.classList.add('in'));
+})();
+</script>
+</body>
+</html>
